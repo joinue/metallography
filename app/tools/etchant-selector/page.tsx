@@ -2,6 +2,33 @@
 
 import { useState, useEffect, useMemo, useCallback } from 'react'
 import Link from 'next/link'
+import { 
+  Wrench, 
+  Cog, 
+  Plane, 
+  Rocket, 
+  Plug, 
+  Flame, 
+  Grid3x3, 
+  Gem, 
+  Atom, 
+  Sparkles, 
+  Search, 
+  Shuffle, 
+  Zap, 
+  Waves, 
+  Circle, 
+  BarChart3,
+  Star,
+  ShoppingCart,
+  AlertTriangle,
+  Lightbulb,
+  Shield,
+  ArrowUp,
+  RotateCcw,
+  X,
+  CheckCircle2
+} from 'lucide-react'
 import { Material, Etchant, getAllMaterials, getAllEtchants, getPaceProductUrl } from '@/lib/supabase'
 
 type PurposeFilter = 
@@ -25,27 +52,27 @@ interface EtchantMatch {
 
 // Common materials for quick selection
 const commonMaterials = [
-  { category: 'carbon-steel', label: 'Carbon Steel', icon: '🔩' },
-  { category: 'stainless-steel', label: 'Stainless Steel', icon: '⚙️' },
-  { category: 'aluminum', label: 'Aluminum', icon: '✈️' },
-  { category: 'titanium', label: 'Titanium', icon: '🚀' },
-  { category: 'copper-brass', label: 'Copper/Brass', icon: '🔌' },
-  { category: 'nickel-alloys', label: 'Nickel Alloys', icon: '🔥' },
+  { category: 'carbon-steel', label: 'Carbon Steel', icon: Wrench },
+  { category: 'stainless-steel', label: 'Stainless Steel', icon: Cog },
+  { category: 'aluminum', label: 'Aluminum', icon: Plane },
+  { category: 'titanium', label: 'Titanium', icon: Rocket },
+  { category: 'copper-brass', label: 'Copper/Brass', icon: Plug },
+  { category: 'nickel-alloys', label: 'Nickel Alloys', icon: Flame },
 ]
 
 // Purpose icons
-const purposeIcons: Record<PurposeFilter, string> = {
-  'grain-boundaries': '🔲',
-  'carbides': '💎',
-  'phases': '⚛️',
-  'precipitates': '✨',
-  'inclusions': '🔍',
-  'twin-boundaries': '🔀',
-  'martensite': '⚡',
-  'pearlite': '🌊',
-  'ferrite': '🔵',
-  'austenite': '🟡',
-  'general': '📊'
+const purposeIcons: Record<PurposeFilter, typeof Grid3x3> = {
+  'grain-boundaries': Grid3x3,
+  'carbides': Gem,
+  'phases': Atom,
+  'precipitates': Sparkles,
+  'inclusions': Search,
+  'twin-boundaries': Shuffle,
+  'martensite': Zap,
+  'pearlite': Waves,
+  'ferrite': Circle,
+  'austenite': Circle,
+  'general': BarChart3
 }
 
 export default function EtchantSelector() {
@@ -251,7 +278,7 @@ export default function EtchantSelector() {
       // Featured etchants get bonus
       if (etchant.featured) {
         score += 10
-        reasons.push('⭐ Featured')
+        reasons.push('Featured')
       }
 
       // PACE product available gets bonus
@@ -262,7 +289,7 @@ export default function EtchantSelector() {
       // Penalize incompatible materials
       if (incompatible.includes(materialCategory)) {
         score = 0
-        reasons.push('⚠️ Not recommended')
+        reasons.push('Not recommended')
       }
 
       // Only include etchants with positive score
@@ -332,7 +359,7 @@ export default function EtchantSelector() {
   }
 
   return (
-    <div className="py-12 bg-gradient-to-b from-gray-50 to-white min-h-screen">
+    <div className="py-12">
       <div className="container-custom">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
@@ -352,12 +379,13 @@ export default function EtchantSelector() {
           {!selectedMaterial && (
             <div className="card mb-8 shadow-lg">
               <h2 className="text-lg font-semibold text-gray-700 mb-4 flex items-center gap-2">
-                <span>⚡</span> Quick Select Common Materials
+                <Zap className="w-5 h-5 text-primary-600" /> Quick Select Common Materials
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
                 {commonMaterials.map((common) => {
                   const material = getMaterialsByCategory(common.category)
                   if (!material) return null
+                  const IconComponent = common.icon
                   return (
                     <button
                       key={common.category}
@@ -369,7 +397,7 @@ export default function EtchantSelector() {
                       }}
                       className="flex flex-col items-center justify-center p-4 border-2 border-gray-200 rounded-xl hover:border-primary-400 hover:bg-primary-50 transition-all duration-200 hover:scale-105 group"
                     >
-                      <span className="text-3xl mb-2 group-hover:scale-110 transition-transform">{common.icon}</span>
+                      <IconComponent className="w-8 h-8 mb-2 text-gray-700 group-hover:text-primary-600 group-hover:scale-110 transition-transform" />
                       <span className="text-sm font-semibold text-gray-700 group-hover:text-primary-600">{common.label}</span>
                     </button>
                   )
@@ -382,7 +410,7 @@ export default function EtchantSelector() {
           <div className="card mb-8 shadow-lg">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-semibold flex items-center gap-2">
-                <span className="text-2xl">1️⃣</span>
+                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-primary-100 text-primary-700 font-bold text-sm">1</span>
                 <span>Select Your Material</span>
               </h2>
               {selectedMaterial && (
@@ -394,7 +422,7 @@ export default function EtchantSelector() {
                   }}
                   className="text-sm text-gray-500 hover:text-gray-700 flex items-center gap-1"
                 >
-                  <span>↺</span> Reset
+                  <RotateCcw className="w-4 h-4" /> Reset
                 </button>
               )}
             </div>
@@ -458,8 +486,8 @@ export default function EtchantSelector() {
                     <div className="flex items-center gap-3 mb-2">
                       <h3 className="text-xl font-bold text-gray-900">{selectedMaterial.name}</h3>
                       {selectedMaterial.featured && (
-                        <span className="px-2 py-1 bg-yellow-400 text-yellow-900 text-xs font-bold rounded-full">
-                          ⭐ Featured
+                        <span className="px-2 py-1 bg-yellow-400 text-yellow-900 text-xs font-bold rounded-full flex items-center gap-1">
+                          <Star className="w-3 h-3 fill-current" /> Featured
                         </span>
                       )}
                     </div>
@@ -489,9 +517,7 @@ export default function EtchantSelector() {
                     className="ml-4 p-2 text-gray-500 hover:text-gray-700 hover:bg-white rounded-lg transition-colors"
                     aria-label="Clear selection"
                   >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
+                    <X className="w-5 h-5" />
                   </button>
                 </div>
               </div>
@@ -502,7 +528,7 @@ export default function EtchantSelector() {
           {selectedMaterial && (
             <div className="card mb-8 shadow-lg">
               <h2 className="text-2xl font-semibold mb-2 flex items-center gap-2">
-                <span className="text-2xl">2️⃣</span>
+                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-primary-100 text-primary-700 font-bold text-sm">2</span>
                 <span>What Do You Want to Reveal?</span>
                 <span className="text-sm font-normal text-gray-500 ml-2">(Optional)</span>
               </h2>
@@ -510,29 +536,32 @@ export default function EtchantSelector() {
                 Select a specific purpose for targeted recommendations, or leave blank for general options.
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                {purposeOptions.map((option) => (
-                  <button
-                    key={option.value}
-                    onClick={() => {
-                      setPurposeFilter(purposeFilter === option.value ? '' : option.value)
-                      setSelectedEtchant(null)
-                    }}
-                    className={`relative text-left px-4 py-4 border-2 rounded-xl transition-all duration-200 hover:scale-105 ${
-                      purposeFilter === option.value
-                        ? 'border-primary-500 bg-primary-50 shadow-md'
-                        : 'border-gray-300 hover:border-primary-300 hover:bg-gray-50'
-                    }`}
-                  >
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="text-2xl">{purposeIcons[option.value]}</span>
-                      <div className="font-semibold text-gray-900 text-sm">{option.label}</div>
-                    </div>
-                    <div className="text-xs text-gray-600 mt-1">{option.description}</div>
-                    {purposeFilter === option.value && (
-                      <div className="absolute top-2 right-2 w-2 h-2 bg-primary-600 rounded-full"></div>
-                    )}
-                  </button>
-                ))}
+                {purposeOptions.map((option) => {
+                  const IconComponent = purposeIcons[option.value]
+                  return (
+                    <button
+                      key={option.value}
+                      onClick={() => {
+                        setPurposeFilter(purposeFilter === option.value ? '' : option.value)
+                        setSelectedEtchant(null)
+                      }}
+                      className={`relative text-left px-4 py-4 border-2 rounded-xl transition-all duration-200 hover:scale-105 ${
+                        purposeFilter === option.value
+                          ? 'border-primary-500 bg-primary-50 shadow-md'
+                          : 'border-gray-300 hover:border-primary-300 hover:bg-gray-50'
+                      }`}
+                    >
+                      <div className="flex items-center gap-2 mb-1">
+                        <IconComponent className={`w-5 h-5 ${purposeFilter === option.value ? 'text-primary-600' : 'text-gray-600'}`} />
+                        <div className="font-semibold text-gray-900 text-sm">{option.label}</div>
+                      </div>
+                      <div className="text-xs text-gray-600 mt-1">{option.description}</div>
+                      {purposeFilter === option.value && (
+                        <div className="absolute top-2 right-2 w-2 h-2 bg-primary-600 rounded-full"></div>
+                      )}
+                    </button>
+                  )
+                })}
               </div>
             </div>
           )}
@@ -542,7 +571,7 @@ export default function EtchantSelector() {
             <div className="card mb-8 shadow-lg">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl font-semibold flex items-center gap-2">
-                  <span className="text-2xl">3️⃣</span>
+                  <span className="flex items-center justify-center w-8 h-8 rounded-full bg-primary-100 text-primary-700 font-bold text-sm">3</span>
                   <span>Recommended Etchants</span>
                   <span className="text-lg font-normal text-gray-500 ml-2">
                     ({matchedEtchants.length} found)
