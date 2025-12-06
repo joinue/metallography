@@ -166,7 +166,7 @@ export default function SafetyDataSheetReferencePage() {
 
     pdf.setFontSize(20)
     pdf.setTextColor(37, 99, 235)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.text('Safety Data Sheet Quick Reference', 20, 20)
 
     if (logoDataUrl) {
@@ -174,7 +174,7 @@ export default function SafetyDataSheetReferencePage() {
     }
     pdf.setFontSize(11)
     pdf.setTextColor(0, 0, 0)
-    pdf.setFont(undefined, 'normal')
+    pdf.setFont('helvetica', 'normal')
     pdf.text('Metallography.org', 30, 30)
 
     pdf.setFontSize(10)
@@ -198,12 +198,12 @@ export default function SafetyDataSheetReferencePage() {
     // Introduction
     yPos += 3
     pdf.setFontSize(12)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.text('Introduction', leftMargin, yPos)
     yPos += lineHeight
 
     pdf.setFontSize(10)
-    pdf.setFont(undefined, 'normal')
+    pdf.setFont('helvetica', 'normal')
     const introText = 'This quick reference provides essential safety information for common chemicals used in metallography laboratories. This is NOT a substitute for complete Safety Data Sheets (SDS). Always refer to the complete SDS provided by the manufacturer for comprehensive safety information, handling procedures, and emergency response details.'
     const introLines = pdf.splitTextToSize(introText, rightMargin - leftMargin)
     pdf.text(introLines, leftMargin, yPos)
@@ -215,55 +215,55 @@ export default function SafetyDataSheetReferencePage() {
       yPos += 3
       
       pdf.setFontSize(12)
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       pdf.setTextColor(37, 99, 235)
       pdf.text(`${index + 1}. ${chemical.name}`, leftMargin, yPos)
       yPos += lineHeight
 
       pdf.setFontSize(9)
-      pdf.setFont(undefined, 'normal')
+      pdf.setFont('helvetica', 'normal')
       pdf.setTextColor(80, 80, 80)
       pdf.text(`CAS: ${chemical.cas}`, leftMargin + 5, yPos)
       yPos += lineHeight
 
       pdf.setFontSize(10)
       pdf.setTextColor(0, 0, 0)
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       pdf.text('Hazards:', leftMargin + 5, yPos)
       yPos += lineHeight
-      pdf.setFont(undefined, 'normal')
+      pdf.setFont('helvetica', 'normal')
       const hazardLines = pdf.splitTextToSize(chemical.hazards, rightMargin - leftMargin - 10)
       pdf.text(hazardLines, leftMargin + 5, yPos)
       yPos += hazardLines.length * lineHeight
 
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       pdf.text('Storage:', leftMargin + 5, yPos)
       yPos += lineHeight
-      pdf.setFont(undefined, 'normal')
+      pdf.setFont('helvetica', 'normal')
       const storageLines = pdf.splitTextToSize(chemical.storage, rightMargin - leftMargin - 10)
       pdf.text(storageLines, leftMargin + 5, yPos)
       yPos += storageLines.length * lineHeight
 
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       pdf.text('Handling:', leftMargin + 5, yPos)
       yPos += lineHeight
-      pdf.setFont(undefined, 'normal')
+      pdf.setFont('helvetica', 'normal')
       const handlingLines = pdf.splitTextToSize(chemical.handling, rightMargin - leftMargin - 10)
       pdf.text(handlingLines, leftMargin + 5, yPos)
       yPos += handlingLines.length * lineHeight
 
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       pdf.text('First Aid:', leftMargin + 5, yPos)
       yPos += lineHeight
-      pdf.setFont(undefined, 'normal')
+      pdf.setFont('helvetica', 'normal')
       const firstAidLines = pdf.splitTextToSize(chemical.firstAid, rightMargin - leftMargin - 10)
       pdf.text(firstAidLines, leftMargin + 5, yPos)
       yPos += firstAidLines.length * lineHeight
 
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       pdf.text('Disposal:', leftMargin + 5, yPos)
       yPos += lineHeight
-      pdf.setFont(undefined, 'normal')
+      pdf.setFont('helvetica', 'normal')
       const disposalLines = pdf.splitTextToSize(chemical.disposal, rightMargin - leftMargin - 10)
       pdf.text(disposalLines, leftMargin + 5, yPos)
       yPos += disposalLines.length * lineHeight + 3
@@ -273,13 +273,13 @@ export default function SafetyDataSheetReferencePage() {
     checkPageBreak(30)
     yPos += 5
     pdf.setFontSize(12)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.setTextColor(200, 0, 0)
     pdf.text('IMPORTANT SAFETY NOTES', leftMargin, yPos)
     yPos += lineHeight + 2
 
     pdf.setFontSize(10)
-    pdf.setFont(undefined, 'normal')
+    pdf.setFont('helvetica', 'normal')
     pdf.setTextColor(0, 0, 0)
     const safetyNotes = [
       'This is a QUICK REFERENCE only. Always refer to complete Safety Data Sheets (SDS) from manufacturers.',
@@ -301,7 +301,7 @@ export default function SafetyDataSheetReferencePage() {
     })
 
     // Footer
-    const pageCount = pdf.internal.getNumberOfPages()
+    const pageCount = pdf.getNumberOfPages()
     for (let i = 1; i <= pageCount; i++) {
       pdf.setPage(i)
       addFooterLogo()

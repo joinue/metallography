@@ -75,8 +75,8 @@ export default function NickelAlloysGuide() {
         url: 'https://metallography.org/logo.png',
       },
     },
-    datePublished: '2024-01-01',
-    dateModified: '2024-01-01',
+    datePublished: '2024-10-01', // Original publication date
+    dateModified: new Date().toISOString().split('T')[0], // Current date for freshness
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': 'https://metallography.org/guides/nickel-alloys-preparation',
@@ -271,10 +271,8 @@ export default function NickelAlloysGuide() {
 
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
                 <ProductLink
+                  productName="MAX-C Abrasive Blades"
                   href="https://shop.metallographic.com/collections/abrasive-blades"
-                  imageSrc="/images/consumables/maxcut-c.webp"
-                  imageAlt="MAX-C abrasive blades for nickel alloys"
-                  title="MAX-C Abrasive Blades"
                   description="Silicon carbide/resin-rubber bond blades optimized for hard non-ferrous metals like nickel alloys, titanium, and zirconium. Provides aggressive cutting with controlled wear."
                 />
               </div>

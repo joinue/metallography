@@ -4,6 +4,8 @@ import ProductLink from '@/components/ProductLink'
 import GuideSideNav from '@/components/GuideSideNav'
 import Link from 'next/link'
 import MaterialTooltip from '@/components/MaterialTooltip'
+import { getGuideMetadata, getGuideStructuredData, getGuideBySlug } from '@/lib/guide-seo'
+import RelatedGuides from '@/components/RelatedGuides'
 
 export const metadata: Metadata = {
   title: 'Stainless Steel Sample Preparation Guide | Metallography.org',
@@ -55,9 +57,13 @@ const sections = [
   { id: 'troubleshooting', label: 'Troubleshooting' },
 ]
 
+const guide = getGuideBySlug('stainless-steel-preparation')!
+
 export default function StainlessSteelGuide() {
-  // Article structured data
-  const articleStructuredData = {
+  const { articleStructuredData, courseStructuredData, breadcrumbStructuredData, howToStructuredData, faqStructuredData } = getGuideStructuredData(guide)
+  
+  // Legacy structured data (keeping for compatibility, but using new function above)
+  const legacyArticleStructuredData = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: 'Stainless Steel Sample Preparation Guide',
@@ -75,8 +81,8 @@ export default function StainlessSteelGuide() {
         url: 'https://metallography.org/logo.png',
       },
     },
-    datePublished: '2024-01-01',
-    dateModified: '2024-01-01',
+    datePublished: '2024-10-01', // Original publication date
+    dateModified: new Date().toISOString().split('T')[0], // Current date for freshness
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': 'https://metallography.org/guides/stainless-steel-preparation',
@@ -88,117 +94,18 @@ export default function StainlessSteelGuide() {
     },
   }
 
-  // HowTo structured data for step-by-step process
-  const howToStructuredData = {
-    '@context': 'https://schema.org',
-    '@type': 'HowTo',
-    name: 'How to Prepare Stainless Steel Samples for Metallographic Analysis',
-    description: 'Step-by-step guide to preparing stainless steel samples for metallographic analysis',
-    image: 'https://metallography.org/images/microstructures/431 Stainless steel, Kallings no. 2, 400X.JPG',
-    totalTime: 'PT45M',
-    tool: [
-      {
-        '@type': 'HowToTool',
-        name: 'Abrasive cutting saw',
-      },
-      {
-        '@type': 'HowToTool',
-        name: 'Mounting press',
-      },
-      {
-        '@type': 'HowToTool',
-        name: 'Grinding papers',
-      },
-      {
-        '@type': 'HowToTool',
-        name: 'Polishing equipment',
-      },
-    ],
-    step: [
-      {
-        '@type': 'HowToStep',
-        name: 'Sectioning',
-        text: 'Use a slow cutting speed (100-200 RPM) to minimize heat generation and deformation. Use MAX-VHS or MAX-D series blades.',
-        position: 1,
-      },
-      {
-        '@type': 'HowToStep',
-        name: 'Mounting',
-        text: 'Mount using compression mounting with phenolic or epoxy resins at 3000-4000 psi for phenolic, 2000-3000 psi for epoxy.',
-        position: 2,
-      },
-      {
-        '@type': 'HowToStep',
-        name: 'Grinding',
-        text: 'Progressive grinding sequence: 120, 240, 400, 600 grit. Rotate sample 90° between each grit.',
-        position: 3,
-      },
-      {
-        '@type': 'HowToStep',
-        name: 'Polishing',
-        text: 'Diamond polishing: 9 μm, 3 μm, 1 μm. Final polish with 0.05 μm colloidal silica.',
-        position: 4,
-      },
-      {
-        '@type': 'HowToStep',
-        name: 'Etching',
-        text: 'Apply etchant (Vilella\'s Reagent, Aqua Regia, or electrolytic) for 5-30 seconds. Rinse and dry.',
-        position: 5,
-      },
-    ],
-  }
-
-  // Course structured data
-  const courseStructuredData = {
-    '@context': 'https://schema.org',
-    '@type': 'Course',
-    name: 'Stainless Steel Sample Preparation Guide',
-    description: 'Complete in-depth guide to preparing stainless steel samples for metallographic analysis',
-    provider: {
-      '@type': 'Organization',
-      name: 'Metallography.org',
-    },
-    educationalLevel: 'Intermediate',
-    timeRequired: 'PT15M',
-    courseCode: 'MET-STAINLESS-STEEL',
-  }
-
-  // Breadcrumb structured data
-  const breadcrumbStructuredData = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: 'https://metallography.org',
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Guides',
-        item: 'https://metallography.org/guides',
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: 'Stainless Steel Preparation',
-        item: 'https://metallography.org/guides/stainless-steel-preparation',
-      },
-    ],
-  }
-
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleStructuredData) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToStructuredData) }}
-      />
+      {howToStructuredData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(howToStructuredData) }}
+        />
+      )}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseStructuredData) }}
@@ -207,6 +114,12 @@ export default function StainlessSteelGuide() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}
       />
+      {faqStructuredData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
+        />
+      )}
       <article className="py-12">
       <GuideSideNav sections={sections} />
       <div className="container-custom lg:pl-0 xl:pl-0">
@@ -533,19 +446,16 @@ export default function StainlessSteelGuide() {
 
             {/* CTA Section */}
             <div className="bg-primary-50 border-l-4 border-primary-600 p-6 mt-12 rounded">
-              <h2 className="text-2xl font-semibold mb-4">Save This Procedure</h2>
+              <h2 className="text-2xl font-semibold mb-4">Explore More Procedures</h2>
               <p className="mb-4">
-                Want to save this procedure and get personalized recommendations? Use our free 
-                procedure tool to create and manage your preparation methods.
+                Browse our comprehensive procedure guides for material-specific preparation methods and get personalized recommendations.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link 
-                  href="https://materialsprep.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/guides?category=Material-Specific"
                   className="btn-primary text-center"
                 >
-                  Save to Procedure Tool
+                  Browse Procedure Guides
                 </Link>
                 <Link 
                   href="https://shop.metallographic.com"
@@ -586,6 +496,9 @@ export default function StainlessSteelGuide() {
             </div>
           </div>
         </div>
+        
+        {/* Related Guides Section */}
+        <RelatedGuides currentGuide={guide} limit={3} />
       </div>
       </article>
     </>

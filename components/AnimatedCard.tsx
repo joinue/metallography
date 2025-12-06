@@ -48,14 +48,15 @@ export default function AnimatedCard({
 
   // Apply animation classes directly to the child element
   if (isValidElement(children)) {
-    return cloneElement(children as React.ReactElement, {
-      className: `${(children as React.ReactElement).props.className || ''} animate-on-scroll ${isVisible ? animationClassMap[animation] : 'opacity-0'} ${className}`.trim(),
+    const childElement = children as React.ReactElement<any>
+    return cloneElement(childElement, {
+      className: `${childElement.props.className || ''} animate-on-scroll ${isVisible ? animationClassMap[animation] : 'opacity-0'} ${className}`.trim(),
       style: {
-        ...((children as React.ReactElement).props.style || {}),
+        ...(childElement.props.style || {}),
         animationDelay: `${delay + (index * 50)}ms`,
         animationDuration: `${duration}ms`,
       },
-    })
+    } as any)
   }
 
   // Fallback: wrap in div if child is not a valid React element

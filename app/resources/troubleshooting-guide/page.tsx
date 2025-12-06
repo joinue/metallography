@@ -40,7 +40,7 @@ export default function TroubleshootingGuidePage() {
     // First page - title at top, logo + URL below, then date
     pdf.setFontSize(20)
     pdf.setTextColor(37, 99, 235)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.text('Troubleshooting Quick Reference', 20, 20)
 
     // Logo badge and URL below title (smaller) - only on first page
@@ -49,7 +49,7 @@ export default function TroubleshootingGuidePage() {
     }
     pdf.setFontSize(11)
     pdf.setTextColor(0, 0, 0)
-    pdf.setFont(undefined, 'normal')
+    pdf.setFont('helvetica', 'normal')
     pdf.text('Metallography.org', 30, 30)
 
     // Generated date with a little spacing
@@ -143,21 +143,21 @@ export default function TroubleshootingGuidePage() {
     problems.forEach(category => {
       checkPageBreak(25)
       pdf.setFontSize(12)
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       pdf.setTextColor(37, 99, 235)
       pdf.text(category.category, leftMargin, yPos)
       yPos += lineHeight + 2
 
       pdf.setFontSize(10)
       pdf.setTextColor(0, 0, 0)
-      pdf.setFont(undefined, 'normal')
+      pdf.setFont('helvetica', 'normal')
       
       category.issues.forEach(issue => {
         checkPageBreak(12)
-        pdf.setFont(undefined, 'bold')
+        pdf.setFont('helvetica', 'bold')
         pdf.text(`Problem: ${issue.problem}`, leftMargin + 5, yPos)
         yPos += lineHeight
-        pdf.setFont(undefined, 'normal')
+        pdf.setFont('helvetica', 'normal')
         const solutionLines = pdf.splitTextToSize(`Solution: ${issue.solution}`, rightMargin - leftMargin - 10)
         pdf.text(solutionLines, leftMargin + 5, yPos)
         yPos += solutionLines.length * lineHeight + 2
@@ -168,13 +168,13 @@ export default function TroubleshootingGuidePage() {
     // Quick Tips
     checkPageBreak(30)
     pdf.setFontSize(12)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.setTextColor(37, 99, 235)
     pdf.text('Quick Tips', leftMargin, yPos)
     yPos += lineHeight + 2
 
     pdf.setFontSize(10)
-    pdf.setFont(undefined, 'normal')
+    pdf.setFont('helvetica', 'normal')
     pdf.setTextColor(0, 0, 0)
     const tips = [
       'Always monitor the sample surface during preparation',
@@ -191,7 +191,7 @@ export default function TroubleshootingGuidePage() {
     })
 
     // Footer with logo
-    const pageCount = pdf.internal.getNumberOfPages()
+    const pageCount = pdf.getNumberOfPages()
     for (let i = 1; i <= pageCount; i++) {
       pdf.setPage(i)
       addFooterLogo()

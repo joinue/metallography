@@ -30,7 +30,8 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/logo.png', sizes: 'any' },
+      { url: '/logo.png', sizes: 'any', media: '(prefers-color-scheme: light)' },
+      { url: '/logo-white.png', sizes: 'any', media: '(prefers-color-scheme: dark)' },
       { url: '/logo.png', type: 'image/png' },
     ],
     apple: [
@@ -47,6 +48,13 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'Metallography.org - Free Metallographic Sample Preparation Resources',
+      },
+      // White logo variant for dark backgrounds (platforms may choose based on context)
+      {
+        url: '/logo-white.png',
         width: 1200,
         height: 630,
         alt: 'Metallography.org - Free Metallographic Sample Preparation Resources',
@@ -105,6 +113,9 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* DNS prefetch for potential external resources */}
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        {/* Dark mode favicon support - Next.js metadata API doesn't support media queries for icons */}
+        <link rel="icon" href="/logo.png" media="(prefers-color-scheme: light)" />
+        <link rel="icon" href="/logo-white.png" media="(prefers-color-scheme: dark)" />
       </head>
       <body className={`${inter.className} font-sans antialiased relative bg-white`}>
         {/* Grain Structure Background Pattern - Full Page */}

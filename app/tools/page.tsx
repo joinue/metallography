@@ -65,13 +65,13 @@ const tools = [
     category: 'Reference',
   },
   {
-    title: 'Procedure Tool',
-    slug: 'procedure-tool',
-    description: 'Save, organize, and get recommendations for your preparation procedures.',
+    title: 'Procedure Guides',
+    slug: 'procedure-guides',
+    description: 'Browse comprehensive guides for material-specific preparation procedures and get personalized recommendations.',
     icon: ClipboardList,
     category: 'Workflow',
-    external: true,
-    href: 'https://materialsprep.com',
+    external: false,
+    href: '/guides?category=Material-Specific',
   },
 ]
 
@@ -134,97 +134,97 @@ export default function ToolsPage() {
   }, {} as Record<string, typeof filteredTools>)
 
   return (
-    <div className="py-12">
+    <div className="py-4 sm:py-6 md:py-12">
       <div className="container-custom">
         {/* Header Section */}
-        <div className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold mb-2 text-gray-900">Tools & Calculators</h1>
-          <p className="text-lg text-gray-600 mt-2">
-            Free practical tools to help with your metallographic sample preparation work. 
-            Use <strong>Calculators</strong> for conversions and time calculations, 
-            <strong> Reference</strong> tools for material selection, and <strong>Workflow</strong> tools 
-            for procedure management.
+        <div className="mb-3 sm:mb-4 md:mb-6">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1.5 sm:mb-2 text-gray-900">Tools & Calculators</h1>
+          <p className="text-xs sm:text-sm md:text-base text-gray-600 mt-1 sm:mt-2">
+            Free tools: <strong>Calculators</strong> for conversions, <strong>Reference</strong> for materials, 
+            and <strong>Workflow</strong> for procedures.
           </p>
         </div>
 
         {/* Search Bar */}
-        <div className="mb-6">
+        <div className="mb-4 sm:mb-6">
           <div className="relative max-w-2xl">
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+            <Search className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
             <input
               type="text"
               placeholder="Search tools..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none text-gray-900 placeholder-gray-400"
+              className="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none text-gray-900 placeholder-gray-400 text-sm sm:text-base"
             />
           </div>
         </div>
 
-        {/* Category Filter */}
-        <div className="mb-8 flex flex-wrap gap-3">
-          {categories.map(category => (
-            <button
-              key={category}
-              onClick={() => handleCategoryChange(category)}
-              className={`px-5 py-2.5 rounded-full font-semibold text-sm transition-colors duration-200 ${
-                selectedCategory === category
-                  ? 'bg-primary-600 text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-            >
-              {category}
-            </button>
-          ))}
+        {/* Category Filter - Scrollable on mobile */}
+        <div className="mb-3 sm:mb-4 md:mb-6">
+          <div className="flex gap-2 sm:gap-3 overflow-x-auto pb-2 -mx-4 sm:mx-0 px-4 sm:px-0 scrollbar-hide">
+            {categories.map(category => (
+              <button
+                key={category}
+                onClick={() => handleCategoryChange(category)}
+                className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full font-semibold text-xs sm:text-sm transition-colors duration-200 whitespace-nowrap flex-shrink-0 ${
+                  selectedCategory === category
+                    ? 'bg-primary-600 text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Tools by Section */}
         {selectedCategory === 'All' ? (
           // Show tools grouped by section when "All" is selected
-          <div className="space-y-12 mb-16">
+          <div className="space-y-6 sm:space-y-8 md:space-y-10 mb-4 sm:mb-8 md:mb-12">
             {categoryOrder.map(category => {
               const categoryTools = toolsByCategory[category] || []
               if (categoryTools.length === 0) return null
               
               return (
                 <section key={category} className="scroll-mt-24">
-                  <div className="flex items-center gap-3 mb-6">
-                    {category === 'Calculators' && <Calculator className="w-6 h-6 text-primary-600" />}
-                    {category === 'Reference' && <FlaskConical className="w-6 h-6 text-primary-600" />}
-                    {category === 'Workflow' && <Workflow className="w-6 h-6 text-primary-600" />}
-                    <h2 className="text-2xl font-bold text-gray-900">{category}</h2>
-                    <span className="text-sm text-gray-500">({categoryTools.length} {categoryTools.length === 1 ? 'tool' : 'tools'})</span>
+                  <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3 md:mb-4">
+                    {category === 'Calculators' && <Calculator className="w-5 h-5 sm:w-6 sm:h-6 text-primary-600" />}
+                    {category === 'Reference' && <FlaskConical className="w-5 h-5 sm:w-6 sm:h-6 text-primary-600" />}
+                    {category === 'Workflow' && <Workflow className="w-5 h-5 sm:w-6 sm:h-6 text-primary-600" />}
+                    <h2 className="text-xl sm:text-2xl font-bold text-gray-900">{category}</h2>
+                    <span className="text-xs sm:text-sm text-gray-500">({categoryTools.length} {categoryTools.length === 1 ? 'tool' : 'tools'})</span>
                   </div>
                   {category === 'Calculators' && (
-                    <p className="text-gray-600 mb-6 max-w-3xl">
-                      Conversion and calculation tools for grit sizes, polishing times, and other metallographic parameters.
+                    <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4 md:mb-5 max-w-3xl">
+                      Conversion and calculation tools for grit sizes, polishing times, and parameters.
                     </p>
                   )}
                   {category === 'Reference' && (
-                    <p className="text-gray-600 mb-6 max-w-3xl">
-                      Reference tools to help you select the right materials and reagents for your preparation work.
+                    <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4 md:mb-5 max-w-3xl">
+                      Tools to select materials and reagents for your preparation work.
                     </p>
                   )}
                   {category === 'Workflow' && (
-                    <p className="text-gray-600 mb-6 max-w-3xl">
-                      Tools to help you manage, organize, and optimize your sample preparation workflow.
+                    <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4 md:mb-5 max-w-3xl">
+                      Tools to manage and optimize your sample preparation workflow.
                     </p>
                   )}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                     {categoryTools.map((tool, index) => {
                       const IconComponent = tool.icon
                       return (
                         <AnimatedCard key={tool.slug} index={index} animation="fadeInUp" duration={500}>
-                          <div className="card hover:border-gray-300 group text-center">
-                            <div className="flex justify-center mb-4">
-                              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center">
-                                <IconComponent className="w-8 h-8 text-primary-600" />
+                          <div className="card hover:border-gray-300 group text-center p-4 sm:p-6">
+                            <div className="flex justify-center mb-3 sm:mb-4">
+                              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-primary-100 rounded-full flex items-center justify-center">
+                                <IconComponent className="w-7 h-7 sm:w-8 sm:h-8 text-primary-600" />
                               </div>
                             </div>
-                            <h3 className="text-xl font-semibold mb-3 text-gray-900 group-hover:text-primary-600 transition-colors">
+                            <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-gray-900 group-hover:text-primary-600 transition-colors">
                               {tool.title}
                             </h3>
-                            <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                            <p className="text-gray-600 text-sm leading-relaxed mb-3 sm:mb-4">
                               {tool.description}
                             </p>
                             {tool.external ? (
@@ -232,14 +232,14 @@ export default function ToolsPage() {
                                 href={tool.href || '#'}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="btn-primary inline-block"
+                                className="btn-primary inline-block w-full sm:w-auto"
                               >
                                 Use Tool →
                               </Link>
                             ) : (
                               <Link 
                                 href={`/tools/${tool.slug}`} 
-                                className="btn-primary inline-block"
+                                className="btn-primary inline-block w-full sm:w-auto"
                               >
                                 Use Tool →
                               </Link>
@@ -255,21 +255,21 @@ export default function ToolsPage() {
           </div>
         ) : (
           // Show filtered tools in grid when a specific category is selected
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-8 md:mb-12">
             {filteredTools.map((tool, index) => {
               const IconComponent = tool.icon
               return (
                 <AnimatedCard key={tool.slug} index={index} animation="fadeInUp" duration={500}>
-                  <div className="card hover:border-gray-300 group text-center">
-                    <div className="flex justify-center mb-4">
-                      <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center">
-                        <IconComponent className="w-8 h-8 text-primary-600" />
+                  <div className="card hover:border-gray-300 group text-center p-4 sm:p-6">
+                    <div className="flex justify-center mb-3 sm:mb-4">
+                      <div className="w-14 h-14 sm:w-16 sm:h-16 bg-primary-100 rounded-full flex items-center justify-center">
+                        <IconComponent className="w-7 h-7 sm:w-8 sm:h-8 text-primary-600" />
                       </div>
                     </div>
-                    <h3 className="text-xl font-semibold mb-3 text-gray-900 group-hover:text-primary-600 transition-colors">
+                    <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-gray-900 group-hover:text-primary-600 transition-colors">
                       {tool.title}
                     </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                    <p className="text-gray-600 text-sm leading-relaxed mb-3 sm:mb-4">
                       {tool.description}
                     </p>
                     {tool.external ? (
@@ -277,14 +277,14 @@ export default function ToolsPage() {
                         href={tool.href || '#'}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn-primary inline-block"
+                        className="btn-primary inline-block w-full sm:w-auto"
                       >
                         Use Tool →
                       </Link>
                     ) : (
                       <Link 
                         href={`/tools/${tool.slug}`} 
-                        className="btn-primary inline-block"
+                        className="btn-primary inline-block w-full sm:w-auto"
                       >
                         Use Tool →
                       </Link>
@@ -303,41 +303,39 @@ export default function ToolsPage() {
         )}
 
         {/* Featured Tool */}
-        <div className="mt-16 bg-primary-600 text-white rounded-lg p-8">
-          <div className="flex flex-col md:flex-row items-center gap-6">
-            <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
-              <ClipboardList className="w-10 h-10 text-white" />
+        <div className="mt-8 sm:mt-12 md:mt-16 bg-primary-600 text-white rounded-lg p-6 sm:p-8">
+          <div className="flex flex-col md:flex-row items-center gap-4 sm:gap-6">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+              <ClipboardList className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
             </div>
-            <div className="flex-1">
-              <h2 className="text-2xl font-bold mb-3 text-white">Procedure Tool</h2>
-              <p className="text-primary-100 mb-4">
-                Our comprehensive procedure management tool lets you save, organize, and get 
-                personalized recommendations for your preparation methods. Track your procedures, 
-                get product suggestions, and optimize your workflow.
+            <div className="flex-1 text-center md:text-left">
+              <h2 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 text-white">Procedure Guides</h2>
+              <p className="text-sm sm:text-base text-primary-100 mb-3 sm:mb-4">
+                Browse our comprehensive collection of material-specific procedure guides. Get 
+                personalized recommendations for your preparation methods, track procedures, 
+                and optimize your workflow.
               </p>
               <Link 
-                href="https://materialsprep.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white text-primary-600 px-6 py-2.5 rounded-full font-semibold hover:bg-gray-100 transition-all duration-200 inline-block text-sm shadow-lg hover:shadow-xl hover:scale-105"
+                href="/guides?category=Material-Specific"
+                className="bg-white text-primary-600 px-5 sm:px-6 py-2 sm:py-2.5 rounded-full font-semibold hover:bg-gray-100 transition-all duration-200 inline-block text-xs sm:text-sm shadow-lg hover:shadow-xl hover:scale-105 w-full sm:w-auto"
               >
-                Try Procedure Tool Free →
+                Browse Procedure Guides →
               </Link>
             </div>
           </div>
         </div>
 
         {/* CTA Section */}
-        <div className="mt-12 bg-gray-50 rounded-lg p-8 text-center">
-          <h2 className="text-2xl font-bold mb-4">Looking for More Resources?</h2>
-          <p className="text-gray-700 mb-6">
+        <div className="mt-8 sm:mt-12 bg-gray-50 rounded-lg p-6 sm:p-8 text-center">
+          <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Looking for More Resources?</h2>
+          <p className="text-sm sm:text-base text-gray-700 mb-4 sm:mb-6 px-2 sm:px-0">
             Check out our comprehensive guides and downloadable resources.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/guides" className="btn-primary">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0">
+            <Link href="/guides" className="btn-primary w-full sm:w-auto">
               Browse Guides
             </Link>
-            <Link href="/resources" className="btn-secondary">
+            <Link href="/resources" className="btn-secondary w-full sm:w-auto">
               View Resources
             </Link>
           </div>

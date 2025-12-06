@@ -40,7 +40,7 @@ export default function MaterialPreparationGuidePage() {
     // First page - title at top, logo + URL below, then date
     pdf.setFontSize(20)
     pdf.setTextColor(37, 99, 235)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.text('Material-Specific Preparation Guide', 20, 20)
 
     // Logo badge and URL below title (smaller) - only on first page
@@ -49,7 +49,7 @@ export default function MaterialPreparationGuidePage() {
     }
     pdf.setFontSize(11)
     pdf.setTextColor(0, 0, 0)
-    pdf.setFont(undefined, 'normal')
+    pdf.setFont('helvetica', 'normal')
     pdf.text('Metallography.org', 30, 30)
 
     // Generated date with a little spacing
@@ -133,48 +133,48 @@ export default function MaterialPreparationGuidePage() {
     materials.forEach(material => {
       checkPageBreak(35)
       pdf.setFontSize(12)
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       pdf.setTextColor(37, 99, 235)
       pdf.text(material.name, leftMargin, yPos)
       yPos += lineHeight + 2
 
       pdf.setFontSize(10)
       pdf.setTextColor(0, 0, 0)
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       pdf.text('Grinding:', leftMargin + 5, yPos)
       yPos += lineHeight
-      pdf.setFont(undefined, 'normal')
+      pdf.setFont('helvetica', 'normal')
       const grindingLines = pdf.splitTextToSize(material.grinding, rightMargin - leftMargin - 10)
       pdf.text(grindingLines, leftMargin + 5, yPos)
       yPos += grindingLines.length * lineHeight + 2
 
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       pdf.text('Polishing:', leftMargin + 5, yPos)
       yPos += lineHeight
-      pdf.setFont(undefined, 'normal')
+      pdf.setFont('helvetica', 'normal')
       const polishingLines = pdf.splitTextToSize(material.polishing, rightMargin - leftMargin - 10)
       pdf.text(polishingLines, leftMargin + 5, yPos)
       yPos += polishingLines.length * lineHeight + 2
 
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       pdf.text('Etching:', leftMargin + 5, yPos)
       yPos += lineHeight
-      pdf.setFont(undefined, 'normal')
+      pdf.setFont('helvetica', 'normal')
       const etchingLines = pdf.splitTextToSize(material.etching, rightMargin - leftMargin - 10)
       pdf.text(etchingLines, leftMargin + 5, yPos)
       yPos += etchingLines.length * lineHeight + 2
 
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       pdf.text('Notes:', leftMargin + 5, yPos)
       yPos += lineHeight
-      pdf.setFont(undefined, 'normal')
+      pdf.setFont('helvetica', 'normal')
       const notesLines = pdf.splitTextToSize(material.notes, rightMargin - leftMargin - 10)
       pdf.text(notesLines, leftMargin + 5, yPos)
       yPos += notesLines.length * lineHeight + 4
     })
 
     // Footer with logo
-    const pageCount = pdf.internal.getNumberOfPages()
+    const pageCount = pdf.getNumberOfPages()
     for (let i = 1; i <= pageCount; i++) {
       pdf.setPage(i)
       addFooterLogo()

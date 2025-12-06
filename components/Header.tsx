@@ -203,8 +203,8 @@ export default function Header() {
                         <Link href="/tools/polishing-time-calculator" className="block px-5 py-2 text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50/50 rounded-lg transition-all duration-200">
                           Polishing Time Calculator
                         </Link>
-                        <Link href="https://materialsprep.com" target="_blank" rel="noopener noreferrer" className="block px-5 py-2 text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50/50 rounded-lg transition-all duration-200">
-                          Procedure Tool →
+                        <Link href="/guides?category=Material-Specific" className="block px-5 py-2 text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50/50 rounded-lg transition-all duration-200">
+                          Procedure Guides →
                         </Link>
                       </div>
                     </div>

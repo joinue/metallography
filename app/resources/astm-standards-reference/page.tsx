@@ -54,7 +54,7 @@ export default function ASTMStandardsReferencePage() {
 
     pdf.setFontSize(20)
     pdf.setTextColor(37, 99, 235)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.text('ASTM Standards Quick Reference', 20, 20)
 
     if (logoDataUrl) {
@@ -62,7 +62,7 @@ export default function ASTMStandardsReferencePage() {
     }
     pdf.setFontSize(11)
     pdf.setTextColor(0, 0, 0)
-    pdf.setFont(undefined, 'normal')
+    pdf.setFont('helvetica', 'normal')
     pdf.text('Metallography.org', 30, 30)
 
     pdf.setFontSize(10)
@@ -86,12 +86,12 @@ export default function ASTMStandardsReferencePage() {
     // Introduction
     yPos += 3
     pdf.setFontSize(12)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.text('Introduction', leftMargin, yPos)
     yPos += lineHeight
 
     pdf.setFontSize(10)
-    pdf.setFont(undefined, 'normal')
+    pdf.setFont('helvetica', 'normal')
     const introText = 'This guide provides a quick reference to key ASTM standards relevant to metallography and metallographic sample preparation. These standards establish procedures, test methods, and guidelines for consistent and reliable metallographic analysis. Always refer to the complete standard documents for detailed procedures and requirements.'
     const introLines = pdf.splitTextToSize(introText, rightMargin - leftMargin)
     pdf.text(introLines, leftMargin, yPos)
@@ -107,7 +107,7 @@ export default function ASTMStandardsReferencePage() {
       checkPageBreak(30)
       yPos += 3
       pdf.setFontSize(14)
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       pdf.setTextColor(37, 99, 235)
       pdf.text(category, leftMargin, yPos)
       yPos += lineHeight + 1
@@ -120,17 +120,17 @@ export default function ASTMStandardsReferencePage() {
       categoryStandards.forEach(standard => {
         checkPageBreak(20)
         pdf.setFontSize(11)
-        pdf.setFont(undefined, 'bold')
+        pdf.setFont('helvetica', 'bold')
         pdf.text(standard.standard, leftMargin, yPos)
         yPos += lineHeight
 
         pdf.setFontSize(10)
-        pdf.setFont(undefined, 'bold')
+        pdf.setFont('helvetica', 'bold')
         const titleLines = pdf.splitTextToSize(standard.title, rightMargin - leftMargin - 5)
         pdf.text(titleLines, leftMargin + 5, yPos)
         yPos += titleLines.length * lineHeight
 
-        pdf.setFont(undefined, 'normal')
+        pdf.setFont('helvetica', 'normal')
         const descLines = pdf.splitTextToSize(standard.description, rightMargin - leftMargin - 5)
         pdf.text(descLines, leftMargin + 5, yPos)
         yPos += descLines.length * lineHeight + 3
@@ -141,13 +141,13 @@ export default function ASTMStandardsReferencePage() {
     checkPageBreak(25)
     yPos += 3
     pdf.setFontSize(12)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.setTextColor(37, 99, 235)
     pdf.text('Important Notes', leftMargin, yPos)
     yPos += lineHeight + 2
 
     pdf.setFontSize(10)
-    pdf.setFont(undefined, 'normal')
+    pdf.setFont('helvetica', 'normal')
     pdf.setTextColor(0, 0, 0)
     const notes = [
       '• This is a quick reference guide only. Always refer to the complete ASTM standard documents for detailed procedures.',
@@ -165,7 +165,7 @@ export default function ASTMStandardsReferencePage() {
     })
 
     // Footer
-    const pageCount = pdf.internal.getNumberOfPages()
+    const pageCount = pdf.getNumberOfPages()
     for (let i = 1; i <= pageCount; i++) {
       pdf.setPage(i)
       addFooterLogo()

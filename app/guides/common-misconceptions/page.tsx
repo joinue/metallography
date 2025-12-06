@@ -107,7 +107,8 @@ export default function CommonMisconceptionsGuide() {
                   Each grinding step removes damage from the previous step. If you skip steps (e.g., going from 240 
                   grit directly to 600 grit), you'll never fully remove the deeper scratches from the coarser grit. 
                   These scratches will persist through polishing and appear in your final microstructure. The progressive 
-                  refinement process is essential: each step builds on the previous one.
+                  refinement process is essential: each step builds on the previous one. As a general rule, grit sizes 
+                  should not increase by more than a factor of 2-2.5 between steps (e.g., 240 → 400 → 600 → 800).
                 </p>
               </div>
 
@@ -119,7 +120,10 @@ export default function CommonMisconceptionsGuide() {
                 <p className="text-sm text-gray-700">
                   Too much pressure can cause: edge rounding, relief between phases, embedded abrasives, sample damage, 
                   and inconsistent results. Moderate, consistent pressure is more effective. Let the abrasive do the 
-                  work. Pressure should be sufficient to maintain contact but not so high that you're forcing the process.
+                  work. Pressure should be sufficient to maintain contact but not so high that you're forcing the process. 
+                  For manual preparation, typical pressures range from 2-5 pounds per square inch, depending on material 
+                  hardness and preparation stage. Automated systems use controlled force settings that account for sample 
+                  area and material properties.
                 </p>
               </div>
 
@@ -159,6 +163,33 @@ export default function CommonMisconceptionsGuide() {
                   and mounting helps preserve edges during preparation.
                 </p>
               </div>
+
+              <h3>Misconception: "Any cut is fine for sectioning"</h3>
+              <div className="bg-red-50 border-l-4 border-red-600 p-4 my-4 rounded">
+                <p className="text-sm text-gray-700 font-semibold mb-2">
+                  <strong>Reality:</strong> Poor sectioning creates damage that's difficult to remove.
+                </p>
+                <p className="text-sm text-gray-700">
+                  Sectioning with excessive speed, pressure, or inadequate cooling can introduce deep thermal damage, 
+                  deformation, and microstructural changes that may extend hundreds of micrometers into the sample. 
+                  This damage can be extremely difficult or impossible to remove completely during grinding. Proper 
+                  sectioning with appropriate blade selection, cutting parameters, and cooling is essential for 
+                  successful preparation.
+                </p>
+              </div>
+
+              <h3>Misconception: "Sample orientation doesn't matter"</h3>
+              <div className="bg-red-50 border-l-4 border-red-600 p-4 my-4 rounded">
+                <p className="text-sm text-gray-700 font-semibold mb-2">
+                  <strong>Reality:</strong> Orientation is critical for meaningful analysis.
+                </p>
+                <p className="text-sm text-gray-700">
+                  The orientation of your section determines what microstructural features you can observe. Longitudinal 
+                  sections reveal grain elongation, flow lines, and directional features. Transverse sections show 
+                  cross-sections of these features. For many analyses (welds, coatings, heat-affected zones, etc.), 
+                  specific orientations are required. Always plan your sectioning based on what you need to analyze.
+                </p>
+              </div>
             </section>
 
             <section id="technique-misconceptions" className="scroll-mt-24">
@@ -189,7 +220,10 @@ export default function CommonMisconceptionsGuide() {
                 <p className="text-sm text-gray-700">
                   Too much etching can: obscure fine details, create artifacts, make structures look different than they 
                   actually are, and damage the sample surface. Start with shorter times and increase if needed. Different 
-                  materials and etchants require different times. Follow recommended procedures and adjust based on results.
+                  materials and etchants require vastly different times—some need only 5-10 seconds (e.g., Nital on carbon 
+                  steel), while others may need several minutes. Over-etching can make grain boundaries appear thicker than 
+                  they are, obscure fine precipitates, or create false contrast. Follow recommended procedures and adjust 
+                  based on results, but err on the side of shorter times initially.
                 </p>
               </div>
 
@@ -228,6 +262,33 @@ export default function CommonMisconceptionsGuide() {
                   appropriate etchant for your material. Consult etchant guides and material-specific procedures.
                 </p>
               </div>
+
+              <h3>Misconception: "All etchants are applied the same way"</h3>
+              <div className="bg-red-50 border-l-4 border-red-600 p-4 my-4 rounded">
+                <p className="text-sm text-gray-700 font-semibold mb-2">
+                  <strong>Reality:</strong> Application method affects etching results.
+                </p>
+                <p className="text-sm text-gray-700">
+                  Some etchants work best with swabbing (gentle rubbing), others require immersion, and some need 
+                  electrolytic application. The method affects etching uniformity, time, and results. Swabbing can 
+                  create uneven etching if not done properly, while immersion provides more uniform results but may 
+                  require longer times. Follow recommended application methods for each etchant.
+                </p>
+              </div>
+
+              <h3>Misconception: "I don't need to understand the material before preparing it"</h3>
+              <div className="bg-red-50 border-l-4 border-red-600 p-4 my-4 rounded">
+                <p className="text-sm text-gray-700 font-semibold mb-2">
+                  <strong>Reality:</strong> Material knowledge guides preparation strategy.
+                </p>
+                <p className="text-sm text-gray-700">
+                  Understanding material properties (hardness, ductility, thermal sensitivity, phase composition) helps 
+                  you select appropriate preparation methods. Hard materials may need different abrasives than soft ones. 
+                  Thermally sensitive materials require careful sectioning and grinding to avoid microstructural changes. 
+                  Knowing expected phases helps with etchant selection and interpretation. Always gather material 
+                  information before starting preparation.
+                </p>
+              </div>
             </section>
 
             <section id="interpretation-misconceptions" className="scroll-mt-24">
@@ -246,7 +307,8 @@ export default function CommonMisconceptionsGuide() {
                   Scratches, contamination, relief, smearing, and other preparation artifacts can be mistaken for real 
                   microstructural features. Always consider whether what you're seeing could be a preparation artifact. 
                   Compare with reference microstructures. If something looks unusual, it might be an artifact rather than 
-                  a real feature.
+                  a real feature. However, don't assume everything unusual is an artifact—some real microstructural 
+                  features can be unexpected.
                 </p>
               </div>
 
@@ -283,7 +345,22 @@ export default function CommonMisconceptionsGuide() {
                   Fine features, certain phases, or specific structures may not be visible with standard brightfield 
                   illumination. You might need: different illumination (darkfield, DIC, polarized light), different 
                   etchants, higher magnification, or different preparation techniques. Don't assume absence just because 
-                  you can't see something with one technique.
+                  you can't see something with one technique. Some features are below the resolution limit of optical 
+                  microscopy and require electron microscopy.
+                </p>
+              </div>
+
+              <h3>Misconception: "One sample is enough to characterize a material"</h3>
+              <div className="bg-red-50 border-l-4 border-red-600 p-4 my-4 rounded">
+                <p className="text-sm text-gray-700 font-semibold mb-2">
+                  <strong>Reality:</strong> Microstructures can vary significantly within a material.
+                </p>
+                <p className="text-gray-700">
+                  A single sample may not be representative of the entire material. Microstructures can vary due to: 
+                  location within the part (surface vs. interior, different regions), processing history (heat treatment 
+                  variations, cooling rates), and inherent material variability. For meaningful characterization, examine 
+                  multiple samples from different locations and orientations. Statistical analysis often requires multiple 
+                  samples.
                 </p>
               </div>
             </section>
@@ -375,6 +452,19 @@ export default function CommonMisconceptionsGuide() {
                   metallographers.
                 </p>
               </div>
+
+              <h3>Misconception: "I don't need to document my procedures"</h3>
+              <div className="bg-red-50 border-l-4 border-red-600 p-4 my-4 rounded">
+                <p className="text-sm text-gray-700 font-semibold mb-2">
+                  <strong>Reality:</strong> Documentation is essential for reproducibility and troubleshooting.
+                </p>
+                <p className="text-sm text-gray-700">
+                  Without documenting your preparation procedure (grit sequence, times, pressures, etchants, etc.), you 
+                  cannot reproduce results or troubleshoot problems. Documentation helps you: identify what worked, avoid 
+                  repeating mistakes, share procedures with others, and meet quality standards. Good documentation includes 
+                  all parameters, any deviations from standard procedures, and observations at each step.
+                </p>
+              </div>
             </section>
 
             <section id="best-practices" className="scroll-mt-24">
@@ -424,6 +514,24 @@ export default function CommonMisconceptionsGuide() {
                 <li>Verify unusual observations</li>
                 <li>Ask questions when unsure</li>
                 <li>Compare with known good samples</li>
+              </ul>
+
+              <h3>Document Everything</h3>
+              <ul>
+                <li>Record all preparation parameters (grits, times, pressures)</li>
+                <li>Note any deviations from standard procedures</li>
+                <li>Document observations at each step</li>
+                <li>Record etchant types, concentrations, and application methods</li>
+                <li>Keep notes on what works and what doesn't for different materials</li>
+              </ul>
+
+              <h3>Understand Your Material</h3>
+              <ul>
+                <li>Research material properties before starting</li>
+                <li>Know expected phases and microstructural features</li>
+                <li>Understand thermal sensitivity and hardness</li>
+                <li>Consult material-specific preparation guides</li>
+                <li>Consider the analysis goals when planning preparation</li>
               </ul>
 
               <div className="bg-primary-50 border-l-4 border-primary-600 p-6 my-6 rounded">

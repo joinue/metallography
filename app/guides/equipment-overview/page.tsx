@@ -124,9 +124,20 @@ export default function EquipmentOverviewGuide() {
 
               <h3>Abrasive Cutters</h3>
               <p>
-                Abrasive cutters use rotating abrasive wheels to cut through materials. They are versatile and can handle 
-                a wide range of materials and sizes.
+                Abrasive cutters use rotating abrasive wheels (typically aluminum oxide or silicon carbide) bonded in a 
+                resin or rubber matrix to cut through materials. They are versatile and can handle a wide range of materials 
+                and sizes, from soft non-ferrous metals to hard steels and some ceramics. Abrasive sectioning is the most 
+                common method for general metallographic work.
               </p>
+              
+              <div className="bg-gray-50 border-l-4 border-primary-600 p-4 my-4 rounded">
+                <p className="text-sm text-gray-700 mb-2">
+                  <strong>When to Use Abrasive Sectioning:</strong> Choose abrasive cutters for most standard metallographic 
+                  applications, especially when cutting metals, larger samples, or when cost-effectiveness is important. 
+                  Abrasive sectioning is faster than precision wafering but generates more heat and may cause more deformation 
+                  in soft or delicate materials.
+                </p>
+              </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
                 <div className="bg-gray-50 p-4 rounded-lg">
@@ -210,9 +221,22 @@ export default function EquipmentOverviewGuide() {
 
               <h3>Precision Wafering Saws</h3>
               <p>
-                Precision wafering saws use diamond blades for cutting with minimal damage. Essential for delicate 
-                materials, small samples, and applications requiring minimal deformation.
+                Precision wafering saws use thin diamond or CBN (Cubic Boron Nitride) blades for cutting with minimal 
+                damage and deformation. These saws produce very thin cuts (kerf widths typically 0.1-0.5mm) with minimal 
+                heat generation and are essential for delicate materials, small samples, thin sections, and applications 
+                requiring minimal deformation. They are particularly important for electronic components, ceramics, 
+                heat-sensitive materials, and when sectioning damage must be minimized.
               </p>
+              
+              <div className="bg-gray-50 border-l-4 border-primary-600 p-4 my-4 rounded">
+                <p className="text-sm text-gray-700 mb-2">
+                  <strong>When to Use Precision Wafering:</strong> Choose precision wafering saws when working with delicate 
+                  materials, small samples, thin sections, heat-sensitive materials, or when minimal sectioning damage is 
+                  critical. Precision wafering is slower and more expensive than abrasive sectioning but produces superior 
+                  results for sensitive applications. Essential for PCB preparation, ceramic analysis, and EBSD sample 
+                  preparation.
+                </p>
+              </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
                 <div className="bg-gray-50 p-4 rounded-lg">
@@ -234,9 +258,15 @@ export default function EquipmentOverviewGuide() {
                   </div>
                   <h4 className="font-semibold mb-2">Gravity Feed Precision Cutters</h4>
                   <p className="text-sm text-gray-700 mb-2">
-                    Gravity-fed cutting for consistent, low-damage sectioning. Excellent for delicate materials and 
-                    small samples.
+                    Gravity-fed cutting mechanism provides consistent, low-damage sectioning with minimal operator 
+                    intervention. The weight of the cutting head provides consistent feed pressure. Excellent for 
+                    delicate materials, small samples, and when consistent cutting parameters are needed.
                   </p>
+                  <ul className="text-xs text-gray-600 space-y-1 mb-3">
+                    <li>• Consistent feed pressure from gravity</li>
+                    <li>• Minimal operator intervention required</li>
+                    <li>• Ideal for delicate and small samples</li>
+                  </ul>
                   <Link 
                     href="https://metallographic.com/metallographic-equipment/precision-wafering/gravity-feed-precision-cutters.html"
                     target="_blank"
@@ -266,9 +296,15 @@ export default function EquipmentOverviewGuide() {
                   </div>
                   <h4 className="font-semibold mb-2">Table Feed Precision Cutters</h4>
                   <p className="text-sm text-gray-700 mb-2">
-                    Motorized table feed for automated precision cutting. Provides consistent feed rates and excellent 
-                    control for high-precision applications.
+                    Motorized table feed provides automated precision cutting with programmable feed rates. Offers 
+                    excellent control and repeatability for high-precision applications. Ideal for production environments 
+                    and when precise, repeatable cutting parameters are required.
                   </p>
+                  <ul className="text-xs text-gray-600 space-y-1 mb-3">
+                    <li>• Programmable feed rates</li>
+                    <li>• Excellent repeatability</li>
+                    <li>• Ideal for production and high-precision work</li>
+                  </ul>
                   <Link 
                     href="https://metallographic.com/metallographic-equipment/precision-wafering/table-feed-precision-cutters.html"
                     target="_blank"
@@ -290,8 +326,9 @@ export default function EquipmentOverviewGuide() {
 
               <h3>Compression Mounting Presses</h3>
               <p>
-                Compression mounting uses heat and pressure to embed samples in thermosetting resins. Fast and produces 
-                durable mounts.
+                Compression mounting uses heat (typically 150-180°C) and pressure (2000-4000 psi) to embed samples in 
+                thermosetting resins. This method is fast (typically 5-15 minutes per cycle) and produces durable, hard 
+                mounts with excellent edge retention. Ideal for high-throughput laboratories and standard metal samples.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
@@ -314,9 +351,15 @@ export default function EquipmentOverviewGuide() {
                   </div>
                   <h4 className="font-semibold mb-2">Pneumatic Mounting Presses</h4>
                   <p className="text-sm text-gray-700 mb-2">
-                    Air-powered compression mounting. Fast cycle times and consistent pressure application. Good for 
-                    medium to high volume work.
+                    Air-powered compression mounting using compressed air to generate pressure. Fast cycle times and 
+                    consistent pressure application. Good for medium to high volume work. Generally more cost-effective 
+                    than hydraulic systems for standard applications.
                   </p>
+                  <ul className="text-xs text-gray-600 space-y-1 mb-3">
+                    <li>• Fast cycle times</li>
+                    <li>• Consistent pressure application</li>
+                    <li>• Cost-effective for standard applications</li>
+                  </ul>
                   <Link 
                     href="https://metallographic.com/metallographic-equipment/compression-mounting/pneumatic-mounting-press.html"
                     target="_blank"
@@ -346,9 +389,15 @@ export default function EquipmentOverviewGuide() {
                   </div>
                   <h4 className="font-semibold mb-2">Hydraulic Mounting Presses</h4>
                   <p className="text-sm text-gray-700 mb-2">
-                    Hydraulic-powered compression mounting. Higher pressure capability for larger samples or harder 
-                    mounting materials.
+                    Hydraulic-powered compression mounting using hydraulic fluid to generate pressure. Higher pressure 
+                    capability than pneumatic systems, making them suitable for larger samples, harder mounting materials, 
+                    or when maximum pressure is required for optimal edge retention.
                   </p>
+                  <ul className="text-xs text-gray-600 space-y-1 mb-3">
+                    <li>• Higher pressure capability</li>
+                    <li>• Suitable for larger samples</li>
+                    <li>• Ideal for harder mounting materials</li>
+                  </ul>
                   <Link 
                     href="https://metallographic.com/metallographic-equipment/compression-mounting/hydraulic-mounting-press.html"
                     target="_blank"
@@ -362,9 +411,23 @@ export default function EquipmentOverviewGuide() {
 
               <h3>Castable Mounting Systems</h3>
               <p>
-                Castable mounting uses room-temperature or low-temperature curing resins. Ideal for heat-sensitive 
-                samples and when compression mounting isn't suitable.
+                Castable mounting (also called cold mounting) uses room-temperature or low-temperature curing resins 
+                that cure without the high heat and pressure of compression mounting. This method is ideal for 
+                heat-sensitive samples, delicate materials, and when compression mounting isn't suitable. Curing times 
+                vary from 30 minutes to several hours depending on the resin type. Castable mounting is also useful for 
+                mounting multiple samples simultaneously or when working with irregular shapes that don't fit standard 
+                compression molds.
               </p>
+              
+              <div className="bg-gray-50 border-l-4 border-primary-600 p-4 my-4 rounded">
+                <p className="text-sm text-gray-700 mb-2">
+                  <strong>When to Use Castable Mounting:</strong> Choose castable mounting for heat-sensitive materials 
+                  (e.g., some aluminum alloys, polymers, composites), delicate samples that could be damaged by pressure, 
+                  when mounting multiple samples at once, or when working with irregular shapes. Compression mounting is 
+                  generally faster and produces harder mounts, but castable mounting is essential when heat or pressure 
+                  would damage the sample.
+                </p>
+              </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
                 <div className="bg-gray-50 p-4 rounded-lg">
@@ -386,7 +449,9 @@ export default function EquipmentOverviewGuide() {
                   </div>
                   <h4 className="font-semibold mb-2 text-sm">Pressure Mounting</h4>
                   <p className="text-xs text-gray-700">
-                    Room-temperature curing under pressure for faster cycles.
+                    Room-temperature curing under moderate pressure (typically 30-50 psi) for faster cycles and 
+                    improved resin flow. Reduces bubble formation and improves edge retention compared to atmospheric 
+                    curing.
                   </p>
                 </div>
 
@@ -409,7 +474,8 @@ export default function EquipmentOverviewGuide() {
                   </div>
                   <h4 className="font-semibold mb-2 text-sm">Vacuum Mounting</h4>
                   <p className="text-xs text-gray-700">
-                    Removes air bubbles for clear, bubble-free mounts.
+                    Removes air bubbles from the resin before and during curing, producing clear, bubble-free mounts. 
+                    Essential for transparent mounting materials and when bubble-free mounts are critical.
                   </p>
                 </div>
 
@@ -432,7 +498,8 @@ export default function EquipmentOverviewGuide() {
                   </div>
                   <h4 className="font-semibold mb-2 text-sm">UV Curing</h4>
                   <p className="text-xs text-gray-700">
-                    Fast UV-cured mounting for rapid turnaround.
+                    Fast UV-cured mounting for rapid turnaround (typically 5-15 minutes). Uses UV light to cure 
+                    specialized resins quickly. Ideal for high-throughput applications with appropriate resin systems.
                   </p>
                 </div>
               </div>
@@ -447,8 +514,9 @@ export default function EquipmentOverviewGuide() {
 
               <h3>Manual Grinder Polishers</h3>
               <p>
-                Manual systems provide operator control over the preparation process. Suitable for low to medium volume 
-                work and when flexibility is important.
+                Manual systems provide operator control over the preparation process. The operator controls pressure, 
+                speed, rotation direction, and technique. Suitable for low to medium volume work, learning environments, 
+                and when flexibility to adapt techniques for different materials is important.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
@@ -524,8 +592,10 @@ export default function EquipmentOverviewGuide() {
 
               <h3>Semi-Automated Grinder Polishers</h3>
               <p>
-                Semi-automated systems provide programmable preparation with operator loading. Good balance between 
-                automation and flexibility.
+                Semi-automated systems provide programmable preparation cycles with automatic head movement and force 
+                application. The operator loads samples and selects the program, but the system controls the preparation 
+                parameters. This provides a good balance between automation and flexibility, ensuring consistent results 
+                while allowing operator oversight.
               </p>
 
               <div className="bg-gray-50 p-4 rounded-lg my-6">
@@ -563,7 +633,8 @@ export default function EquipmentOverviewGuide() {
               <h3>Controlled Removal Polishers</h3>
               <p>
                 Advanced systems with precise material removal control. Essential for applications requiring exact 
-                material removal rates or depth measurements.
+                material removal rates or depth measurements, such as PCB preparation, thin film analysis, and 
+                case depth measurements.
               </p>
 
               <div className="bg-gray-50 p-4 rounded-lg my-6">
@@ -586,8 +657,14 @@ export default function EquipmentOverviewGuide() {
                 <h4 className="font-semibold mb-2">Controlled Removal Systems</h4>
                 <p className="text-sm text-gray-700 mb-2">
                   Precise material removal control for applications requiring exact depth measurements or controlled 
-                  material removal rates.
+                  material removal rates. Ideal for plano-parallel sample preparation and applications where material 
+                  removal must be precisely controlled.
                 </p>
+                <ul className="text-xs text-gray-600 space-y-1 mb-3">
+                  <li>• Precise depth control and measurement</li>
+                  <li>• Ideal for thin sections and coatings</li>
+                  <li>• Essential for PCB and electronic component preparation</li>
+                </ul>
                 <Link 
                   href="https://metallographic.com/metallographic-equipment/grinding-polishing/atto.html"
                   target="_blank"
@@ -596,6 +673,61 @@ export default function EquipmentOverviewGuide() {
                 >
                   View Controlled Removal Systems →
                 </Link>
+              </div>
+
+              <h3>Vibratory Polishers</h3>
+              <p>
+                Vibratory polishing uses vibration to polish samples, eliminating subsurface damage and producing 
+                superior surface finishes. This method is particularly effective for EBSD (Electron Backscatter 
+                Diffraction) sample preparation and applications requiring minimal deformation.
+              </p>
+
+              <div className="bg-gray-50 p-4 rounded-lg my-6">
+                <div className="mb-3 rounded-lg overflow-hidden h-48 flex items-center justify-center bg-white">
+                  <Link 
+                    href="https://metallographic.com/metallographic-equipment/grinding-polishing/giga.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:opacity-90 transition-opacity w-full h-full flex items-center justify-center"
+                  >
+                    <Image
+                      src="/images/equipment/grinding & polishing/vibratory polisher/giga-s-cover.webp"
+                      alt="Vibratory polisher"
+                      width={300}
+                      height={225}
+                      className="max-w-full max-h-full object-contain"
+                    />
+                  </Link>
+                </div>
+                <h4 className="font-semibold mb-2">Vibratory Polishing Systems</h4>
+                <p className="text-sm text-gray-700 mb-2">
+                  Cost-effective alternative for final polishing that eliminates subsurface damage and produces superior 
+                  flatness and planarity. Ideal for batch processing and applications requiring minimal deformation.
+                </p>
+                <ul className="text-xs text-gray-600 space-y-1 mb-3">
+                  <li>• Eliminates subsurface damage</li>
+                  <li>• Superior flatness and planarity</li>
+                  <li>• Ideal for EBSD preparation</li>
+                  <li>• Batch processing capability</li>
+                  <li>• Reduces operator variability</li>
+                </ul>
+                <Link 
+                  href="https://metallographic.com/metallographic-equipment/grinding-polishing/giga.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-600 hover:text-primary-700 font-semibold text-xs"
+                >
+                  View Vibratory Polishers →
+                </Link>
+              </div>
+
+              <div className="bg-blue-50 border-l-4 border-blue-600 p-4 my-6 rounded">
+                <p className="text-sm text-gray-700 mb-2">
+                  <strong>Choosing Between Polishing Methods:</strong> Manual systems offer flexibility and are cost-effective 
+                  for low-volume work. Semi-automated systems provide consistency and reduce operator time. Controlled removal 
+                  systems are essential for precision applications. Vibratory polishing is ideal for final polishing, especially 
+                  for EBSD preparation and when minimal deformation is critical.
+                </p>
               </div>
             </section>
 
@@ -608,8 +740,10 @@ export default function EquipmentOverviewGuide() {
 
               <h3>Metallurgical Microscopes</h3>
               <p>
-                Metallurgical microscopes use reflected light to examine opaque samples. Essential for routine 
-                metallographic examination.
+                Metallurgical microscopes use reflected light illumination to examine opaque samples, unlike biological 
+                microscopes that use transmitted light. They are essential for routine metallographic examination and 
+                microstructure analysis. These microscopes are designed to work with polished and etched samples, providing 
+                the magnification and illumination modes needed to reveal microstructural features.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
@@ -636,9 +770,10 @@ export default function EquipmentOverviewGuide() {
                     microstructure analysis.
                   </p>
                   <ul className="text-xs text-gray-600 space-y-1 mb-3">
-                    <li>• Brightfield, darkfield, DIC illumination</li>
-                    <li>• Magnifications from 50x to 1000x+</li>
-                    <li>• Digital imaging capabilities</li>
+                    <li>• Brightfield, darkfield, and DIC (Differential Interference Contrast) illumination modes</li>
+                    <li>• Magnifications typically from 50x to 1000x or higher</li>
+                    <li>• Digital imaging capabilities for documentation and analysis</li>
+                    <li>• Polarized light options for certain applications</li>
                   </ul>
                   <Link 
                     href="https://metallographic.com/metallographic-equipment/microscopy/metallurgical-microscopes.html"
@@ -669,9 +804,15 @@ export default function EquipmentOverviewGuide() {
                   </div>
                   <h4 className="font-semibold mb-2">Stereo Microscopes</h4>
                   <p className="text-sm text-gray-700 mb-2">
-                    Low-magnification 3D viewing for sample inspection, fracture surface examination, and general 
-                    sample observation.
+                    Low-magnification 3D viewing (typically 5x to 50x) for sample inspection, fracture surface 
+                    examination, and general sample observation. Essential for macroscopic examination before and after 
+                    preparation, checking for defects, and orienting samples.
                   </p>
+                  <ul className="text-xs text-gray-600 space-y-1 mb-3">
+                    <li>• Low magnification (5x-50x typical range)</li>
+                    <li>• 3D depth perception</li>
+                    <li>• Useful for fracture analysis and sample inspection</li>
+                  </ul>
                   <Link 
                     href="https://metallographic.com/metallographic-equipment/microscopy/stereo-microscopes.html"
                     target="_blank"
@@ -749,9 +890,15 @@ export default function EquipmentOverviewGuide() {
                   </div>
                   <h4 className="font-semibold mb-2">Rockwell Hardness Testers</h4>
                   <p className="text-sm text-gray-700 mb-2">
-                    Common hardness testing method using indentation depth. Fast and suitable for a wide range of 
-                    materials and hardness levels.
+                    Common macrohardness testing method using indentation depth measurement. Fast testing with direct 
+                    readout, suitable for a wide range of materials and hardness levels. Uses different scales (A, B, C, 
+                    etc.) for different material types and hardness ranges.
                   </p>
+                  <ul className="text-xs text-gray-600 space-y-1 mb-3">
+                    <li>• Fast, direct readout</li>
+                    <li>• Multiple scales for different materials</li>
+                    <li>• Suitable for production testing</li>
+                  </ul>
                   <Link 
                     href="https://metallographic.com/metallographic-equipment/hardness-testing/rockwell-tester.html"
                     target="_blank"
@@ -782,8 +929,15 @@ export default function EquipmentOverviewGuide() {
                   <h4 className="font-semibold mb-2">Microhardness Testers</h4>
                   <p className="text-sm text-gray-700 mb-2">
                     Vickers or Knoop indentation testing for small areas, thin samples, and precise hardness 
-                    measurements. Essential for case depth measurements and small feature analysis.
+                    measurements. Uses much smaller indenters and lower loads than macrohardness testers. Essential 
+                    for case depth measurements, small feature analysis, and when testing individual phases or 
+                    microstructural features.
                   </p>
+                  <ul className="text-xs text-gray-600 space-y-1 mb-3">
+                    <li>• Vickers and Knoop test methods</li>
+                    <li>• Low loads (typically 10g to 1000g)</li>
+                    <li>• Essential for case depth and small feature analysis</li>
+                  </ul>
                   <Link 
                     href="https://metallographic.com/metallographic-equipment/hardness-testing/microhardness-tester.html"
                     target="_blank"
@@ -898,13 +1052,23 @@ export default function EquipmentOverviewGuide() {
 
               <h3>Key Considerations</h3>
               <ul>
-                <li><strong>Sample volume:</strong> High-volume labs benefit from automation, while low-volume labs may 
-                prefer manual systems</li>
-                <li><strong>Material types:</strong> Different materials may require specialized equipment or capabilities</li>
-                <li><strong>Precision requirements:</strong> Applications requiring high precision may need advanced equipment</li>
-                <li><strong>Budget:</strong> Balance initial cost with long-term value and productivity</li>
-                <li><strong>Operator skill level:</strong> Consider training requirements and ease of use</li>
-                <li><strong>Future needs:</strong> Plan for growth and changing requirements</li>
+                <li><strong>Sample volume:</strong> High-volume labs (10+ samples per day) benefit from automation, 
+                while low-volume labs may prefer manual systems. Consider both current and projected volume.</li>
+                <li><strong>Material types:</strong> Different materials may require specialized equipment or capabilities. 
+                For example, soft materials may need vibratory polishing, while hard ceramics may require controlled removal 
+                systems or specialized techniques.</li>
+                <li><strong>Precision requirements:</strong> Applications requiring high precision (e.g., case depth 
+                measurements, thin film analysis, EBSD preparation) may need advanced equipment like controlled removal 
+                polishers or vibratory polishers.</li>
+                <li><strong>Budget:</strong> Balance initial cost with long-term value and productivity. Consider total 
+                cost of ownership including maintenance, consumables, and operator time.</li>
+                <li><strong>Operator skill level:</strong> Consider training requirements and ease of use. Manual systems 
+                require more skill but offer flexibility, while automated systems reduce operator variability but may have 
+                higher initial costs.</li>
+                <li><strong>Space constraints:</strong> Ensure adequate space for equipment operation, sample handling, 
+                and workflow. Some automated systems require more floor space.</li>
+                <li><strong>Future needs:</strong> Plan for growth and changing requirements. Consider equipment that can 
+                be upgraded or expanded as needs evolve.</li>
               </ul>
 
               <h3>Equipment Quality</h3>
@@ -921,18 +1085,30 @@ export default function EquipmentOverviewGuide() {
 
               <h3>Getting Started</h3>
               <p>
-                For new laboratories, consider starting with:
+                For new laboratories or those setting up their first metallography lab, consider starting with a basic 
+                but complete setup:
               </p>
               <ul>
-                <li>Basic sectioning equipment (manual abrasive cutter or precision saw)</li>
-                <li>Compression mounting press</li>
-                <li>Manual grinder polisher</li>
-                <li>Metallurgical microscope with digital imaging</li>
-                <li>Essential consumables and accessories</li>
+                <li><strong>Sectioning:</strong> Manual abrasive cutter for most materials, or precision wafering saw 
+                if working with delicate materials, electronics, or ceramics</li>
+                <li><strong>Mounting:</strong> Pneumatic compression mounting press for standard applications, or castable 
+                mounting system if working with heat-sensitive materials</li>
+                <li><strong>Grinding & Polishing:</strong> Manual grinder polisher with single or dual wheels. This provides 
+                flexibility to learn techniques and adapt to different materials</li>
+                <li><strong>Microscopy:</strong> Metallurgical microscope with digital imaging capabilities for documentation 
+                and analysis. Include brightfield and darkfield illumination modes at minimum</li>
+                <li><strong>Consumables:</strong> Essential grinding papers (240, 320, 400, 600 grit), diamond polishing 
+                suspensions (6μm, 3μm, 1μm, 0.25μm), polishing cloths, mounting resins, and basic etchants for your 
+                materials</li>
+                <li><strong>Safety:</strong> Fume hood for etching, personal protective equipment, and proper storage for 
+                chemicals</li>
               </ul>
 
               <p>
-                You can expand your equipment as your needs grow and your workflow becomes more defined.
+                This basic setup allows you to prepare and examine samples while learning techniques. As your needs grow 
+                and your workflow becomes more defined, you can expand with automation, specialized equipment, or additional 
+                capabilities. Many laboratories start with manual systems and add automation as volume increases or 
+                consistency requirements become more critical.
               </p>
 
               <div className="bg-primary-50 border-l-4 border-primary-600 p-6 my-6 rounded">

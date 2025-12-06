@@ -134,10 +134,8 @@ export default function MagnesiumGuide() {
 
                 <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
                   <ProductLink
+                    productName="MAX-E Abrasive Blades"
                     href="https://shop.metallographic.com/collections/abrasive-blades"
-                    imageSrc="/images/consumables/maxcut-e.webp"
-                    imageAlt="MAX-E abrasive cut-off blades for magnesium sectioning"
-                    title="MAX-E Abrasive Blades"
                     description="MAX-E series blades designed for soft non-ferrous materials like magnesium. Thin blades minimize heat generation."
                   />
                 </div>

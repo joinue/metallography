@@ -662,19 +662,16 @@ export default function AdditiveManufacturingGuide() {
 
             {/* CTA Section */}
             <div className="bg-primary-50 border-l-4 border-primary-600 p-6 mt-12 rounded">
-              <h2 className="text-2xl font-semibold mb-4">Save This Procedure</h2>
+              <h2 className="text-2xl font-semibold mb-4">Explore More Procedures</h2>
               <p className="mb-4">
-                Want to save this procedure and get personalized recommendations? Use our free 
-                procedure tool to create and manage your preparation methods.
+                Browse our comprehensive procedure guides for material-specific preparation methods and get personalized recommendations.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link 
-                  href="https://materialsprep.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/guides?category=Material-Specific"
                   className="btn-primary text-center"
                 >
-                  Save to Procedure Tool
+                  Browse Procedure Guides
                 </Link>
                 <Link 
                   href="https://shop.metallographic.com"

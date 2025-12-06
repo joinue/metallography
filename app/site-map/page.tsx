@@ -259,16 +259,13 @@ export default function SitemapPage() {
             <div className="bg-white border-2 border-gray-200 rounded-lg p-6">
               <ul className="space-y-3">
                 <li>
-                  <a 
-                    href="https://materialsprep.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
+                  <Link 
+                    href="/guides?category=Material-Specific"
                     className="flex items-center gap-2 text-lg font-semibold text-primary-600 hover:text-primary-700 transition-colors group"
                   >
                     <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    Procedure Tool (materialsprep.com)
-                    <span className="text-xs text-gray-500">(External)</span>
-                  </a>
+                    Material-Specific Guides
+                  </Link>
                   <p className="text-sm text-gray-600 ml-7">
                     Save, organize, and get personalized recommendations for your preparation procedures
                   </p>

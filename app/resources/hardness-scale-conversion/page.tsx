@@ -116,7 +116,7 @@ export default function HardnessScaleConversionPage() {
     }
     
     pdf.setFontSize(16)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.setTextColor(255, 255, 255)
     pdf.text('Hardness Scale Conversion Chart', pageWidth / 2, margin + 5, { align: 'center' })
     
@@ -133,7 +133,7 @@ export default function HardnessScaleConversionPage() {
     pdf.setFillColor(50, 50, 50)
     pdf.setDrawColor(200, 200, 200)
     pdf.setFontSize(9)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.setTextColor(255, 255, 255)
 
     const headers = [
@@ -155,7 +155,7 @@ export default function HardnessScaleConversionPage() {
 
     // Main conversion table (HRC)
     pdf.setFontSize(7)
-    pdf.setFont(undefined, 'normal')
+    pdf.setFont('helvetica', 'normal')
     pdf.setTextColor(0, 0, 0)
 
     hardnessConversions.forEach((row, index) => {
@@ -166,7 +166,7 @@ export default function HardnessScaleConversionPage() {
         xPos = tableStartX
         pdf.setFillColor(50, 50, 50)
         pdf.setFontSize(9)
-        pdf.setFont(undefined, 'bold')
+        pdf.setFont('helvetica', 'bold')
         pdf.setTextColor(255, 255, 255)
         headers.forEach((header) => {
           pdf.rect(xPos, yPos - 5, header.width, 6, 'F')
@@ -175,7 +175,7 @@ export default function HardnessScaleConversionPage() {
         })
         yPos += 7
         pdf.setFontSize(7)
-        pdf.setFont(undefined, 'normal')
+        pdf.setFont('helvetica', 'normal')
         pdf.setTextColor(0, 0, 0)
       }
 
@@ -211,12 +211,12 @@ export default function HardnessScaleConversionPage() {
       yPos += 5
 
       pdf.setFontSize(8)
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       pdf.text('Notes:', tableStartX, yPos)
       yPos += 4
 
       pdf.setFontSize(7)
-      pdf.setFont(undefined, 'normal')
+      pdf.setFont('helvetica', 'normal')
       pdf.setTextColor(80, 80, 80)
       const notes = [
         '• HRC: Rockwell C scale (diamond cone, 150 kgf)',

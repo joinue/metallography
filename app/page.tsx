@@ -30,6 +30,13 @@ export const metadata: Metadata = {
         height: 630,
         alt: 'Metallography.org - Free Metallographic Sample Preparation Resources',
       },
+      // White logo variant for dark backgrounds (platforms may choose based on context)
+      {
+        url: '/logo-white.png',
+        width: 1200,
+        height: 630,
+        alt: 'Metallography.org - Free Metallographic Sample Preparation Resources',
+      },
     ],
     locale: 'en_US',
     type: 'website',
@@ -52,13 +59,18 @@ export default function Home() {
     name: 'Metallography.org',
     url: 'https://metallography.org',
     description: 'Free educational resources, guides, and best practices for metallographic sample preparation',
-    logo: 'https://metallography.org/logo.png',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://metallography.org/logo.png',
+      contentUrl: 'https://metallography.org/logo.png',
+      width: 512,
+      height: 512,
+    },
     founder: {
       '@type': 'Organization',
       name: 'Metallography.org',
     },
     sameAs: [
-      'https://materialsprep.com',
       'https://shop.metallographic.com',
       'https://metallographic.com/equipment',
     ],

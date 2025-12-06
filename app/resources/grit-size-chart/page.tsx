@@ -97,12 +97,12 @@ export default function GritSizeChartPage() {
       }
       
       pdf.setFontSize(16)
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       pdf.setTextColor(255, 255, 255)
       pdf.text('Grit Size Conversion Chart', pageWidth / 2, yPos - 2, { align: 'center' })
       
       pdf.setFontSize(12)
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       pdf.setTextColor(255, 255, 255)
       const logoOffset = logoDataUrl ? 10 : 0
       pdf.text('Metallography.org', margin + 5 + logoOffset, yPos - 2)
@@ -142,7 +142,7 @@ export default function GritSizeChartPage() {
       pdf.setFillColor(50, 50, 50)
       pdf.setDrawColor(200, 200, 200)
       pdf.setFontSize(9)
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       pdf.setTextColor(255, 255, 255)
 
       let xPos = tableStartX
@@ -162,7 +162,7 @@ export default function GritSizeChartPage() {
 
       pdf.setDrawColor(220, 220, 220)
       pdf.setFontSize(8)
-      pdf.setFont(undefined, 'normal')
+      pdf.setFont('helvetica', 'normal')
       pdf.setTextColor(0, 0, 0)
 
       let xPos = tableStartX
@@ -218,13 +218,13 @@ export default function GritSizeChartPage() {
       currentY += 5
 
       pdf.setFontSize(9)
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       pdf.setTextColor(0, 0, 0)
       pdf.text('Notes:', tableStartX, currentY)
       currentY += 4
 
       pdf.setFontSize(7)
-      pdf.setFont(undefined, 'normal')
+      pdf.setFont('helvetica', 'normal')
       pdf.setTextColor(80, 80, 80)
       const notes = [
         '• FEPA: Federation of European Producers of Abrasives (P-grade standard)',

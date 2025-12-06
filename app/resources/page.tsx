@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { Search, FileText, BarChart3, BookOpen, AlertCircle, ChevronRight, Scale, Shield, Eye, PlayCircle } from 'lucide-react'
 import AnimatedCard from '@/components/AnimatedCard'
@@ -130,7 +130,7 @@ const resources = [
   },
 ]
 
-export default function ResourcesPage() {
+function ResourcesPageContent() {
   const categories = ['All', ...categoryOrder]
   const searchParams = useSearchParams()
   const router = useRouter()
@@ -184,88 +184,89 @@ export default function ResourcesPage() {
   }, {} as Record<string, typeof filteredResources>)
 
   return (
-    <div className="py-12">
+    <div className="py-4 sm:py-6 md:py-12">
       <div className="container-custom">
         {/* Header Section */}
-        <div className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold mb-2 text-gray-900">Free Resources</h1>
-          <p className="text-lg text-gray-600 mt-2">
-            Downloadable checklists, reference guides, and educational materials organized by category. 
-            Use these resources to support your metallography work and improve your sample preparation workflow.
+        <div className="mb-3 sm:mb-4 md:mb-6">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1.5 sm:mb-2 text-gray-900">Free Resources</h1>
+          <p className="text-xs sm:text-sm md:text-base text-gray-600 mt-1 sm:mt-2">
+            Checklists, reference guides, and educational materials organized by category.
           </p>
         </div>
 
         {/* Search Bar */}
-        <div className="mb-6">
+        <div className="mb-4 sm:mb-6">
           <div className="relative max-w-2xl">
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+            <Search className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
             <input
               type="text"
               placeholder="Search resources..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none text-gray-900 placeholder-gray-400"
+              className="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none text-gray-900 placeholder-gray-400 text-sm sm:text-base"
             />
           </div>
         </div>
 
-        {/* Category Filter */}
-        <div className="mb-8 flex flex-wrap gap-3">
-          {categories.map(category => (
-            <button
-              key={category}
-              onClick={() => handleCategoryChange(category)}
-              className={`px-5 py-2.5 rounded-full font-semibold text-sm transition-colors duration-200 ${
-                selectedCategory === category
-                  ? 'bg-primary-600 text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-            >
-              {category}
-            </button>
-          ))}
+        {/* Category Filter - Scrollable on mobile */}
+        <div className="mb-3 sm:mb-4 md:mb-6">
+          <div className="flex gap-2 sm:gap-3 overflow-x-auto pb-2 -mx-4 sm:mx-0 px-4 sm:px-0 scrollbar-hide">
+            {categories.map(category => (
+              <button
+                key={category}
+                onClick={() => handleCategoryChange(category)}
+                className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full font-semibold text-xs sm:text-sm transition-colors duration-200 whitespace-nowrap flex-shrink-0 ${
+                  selectedCategory === category
+                    ? 'bg-primary-600 text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Resources by Section */}
         {selectedCategory === 'All' ? (
           // Show resources grouped by section when "All" is selected
-          <div className="space-y-12 mb-16">
+          <div className="space-y-6 sm:space-y-8 md:space-y-10 mb-4 sm:mb-8 md:mb-12">
             {categoryOrder.map(category => {
               const categoryResources = resourcesByCategory[category] || []
               if (categoryResources.length === 0) return null
               
               return (
                 <section key={category} className="scroll-mt-24">
-                  <div className="flex items-center gap-3 mb-6">
-                    <h2 className="text-2xl font-bold text-gray-900">{category}</h2>
-                    <span className="text-sm text-gray-500">({categoryResources.length} {categoryResources.length === 1 ? 'resource' : 'resources'})</span>
+                  <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3 md:mb-4">
+                    <h2 className="text-xl sm:text-2xl font-bold text-gray-900">{category}</h2>
+                    <span className="text-xs sm:text-sm text-gray-500">({categoryResources.length} {categoryResources.length === 1 ? 'resource' : 'resources'})</span>
                   </div>
                   {category === 'Checklists & Quick References' && (
-                    <p className="text-gray-600 mb-6 max-w-3xl">
-                      Quick-reference materials to help you stay organized and follow best practices during sample preparation.
+                    <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4 md:mb-5 max-w-3xl">
+                      Quick-reference materials for staying organized.
                     </p>
                   )}
                   {category === 'Reference Charts' && (
-                    <p className="text-gray-600 mb-6 max-w-3xl">
-                      Essential reference charts and guides for selecting abrasives, etchants, and understanding material specifications.
+                    <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4 md:mb-5 max-w-3xl">
+                      Essential charts for abrasives, etchants, and specifications.
                     </p>
                   )}
                   {category === 'Preparation Guides' && (
-                    <p className="text-gray-600 mb-6 max-w-3xl">
-                      Comprehensive guides covering material-specific preparation techniques and equipment selection.
+                    <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4 md:mb-5 max-w-3xl">
+                      Material-specific preparation techniques and equipment selection.
                     </p>
                   )}
                   {category === 'Video Resources' && (
-                    <p className="text-gray-600 mb-6 max-w-3xl">
-                      Free video tutorials and demonstrations to help you learn equipment operation and proper techniques through visual instruction.
+                    <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4 md:mb-5 max-w-3xl">
+                      Free video tutorials and equipment demonstrations.
                     </p>
                   )}
                   {category === 'Troubleshooting' && (
-                    <p className="text-gray-600 mb-6 max-w-3xl">
-                      Problem-solving resources to help identify and resolve common issues in sample preparation.
+                    <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4 md:mb-5 max-w-3xl">
+                      Solutions for common preparation issues.
                     </p>
                   )}
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                     {categoryResources.map((resource, index) => {
                       // Handle special cases: standards, glossary (externalUrl)
                       const href = (resource as any).externalUrl 
@@ -277,12 +278,12 @@ export default function ResourcesPage() {
                       <AnimatedCard key={resource.slug} index={index} animation="fadeInUp" duration={500}>
                         <Link 
                           href={href}
-                          className="card hover:border-gray-300 group"
+                          className="card hover:border-gray-300 group p-4 sm:p-6"
                         >
-                        <div className="flex items-start justify-between mb-3">
+                        <div className="flex items-start justify-between mb-2 sm:mb-3">
                           <div className="flex items-center gap-2 flex-wrap">
                             {resource.icon && (
-                              <resource.icon className="w-5 h-5 text-primary-600 flex-shrink-0" />
+                              <resource.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary-600 flex-shrink-0" />
                             )}
                             <span className="text-xs font-semibold text-primary-600 uppercase tracking-wide bg-primary-50 px-2 py-1 rounded">
                               {resource.type}
@@ -290,15 +291,15 @@ export default function ResourcesPage() {
                           </div>
                           <span className="text-xs text-gray-500">Free</span>
                         </div>
-                        <h3 className="text-xl font-semibold mb-3 text-gray-900 group-hover:text-primary-600 transition-colors">
+                        <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-gray-900 group-hover:text-primary-600 transition-colors">
                           {resource.title}
                         </h3>
-                        <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                        <p className="text-gray-600 text-sm leading-relaxed mb-3 sm:mb-4">
                           {resource.description}
                         </p>
-                        <span className="text-primary-600 font-semibold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                        <span className="text-primary-600 font-semibold text-xs sm:text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">
                           View Resource
-                          <ChevronRight className="w-4 h-4" />
+                          <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />
                         </span>
                         </Link>
                       </AnimatedCard>
@@ -311,7 +312,7 @@ export default function ResourcesPage() {
           </div>
         ) : (
           // Show filtered resources in grid when a specific category is selected
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-4 sm:mb-8 md:mb-12">
             {filteredResources.map((resource, index) => {
               // Handle special cases: standards, glossary (externalUrl)
               const href = (resource as any).externalUrl 
@@ -323,12 +324,12 @@ export default function ResourcesPage() {
               <AnimatedCard key={resource.slug} index={index} animation="fadeInUp" duration={500}>
                 <Link 
                   href={href}
-                  className="card hover:border-gray-300 group"
+                  className="card hover:border-gray-300 group p-4 sm:p-6"
                 >
-                <div className="flex items-start justify-between mb-3">
+                <div className="flex items-start justify-between mb-2 sm:mb-3">
                   <div className="flex items-center gap-2 flex-wrap">
                     {resource.icon && (
-                      <resource.icon className="w-5 h-5 text-primary-600 flex-shrink-0" />
+                      <resource.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary-600 flex-shrink-0" />
                     )}
                     <span className="text-xs font-semibold text-primary-600 uppercase tracking-wide bg-primary-50 px-2 py-1 rounded">
                       {resource.type}
@@ -336,15 +337,15 @@ export default function ResourcesPage() {
                   </div>
                   <span className="text-xs text-gray-500">Free</span>
                 </div>
-                <h3 className="text-xl font-semibold mb-3 text-gray-900 group-hover:text-primary-600 transition-colors">
+                <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-gray-900 group-hover:text-primary-600 transition-colors">
                   {resource.title}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                <p className="text-gray-600 text-sm leading-relaxed mb-3 sm:mb-4">
                   {resource.description}
                 </p>
-                <span className="text-primary-600 font-semibold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                <span className="text-primary-600 font-semibold text-xs sm:text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">
                   View Resource
-                  <ChevronRight className="w-4 h-4" />
+                  <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />
                 </span>
                 </Link>
               </AnimatedCard>
@@ -360,47 +361,62 @@ export default function ResourcesPage() {
         )}
 
         {/* Newsletter Signup */}
-        <div className="mt-16 bg-gradient-to-br from-primary-50 to-primary-100 rounded-lg p-8 text-center">
-          <h2 className="text-2xl font-bold mb-4">Get New Resources Delivered</h2>
-          <p className="text-gray-700 mb-6">
+        <div className="mt-8 sm:mt-12 md:mt-16 bg-gradient-to-br from-primary-50 to-primary-100 rounded-lg p-6 sm:p-8 text-center">
+          <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Get New Resources Delivered</h2>
+          <p className="text-sm sm:text-base text-gray-700 mb-4 sm:mb-6 px-2 sm:px-0">
             Subscribe to our newsletter and receive new guides, resources, and tips directly in your inbox.
           </p>
-          <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+          <form className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-md mx-auto px-4 sm:px-0">
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              className="flex-1 px-4 py-2.5 sm:py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm sm:text-base"
             />
-            <button type="submit" className="btn-primary whitespace-nowrap">
+            <button type="submit" className="btn-primary whitespace-nowrap w-full sm:w-auto">
               Subscribe
             </button>
           </form>
-          <p className="text-xs text-gray-600 mt-4">
+          <p className="text-xs text-gray-600 mt-3 sm:mt-4">
             We respect your privacy. Unsubscribe at any time.
           </p>
         </div>
 
         {/* CTA Section */}
-        <div className="mt-12 bg-gray-50 rounded-lg p-8 text-center">
-          <h2 className="text-2xl font-bold mb-4">Need More Help?</h2>
-          <p className="text-gray-700 mb-6">
-            Browse our comprehensive guides or use our procedure tool to save and manage your preparation methods.
+        <div className="mt-8 sm:mt-12 bg-gray-50 rounded-lg p-6 sm:p-8 text-center">
+          <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Need More Help?</h2>
+          <p className="text-sm sm:text-base text-gray-700 mb-4 sm:mb-6 px-2 sm:px-0">
+            Browse our comprehensive guides or explore our material-specific procedure guides for detailed preparation methods.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/guides" className="btn-primary">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0">
+            <Link href="/guides" className="btn-primary w-full sm:w-auto">
               Browse Guides
             </Link>
             <Link 
-              href="https://materialsprep.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-secondary"
+              href="/guides?category=Material-Specific"
+              className="btn-secondary w-full sm:w-auto"
             >
-              Try Procedure Tool
+              Browse Procedure Guides
             </Link>
           </div>
         </div>
       </div>
     </div>
+  )
+}
+
+export default function ResourcesPage() {
+  return (
+    <Suspense fallback={
+      <div className="py-4 sm:py-6 md:py-12">
+        <div className="container-custom">
+          <div className="text-center py-12">
+            <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600"></div>
+            <p className="mt-4 text-gray-600">Loading resources...</p>
+          </div>
+        </div>
+      </div>
+    }>
+      <ResourcesPageContent />
+    </Suspense>
   )
 }

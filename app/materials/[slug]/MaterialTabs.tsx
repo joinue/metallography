@@ -119,7 +119,7 @@ function getRelevantPaceLinks(text: string): Array<{ label: string; url: string;
   // Check each link category
   Object.entries(PACE_LINKS).forEach(([key, link]) => {
     // Check if excluded keywords are present
-    if (link.excludeKeywords) {
+    if ('excludeKeywords' in link && link.excludeKeywords) {
       const hasExcluded = link.excludeKeywords.some(exclude => lowerText.includes(exclude.toLowerCase()))
       if (hasExcluded) return // Skip this link
     }
@@ -129,7 +129,7 @@ function getRelevantPaceLinks(text: string): Array<{ label: string; url: string;
     if (matches) {
       // Add equipment link if available
       const isEquipment = key.includes('Equipment')
-      const url = isEquipment ? link.url : (link.shopUrl || link.url)
+      const url = isEquipment ? link.url : ('shopUrl' in link && link.shopUrl ? link.shopUrl : link.url)
       
       if (!added.has(url)) {
         const label = 
@@ -153,7 +153,7 @@ function getRelevantPaceLinks(text: string): Array<{ label: string; url: string;
       }
       
       // Also add shop link if equipment link was added and shop URL exists
-      if (isEquipment && link.shopUrl && !added.has(link.shopUrl)) {
+      if (isEquipment && 'shopUrl' in link && link.shopUrl && !added.has(link.shopUrl)) {
         const shopLabel = 
           key === 'precisionWaferingEquipment' ? 'Cutting Supplies' :
           key === 'abrasiveSectioningEquipment' ? 'Cutting Supplies' :

@@ -147,12 +147,22 @@ export default function SafetyFundamentalsGuide() {
                     <tr className="bg-gray-50">
                       <td className="border border-gray-300 px-4 py-3 font-medium">Picral (Picric Acid in Alcohol)</td>
                       <td className="border border-gray-300 px-4 py-3">Steel etching</td>
-                      <td className="border border-gray-300 px-4 py-3">Explosive when dry. Keep wet. Store properly. Handle with extreme care.</td>
+                      <td className="border border-gray-300 px-4 py-3">Explosive when dry. Must be kept wet (minimum 10% water). Store in cool, dark place. Never allow to dry out. Handle with extreme care.</td>
                     </tr>
                     <tr>
                       <td className="border border-gray-300 px-4 py-3 font-medium">Keller's Reagent</td>
                       <td className="border border-gray-300 px-4 py-3">Aluminum etching</td>
-                      <td className="border border-gray-300 px-4 py-3">Contains HF (hydrofluoric acid) - extremely dangerous. Requires special handling and PPE.</td>
+                      <td className="border border-gray-300 px-4 py-3">Contains HF (hydrofluoric acid) - extremely dangerous. Requires special handling, PPE, and calcium gluconate gel for first aid.</td>
+                    </tr>
+                    <tr className="bg-gray-50">
+                      <td className="border border-gray-300 px-4 py-3 font-medium">Kroll's Reagent</td>
+                      <td className="border border-gray-300 px-4 py-3">Titanium etching</td>
+                      <td className="border border-gray-300 px-4 py-3">Contains HF (hydrofluoric acid) - extremely dangerous. Requires special handling, PPE, and calcium gluconate gel for first aid.</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-4 py-3 font-medium">Hydrofluoric Acid (HF)</td>
+                      <td className="border border-gray-300 px-4 py-3">Various etching applications</td>
+                      <td className="border border-gray-300 px-4 py-3">Extremely toxic, can cause severe burns and systemic poisoning. Requires specialized training, PPE, and calcium gluconate gel must be available.</td>
                     </tr>
                     <tr className="bg-gray-50">
                       <td className="border border-gray-300 px-4 py-3 font-medium">Ethanol/Methanol</td>
@@ -178,25 +188,36 @@ export default function SafetyFundamentalsGuide() {
                 <li><strong>Always read labels:</strong> Verify you have the correct chemical before use</li>
                 <li><strong>Use appropriate containers:</strong> Never use food containers for chemicals</li>
                 <li><strong>Work in well-ventilated areas:</strong> Use fume hoods for volatile or toxic chemicals</li>
-                <li><strong>Never mix chemicals unless instructed:</strong> Unexpected reactions can be dangerous</li>
-                <li><strong>Add acid to water, never water to acid:</strong> Prevents violent reactions</li>
+                <li><strong>Never mix chemicals unless instructed:</strong> Unexpected reactions can be dangerous. For example, mixing nitric acid with organic solvents can create explosive mixtures</li>
+                <li><strong>Add acid to water, never water to acid:</strong> Prevents violent reactions and splashing. Add slowly with stirring</li>
                 <li><strong>Use smallest quantities necessary:</strong> Reduces exposure and waste</li>
-                <li><strong>Never taste or smell chemicals:</strong> Use proper identification methods</li>
-                <li><strong>Clean up spills immediately:</strong> Use appropriate spill kits and procedures</li>
-                <li><strong>Wash hands after handling chemicals:</strong> Even if gloves were worn</li>
+                <li><strong>Never taste or smell chemicals:</strong> Use proper identification methods. Some chemicals have delayed toxic effects</li>
+                <li><strong>Clean up spills immediately:</strong> Use appropriate spill kits and procedures. Know which spill kit to use for which chemicals</li>
+                <li><strong>Wash hands after handling chemicals:</strong> Even if gloves were worn. Some chemicals can penetrate gloves</li>
                 <li><strong>Never work alone with hazardous chemicals:</strong> Have someone nearby who can help in emergencies</li>
+                <li><strong>Prepare etchants carefully:</strong> When mixing etchants, follow procedures exactly. Some etchants require specific mixing orders</li>
+                <li><strong>Date chemical containers:</strong> Label with preparation date, especially for mixed solutions that may degrade</li>
               </ul>
 
               <h3>Chemical Storage</h3>
               <ul>
-                <li><strong>Store by compatibility:</strong> Separate incompatible chemicals (acids from bases, oxidizers from flammables)</li>
-                <li><strong>Use proper storage containers:</strong> Original containers or approved secondary containers</li>
-                <li><strong>Label everything clearly:</strong> Include chemical name, concentration, date, and hazards</li>
-                <li><strong>Store in appropriate locations:</strong> Flammables in flammable storage cabinets, acids in acid storage</li>
-                <li><strong>Keep storage areas organized:</strong> Easy to find chemicals and identify hazards</li>
-                <li><strong>Limit quantities:</strong> Store only what you need, order fresh chemicals regularly</li>
-                <li><strong>Check expiration dates:</strong> Some chemicals degrade and become more hazardous over time</li>
-                <li><strong>Secure storage:</strong> Prevent unauthorized access, especially to highly hazardous chemicals</li>
+                <li><strong>Store by compatibility:</strong> Separate incompatible chemicals (acids from bases, oxidizers from flammables). Common incompatibilities:
+                  <ul className="ml-6 mt-2">
+                    <li>Acids and bases (e.g., HCl and NaOH)</li>
+                    <li>Oxidizers and flammables (e.g., nitric acid and ethanol)</li>
+                    <li>Picric acid must be stored separately and kept wet</li>
+                    <li>Hydrofluoric acid should be stored in appropriate secondary containment</li>
+                  </ul>
+                </li>
+                <li><strong>Use proper storage containers:</strong> Original containers or approved secondary containers. Never use food containers</li>
+                <li><strong>Label everything clearly:</strong> Include chemical name, concentration, date, and hazards. Update labels if containers are changed</li>
+                <li><strong>Store in appropriate locations:</strong> Flammables in flammable storage cabinets, acids in acid storage cabinets, highly toxic materials in secure areas</li>
+                <li><strong>Keep storage areas organized:</strong> Easy to find chemicals and identify hazards. Maintain inventory</li>
+                <li><strong>Limit quantities:</strong> Store only what you need, order fresh chemicals regularly. Follow local regulations for maximum storage quantities</li>
+                <li><strong>Check expiration dates:</strong> Some chemicals degrade and become more hazardous over time (e.g., picric acid becomes more explosive when old and dry)</li>
+                <li><strong>Secure storage:</strong> Prevent unauthorized access, especially to highly hazardous chemicals like HF and picric acid</li>
+                <li><strong>Temperature control:</strong> Some chemicals require specific storage temperatures. Check SDS for requirements</li>
+                <li><strong>Secondary containment:</strong> Use secondary containment for highly hazardous chemicals to prevent spills from spreading</li>
               </ul>
             </section>
 
@@ -212,11 +233,14 @@ export default function SafetyFundamentalsGuide() {
                 <li><strong>Use proper guards:</strong> Ensure all guards and safety features are in place and functioning</li>
                 <li><strong>Secure samples properly:</strong> Use appropriate clamps and fixtures to prevent movement</li>
                 <li><strong>Wear eye protection:</strong> Always wear safety glasses or face shield when cutting</li>
+                <li><strong>Hearing protection:</strong> Sectioning equipment can be loud. Use hearing protection if noise levels exceed 85 dB</li>
                 <li><strong>Keep hands clear:</strong> Never place hands near cutting blades while equipment is running</li>
                 <li><strong>Use appropriate blades:</strong> Ensure blades are suitable for the material being cut</li>
-                <li><strong>Check blade condition:</strong> Replace worn or damaged blades</li>
+                <li><strong>Check blade condition:</strong> Replace worn or damaged blades. Dull blades can cause more hazards than sharp ones</li>
                 <li><strong>Follow manufacturer instructions:</strong> Use equipment as designed and intended</li>
                 <li><strong>Allow equipment to stop:</strong> Wait for complete stop before handling samples or changing blades</li>
+                <li><strong>Coolant safety:</strong> Ensure proper coolant flow to prevent blade overheating and sample damage</li>
+                <li><strong>Vibration:</strong> Prolonged use can cause hand-arm vibration. Take breaks and use anti-vibration gloves if needed</li>
               </ul>
 
               <h3>Grinding and Polishing Equipment Safety</h3>
@@ -229,16 +253,21 @@ export default function SafetyFundamentalsGuide() {
                 <li><strong>Check equipment condition:</strong> Inspect for damage before use</li>
                 <li><strong>Clean up spills:</strong> Prevent slips and falls from water or polishing compounds</li>
                 <li><strong>Unplug when not in use:</strong> Disconnect power when changing wheels or performing maintenance</li>
+                <li><strong>Ergonomic considerations:</strong> Prolonged grinding/polishing can cause repetitive strain injuries. Take breaks, vary tasks, and maintain proper posture</li>
+                <li><strong>Dust control:</strong> Some grinding operations generate dust. Use appropriate dust collection and ventilation</li>
               </ul>
 
               <h3>Mounting Press Safety</h3>
               <ul>
-                <li><strong>Follow pressure limits:</strong> Never exceed recommended pressures</li>
-                <li><strong>Use proper molds:</strong> Ensure molds are in good condition and appropriate for the pressure</li>
-                <li><strong>Allow cooling:</strong> Wait for mounts to cool before handling</li>
-                <li><strong>Wear heat-resistant gloves:</strong> Protect hands from hot molds and mounts</li>
-                <li><strong>Check for leaks:</strong> Inspect equipment for hydraulic or pneumatic leaks</li>
+                <li><strong>Follow pressure limits:</strong> Never exceed recommended pressures. Over-pressurization can cause equipment failure and injury</li>
+                <li><strong>Use proper molds:</strong> Ensure molds are in good condition and appropriate for the pressure. Damaged molds can fail under pressure</li>
+                <li><strong>Allow cooling:</strong> Wait for mounts to cool before handling. Hot mounting materials can cause severe burns</li>
+                <li><strong>Wear heat-resistant gloves:</strong> Protect hands from hot molds and mounts. Mounts can remain hot for extended periods</li>
+                <li><strong>Check for leaks:</strong> Inspect equipment for hydraulic or pneumatic leaks. Leaks can cause sudden pressure loss or equipment failure</li>
                 <li><strong>Follow lockout procedures:</strong> Properly lock out equipment during maintenance</li>
+                <li><strong>Ventilation for hot mounting:</strong> Hot mounting materials can release fumes. Ensure adequate ventilation during mounting operations</li>
+                <li><strong>Handle mounting materials carefully:</strong> Some mounting powders can be irritants. Avoid inhalation and skin contact</li>
+                <li><strong>Allow pressure release:</strong> Follow proper procedures for releasing pressure. Sudden pressure release can be dangerous</li>
               </ul>
 
               <h3>Microscope Safety</h3>
@@ -426,11 +455,19 @@ export default function SafetyFundamentalsGuide() {
 
               <h3>Chemical Exposure</h3>
               <ul>
-                <li><strong>Skin contact:</strong> Immediately flush with water for at least 15 minutes. Remove contaminated clothing. Seek medical attention.</li>
-                <li><strong>Eye contact:</strong> Immediately flush eyes with water for at least 15 minutes. Hold eyelids open. Seek immediate medical attention.</li>
-                <li><strong>Inhalation:</strong> Move to fresh air immediately. If breathing is difficult, seek medical attention.</li>
-                <li><strong>Ingestion:</strong> Do not induce vomiting unless instructed by medical personnel. Seek immediate medical attention.</li>
-                <li><strong>Know first aid:</strong> Review first aid procedures for chemicals you use</li>
+                <li><strong>Skin contact:</strong> Immediately flush with water for at least 15 minutes. Remove contaminated clothing. Seek medical attention. For most acids, flushing with water is appropriate.</li>
+                <li><strong>Eye contact:</strong> Immediately flush eyes with water for at least 15 minutes using eyewash station. Hold eyelids open. Seek immediate medical attention. Do not delay flushing to seek help - flush first, then get help.</li>
+                <li><strong>Inhalation:</strong> Move to fresh air immediately. If breathing is difficult, seek medical attention. Monitor for delayed symptoms.</li>
+                <li><strong>Ingestion:</strong> Do not induce vomiting unless instructed by medical personnel. Seek immediate medical attention. Bring SDS or chemical information to medical facility.</li>
+                <li><strong>Hydrofluoric Acid (HF) exposure - SPECIAL PROCEDURE:</strong> HF exposure requires immediate and specific treatment:
+                  <ul className="ml-6 mt-2">
+                    <li><strong>Skin contact:</strong> Immediately flush with water for 5 minutes, then apply calcium gluconate gel (2.5% or higher). Massage gel into affected area. Continue application and seek immediate medical attention. HF can cause delayed, severe burns and systemic poisoning.</li>
+                    <li><strong>Eye contact:</strong> Immediately flush with water for at least 15 minutes, then seek immediate medical attention. Medical personnel should continue irrigation and may apply calcium gluconate solution.</li>
+                    <li><strong>Inhalation:</strong> Move to fresh air immediately. Seek immediate medical attention even if symptoms are mild, as effects can be delayed.</li>
+                    <li><strong>Critical:</strong> Calcium gluconate gel (2.5% or higher) must be available wherever HF is used. This is not optional - it can prevent severe injury or death.</li>
+                  </ul>
+                </li>
+                <li><strong>Know first aid:</strong> Review first aid procedures for chemicals you use. Keep SDS documents accessible for emergency responders.</li>
               </ul>
 
               <h3>Fire Safety</h3>
@@ -445,10 +482,13 @@ export default function SafetyFundamentalsGuide() {
 
               <h3>Emergency Contacts</h3>
               <ul>
-                <li><strong>Know emergency numbers:</strong> Post emergency numbers prominently</li>
-                <li><strong>Know your location:</strong> Be able to provide exact location for emergency responders</li>
+                <li><strong>Know emergency numbers:</strong> Post emergency numbers prominently (911, poison control, safety office, medical facility)</li>
+                <li><strong>Know your location:</strong> Be able to provide exact location for emergency responders (building, room number, floor)</li>
                 <li><strong>Know emergency procedures:</strong> Understand your institution's emergency response procedures</li>
-                <li><strong>Report all incidents:</strong> Report accidents and near-misses</li>
+                <li><strong>Report all incidents:</strong> Report accidents and near-misses. Near-misses are learning opportunities that prevent future accidents</li>
+                <li><strong>Eyewash and safety shower locations:</strong> Know the locations of all eyewash stations and safety showers. Test eyewash stations regularly</li>
+                <li><strong>First aid kit location:</strong> Know where first aid kits are located and ensure they are properly stocked</li>
+                <li><strong>Special first aid supplies:</strong> For laboratories using HF, ensure calcium gluconate gel (2.5% or higher) is readily available and not expired</li>
               </ul>
 
               <div className="bg-red-50 border-l-4 border-red-600 p-4 my-6 rounded">
@@ -469,16 +509,18 @@ export default function SafetyFundamentalsGuide() {
 
               <h3>General Safety Practices</h3>
               <ul>
-                <li><strong>Never work alone:</strong> Have someone nearby, especially when working with hazardous materials</li>
-                <li><strong>Stay focused:</strong> Avoid distractions when working with hazardous materials or equipment</li>
-                <li><strong>Follow procedures:</strong> Don't take shortcuts, especially with safety procedures</li>
-                <li><strong>Ask questions:</strong> If unsure about safety, ask before proceeding</li>
-                <li><strong>Report hazards:</strong> Report unsafe conditions or practices immediately</li>
-                <li><strong>Keep work areas clean:</strong> Organized spaces reduce accident risk</li>
-                <li><strong>Wash hands regularly:</strong> Especially after handling chemicals or before eating</li>
-                <li><strong>No food or drink:</strong> Never eat or drink in laboratory areas</li>
-                <li><strong>Proper attire:</strong> Wear appropriate clothing (no loose clothing, jewelry, or open-toe shoes)</li>
-                <li><strong>Know your limits:</strong> Don't work when tired, ill, or impaired</li>
+                <li><strong>Never work alone:</strong> Have someone nearby, especially when working with hazardous materials. Some institutions require a "buddy system" for high-risk work</li>
+                <li><strong>Stay focused:</strong> Avoid distractions when working with hazardous materials or equipment. Put away phones and avoid unnecessary conversations during hazardous operations</li>
+                <li><strong>Follow procedures:</strong> Don't take shortcuts, especially with safety procedures. Written procedures exist for good reasons</li>
+                <li><strong>Ask questions:</strong> If unsure about safety, ask before proceeding. There are no stupid safety questions</li>
+                <li><strong>Report hazards:</strong> Report unsafe conditions or practices immediately. Don't assume someone else will report it</li>
+                <li><strong>Keep work areas clean:</strong> Organized spaces reduce accident risk. Clean up after each task</li>
+                <li><strong>Wash hands regularly:</strong> Especially after handling chemicals or before eating. Use appropriate soap and warm water</li>
+                <li><strong>No food or drink:</strong> Never eat or drink in laboratory areas. Designate clean areas for breaks</li>
+                <li><strong>Proper attire:</strong> Wear appropriate clothing (no loose clothing, jewelry, or open-toe shoes). Tie back long hair</li>
+                <li><strong>Know your limits:</strong> Don't work when tired, ill, or impaired. Fatigue significantly increases accident risk</li>
+                <li><strong>Plan your work:</strong> Review procedures and gather materials before starting. Rushing leads to mistakes</li>
+                <li><strong>Maintain equipment:</strong> Report equipment problems immediately. Don't use damaged or malfunctioning equipment</li>
               </ul>
 
               <h3>Training and Education</h3>

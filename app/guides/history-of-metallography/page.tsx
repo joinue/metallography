@@ -96,6 +96,19 @@ export default function HistoryOfMetallographyGuide() {
                 the key milestones in metallographic development, from ancient metalworking to modern 
                 automated analysis systems.
               </p>
+              <p>
+                For upcoming metallographers, learning this history provides several important benefits:
+              </p>
+              <ul>
+                <li><strong>Understanding fundamentals:</strong> Historical context helps explain why certain 
+                techniques and principles are fundamental to the field</li>
+                <li><strong>Appreciating standards:</strong> Knowing how standards developed helps understand 
+                their importance and proper application</li>
+                <li><strong>Recognizing innovation:</strong> Understanding past breakthroughs helps identify 
+                when new techniques represent genuine advances</li>
+                <li><strong>Building expertise:</strong> Familiarity with historical figures and their 
+                contributions provides a foundation for deeper learning</li>
+              </ul>
             </section>
 
             <section id="ancient-foundations" className="scroll-mt-24">
@@ -135,9 +148,10 @@ export default function HistoryOfMetallographyGuide() {
             <section id="birth-of-metallography" className="scroll-mt-24">
               <h2>Birth of Metallography (1800–1860)</h2>
               <p>
-                The invention of the optical microscope in the 17th century made metal microstructure visible, 
-                but polishing and etching methods were still primitive. The true birth of metallography as 
-                a scientific discipline came in the mid-19th century.
+                The invention of the compound optical microscope in the early 17th century (around 1600) made 
+                metal microstructure theoretically visible, but polishing and etching methods were still 
+                primitive. The true birth of metallography as a scientific discipline came in the mid-19th 
+                century with the pioneering work of Henry Clifton Sorby.
               </p>
               
               <h3>Henry Clifton Sorby: The Father of Metallography</h3>
@@ -152,9 +166,10 @@ export default function HistoryOfMetallographyGuide() {
                 <p className="text-sm text-gray-600 mt-2 italic text-center">Henry Clifton Sorby (1826–1908), considered the "Father of Metallography"</p>
               </div>
               <p>
-                <strong>Henry Clifton Sorby (1826–1908)</strong> is considered the "Father of Metallography." 
-                In the mid-1800s, Sorby developed reliable mechanical polishing and chemical etching techniques 
-                that revolutionized the field.
+                <strong>Henry Clifton Sorby (1826–1908)</strong> is universally recognized as the "Father of 
+                Metallography." In 1863, Sorby adapted techniques from petrography (the study of rocks) to 
+                examine metals, developing reliable mechanical polishing and chemical etching techniques that 
+                revolutionized the field.
               </p>
               
               <div className="bg-blue-50 border-l-4 border-blue-600 p-4 my-6 rounded">
@@ -170,15 +185,18 @@ export default function HistoryOfMetallographyGuide() {
                 Sorby's contributions included:
               </p>
               <ul>
-                <li>Development of systematic sample preparation methods</li>
-                <li>Creation of techniques for examining metal specimens under reflected light</li>
-                <li>First detailed observations of steel microstructures (pearlite, ferrite)</li>
+                <li>Development of systematic sample preparation methods (grinding and polishing)</li>
+                <li>Creation of techniques for examining metal specimens under reflected light microscopy</li>
+                <li>First detailed observations and documentation of steel microstructures (pearlite, ferrite)</li>
                 <li>Establishment of the connection between microstructure and mechanical properties</li>
+                <li>Adaptation of petrographic techniques to metallurgical applications</li>
               </ul>
               
               <p>
                 His techniques laid the foundation for all modern metallographic practices, and the 
-                fundamental principles he established remain relevant today.
+                fundamental principles he established remain relevant today. Sorby's work demonstrated that 
+                the internal structure of metals could be systematically studied and understood, transforming 
+                metallurgy from an empirical craft into a scientific discipline.
               </p>
             </section>
 
@@ -192,9 +210,44 @@ export default function HistoryOfMetallographyGuide() {
 
               <h3>Key Researchers and Contributions</h3>
               <p>
-                Researchers such as <strong>Osmond</strong>, <strong>Howe</strong>, <strong>Tschernoff</strong>, 
-                and <strong>Bain</strong> refined understanding of phase transformations in metals. Their work 
-                helped explain how different heat treatments produced different microstructures and properties.
+                Following Sorby's foundational work, several researchers made critical contributions that refined 
+                understanding of phase transformations in metals and established the theoretical framework for 
+                modern metallography:
+              </p>
+              
+              <ul>
+                <li><strong>Dmitry Konstantinovich Chernov (1839–1921)</strong> - A Russian metallurgist who 
+                discovered polymorphic transformations in steel and developed the iron-carbon phase diagram, 
+                marking a crucial advancement in scientific metallography. His work on critical temperatures 
+                (now known as A<sub>1</sub>, A<sub>3</sub>, and A<sub>cm</sub> points) was foundational.</li>
+                
+                <li><strong>Floris Osmond (1849–1912)</strong> - A French scientist who named several phases 
+                in iron and steel microstructures, including <strong>martensite</strong> (after Adolf Martens) 
+                and <strong>cementite</strong>. He introduced the Greek letter symbols (α, β, γ, δ) for steel 
+                phases that are still used today.</li>
+                
+                <li><strong>Henry Marion Howe (1848–1922)</strong> - An American metallurgist and the first 
+                president of ASTM. Howe made significant contributions to understanding steel microstructures 
+                and heat treatment, and was instrumental in establishing metallography as an academic discipline.</li>
+                
+                <li><strong>Edgar C. Bain (1891–1971)</strong> - An American metallurgist who discovered 
+                <strong>bainite</strong>, a microstructure formed at intermediate transformation temperatures. 
+                His work on isothermal transformation diagrams (TTT curves) was groundbreaking.</li>
+                
+                <li><strong>Albert Sauveur (1863–1939)</strong> - A Belgian-American metallurgist who 
+                established the first metallography laboratory at Harvard University. He improved 
+                microphotography techniques for metals, analyzed various alloy constituents, and helped 
+                establish international nomenclature for microstructural features.</li>
+                
+                <li><strong>Emil Heyn (1867–1922)</strong> - A German metallurgist who introduced quantitative 
+                metallography. He developed the <strong>intercept method</strong> for grain size measurement, 
+                which remains a standard technique today (ASTM E112).</li>
+              </ul>
+              
+              <p>
+                These researchers' work helped explain how different heat treatments, cooling rates, and 
+                compositions produced different microstructures and properties, establishing the scientific 
+                basis for modern materials engineering.
               </p>
 
               <h3>Phase Diagrams and Predictive Power</h3>
@@ -206,17 +259,22 @@ export default function HistoryOfMetallographyGuide() {
                   height={500}
                   className="w-full h-auto"
                 />
-                <p className="text-sm text-gray-600 mt-2 italic text-center">Hume-Rothery, key contributor to metallurgical phase diagrams</p>
+                <p className="text-sm text-gray-600 mt-2 italic text-center">William Hume-Rothery (1899–1968), key contributor to metallurgical phase diagrams and alloy theory</p>
               </div>
               <p>
-                Advances in metallurgical phase diagrams, notably by <strong>Hume-Rothery</strong> and 
-                <strong>Guillet</strong>, provided predictive power. These diagrams allowed metallographers to:
+                The development of metallurgical phase diagrams, building on Chernov's iron-carbon diagram, 
+                provided predictive power that transformed metallography from descriptive to predictive science. 
+                Key contributors included <strong>William Hume-Rothery (1899–1968)</strong>, who developed 
+                the <strong>Hume-Rothery rules</strong> for predicting solid solution formation in alloys, 
+                and <strong>Léon Guillet (1873–1946)</strong>, a French metallurgist who contributed to 
+                understanding aluminum alloys and phase relationships. These diagrams allowed metallographers to:
               </p>
               <ul>
                 <li>Predict phase formation at different temperatures and compositions</li>
                 <li>Understand equilibrium and non-equilibrium transformations</li>
                 <li>Design heat treatments to achieve desired microstructures</li>
                 <li>Explain the relationship between composition, processing, and properties</li>
+                <li>Understand solid solution formation and intermetallic compound stability</li>
               </ul>
 
               <h3>Documentation and Teaching</h3>
@@ -288,10 +346,16 @@ export default function HistoryOfMetallographyGuide() {
 
               <h3>Scanning Electron Microscopy (SEM)</h3>
               <ul>
-                <li><strong>1965:</strong> First commercial SEM introduced, providing three-dimensional 
-                imaging capabilities</li>
-                <li>SEM offered superior depth of field compared to optical microscopes</li>
-                <li>Enabled detailed examination of fracture surfaces and complex microstructures</li>
+                <li><strong>1937:</strong> First SEM concept developed by <strong>Manfred von Ardenne</strong></li>
+                <li><strong>1942:</strong> <strong>Vladimir Zworykin</strong> and colleagues at RCA developed 
+                a practical SEM design</li>
+                <li><strong>1965:</strong> First commercial SEM introduced by Cambridge Scientific Instruments 
+                (Cambridge Stereoscan), providing three-dimensional imaging capabilities</li>
+                <li>SEM offered superior depth of field compared to optical microscopes (up to 100x greater)</li>
+                <li>Enabled detailed examination of fracture surfaces, complex microstructures, and surface 
+                topography at high magnifications</li>
+                <li>Combined with energy-dispersive X-ray spectroscopy (EDS), SEM allowed simultaneous 
+                imaging and chemical analysis</li>
               </ul>
 
               <h3>Impact on Industry</h3>
@@ -398,11 +462,19 @@ export default function HistoryOfMetallographyGuide() {
 
               <h3>Automation and Standardization</h3>
               <ul>
-                <li>Automated grinding and polishing equipment (1960s-1970s)</li>
-                <li>Standardized preparation procedures for different material classes (1980s)</li>
-                <li>Computer-controlled preparation systems with programmable parameters (1990s)</li>
-                <li>Advanced mounting materials and techniques for challenging samples (2000s)</li>
-                <li>Machine learning and artificial intelligence for automated microstructure classification (2010s)</li>
+                <li><strong>1943:</strong> <strong>Electrolytic polishing</strong> introduced by Struers 
+                (Micropol), providing an alternative to mechanical polishing for certain materials</li>
+                <li>Automated grinding and polishing equipment (1960s-1970s), reducing operator variability</li>
+                <li>Standardized preparation procedures for different material classes (1980s), ensuring 
+                reproducibility across laboratories</li>
+                <li>Computer-controlled preparation systems with programmable parameters (1990s), allowing 
+                precise control of force, speed, and timing</li>
+                <li>Advanced mounting materials and techniques for challenging samples (2000s), including 
+                conductive mounts and vacuum impregnation</li>
+                <li>Machine learning and artificial intelligence for automated microstructure classification 
+                and defect detection (2010s-present)</li>
+                <li>Development of international standards (ASTM, ISO) for sample preparation, testing, and 
+                reporting, ensuring consistency and quality</li>
               </ul>
 
               <h3>Current State</h3>
@@ -420,6 +492,13 @@ export default function HistoryOfMetallographyGuide() {
                   observation, and systematic analysis are as important now as they were over a century 
                   ago. Modern technology enhances our capabilities, but it doesn't replace the need for 
                   understanding the basics of metallographic practice.
+                </p>
+                <p className="text-sm text-gray-700 mt-3">
+                  Understanding this history helps metallographers appreciate why certain techniques became 
+                  standard practice, recognize the importance of proper sample preparation, and understand 
+                  the scientific principles underlying modern methods. The work of pioneers like Sorby, 
+                  Chernov, Osmond, and others established the foundation upon which all modern metallography 
+                  is built.
                 </p>
               </div>
             </section>

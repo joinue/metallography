@@ -73,7 +73,7 @@ export default function CommonEtchantsGuidePage() {
     // First page - title at top, logo + URL below, then date
     pdf.setFontSize(20)
     pdf.setTextColor(37, 99, 235)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.text('Common Etchants Reference Guide', 20, 20)
 
     // Logo badge and URL below title (smaller)
@@ -82,7 +82,7 @@ export default function CommonEtchantsGuidePage() {
     }
     pdf.setFontSize(11)
     pdf.setTextColor(0, 0, 0)
-    pdf.setFont(undefined, 'normal')
+    pdf.setFont('helvetica', 'normal')
     pdf.text('Metallography.org', 30, 30)
 
     // Generated date with a little spacing
@@ -109,12 +109,12 @@ export default function CommonEtchantsGuidePage() {
     yPos += 3 // Add a bit more space before intro
     pdf.setFontSize(12)
     pdf.setTextColor(0, 0, 0)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.text('Introduction', leftMargin, yPos)
     yPos += lineHeight
 
     pdf.setFontSize(10)
-    pdf.setFont(undefined, 'normal')
+    pdf.setFont('helvetica', 'normal')
     const introText = 'Etching is a critical step in metallographic specimen preparation used to reveal microstructural features. This guide provides quick reference for common etchants organized by material type. Etchants marked as "Available from PACE Technologies" are available as pre-mixed solutions. Other etchants are commonly used in practice and can be prepared in-house.'
     const introLines = pdf.splitTextToSize(introText, rightMargin - leftMargin)
     pdf.text(introLines, leftMargin, yPos)
@@ -124,7 +124,7 @@ export default function CommonEtchantsGuidePage() {
     checkPageBreak(35)
     yPos += 3
     pdf.setFontSize(16)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.setTextColor(37, 99, 235)
     pdf.text('Carbon Steel / Low Alloy Steel', leftMargin, yPos)
     yPos += lineHeight + 1
@@ -149,10 +149,10 @@ export default function CommonEtchantsGuidePage() {
     ]
 
     pdf.setFontSize(10)
-    pdf.setFont(undefined, 'normal')
+    pdf.setFont('helvetica', 'normal')
     carbonSteelEtchants.forEach(etchant => {
       checkPageBreak(18)
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       // Replace Unicode subscripts with ASCII equivalents for better PDF rendering
       const nameText = etchant.name
         .replace(/₂/g, '2').replace(/₃/g, '3').replace(/₄/g, '4')
@@ -168,7 +168,7 @@ export default function CommonEtchantsGuidePage() {
         pdf.setFontSize(10)
       }
       yPos += lineHeight
-      pdf.setFont(undefined, 'normal')
+      pdf.setFont('helvetica', 'normal')
       // Replace Unicode subscripts with ASCII equivalents for better PDF rendering
       const compText = `Composition: ${etchant.comp}`
         .replace(/₂/g, '2').replace(/₃/g, '3').replace(/₄/g, '4')
@@ -189,7 +189,7 @@ export default function CommonEtchantsGuidePage() {
     checkPageBreak(35)
     yPos += 3
     pdf.setFontSize(16)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.setTextColor(37, 99, 235)
     pdf.text('Stainless Steel', leftMargin, yPos)
     yPos += lineHeight + 1
@@ -212,10 +212,10 @@ export default function CommonEtchantsGuidePage() {
     ]
 
     pdf.setFontSize(10)
-    pdf.setFont(undefined, 'normal')
+    pdf.setFont('helvetica', 'normal')
     stainlessEtchants.forEach(etchant => {
       checkPageBreak(18)
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       // Replace Unicode subscripts with ASCII equivalents for better PDF rendering
       const nameText = etchant.name
         .replace(/₂/g, '2').replace(/₃/g, '3').replace(/₄/g, '4')
@@ -231,7 +231,7 @@ export default function CommonEtchantsGuidePage() {
         pdf.setFontSize(10)
       }
       yPos += lineHeight
-      pdf.setFont(undefined, 'normal')
+      pdf.setFont('helvetica', 'normal')
       // Replace Unicode subscripts with ASCII equivalents for better PDF rendering
       const compText = `Composition: ${etchant.comp}`
         .replace(/₂/g, '2').replace(/₃/g, '3').replace(/₄/g, '4')
@@ -252,7 +252,7 @@ export default function CommonEtchantsGuidePage() {
     checkPageBreak(35)
     yPos += 3
     pdf.setFontSize(16)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.setTextColor(37, 99, 235)
     pdf.text('Aluminum & Aluminum Alloys', leftMargin, yPos)
     yPos += lineHeight + 1
@@ -272,11 +272,11 @@ export default function CommonEtchantsGuidePage() {
     ]
 
     pdf.setFontSize(10)
-    pdf.setFont(undefined, 'normal')
+    pdf.setFont('helvetica', 'normal')
     pdf.setTextColor(0, 0, 0)
     aluminumEtchants.forEach(etchant => {
       checkPageBreak(18)
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       // Replace Unicode subscripts with ASCII equivalents for better PDF rendering
       const nameText = etchant.name
         .replace(/₂/g, '2').replace(/₃/g, '3').replace(/₄/g, '4')
@@ -292,7 +292,7 @@ export default function CommonEtchantsGuidePage() {
         pdf.setFontSize(10)
       }
       yPos += lineHeight
-      pdf.setFont(undefined, 'normal')
+      pdf.setFont('helvetica', 'normal')
       // Replace Unicode subscripts with ASCII equivalents for better PDF rendering
       const compText = `Composition: ${etchant.comp}`
         .replace(/₂/g, '2').replace(/₃/g, '3').replace(/₄/g, '4')
@@ -313,7 +313,7 @@ export default function CommonEtchantsGuidePage() {
     checkPageBreak(35)
     yPos += 3
     pdf.setFontSize(16)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.setTextColor(37, 99, 235)
     pdf.text('Copper & Brass', leftMargin, yPos)
     yPos += lineHeight + 1
@@ -335,11 +335,11 @@ export default function CommonEtchantsGuidePage() {
     ]
 
     pdf.setFontSize(10)
-    pdf.setFont(undefined, 'normal')
+    pdf.setFont('helvetica', 'normal')
     pdf.setTextColor(0, 0, 0)
     copperEtchants.forEach(etchant => {
       checkPageBreak(18)
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       // Replace Unicode subscripts with ASCII equivalents for better PDF rendering
       const nameText = etchant.name
         .replace(/₂/g, '2').replace(/₃/g, '3').replace(/₄/g, '4')
@@ -355,7 +355,7 @@ export default function CommonEtchantsGuidePage() {
         pdf.setFontSize(10)
       }
       yPos += lineHeight
-      pdf.setFont(undefined, 'normal')
+      pdf.setFont('helvetica', 'normal')
       // Replace Unicode subscripts with ASCII equivalents for better PDF rendering
       const compText = `Composition: ${etchant.comp}`
         .replace(/₂/g, '2').replace(/₃/g, '3').replace(/₄/g, '4')
@@ -376,7 +376,7 @@ export default function CommonEtchantsGuidePage() {
     checkPageBreak(35)
     yPos += 3
     pdf.setFontSize(16)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.setTextColor(37, 99, 235)
     pdf.text('Titanium & Titanium Alloys', leftMargin, yPos)
     yPos += lineHeight + 1
@@ -395,11 +395,11 @@ export default function CommonEtchantsGuidePage() {
     ]
 
     pdf.setFontSize(10)
-    pdf.setFont(undefined, 'normal')
+    pdf.setFont('helvetica', 'normal')
     pdf.setTextColor(0, 0, 0)
     titaniumEtchants.forEach(etchant => {
       checkPageBreak(18)
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       // Replace Unicode subscripts with ASCII equivalents for better PDF rendering
       const nameText = etchant.name
         .replace(/₂/g, '2').replace(/₃/g, '3').replace(/₄/g, '4')
@@ -415,7 +415,7 @@ export default function CommonEtchantsGuidePage() {
         pdf.setFontSize(10)
       }
       yPos += lineHeight
-      pdf.setFont(undefined, 'normal')
+      pdf.setFont('helvetica', 'normal')
       // Replace Unicode subscripts with ASCII equivalents for better PDF rendering
       const compText = `Composition: ${etchant.comp}`
         .replace(/₂/g, '2').replace(/₃/g, '3').replace(/₄/g, '4')
@@ -436,7 +436,7 @@ export default function CommonEtchantsGuidePage() {
     checkPageBreak(35)
     yPos += 3
     pdf.setFontSize(16)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.setTextColor(37, 99, 235)
     pdf.text('Nickel Alloys', leftMargin, yPos)
     yPos += lineHeight + 1
@@ -456,11 +456,11 @@ export default function CommonEtchantsGuidePage() {
     ]
 
     pdf.setFontSize(10)
-    pdf.setFont(undefined, 'normal')
+    pdf.setFont('helvetica', 'normal')
     pdf.setTextColor(0, 0, 0)
     nickelEtchants.forEach(etchant => {
       checkPageBreak(18)
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       // Replace Unicode subscripts with ASCII equivalents for better PDF rendering
       const nameText = etchant.name
         .replace(/₂/g, '2').replace(/₃/g, '3').replace(/₄/g, '4')
@@ -476,7 +476,7 @@ export default function CommonEtchantsGuidePage() {
         pdf.setFontSize(10)
       }
       yPos += lineHeight
-      pdf.setFont(undefined, 'normal')
+      pdf.setFont('helvetica', 'normal')
       // Replace Unicode subscripts with ASCII equivalents for better PDF rendering
       const compText = `Composition: ${etchant.comp}`
         .replace(/₂/g, '2').replace(/₃/g, '3').replace(/₄/g, '4')
@@ -497,7 +497,7 @@ export default function CommonEtchantsGuidePage() {
     checkPageBreak(35)
     yPos += 3
     pdf.setFontSize(16)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.setTextColor(37, 99, 235)
     pdf.text('Cast Iron', leftMargin, yPos)
     yPos += lineHeight + 1
@@ -517,11 +517,11 @@ export default function CommonEtchantsGuidePage() {
     ]
 
     pdf.setFontSize(10)
-    pdf.setFont(undefined, 'normal')
+    pdf.setFont('helvetica', 'normal')
     pdf.setTextColor(0, 0, 0)
     castIronEtchants.forEach(etchant => {
       checkPageBreak(18)
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       // Replace Unicode subscripts with ASCII equivalents for better PDF rendering
       const nameText = etchant.name
         .replace(/₂/g, '2').replace(/₃/g, '3').replace(/₄/g, '4')
@@ -537,7 +537,7 @@ export default function CommonEtchantsGuidePage() {
         pdf.setFontSize(10)
       }
       yPos += lineHeight
-      pdf.setFont(undefined, 'normal')
+      pdf.setFont('helvetica', 'normal')
       // Replace Unicode subscripts with ASCII equivalents for better PDF rendering
       const compText = `Composition: ${etchant.comp}`
         .replace(/₂/g, '2').replace(/₃/g, '3').replace(/₄/g, '4')
@@ -558,7 +558,7 @@ export default function CommonEtchantsGuidePage() {
     checkPageBreak(35)
     yPos += 3
     pdf.setFontSize(16)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.setTextColor(37, 99, 235)
     pdf.text('Tool Steel', leftMargin, yPos)
     yPos += lineHeight + 1
@@ -578,11 +578,11 @@ export default function CommonEtchantsGuidePage() {
     ]
 
     pdf.setFontSize(10)
-    pdf.setFont(undefined, 'normal')
+    pdf.setFont('helvetica', 'normal')
     pdf.setTextColor(0, 0, 0)
     toolSteelEtchants.forEach(etchant => {
       checkPageBreak(18)
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       // Replace Unicode subscripts with ASCII equivalents for better PDF rendering
       const nameText = etchant.name
         .replace(/₂/g, '2').replace(/₃/g, '3').replace(/₄/g, '4')
@@ -598,7 +598,7 @@ export default function CommonEtchantsGuidePage() {
         pdf.setFontSize(10)
       }
       yPos += lineHeight
-      pdf.setFont(undefined, 'normal')
+      pdf.setFont('helvetica', 'normal')
       // Replace Unicode subscripts with ASCII equivalents for better PDF rendering
       const compText = `Composition: ${etchant.comp}`
         .replace(/₂/g, '2').replace(/₃/g, '3').replace(/₄/g, '4')
@@ -619,7 +619,7 @@ export default function CommonEtchantsGuidePage() {
     checkPageBreak(25)
     yPos += 3
     pdf.setFontSize(14)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.setTextColor(200, 0, 0)
     pdf.text('Safety Guidelines', leftMargin, yPos)
     yPos += lineHeight + 1
@@ -632,7 +632,7 @@ export default function CommonEtchantsGuidePage() {
 
     pdf.setFontSize(10)
     pdf.setTextColor(0, 0, 0)
-    pdf.setFont(undefined, 'normal')
+    pdf.setFont('helvetica', 'normal')
     const safetyNotes = [
       'Always work in a well-ventilated area or fume hood',
       'Wear appropriate PPE (gloves, goggles, lab coat)',
@@ -649,7 +649,7 @@ export default function CommonEtchantsGuidePage() {
     })
 
     // Footer with logo
-    const pageCount = pdf.internal.getNumberOfPages()
+    const pageCount = pdf.getNumberOfPages()
     for (let i = 1; i <= pageCount; i++) {
       pdf.setPage(i)
       addFooterLogo()

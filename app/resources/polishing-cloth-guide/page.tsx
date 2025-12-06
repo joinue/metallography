@@ -59,7 +59,7 @@ export default function PolishingClothGuidePage() {
     // First page - title at top, logo + URL below, then date
     pdf.setFontSize(20)
     pdf.setTextColor(37, 99, 235)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.text('Polishing Cloth Selection Guide', 20, 20)
 
     // Logo badge and URL below title (smaller) - only on first page
@@ -68,7 +68,7 @@ export default function PolishingClothGuidePage() {
     }
     pdf.setFontSize(11)
     pdf.setTextColor(0, 0, 0)
-    pdf.setFont(undefined, 'normal')
+    pdf.setFont('helvetica', 'normal')
     pdf.text('Metallography.org', 30, 30)
 
     // Generated date with a little spacing
@@ -93,12 +93,12 @@ export default function PolishingClothGuidePage() {
     // Introduction
     pdf.setFontSize(12)
     pdf.setTextColor(0, 0, 0)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.text('Introduction', leftMargin, yPos)
     yPos += lineHeight
 
     pdf.setFontSize(10)
-    pdf.setFont(undefined, 'normal')
+    pdf.setFont('helvetica', 'normal')
     const introText = 'The choice of polishing pad significantly affects polishing results. Different pad types provide varying levels of hardness, nap, and cutting action. Select the appropriate pad for each polishing stage.'
     const introLines = pdf.splitTextToSize(introText, rightMargin - leftMargin)
     pdf.text(introLines, leftMargin, yPos)
@@ -107,17 +107,17 @@ export default function PolishingClothGuidePage() {
     // Coarse/Intermediate Pads
     checkPageBreak(30)
     pdf.setFontSize(12)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.setTextColor(37, 99, 235)
     pdf.text('Coarse / Intermediate Polishing Pads', leftMargin, yPos)
     yPos += lineHeight + 2
 
     pdf.setFontSize(10)
-    pdf.setFont(undefined, 'normal')
+    pdf.setFont('helvetica', 'normal')
     pdf.setTextColor(0, 0, 0)
     coarsePads.forEach(pad => {
       checkPageBreak(20)
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       pdf.text(pad.name, leftMargin, yPos)
       if (pad.pace) {
         pdf.setFontSize(8)
@@ -127,13 +127,13 @@ export default function PolishingClothGuidePage() {
         pdf.setFontSize(10)
       }
       yPos += lineHeight
-      pdf.setFont(undefined, 'normal')
+      pdf.setFont('helvetica', 'normal')
       // Replace Unicode mu character with regular text for better PDF rendering
       const descText = pad.desc.replace(/μ/g, 'u').replace(/μm/g, 'um')
       const descLines = pdf.splitTextToSize(descText, rightMargin - leftMargin - 10)
       pdf.text(descLines, leftMargin + 5, yPos)
       yPos += descLines.length * lineHeight
-      pdf.setFont(undefined, 'italic')
+      pdf.setFont('helvetica', 'italic')
       // Replace Unicode mu character with regular text for better PDF rendering
       const recText = `Recommended: ${pad.use.replace(/μ/g, 'u').replace(/μm/g, 'um')}`
       const recLines = pdf.splitTextToSize(recText, rightMargin - leftMargin - 10)
@@ -144,17 +144,17 @@ export default function PolishingClothGuidePage() {
     // Final Polishing Pads
     checkPageBreak(30)
     pdf.setFontSize(12)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.setTextColor(37, 99, 235)
     pdf.text('Final Polishing Pads', leftMargin, yPos)
     yPos += lineHeight + 2
 
     pdf.setFontSize(10)
-    pdf.setFont(undefined, 'normal')
+    pdf.setFont('helvetica', 'normal')
     pdf.setTextColor(0, 0, 0)
     finalPads.forEach(pad => {
       checkPageBreak(20)
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       pdf.text(pad.name, leftMargin, yPos)
       if (pad.pace) {
         pdf.setFontSize(8)
@@ -164,13 +164,13 @@ export default function PolishingClothGuidePage() {
         pdf.setFontSize(10)
       }
       yPos += lineHeight
-      pdf.setFont(undefined, 'normal')
+      pdf.setFont('helvetica', 'normal')
       // Replace Unicode mu character with regular text for better PDF rendering
       const descText = pad.desc.replace(/μ/g, 'u').replace(/μm/g, 'um')
       const descLines = pdf.splitTextToSize(descText, rightMargin - leftMargin - 10)
       pdf.text(descLines, leftMargin + 5, yPos)
       yPos += descLines.length * lineHeight
-      pdf.setFont(undefined, 'italic')
+      pdf.setFont('helvetica', 'italic')
       // Replace Unicode mu character with regular text for better PDF rendering
       const recText = `Recommended: ${pad.use.replace(/μ/g, 'u').replace(/μm/g, 'um')}`
       const recLines = pdf.splitTextToSize(recText, rightMargin - leftMargin - 10)
@@ -181,13 +181,13 @@ export default function PolishingClothGuidePage() {
     // Selection Guidelines
     checkPageBreak(30)
     pdf.setFontSize(12)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.setTextColor(37, 99, 235)
     pdf.text('Selection Guidelines', leftMargin, yPos)
     yPos += lineHeight + 2
 
     pdf.setFontSize(10)
-    pdf.setFont(undefined, 'normal')
+    pdf.setFont('helvetica', 'normal')
     pdf.setTextColor(0, 0, 0)
     const guidelines = [
       'Hard materials: Use harder pads (CERMESH, TEXPAN) for initial steps',
@@ -206,13 +206,13 @@ export default function PolishingClothGuidePage() {
     checkPageBreak(25)
     yPos += 5
     pdf.setFontSize(12)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.setTextColor(37, 99, 235)
     pdf.text('Shop Polishing Pads', leftMargin, yPos)
     yPos += lineHeight + 2
     
     pdf.setFontSize(10)
-    pdf.setFont(undefined, 'normal')
+    pdf.setFont('helvetica', 'normal')
     pdf.setTextColor(0, 0, 0)
     const shopText = 'PACE Technologies polishing pads are available for purchase online. Visit our shop to browse all available sizes and backing options.'
     const shopLines = pdf.splitTextToSize(shopText, rightMargin - leftMargin)
@@ -221,12 +221,10 @@ export default function PolishingClothGuidePage() {
     
     pdf.setFontSize(9)
     pdf.setTextColor(37, 99, 235)
-    pdf.text('https://shop.metallographic.com/collections/polishing-pads', leftMargin, yPos, { 
-      url: 'https://shop.metallographic.com/collections/polishing-pads'
-    })
+    pdf.text('https://shop.metallographic.com/collections/polishing-pads', leftMargin, yPos)
 
     // Footer with logo
-    const pageCount = pdf.internal.getNumberOfPages()
+    const pageCount = pdf.getNumberOfPages()
     for (let i = 1; i <= pageCount; i++) {
       pdf.setPage(i)
       addFooterLogo()

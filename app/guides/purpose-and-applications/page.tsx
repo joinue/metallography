@@ -3,6 +3,7 @@ import Image from 'next/image'
 import ProductLink from '@/components/ProductLink'
 import GuideSideNav from '@/components/GuideSideNav'
 import Link from 'next/link'
+import GlossaryTermTooltip from '@/components/GlossaryTermTooltip'
 import { getGuideMetadata, getGuideStructuredData, getGuideBySlug } from '@/lib/guide-seo'
 
 const guide = getGuideBySlug('purpose-and-applications')!
@@ -17,6 +18,7 @@ const sections = [
   { id: 'research-development', label: 'Research & Development' },
   { id: 'materials-development', label: 'Materials Development' },
   { id: 'process-control', label: 'Process Control' },
+  { id: 'industry-specific', label: 'Industry-Specific Applications' },
   { id: 'standards-certification', label: 'Standards & Certification' },
   { id: 'conclusion', label: 'Conclusion' },
 ]
@@ -71,6 +73,7 @@ export default function PurposeAndApplicationsGuide() {
               <li><a href="#research-development" className="text-primary-600 hover:underline">Research & Development</a></li>
               <li><a href="#materials-development" className="text-primary-600 hover:underline">Materials Development</a></li>
               <li><a href="#process-control" className="text-primary-600 hover:underline">Process Control</a></li>
+              <li><a href="#industry-specific" className="text-primary-600 hover:underline">Industry-Specific Applications</a></li>
               <li><a href="#standards-certification" className="text-primary-600 hover:underline">Standards & Certification</a></li>
               <li><a href="#conclusion" className="text-primary-600 hover:underline">Conclusion</a></li>
             </ul>
@@ -81,10 +84,16 @@ export default function PurposeAndApplicationsGuide() {
             <section id="introduction" className="scroll-mt-24">
               <h2>Introduction</h2>
               <p>
-                Metallography is the science and art of preparing metal specimens for microscopic examination 
+                <GlossaryTermTooltip term="Metallography">Metallography</GlossaryTermTooltip> is the science and art of preparing metal specimens for microscopic examination 
                 to reveal their internal structure, composition, and properties. It serves as a fundamental 
                 tool in materials science, engineering, and quality assurance, providing critical insights 
                 that cannot be obtained through other analytical methods.
+              </p>
+              <p>
+                While the name suggests it's limited to metals, modern metallographic techniques are also 
+                applied to ceramics, composites, polymers, and other engineering materials. The fundamental 
+                principles remain the same: prepare a sample to reveal its true <GlossaryTermTooltip term="Microstructure">microstructure</GlossaryTermTooltip>, 
+                then examine and analyze it to understand the material's properties and processing history.
               </p>
               <div className="my-6 rounded-lg overflow-hidden max-w-2xl mx-auto">
                 <Image
@@ -123,22 +132,22 @@ export default function PurposeAndApplicationsGuide() {
                 Metallography allows scientists and engineers to observe and quantify:
               </p>
               <ul>
-                <li><strong>Grain size and shape:</strong> Understanding the crystalline structure and its influence on material properties</li>
-                <li><strong>Phase distribution:</strong> Identifying different phases present in the material and their arrangement</li>
-                <li><strong>Inclusions and impurities:</strong> Detecting non-metallic inclusions, voids, and contamination</li>
-                <li><strong>Defects and anomalies:</strong> Revealing cracks, porosity, segregation, and other structural defects</li>
-                <li><strong>Heat treatment effects:</strong> Evaluating how thermal processing has altered the microstructure</li>
+                <li><strong><GlossaryTermTooltip term="Grain Size">Grain size</GlossaryTermTooltip> and shape:</strong> Understanding the crystalline structure and its influence on material properties. Smaller grains generally increase strength and toughness.</li>
+                <li><strong><GlossaryTermTooltip term="Phase">Phase</GlossaryTermTooltip> distribution:</strong> Identifying different phases present in the material and their arrangement. Different phases have distinct properties and behaviors.</li>
+                <li><strong><GlossaryTermTooltip term="Inclusion">Inclusions</GlossaryTermTooltip> and impurities:</strong> Detecting non-metallic inclusions, <GlossaryTermTooltip term="Void">voids</GlossaryTermTooltip>, and contamination that can affect material performance.</li>
+                <li><strong><GlossaryTermTooltip term="Defect">Defects</GlossaryTermTooltip> and anomalies:</strong> Revealing <GlossaryTermTooltip term="Crack">cracks</GlossaryTermTooltip>, <GlossaryTermTooltip term="Porosity">porosity</GlossaryTermTooltip>, segregation, and other structural defects that compromise material integrity.</li>
+                <li><strong>Heat treatment effects:</strong> Evaluating how thermal processing has altered the microstructure, such as the formation of <GlossaryTermTooltip term="Martensite">martensite</GlossaryTermTooltip>, <GlossaryTermTooltip term="Bainite">bainite</GlossaryTermTooltip>, or other transformation products.</li>
               </ul>
               <h3>Property-Structure Relationships</h3>
               <p>
-                By correlating microstructure with mechanical, thermal, and chemical properties, metallography 
-                helps predict material behavior and performance. This understanding is important for:
+                By correlating <GlossaryTermTooltip term="Microstructure">microstructure</GlossaryTermTooltip> with mechanical, thermal, and chemical properties, metallography 
+                helps predict material behavior and performance. This understanding is essential for:
               </p>
               <ul>
-                <li>Selecting appropriate materials for specific applications</li>
-                <li>Optimizing manufacturing processes</li>
-                <li>Predicting material performance under service conditions</li>
-                <li>Understanding failure mechanisms</li>
+                <li>Selecting appropriate materials for specific applications based on their microstructural characteristics</li>
+                <li>Optimizing manufacturing processes to achieve desired microstructures and properties</li>
+                <li>Predicting material performance under service conditions by understanding how microstructure responds to stress, temperature, and environment</li>
+                <li>Understanding failure mechanisms by examining how microstructure influences crack initiation and propagation</li>
               </ul>
               <h3>Quality Verification</h3>
               <p>
@@ -159,37 +168,40 @@ export default function PurposeAndApplicationsGuide() {
                 Manufacturers use metallography to verify that incoming raw materials meet specifications:
               </p>
               <ul>
-                <li>Checking grain size requirements</li>
-                <li>Verifying heat treatment condition</li>
-                <li>Detecting undesirable phases or structures</li>
-                <li>Confirming material composition through microstructural analysis</li>
+                <li>Checking <GlossaryTermTooltip term="Grain Size">grain size</GlossaryTermTooltip> requirements according to material specifications</li>
+                <li>Verifying heat treatment condition by examining the resulting <GlossaryTermTooltip term="Microstructure">microstructure</GlossaryTermTooltip></li>
+                <li>Detecting undesirable <GlossaryTermTooltip term="Phase">phases</GlossaryTermTooltip> or structures that could compromise performance</li>
+                <li>Confirming material composition through microstructural analysis, as different compositions produce characteristic microstructures</li>
               </ul>
               <h3>In-Process Quality Monitoring</h3>
               <p>
                 During manufacturing, metallographic analysis helps ensure processes are operating correctly:
               </p>
               <ul>
-                <li>Monitoring heat treatment effectiveness</li>
-                <li>Verifying welding quality and joint integrity</li>
-                <li>Checking for proper grain refinement or recrystallization</li>
-                <li>Detecting process-related defects early</li>
+                <li>Monitoring heat treatment effectiveness by examining transformation products and microstructure uniformity</li>
+                <li>Verifying welding quality and joint integrity, including the <GlossaryTermTooltip term="Heat Affected Zone">heat-affected zone (HAZ)</GlossaryTermTooltip> microstructure</li>
+                <li>Checking for proper grain refinement or <GlossaryTermTooltip term="Recrystallization">recrystallization</GlossaryTermTooltip> after deformation processes</li>
+                <li>Detecting process-related <GlossaryTermTooltip term="Defect">defects</GlossaryTermTooltip> early, such as <GlossaryTermTooltip term="Inclusion">inclusions</GlossaryTermTooltip>, <GlossaryTermTooltip term="Porosity">porosity</GlossaryTermTooltip>, or improper phase formation</li>
               </ul>
               <h3>Final Product Verification</h3>
               <p>
                 Before products reach customers, metallography confirms they meet all quality requirements:
               </p>
               <ul>
-                <li>Verifying microstructure meets specifications</li>
-                <li>Checking for surface defects or contamination</li>
-                <li>Confirming proper case depth in surface-hardened components</li>
-                <li>Validating coating thickness and integrity</li>
+                <li>Verifying <GlossaryTermTooltip term="Microstructure">microstructure</GlossaryTermTooltip> meets specifications and quality standards</li>
+                <li>Checking for surface <GlossaryTermTooltip term="Defect">defects</GlossaryTermTooltip> or contamination that could affect performance</li>
+                <li>Confirming proper case depth in surface-hardened components (e.g., carburized or nitrided parts)</li>
+                <li>Validating coating thickness and integrity, ensuring proper adhesion and coverage</li>
               </ul>
               <div className="bg-gray-50 border-l-4 border-primary-600 p-4 my-6 rounded">
                 <p className="text-sm text-gray-700">
                   <strong>Industry Example:</strong> In the aerospace industry, metallographic inspection 
                   is mandatory for critical components. Every batch of material and every critical part 
                   undergoes metallographic analysis to ensure it meets stringent quality standards before 
-                  being used in aircraft.
+                  being used in aircraft. For more details, see our guide on{' '}
+                  <Link href="/guides/aerospace-applications" className="text-primary-600 hover:underline font-semibold">
+                    Aerospace Applications of Metallography
+                  </Link>.
                 </p>
               </div>
             </section>
@@ -206,11 +218,11 @@ export default function PurposeAndApplicationsGuide() {
                 Metallographic examination reveals the mode of failure:
               </p>
               <ul>
-                <li><strong>Fatigue failure:</strong> Characteristic crack propagation patterns and beach marks</li>
-                <li><strong>Brittle fracture:</strong> Cleavage facets and lack of plastic deformation</li>
-                <li><strong>Ductile failure:</strong> Dimpled fracture surfaces and evidence of plastic deformation</li>
-                <li><strong>Corrosion failure:</strong> Pitting, intergranular attack, or stress corrosion cracking</li>
-                <li><strong>Overheating:</strong> Microstructural changes indicating excessive temperature exposure</li>
+                <li><strong>Fatigue failure:</strong> Characteristic <GlossaryTermTooltip term="Crack">crack</GlossaryTermTooltip> propagation patterns and beach marks showing progressive failure under cyclic loading</li>
+                <li><strong>Brittle fracture:</strong> Cleavage facets and lack of plastic deformation, often associated with rapid, catastrophic failure</li>
+                <li><strong>Ductile failure:</strong> Dimpled fracture surfaces and evidence of plastic deformation, indicating material yielded before failure</li>
+                <li><strong>Corrosion failure:</strong> Pitting, intergranular attack, or stress corrosion cracking revealed through microstructural examination</li>
+                <li><strong>Overheating:</strong> <GlossaryTermTooltip term="Microstructure">Microstructural</GlossaryTermTooltip> changes indicating excessive temperature exposure, such as excessive <GlossaryTermTooltip term="Grain Size">grain growth</GlossaryTermTooltip> or phase transformations</li>
               </ul>
               <h3>Root Cause Analysis</h3>
               <p>
@@ -260,12 +272,12 @@ export default function PurposeAndApplicationsGuide() {
                 Researchers use metallography to study:
               </p>
               <ul>
-                <li>Phase transformations and kinetics</li>
-                <li>Grain growth mechanisms</li>
-                <li>Recrystallization behavior</li>
-                <li>Deformation mechanisms</li>
-                <li>Diffusion processes</li>
-                <li>Nucleation and growth phenomena</li>
+                <li><GlossaryTermTooltip term="Phase">Phase</GlossaryTermTooltip> transformations and kinetics, understanding how and when different phases form</li>
+                <li><GlossaryTermTooltip term="Grain Size">Grain growth</GlossaryTermTooltip> mechanisms and how processing conditions affect grain size evolution</li>
+                <li><GlossaryTermTooltip term="Recrystallization">Recrystallization</GlossaryTermTooltip> behavior after deformation, critical for understanding work hardening and annealing</li>
+                <li>Deformation mechanisms, including how dislocations and other defects move through the material</li>
+                <li>Diffusion processes that control phase transformations and chemical changes</li>
+                <li>Nucleation and growth phenomena that determine microstructure development</li>
               </ul>
               <h3>Process Development</h3>
               <p>
@@ -289,6 +301,15 @@ export default function PurposeAndApplicationsGuide() {
                 <li>Nanostructured materials development</li>
                 <li>Composite material characterization</li>
               </ul>
+              <div className="bg-blue-50 border-l-4 border-blue-600 p-4 my-6 rounded">
+                <p className="text-sm text-gray-700 mb-2">
+                  <strong>Specialized Applications:</strong> Beyond industrial and research applications, 
+                  metallography is also used in forensic investigations to analyze failed components in 
+                  legal cases, archaeological studies to understand ancient metalworking techniques, and 
+                  conservation efforts to preserve historical metal artifacts. These specialized applications 
+                  demonstrate the versatility and importance of metallographic analysis across many fields.
+                </p>
+              </div>
             </section>
 
             <section id="materials-development" className="scroll-mt-24">
@@ -324,11 +345,11 @@ export default function PurposeAndApplicationsGuide() {
                 Metallography helps identify microstructural features that enhance specific properties:
               </p>
               <ul>
-                <li><strong>Strength:</strong> Grain refinement, precipitation hardening, martensitic transformation</li>
-                <li><strong>Toughness:</strong> Microstructure control, inclusion management</li>
-                <li><strong>Corrosion resistance:</strong> Phase distribution, grain boundary chemistry</li>
-                <li><strong>Wear resistance:</strong> Hard phase distribution, surface modification</li>
-                <li><strong>Fatigue resistance:</strong> Microstructure homogeneity, defect minimization</li>
+                <li><strong>Strength:</strong> <GlossaryTermTooltip term="Grain Size">Grain refinement</GlossaryTermTooltip>, precipitation hardening, <GlossaryTermTooltip term="Martensite">martensitic transformation</GlossaryTermTooltip></li>
+                <li><strong>Toughness:</strong> <GlossaryTermTooltip term="Microstructure">Microstructure</GlossaryTermTooltip> control, <GlossaryTermTooltip term="Inclusion">inclusion</GlossaryTermTooltip> management, and phase balance</li>
+                <li><strong>Corrosion resistance:</strong> <GlossaryTermTooltip term="Phase">Phase</GlossaryTermTooltip> distribution, grain boundary chemistry, and protective layer formation</li>
+                <li><strong>Wear resistance:</strong> Hard <GlossaryTermTooltip term="Phase">phase</GlossaryTermTooltip> distribution, surface modification, and microstructure optimization</li>
+                <li><strong>Fatigue resistance:</strong> <GlossaryTermTooltip term="Microstructure">Microstructure</GlossaryTermTooltip> homogeneity, <GlossaryTermTooltip term="Defect">defect</GlossaryTermTooltip> minimization, and residual stress control</li>
               </ul>
             </section>
 
@@ -343,43 +364,121 @@ export default function PurposeAndApplicationsGuide() {
                 Regular metallographic checks during heat treatment operations:
               </p>
               <ul>
-                <li>Verify furnace temperature uniformity</li>
-                <li>Confirm proper atmosphere control</li>
-                <li>Monitor quench effectiveness</li>
-                <li>Detect decarburization or oxidation</li>
-                <li>Ensure consistent case depth in carburizing</li>
+                <li>Verify furnace temperature uniformity by examining microstructure consistency across samples</li>
+                <li>Confirm proper atmosphere control, detecting surface oxidation or decarburization</li>
+                <li>Monitor quench effectiveness by examining transformation products and hardness gradients</li>
+                <li>Detect decarburization or oxidation through microstructural changes at the surface</li>
+                <li>Ensure consistent case depth in carburizing and other surface hardening processes</li>
               </ul>
               <h3>Welding Process Control</h3>
               <p>
                 In welding operations, metallography helps:
               </p>
               <ul>
-                <li>Verify weld penetration and fusion</li>
-                <li>Check for proper heat-affected zone (HAZ) microstructure</li>
-                <li>Detect weld defects (cracks, porosity, inclusions)</li>
-                <li>Validate post-weld heat treatment</li>
-                <li>Optimize welding parameters</li>
+                <li>Verify weld penetration and fusion, ensuring complete joint filling</li>
+                <li>Check for proper heat-affected zone (HAZ) <GlossaryTermTooltip term="Microstructure">microstructure</GlossaryTermTooltip>, avoiding undesirable <GlossaryTermTooltip term="Phase">phase</GlossaryTermTooltip> transformations</li>
+                <li>Detect weld <GlossaryTermTooltip term="Defect">defects</GlossaryTermTooltip> such as <GlossaryTermTooltip term="Crack">cracks</GlossaryTermTooltip>, <GlossaryTermTooltip term="Porosity">porosity</GlossaryTermTooltip>, and <GlossaryTermTooltip term="Inclusion">inclusions</GlossaryTermTooltip></li>
+                <li>Validate post-weld heat treatment effectiveness in restoring desired microstructure</li>
+                <li>Optimize welding parameters based on microstructural observations</li>
               </ul>
               <h3>Castings and Foundry Control</h3>
               <p>
                 Foundries use metallography to:
               </p>
               <ul>
-                <li>Control solidification structure</li>
-                <li>Monitor grain size and dendrite arm spacing</li>
-                <li>Detect casting defects (shrinkage, porosity, inclusions)</li>
-                <li>Verify heat treatment effectiveness</li>
-                <li>Optimize casting parameters</li>
+                <li>Control solidification structure to achieve desired properties</li>
+                <li>Monitor <GlossaryTermTooltip term="Grain Size">grain size</GlossaryTermTooltip> and dendrite arm spacing, which affect mechanical properties</li>
+                <li>Detect casting <GlossaryTermTooltip term="Defect">defects</GlossaryTermTooltip> such as shrinkage, <GlossaryTermTooltip term="Porosity">porosity</GlossaryTermTooltip>, and <GlossaryTermTooltip term="Inclusion">inclusions</GlossaryTermTooltip></li>
+                <li>Verify heat treatment effectiveness in modifying as-cast microstructure</li>
+                <li>Optimize casting parameters based on microstructural analysis</li>
               </ul>
               <h3>Forging and Forming</h3>
               <p>
                 Metallography supports forging and forming operations by:
               </p>
               <ul>
-                <li>Monitoring recrystallization and grain growth</li>
-                <li>Detecting flow lines and fiber orientation</li>
-                <li>Verifying proper deformation and work hardening</li>
-                <li>Ensuring uniform microstructure throughout the part</li>
+                <li>Monitoring <GlossaryTermTooltip term="Recrystallization">recrystallization</GlossaryTermTooltip> and <GlossaryTermTooltip term="Grain Size">grain growth</GlossaryTermTooltip> during and after deformation</li>
+                <li>Detecting flow lines and fiber orientation, which affect anisotropic properties</li>
+                <li>Verifying proper deformation and work hardening through microstructural changes</li>
+                <li>Ensuring uniform <GlossaryTermTooltip term="Microstructure">microstructure</GlossaryTermTooltip> throughout the part, avoiding localized variations</li>
+              </ul>
+            </section>
+
+            <section id="industry-specific" className="scroll-mt-24">
+              <h2>Industry-Specific Applications</h2>
+              <p>
+                Different industries have unique requirements and challenges for metallographic analysis. 
+                Understanding industry-specific applications helps metallographers tailor their approach 
+                to meet particular standards, regulations, and quality requirements.
+              </p>
+              <h3>Aerospace Industry</h3>
+              <p>
+                The aerospace industry has some of the most stringent metallographic requirements due to 
+                the critical nature of aircraft components. Metallography in aerospace applications includes:
+              </p>
+              <ul>
+                <li>Titanium and superalloy preparation and analysis</li>
+                <li>Fatigue and creep damage assessment</li>
+                <li>Coating and surface treatment verification</li>
+                <li>Compliance with AMS (Aerospace Material Specifications) standards</li>
+                <li>Failure analysis of critical flight components</li>
+              </ul>
+              <p>
+                For comprehensive guidance on aerospace metallography, see our{' '}
+                <Link href="/guides/aerospace-applications" className="text-primary-600 hover:underline font-semibold">
+                  Aerospace Applications Guide
+                </Link>.
+              </p>
+              <h3>Automotive Industry</h3>
+              <p>
+                The automotive industry relies heavily on metallography for quality control and process 
+                optimization. Key applications include:
+              </p>
+              <ul>
+                <li>Steel and aluminum processing verification</li>
+                <li>Heat treatment validation for engine and transmission components</li>
+                <li>Weld quality assessment in body structures and frames</li>
+                <li>Case depth verification for surface-hardened parts</li>
+                <li>Compliance with SAE (Society of Automotive Engineers) specifications</li>
+              </ul>
+              <p>
+                Learn more about automotive metallography in our{' '}
+                <Link href="/guides/automotive-applications" className="text-primary-600 hover:underline font-semibold">
+                  Automotive Applications Guide
+                </Link>.
+              </p>
+              <h3>Medical Device Industry</h3>
+              <p>
+                Medical device manufacturing requires specialized metallographic techniques to ensure 
+                biocompatibility and regulatory compliance. Applications include:
+              </p>
+              <ul>
+                <li>Biocompatible material preparation (titanium, stainless steel, cobalt-chromium alloys)</li>
+                <li>Surface finish requirements for implants</li>
+                <li>Implant material characterization and verification</li>
+                <li>Regulatory compliance documentation (FDA, ISO 13485)</li>
+                <li>Failure analysis of medical devices</li>
+              </ul>
+              <p>
+                For detailed information on medical device metallography, see our{' '}
+                <Link href="/guides/medical-device-applications" className="text-primary-600 hover:underline font-semibold">
+                  Medical Device Applications Guide
+                </Link>.
+              </p>
+              <h3>Other Industries</h3>
+              <p>
+                Metallography is also essential in many other industries, including:
+              </p>
+              <ul>
+                <li><strong>Power generation:</strong> Analysis of turbine blades, boiler tubes, and pressure vessels</li>
+                <li><strong>Oil and gas:</strong> Pipeline and drilling equipment analysis, corrosion assessment</li>
+                <li><strong>Electronics:</strong> PCB and semiconductor chip preparation (see our{' '}
+                  <Link href="/guides/pcb-chip-preparation" className="text-primary-600 hover:underline font-semibold">
+                    PCB and Chip Preparation Guide
+                  </Link>)
+                </li>
+                <li><strong>Additive manufacturing:</strong> Process optimization and quality control for 3D-printed components</li>
+                <li><strong>Welding and fabrication:</strong> Weld quality verification and procedure qualification</li>
               </ul>
             </section>
 
@@ -398,8 +497,16 @@ export default function PurposeAndApplicationsGuide() {
                 <li><strong>ASTM:</strong> Standards for grain size, inclusion rating, microstructure evaluation</li>
                 <li><strong>ISO:</strong> International standards for material characterization</li>
                 <li><strong>ASME:</strong> Pressure vessel and boiler code requirements</li>
-                <li><strong>SAE:</strong> Automotive material specifications</li>
-                <li><strong>AMS:</strong> Aerospace material specifications</li>
+                <li><strong>SAE:</strong> Automotive material specifications (see our{' '}
+                  <Link href="/guides/automotive-applications" className="text-primary-600 hover:underline font-semibold">
+                    Automotive Applications Guide
+                  </Link>)
+                </li>
+                <li><strong>AMS:</strong> Aerospace material specifications (see our{' '}
+                  <Link href="/guides/aerospace-applications" className="text-primary-600 hover:underline font-semibold">
+                    Aerospace Applications Guide
+                  </Link>)
+                </li>
               </ul>
               <h3>Certification Requirements</h3>
               <p>
@@ -426,9 +533,10 @@ export default function PurposeAndApplicationsGuide() {
               <div className="bg-gray-50 border-l-4 border-primary-600 p-4 my-6 rounded">
                 <p className="text-sm text-gray-700">
                   <strong>Important:</strong> Proper documentation of metallographic analysis is critical. 
-                  Maintain detailed records including sample identification, preparation methods, etching 
+                  Maintain detailed records including sample identification, preparation methods, <GlossaryTermTooltip term="Etching">etching</GlossaryTermTooltip> 
                   procedures, and microstructural observations. These records may be required for 
-                  certification, audits, or legal purposes.
+                  certification, audits, or legal purposes. Many standards, such as ASTM E883, provide 
+                  guidance on proper documentation practices.
                 </p>
               </div>
             </section>
@@ -450,13 +558,15 @@ export default function PurposeAndApplicationsGuide() {
               </ul>
               <p>
                 Whether you're working in quality control, failure analysis, research and development, or 
-                process optimization, understanding the purpose and applications of metallography is important 
+                process optimization, understanding the purpose and applications of metallography is essential 
                 for effective materials characterization and analysis.
               </p>
               <p>
-                As you work with metallography, remember that proper sample preparation is 
+                As you work with metallography, remember that proper <Link href="/guides/sectioning" className="text-primary-600 hover:underline font-semibold">sample preparation</Link> is 
                 fundamental to obtaining meaningful results. The quality of your metallographic analysis 
-                depends directly on the quality of your sample preparation techniques.
+                depends directly on the quality of your sample preparation techniques, from <Link href="/guides/sectioning" className="text-primary-600 hover:underline font-semibold">sectioning</Link> and 
+                <Link href="/guides/mounting" className="text-primary-600 hover:underline font-semibold"> mounting</Link> through <Link href="/guides/grinding-techniques" className="text-primary-600 hover:underline font-semibold">grinding</Link>, 
+                <Link href="/guides/polishing-methods" className="text-primary-600 hover:underline font-semibold"> polishing</Link>, and <Link href="/guides/etching-procedures" className="text-primary-600 hover:underline font-semibold">etching</Link>.
               </p>
             </section>
 

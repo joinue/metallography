@@ -68,7 +68,13 @@ export default function AboutPage() {
     name: 'Metallography.org',
     url: 'https://metallography.org',
     description: 'Free educational resources, guides, and best practices for metallographic sample preparation. Learn techniques, troubleshooting tips, and access expert knowledge.',
-    logo: 'https://metallography.org/logo.png',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://metallography.org/logo.png',
+      contentUrl: 'https://metallography.org/logo.png',
+      width: 512,
+      height: 512,
+    },
     founder: {
       '@type': 'Person',
       name: 'Marc Salerno',
@@ -103,7 +109,6 @@ export default function AboutPage() {
       description: 'Free educational resources for metallographic sample preparation',
     },
     sameAs: [
-      'https://materialsprep.com',
       'https://shop.metallographic.com',
       'https://metallographic.com/equipment',
     ],

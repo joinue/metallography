@@ -139,7 +139,7 @@ export default function MicroscopeMagnificationGuidePage() {
 
     pdf.setFontSize(20)
     pdf.setTextColor(37, 99, 235)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.text('Microscope Magnification Selection Guide', 20, 20)
 
     if (logoDataUrl) {
@@ -147,7 +147,7 @@ export default function MicroscopeMagnificationGuidePage() {
     }
     pdf.setFontSize(11)
     pdf.setTextColor(0, 0, 0)
-    pdf.setFont(undefined, 'normal')
+    pdf.setFont('helvetica', 'normal')
     pdf.text('Metallography.org', 30, 30)
 
     pdf.setFontSize(10)
@@ -171,12 +171,12 @@ export default function MicroscopeMagnificationGuidePage() {
     // Introduction
     yPos += 3
     pdf.setFontSize(12)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.text('Introduction', leftMargin, yPos)
     yPos += lineHeight
 
     pdf.setFontSize(10)
-    pdf.setFont(undefined, 'normal')
+    pdf.setFont('helvetica', 'normal')
     const introText = 'Selecting the appropriate magnification is crucial for effective metallographic analysis. This guide provides recommended magnification ranges for common applications and general guidelines for magnification selection. Remember that magnification should be chosen based on the size of features you need to observe and the level of detail required.'
     const introLines = pdf.splitTextToSize(introText, rightMargin - leftMargin)
     pdf.text(introLines, leftMargin, yPos)
@@ -186,7 +186,7 @@ export default function MicroscopeMagnificationGuidePage() {
     checkPageBreak(30)
     yPos += 3
     pdf.setFontSize(14)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.setTextColor(37, 99, 235)
     pdf.text('Recommended Magnification Ranges', leftMargin, yPos)
     yPos += lineHeight + 1
@@ -199,16 +199,16 @@ export default function MicroscopeMagnificationGuidePage() {
     magnificationRanges.forEach((item, index) => {
       checkPageBreak(25)
       pdf.setFontSize(11)
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       pdf.text(`${index + 1}. ${item.application}`, leftMargin, yPos)
       yPos += lineHeight
 
       pdf.setFontSize(10)
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       pdf.text(`Magnification: ${item.magnification}`, leftMargin + 5, yPos)
       yPos += lineHeight
 
-      pdf.setFont(undefined, 'normal')
+      pdf.setFont('helvetica', 'normal')
       const descLines = pdf.splitTextToSize(item.description, rightMargin - leftMargin - 10)
       pdf.text(descLines, leftMargin + 5, yPos)
       yPos += descLines.length * lineHeight
@@ -224,7 +224,7 @@ export default function MicroscopeMagnificationGuidePage() {
     checkPageBreak(30)
     yPos += 5
     pdf.setFontSize(14)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.setTextColor(37, 99, 235)
     pdf.text('General Guidelines', leftMargin, yPos)
     yPos += lineHeight + 1
@@ -237,11 +237,11 @@ export default function MicroscopeMagnificationGuidePage() {
     generalGuidelines.forEach((guideline, index) => {
       checkPageBreak(15)
       pdf.setFontSize(10)
-      pdf.setFont(undefined, 'bold')
+      pdf.setFont('helvetica', 'bold')
       pdf.text(`${index + 1}. ${guideline.rule}`, leftMargin, yPos)
       yPos += lineHeight
 
-      pdf.setFont(undefined, 'normal')
+      pdf.setFont('helvetica', 'normal')
       const descLines = pdf.splitTextToSize(guideline.description, rightMargin - leftMargin - 5)
       pdf.text(descLines, leftMargin + 5, yPos)
       yPos += descLines.length * lineHeight + 3
@@ -251,13 +251,13 @@ export default function MicroscopeMagnificationGuidePage() {
     checkPageBreak(25)
     yPos += 5
     pdf.setFontSize(12)
-    pdf.setFont(undefined, 'bold')
+    pdf.setFont('helvetica', 'bold')
     pdf.setTextColor(37, 99, 235)
     pdf.text('Important Notes', leftMargin, yPos)
     yPos += lineHeight + 2
 
     pdf.setFontSize(10)
-    pdf.setFont(undefined, 'normal')
+    pdf.setFont('helvetica', 'normal')
     pdf.setTextColor(0, 0, 0)
     const notes = [
       'Magnification values are approximate and may vary based on specific microscope and objective lens combinations.',
@@ -276,7 +276,7 @@ export default function MicroscopeMagnificationGuidePage() {
     })
 
     // Footer
-    const pageCount = pdf.internal.getNumberOfPages()
+    const pageCount = pdf.getNumberOfPages()
     for (let i = 1; i <= pageCount; i++) {
       pdf.setPage(i)
       addFooterLogo()

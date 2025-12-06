@@ -273,8 +273,8 @@ export default function Footer() {
                 <li><Link href="/contact" className="text-gray-400 hover:text-white transition-colors text-sm">Contact</Link></li>
                 <li><Link href="/quote" className="text-gray-400 hover:text-white transition-colors text-sm">Request Quote</Link></li>
                 <li>
-                  <Link href="https://materialsprep.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-sm">
-                    Procedure Tool
+                  <Link href="/guides?category=Material-Specific" className="text-gray-400 hover:text-white transition-colors text-sm">
+                    Procedure Guides
                   </Link>
                 </li>
               </ul>
@@ -329,7 +329,7 @@ export default function Footer() {
                   Terms
                 </Link>
                 <Link 
-                  href="/sitemap" 
+                  href="/site-map" 
                   className="text-gray-400 hover:text-white transition-all duration-200 hover:underline underline-offset-4 decoration-gray-500 hover:decoration-white"
                 >
                   Sitemap

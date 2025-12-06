@@ -78,7 +78,7 @@ export default function PrivacyPage() {
           <section className="mb-8">
             <h2 className="text-2xl font-semibold mb-4 text-gray-900">Third-Party Links</h2>
             <p className="text-gray-700 leading-relaxed mb-4">
-              Our website may contain links to external websites, including our related sites (materialsprep.com, shop.metallographic.com, metallographic.com). We are not responsible for the privacy practices of these external sites. We encourage you to review the privacy policies of any external websites you visit.
+              Our website may contain links to external websites, including our related sites (shop.metallographic.com, metallographic.com). We are not responsible for the privacy practices of these external sites. We encourage you to review the privacy policies of any external websites you visit.
             </p>
           </section>
 

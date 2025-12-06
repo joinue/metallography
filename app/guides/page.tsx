@@ -45,11 +45,14 @@ export const metadata: Metadata = {
   },
 }
 
-export default function GuidesPage({
+export default async function GuidesPage({
   searchParams,
 }: {
-  searchParams: { category?: string }
+  searchParams: Promise<{ category?: string }>
 }) {
+  // Await searchParams in Next.js 15+
+  const params = await searchParams
+  
   // Create structured data for CollectionPage
   const structuredData = {
     '@context': 'https://schema.org',
@@ -105,42 +108,39 @@ export default function GuidesPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}
       />
-      <div className="py-12">
+      <div className="py-4 sm:py-6 md:py-12">
         <div className="container-custom">
           {/* Header Section */}
-          <div className="mb-8">
-            <h1 className="text-3xl md:text-4xl font-bold mb-2 text-gray-900">Sample Preparation Guides</h1>
-            <p className="text-lg text-gray-600 mt-2">
-              Comprehensive guides organized by topic: Start with <strong>Basics</strong> for fundamentals, 
-              then explore <strong>Process</strong> overviews, and dive deep into <strong>Material-Specific</strong> 
-              and <strong>Application-Specific</strong> guides for advanced techniques.
+          <div className="mb-3 sm:mb-4 md:mb-6">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1.5 sm:mb-2 text-gray-900">Sample Preparation Guides</h1>
+            <p className="text-xs sm:text-sm md:text-base text-gray-600 mt-1 sm:mt-2">
+              Guides organized by topic: <strong>Basics</strong>, <strong>Process</strong>, 
+              <strong> Material-Specific</strong>, and <strong>Application-Specific</strong>.
             </p>
           </div>
 
-          <GuidesClient initialCategory={searchParams.category} />
+          <GuidesClient initialCategory={params.category} />
 
           {/* CTA Section */}
-          <div className="mt-20">
+          <div className="mt-8 sm:mt-12 md:mt-20">
             <div className="text-center">
-              <h2 className="text-4xl font-bold mb-4 text-gray-900">Save and Organize Your Procedures</h2>
-              <p className="text-xl mb-4 text-gray-600 leading-relaxed">
-                Use our free procedure tool to save, organize, and get personalized recommendations for your preparation methods.
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-gray-900">Explore Material-Specific Procedures</h2>
+              <p className="text-base sm:text-lg md:text-xl mb-3 sm:mb-4 text-gray-600 leading-relaxed px-2 sm:px-0">
+                Browse our comprehensive collection of procedure guides for material-specific preparation methods and get personalized recommendations.
               </p>
-              <p className="text-base mb-8 text-gray-500">
-                Track your procedures, get product suggestions, and optimize your workflow
+              <p className="text-sm sm:text-base mb-6 sm:mb-8 text-gray-500 px-2 sm:px-0">
+                Find procedures for your materials, get product suggestions, and optimize your workflow
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0">
                 <Link 
-                  href="https://materialsprep.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary"
+                  href="/guides?category=Material-Specific"
+                  className="btn-primary w-full sm:w-auto"
                 >
-                  Try Procedure Tool Free
+                  Browse Procedure Guides
                 </Link>
                 <Link 
                   href="/resources"
-                  className="btn-tertiary"
+                  className="btn-tertiary w-full sm:w-auto"
                 >
                   View Resources
                 </Link>

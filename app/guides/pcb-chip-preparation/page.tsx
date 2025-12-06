@@ -867,12 +867,10 @@ export default function PCBChipPreparationGuide() {
                   Shop Consumables
                 </Link>
                 <Link 
-                  href="https://materialsprep.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/guides?category=Material-Specific"
                   className="btn-secondary text-center"
                 >
-                  Save to Procedure Tool
+                  Browse Procedure Guides
                 </Link>
               </div>
             </div>
