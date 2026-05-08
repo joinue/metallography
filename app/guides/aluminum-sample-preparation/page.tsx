@@ -128,7 +128,7 @@ export default function AluminumGuide() {
                       className="block hover:opacity-90 transition-opacity"
                     >
                       <Image
-                        src="/images/consumables/maxcut-e.webp"
+                        src="/images/consumables/maxcut-c.webp"
                         alt="MAX-C abrasive cut-off blades for aluminum sectioning"
                         width={500}
                         height={375}

@@ -114,8 +114,8 @@ export default function TitaniumGuide() {
                   className="block hover:opacity-90 transition-opacity"
                 >
                   <Image
-                    src="/images/consumables/maxcut-d.webp"
-                    alt="Abrasive cut-off blades for titanium sectioning"
+                    src="/images/consumables/maxcut-e.webp"
+                    alt="MAX-E abrasive cut-off blades for titanium sectioning (hard non-ferrous Al₂O₃ bond)"
                     width={500}
                     height={375}
                     className="w-full h-auto"

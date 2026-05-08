@@ -120,7 +120,7 @@ export default function HistoryOfMetallographyGuide() {
               </p>
               <div className="my-6 rounded-lg overflow-hidden max-w-2xl mx-auto">
                 <Image
-                  src="/images/microstructures/Gray iron, 2%25 nital, 400X.JPG"
+                  src="/images/microstructures/Gray iron, 2% nital, 400X.JPG"
                   alt="Gray iron microstructure - the type of material ancient metalworkers worked with"
                   width={600}
                   height={450}
@@ -403,7 +403,7 @@ export default function HistoryOfMetallographyGuide() {
                 </div>
                 <div className="rounded-lg overflow-hidden">
                   <Image
-                    src="/images/microstructures/Nodular cast iron, 2%25 nital, 400X (DIC).JPG"
+                    src="/images/microstructures/Nodular cast iron, 2% nital, 400X (DIC).JPG"
                     alt="DIC microscopy image showing advanced imaging techniques"
                     width={300}
                     height={225}

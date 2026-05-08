@@ -492,7 +492,7 @@ export default function MicrostructuralAnalysisGuide() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="rounded overflow-hidden">
                       <Image
-                        src="/images/microstructures/Gray iron, 2%25 nital, 400X.JPG"
+                        src="/images/microstructures/Gray iron, 2% nital, 400X.JPG"
                         alt="Gray cast iron with graphite flakes"
                         width={400}
                         height={300}
@@ -521,7 +521,7 @@ export default function MicrostructuralAnalysisGuide() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="rounded overflow-hidden">
                       <Image
-                        src="/images/microstructures/Nodular cast iron, 2%25 nital, 400X (DIC).JPG"
+                        src="/images/microstructures/Nodular cast iron, 2% nital, 400X (DIC).JPG"
                         alt="Nodular cast iron with spherical graphite"
                         width={400}
                         height={300}

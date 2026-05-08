@@ -254,8 +254,8 @@ export default function WeldingAnalysisGuide() {
                         className="hover:opacity-90 transition-opacity w-full h-full flex items-center justify-center"
                       >
                         <Image
-                          src="/images/equipment/sectioning/abrasive cutoff machines/accutom-100/accutom-100-cover.webp"
-                          alt="Abrasive cutoff machines for sectioning weld samples"
+                          src="/images/equipment/abrasive sectioning/manual abrasive cutters/mega-t300s/mega-t300s-cover.webp"
+                          alt="MEGA-T300S abrasive cutoff machine for sectioning weld samples"
                           width={250}
                           height={188}
                           className="max-w-full max-h-full object-contain"
@@ -379,8 +379,8 @@ export default function WeldingAnalysisGuide() {
                         className="hover:opacity-90 transition-opacity w-full h-full flex items-center justify-center"
                       >
                         <Image
-                          src="/images/equipment/mounting/compression mounting presses/autopress-3/autopress-3-cover.webp"
-                          alt="Compression mounting presses for weld samples"
+                          src="/images/equipment/compression mounting/pneumatic mounting press/tp-7100s/tp-7100s-cover.webp"
+                          alt="TP-7100S compression mounting press for weld samples"
                           width={250}
                           height={188}
                           className="max-w-full max-h-full object-contain"
@@ -1177,8 +1177,8 @@ export default function WeldingAnalysisGuide() {
                       className="hover:opacity-90 transition-opacity w-full h-full flex items-center justify-center"
                     >
                       <Image
-                        src="/images/equipment/sectioning/abrasive cutoff machines/accutom-100/accutom-100-cover.webp"
-                        alt="Abrasive cutoff machines for sectioning weld samples"
+                        src="/images/equipment/abrasive sectioning/manual abrasive cutters/mega-t300s/mega-t300s-cover.webp"
+                        alt="MEGA-T300S abrasive cutoff machine for sectioning weld samples"
                         width={250}
                         height={188}
                         className="max-w-full max-h-full object-contain"
@@ -1207,8 +1207,8 @@ export default function WeldingAnalysisGuide() {
                       className="hover:opacity-90 transition-opacity w-full h-full flex items-center justify-center"
                     >
                       <Image
-                        src="/images/equipment/mounting/compression mounting presses/autopress-3/autopress-3-cover.webp"
-                        alt="Compression mounting presses for weld samples"
+                        src="/images/equipment/compression mounting/pneumatic mounting press/tp-7100s/tp-7100s-cover.webp"
+                        alt="TP-7100S compression mounting press for weld samples"
                         width={250}
                         height={188}
                         className="max-w-full max-h-full object-contain"
