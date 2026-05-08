@@ -214,11 +214,6 @@ export default function HeatTreatmentVerificationGuide() {
                   and dimensional measurements. Essential for microstructural examination and verification.
                 </p>
               </div>
-              <ProductLink 
-                productName="Metallographic Microscopes"
-                href="https://metallographic.com/metallographic-equipment/microscopes"
-                description="High-quality microscopes with calibrated eyepieces for accurate case depth and dimensional measurements"
-              />
 
               <h3>Verification Checklist</h3>
               <div className="bg-gray-50 p-4 my-6 rounded">
@@ -318,16 +313,6 @@ export default function HeatTreatmentVerificationGuide() {
                   </p>
                 </div>
               </div>
-              <ProductLink 
-                productName="Phenolic Mounting Resins"
-                href="https://shop.metallographic.com/collections/mounting-resins"
-                description="Hard phenolic resins provide excellent edge retention essential for case depth measurements"
-              />
-              <ProductLink 
-                productName="Diamond Polishing Compounds"
-                href="https://shop.metallographic.com/collections/diamond-abrasives"
-                description="High-quality diamond polishing compounds for scratch-free surfaces required for microhardness testing"
-              />
 
               <h3>Measurement Methods</h3>
               
@@ -817,11 +802,6 @@ export default function HeatTreatmentVerificationGuide() {
                   essential for case depth measurements and decarburization detection.
                 </p>
               </div>
-              <ProductLink 
-                productName="Phenolic Mounting Resins"
-                href="https://shop.metallographic.com/collections/mounting-resins"
-                description="Hard phenolic resins provide excellent edge retention essential for heat treatment verification"
-              />
 
               <h3>Grinding</h3>
               <p>
@@ -835,11 +815,6 @@ export default function HeatTreatmentVerificationGuide() {
                 <li><strong>Adequate time:</strong> Spend sufficient time at each step to remove all 
                 previous scratches</li>
               </ul>
-              <ProductLink 
-                productName="Silicon Carbide Grinding Papers"
-                href="https://shop.metallographic.com/collections/sic-grinding"
-                description="Progressive grinding papers for removing sectioning damage while preserving microstructural features"
-              />
 
               <h3>Polishing</h3>
               <p>
@@ -895,16 +870,6 @@ export default function HeatTreatmentVerificationGuide() {
                   </p>
                 </div>
               </div>
-              <ProductLink 
-                productName="Diamond Polishing Compounds"
-                href="https://shop.metallographic.com/collections/diamond-abrasives"
-                description="High-quality diamond polishing compounds for scratch-free surfaces required for heat treatment verification"
-              />
-              <ProductLink 
-                productName="Colloidal Silica"
-                href="https://shop.metallographic.com/collections/polishing-suspensions"
-                description="Final polishing suspension for achieving mirror-like surfaces essential for microhardness testing"
-              />
 
               <h3>Special Considerations</h3>
               <ul>
@@ -1292,6 +1257,15 @@ export default function HeatTreatmentVerificationGuide() {
                 </Link>
               </div>
             </div>
+
+            {/* Recordkeeping aside */}
+            <p className="mt-8 text-sm text-gray-600 leading-relaxed">
+              Case-depth and decarburization measurements are only as defensible as the prep
+              record behind them. For labs that need every reported value traceable to its
+              specific batch, equipment, and operator, a metallography ELN such as{' '}
+              <Link href="/materials-prep" className="text-primary-600 hover:underline font-semibold">Materials Prep</Link>{' '}
+              keeps the batch, recipe, and micrograph linked.
+            </p>
 
             {/* Related Guides */}
             <div className="mt-12 pt-8 border-t border-gray-200">

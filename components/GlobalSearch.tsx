@@ -142,16 +142,6 @@ const guideSections: Record<string, Array<{ id: string; label: string }>> = {
     { id: 'common-defects', label: 'Common Mounting Defects and How to Avoid Them' },
     { id: 'summary', label: 'Summary' },
   ],
-  'metallographic-mounting': [
-    { id: 'introduction', label: 'Introduction to Metallographic Mounting' },
-    { id: 'overview', label: 'Overview of Mounting Methods' },
-    { id: 'compression-mounting', label: 'Compression Mounting' },
-    { id: 'castable-mounting', label: 'Castable Mounting' },
-    { id: 'when-to-choose', label: 'When to Choose Which Method' },
-    { id: 'best-practices', label: 'Mounting Best Practices' },
-    { id: 'common-defects', label: 'Common Mounting Defects and How to Avoid Them' },
-    { id: 'summary', label: 'Summary' },
-  ],
   'grinding-techniques': [
     { id: 'introduction', label: 'Introduction' },
     { id: 'grit-selection', label: 'Grit Selection' },

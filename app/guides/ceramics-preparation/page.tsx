@@ -110,6 +110,9 @@ export default function CeramicsGuide() {
                     <li>• <strong>Silicon Nitride (Si₃N₄):</strong> High strength and hardness, good thermal shock resistance</li>
                     <li>• <strong>Boron Carbide (B₄C):</strong> One of the hardest known materials (~2800 HV), extremely challenging to prepare</li>
                     <li>• <strong>Porous Ceramics:</strong> May require vacuum impregnation during mounting to prevent pullout</li>
+                    <li>• <strong>Glass &amp; Glass-Ceramics:</strong> Softer than oxide/nitride/carbide ceramics — can be ground with SiC papers (P600 → P1200) rather than requiring diamond throughout. The canonical optical polish is <strong>cerium oxide (CeO₂)</strong> on a hard pad, finished with colloidal silica. Glass-ceramics (Pyroceram, mica-glass, alumino-silicate) need diamond for the ceramic phase plus CeO₂ to handle the glass phase.</li>
+                    <li>• <strong>Cermets (WC-Co, WC-Ni):</strong> Hard particle / soft binder system — opposite challenge to monolithic ceramic. The cobalt or nickel binder is much softer than WC, so <strong>relief at the carbide-binder interface</strong> is the dominant prep failure, not pullout. Diamond ladder throughout; keep polishing times short to limit binder relief; etch with <strong>Murakami's reagent for the WC carbide structure or 2% Nital for the binder phase</strong> (often both, sequentially).</li>
+                    <li>• <strong>Ceramic Matrix Composites (CMC):</strong> Fiber-reinforced ceramics (SiC/SiC, C/SiC, oxide/oxide). <strong>Vacuum impregnation is mandatory</strong>, often multi-cycle — fiber loss at the matrix-fiber interface is the primary failure mode, and inadequate impregnation guarantees it. Diamond ladder, light force throughout, typically examined unetched with phase identification by SEM/EDS.</li>
                   </ul>
                 </div>
                 <p>
@@ -197,7 +200,7 @@ export default function CeramicsGuide() {
                   <li><strong>Epoxy Resins:</strong> Preferred for ceramics - provides excellent edge retention, lower curing temperature (150-180°C), and better chemical resistance. Use filled epoxies for better edge retention</li>
                   <li><strong>Phenolic Resins:</strong> Acceptable for less fragile ceramics but may not provide as good edge retention as epoxy. Higher curing temperature (150-180°C) may cause thermal stress</li>
                   <li><strong>Cold Mounting:</strong> Essential for very fragile ceramics or those with existing cracks - completely avoids thermal stress. Use low-viscosity epoxies for better infiltration</li>
-                  <li><strong>Vacuum Impregnation:</strong> Required for porous ceramics to ensure complete infiltration and prevent pullout during grinding/polishing</li>
+                  <li><strong>Vacuum Impregnation:</strong> Required for porous ceramics to ensure complete infiltration and prevent pullout during grinding/polishing. <strong>Mandatory for ceramic matrix composites (CMCs)</strong> — fiber loss at the matrix-fiber interface is the primary CMC failure mode, and a single vacuum cycle is usually not enough; multi-cycle impregnation (vacuum, vent, vacuum again) is standard practice to fully infiltrate fiber tows.</li>
                   <li><strong>Mounting Pressure:</strong> 2000-3000 psi for epoxy, 3000-4000 psi for phenolic. Lower pressure for fragile ceramics</li>
                   <li><strong>Mounting Temperature:</strong> 150-180°C for compression mounting. Lower temperatures (150-160°C) preferred for ceramics to minimize thermal stress</li>
                 </ul>
@@ -231,11 +234,6 @@ export default function CeramicsGuide() {
                     is worth the reduced risk of cracking and better edge retention.
                   </p>
                 </div>
-                <ProductLink 
-                  productName="Compression Mounting Equipment"
-                  href="https://www.metallographic.com/metallographic-equipment/compression-mounting.html"
-                  description="Automatic and manual mounting presses for consistent results with ceramic samples"
-                />
               </section>
             </AnimateOnScroll>
 
@@ -416,26 +414,43 @@ export default function CeramicsGuide() {
                     where mechanical polishing is challenging, consider ion beam polishing as an alternative final step.
                   </p>
                 </div>
+                <h3>Special Case: Glass and Glass-Ceramics — Cerium Oxide (CeO₂)</h3>
+                <p>
+                  For silicate glasses, soda-lime glass, borosilicate glass, and the glass phase in
+                  glass-ceramics, the canonical polish is <strong>cerium oxide (CeO₂) on a hard pad</strong> —
+                  not diamond. CeO₂ is the traditional optical-finish abrasive used in the optics industry
+                  for centuries because it has chemo-mechanical action specific to silicate networks: it
+                  reacts with silica during polishing in a way diamond cannot, producing the optical-grade
+                  finish that glass requires. Diamond cuts glass mechanically but leaves subsurface damage
+                  CeO₂ removes. Standard glass workflow:
+                </p>
+                <ol>
+                  <li><strong>Grind:</strong> SiC P600 → P800 → P1200 → P2400 (glass is softer than oxide ceramics; SiC works fine here, no need for the diamond ladder)</li>
+                  <li><strong>Polish:</strong> Cerium oxide (CeO₂) slurry on a hard pad, light pressure, 5-15 minutes</li>
+                  <li><strong>Final:</strong> Colloidal silica on a soft pad, 2-5 minutes + flush</li>
+                  <li><strong>Etch:</strong> Usually unetched; dilute HF for revealing devitrification only when needed</li>
+                </ol>
+                <p>
+                  For <strong>glass-ceramics</strong> (Pyroceram, mica-glass, alumino-silicate), use the
+                  diamond ladder for the ceramic phase, then <strong>finish with CeO₂ on a hard pad</strong>
+                  before colloidal silica — the CeO₂ step handles the glass phase that the diamond ladder
+                  leaves under-finished.
+                </p>
                 <h3>Alternative Polishing Methods</h3>
                 <p>
-                  For extremely hard ceramics or when grain boundary pullout is a persistent problem, consider 
+                  For extremely hard ceramics or when grain boundary pullout is a persistent problem, consider
                   these alternatives:
                 </p>
                 <ul>
-                  <li><strong>Ion Beam Polishing:</strong> Uses ion bombardment to remove material without mechanical 
-                  contact. Eliminates pullout risk entirely but requires specialized equipment. Best for final 
+                  <li><strong>Ion Beam Polishing:</strong> Uses ion bombardment to remove material without mechanical
+                  contact. Eliminates pullout risk entirely but requires specialized equipment. Best for final
                   polishing of hardest ceramics.</li>
-                  <li><strong>Vibratory Polishing:</strong> Can be used for final polishing with very light pressure. 
+                  <li><strong>Vibratory Polishing:</strong> Can be used for final polishing with very light pressure.
                   Less aggressive than mechanical polishing, reducing pullout risk.</li>
-                  <li><strong>Electrochemical Polishing:</strong> Limited applicability to ceramics, but may work for 
+                  <li><strong>Electrochemical Polishing:</strong> Limited applicability to ceramics, but may work for
                   some conductive ceramics or ceramic composites.</li>
                 </ul>
-                <ProductLink 
-                  productName="Diamond Abrasives"
-                  href="https://shop.metallographic.com/collections/diamond-abrasives"
-                  description="High-quality diamond polishing compounds in various particle sizes for ceramic preparation"
-                />
-                <ProductLink 
+                <ProductLink
                   productName="Polishing Pads"
                   href="https://shop.metallographic.com/collections/polishing-pads"
                   description="Premium polishing pads for different polishing stages on hard ceramic materials"
@@ -507,9 +522,9 @@ export default function CeramicsGuide() {
                 </p>
                 <h4>Common Chemical Etchants for Ceramics</h4>
                 <ul>
-                  <li><strong>Phosphoric Acid (H₃PO₄):</strong> Hot phosphoric acid (200-300°C) for some oxide ceramics</li>
-                  <li><strong>Hydrofluoric Acid (HF):</strong> Dilute HF solutions for silicon-based ceramics (use extreme caution)</li>
-                  <li><strong>Molten Salts:</strong> Some ceramics can be etched with molten salt baths</li>
+                  <li><strong>Phosphoric Acid (H₃PO₄):</strong> Hot phosphoric acid at 250°C reveals grain boundaries in alumina; also one of two classic options for SiC.</li>
+                  <li><strong>Molten KOH / NaOH:</strong> The canonical chemical etch for SiC and Si₃N₄ grain boundaries. Specialty equipment (corrosion-resistant crucible, controlled heating); typically reserved for cases where thermal etching is impractical and grain-boundary contrast is required.</li>
+                  <li><strong>Hydrofluoric Acid (HF):</strong> Dilute HF for silicon-based ceramics and for revealing devitrification in glasses. Fume hood, HF-rated PPE, calcium gluconate gel on hand.</li>
                 </ul>
                 <div className="bg-red-50 border-l-4 border-red-500 p-4 my-6 rounded">
                   <p className="text-sm text-red-900">
@@ -519,6 +534,21 @@ export default function CeramicsGuide() {
                     cannot be chemically etched effectively, so thermal etching is preferred.
                   </p>
                 </div>
+                <h3>Special Case: Cermets (WC-Co, WC-Ni)</h3>
+                <p>
+                  Cermets need a <strong>dual-etch workflow</strong> because the two phases respond to
+                  different chemistry:
+                </p>
+                <ul>
+                  <li><strong>Murakami's reagent (10 g K₃[Fe(CN)₆] + 10 g NaOH + 100 mL H₂O):</strong> Reveals the WC carbide structure — grain shape, size, and contiguity. Swab 5-30 s.</li>
+                  <li><strong>2% Nital (2 mL HNO₃ in 98 mL ethanol):</strong> Reveals the cobalt or nickel binder phase between WC grains. Swab 5-15 s.</li>
+                </ul>
+                <p>
+                  Apply Murakami's first to image the carbide skeleton, then Nital on top to bring out the
+                  binder. The dominant cermet prep concern is <strong>relief at the WC-binder interface</strong> —
+                  the binder is much softer than WC and recedes faster during polishing — so keep polishing
+                  times short and don't extend etch times to compensate.
+                </p>
                 <h3>No Etching Required</h3>
                 <p>
                   Some ceramics, particularly those with good contrast between grains (e.g., different phases, 

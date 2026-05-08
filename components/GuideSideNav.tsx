@@ -180,6 +180,7 @@ export default function GuideSideNav({ sections }: GuideSideNavProps) {
     <>
       {/* Toggle Tab - Visible from xl (1280px) to 3xl (1800px) */}
       <button
+        data-guide-sidenav
         onClick={() => setIsOpen(!isOpen)}
         className={`
           hidden xl:flex 3xl:hidden fixed top-1/2 -translate-y-1/2 z-50
@@ -210,6 +211,7 @@ export default function GuideSideNav({ sections }: GuideSideNavProps) {
 
       {/* Navigation */}
       <nav
+        data-guide-sidenav
         className={`
           hidden xl:block fixed left-4 top-24 w-72 z-40 pointer-events-none
           ${isOpen ? 'xl:translate-x-0' : 'xl:-translate-x-full'}

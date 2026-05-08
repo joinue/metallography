@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import jsPDF from 'jspdf'
 import { Download } from 'lucide-react'
 import Link from 'next/link'
+import EtchantSafetyWarning from '@/components/EtchantSafetyWarning'
 
 // Helper function to get shop URL for PACE etchants
 const getEtchantShopUrl = (name: string): string | null => {
@@ -450,6 +451,7 @@ export default function CommonEtchantsGuidePage() {
     const nickelEtchants = [
       { name: 'Inconel Etchant', comp: 'Multiple Solutions (HNO₃, HCl, H₂O₂)', app: 'Macro etch for nickel alloys including Inconel. Reveals grain boundaries and macro structure. Use fresh solution only.', time: '10-30 sec', pace: true, shopUrl: getEtchantShopUrl("Inconel Etchant") },
       { name: "Marble's Reagent", comp: 'CuSO₄ (10g), HCl (50ml), Water (50ml)', app: 'For nickel, nickel-copper, and nickel-iron superalloys. Reveals grain boundaries and phases.', time: '5-60 sec', pace: true, shopUrl: getEtchantShopUrl("Marble's Reagent") },
+      { name: "Modified Marble's", comp: 'CuSO₄ (4g), HCl (20ml), Water (20ml)', app: 'Variant of Marble\'s for Ni-Nb superalloys (Inconel 718, Rene 41). Gentler attack appropriate for precipitate-strengthened microstructures.', time: '5-60 sec', pace: false, shopUrl: null },
       { name: 'Aqua Regia', comp: '3 parts HCl : 1 part HNO₃', app: 'Standard etchant for nickel alloys. Very aggressive - reveals grain boundaries and phases. Handle in fume hood.', time: '5-15 sec', pace: false, shopUrl: null },
       { name: 'Glyceregia', comp: 'HCl (15ml), Glycerol (10ml), HNO₃ (5ml)', app: 'For nickel-based superalloys. Reveals gamma prime and other phases. Excellent for superalloys.', time: '10-30 sec', pace: false, shopUrl: null },
       { name: 'ASTM 97', comp: 'KOH (187.5g), Distilled water (245ml)', app: 'Electrolytic etchant for Fe-Cr-Ni alloys. Use at 2.5V. Provides controlled etching.', time: '5-15 sec at 2.5V', pace: true, shopUrl: null },
@@ -514,6 +516,7 @@ export default function CommonEtchantsGuidePage() {
       { name: 'Picral', comp: 'Ethanol, Picric acid (2-4g/100ml)', app: 'For revealing pearlite in cast iron matrix without attacking graphite. Superior for pearlitic cast irons.', time: '10-60 sec', pace: true, shopUrl: getEtchantShopUrl('Picral Etchant') },
       { name: "Stead's Reagent", comp: 'CuCl₂ (2g), HCl (40ml), Water (30-50ml), Ethanol (25-40ml)', app: 'For revealing graphite in cast iron. Colors matrix copper color while leaving graphite dark. Excellent for nodular cast iron.', time: '30-90 sec', pace: false, shopUrl: null },
       { name: "Klemm's Reagent", comp: 'Na₂S₂O₃ solution (250ml sat.), K₂S₂O₅ (5g)', app: 'Color etching for cast iron, brass, bronze, and steel. Reveals structure through color contrast.', time: 'Seconds to minutes', pace: true, shopUrl: getEtchantShopUrl("Klemm's Reagent") },
+      { name: "Klemm's 2", comp: 'Na₂S₂O₃ solution (250ml sat.), K₂S₂O₅ (25g)', app: 'Higher-metabisulfite Klemm variant for copper alloys, cast iron, and tin. Stronger color development than Klemm\'s I.', time: 'Up to a few minutes at 40°C', pace: false, shopUrl: null },
     ]
 
     pdf.setFontSize(10)
@@ -699,19 +702,46 @@ export default function CommonEtchantsGuidePage() {
             </div>
           </div>
 
+          {/* Quick-find table of contents */}
+          <div className="card mb-8">
+            <h2 className="text-xl font-semibold mb-3">Quick find</h2>
+            <p className="text-sm text-gray-600 mb-4">
+              Jump to the etchant family for your material. The PDF download includes additional
+              etchant families (titanium, copper, cast iron, tool steel) and a safety appendix.
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 text-sm">
+              <a href="#carbon-steel" className="text-primary-600 hover:underline">Carbon &amp; low-alloy steel</a>
+              <a href="#stainless-steel" className="text-primary-600 hover:underline">Stainless steel</a>
+              <a href="#aluminum" className="text-primary-600 hover:underline">Aluminum &amp; Al alloys</a>
+              <a href="#nickel-alloys" className="text-primary-600 hover:underline">Nickel alloys</a>
+            </div>
+          </div>
+
+          {/* Critical-hazard etchants — show before any composition tables */}
+          <div className="card mb-8">
+            <h2 className="text-xl font-semibold mb-2">High-consequence hazards</h2>
+            <p className="text-sm text-gray-600 mb-4">
+              Three reagent families on this page need more than standard PPE. Read these before
+              mixing anything else.
+            </p>
+            <EtchantSafetyWarning etchant="Picral" variant="full" />
+            <EtchantSafetyWarning etchant="Kroll's Reagent" variant="full" />
+            <EtchantSafetyWarning etchant="Aqua Regia" variant="full" />
+          </div>
+
           {/* Preview Content */}
           <div ref={guideRef} className="card">
             <h2 className="text-2xl font-semibold mb-4">Preview</h2>
-            
+
             <div className="space-y-6">
               <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
                 <p className="text-sm text-gray-700">
-                  <strong>Note:</strong> Etchants marked with <span className="text-primary-600 font-semibold">(Available as pre-mixed solution)</span> are available commercially as pre-mixed solutions. 
+                  <strong>Note:</strong> Etchants marked with <span className="text-primary-600 font-semibold">(Available as pre-mixed solution)</span> are available commercially as pre-mixed solutions.
                   Other etchants are commonly used in practice and can be prepared in-house.
                 </p>
               </div>
 
-              <section>
+              <section id="carbon-steel" className="scroll-mt-24">
                 <h3 className="text-lg font-semibold mb-3">Carbon Steel / Low Alloy Steel</h3>
                 <div className="space-y-3">
                   <div className="border-l-4 border-primary-500 pl-4">
@@ -770,7 +800,7 @@ export default function CommonEtchantsGuidePage() {
                 </div>
               </section>
 
-              <section>
+              <section id="stainless-steel" className="scroll-mt-24">
                 <h3 className="text-lg font-semibold mb-3">Stainless Steel</h3>
                 <div className="space-y-3">
                   <div className="border-l-4 border-primary-500 pl-4">
@@ -820,7 +850,7 @@ export default function CommonEtchantsGuidePage() {
                 </div>
               </section>
 
-              <section>
+              <section id="aluminum" className="scroll-mt-24">
                 <h3 className="text-lg font-semibold mb-3">Aluminum & Aluminum Alloys</h3>
                 <div className="space-y-3">
                   <div className="border-l-4 border-primary-500 pl-4">
@@ -851,7 +881,7 @@ export default function CommonEtchantsGuidePage() {
                 </div>
               </section>
 
-              <section>
+              <section id="nickel-alloys" className="scroll-mt-24">
                 <h3 className="text-lg font-semibold mb-3">Nickel Alloys</h3>
                 <div className="space-y-3">
                   <div className="border-l-4 border-primary-500 pl-4">

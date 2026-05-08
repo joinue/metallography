@@ -95,13 +95,31 @@ export default function CopperAlloysGuide() {
                 <p className="text-sm text-gray-600 mt-2 italic text-center"><MaterialTooltip materialName="C11000 Electrolytic Tough Pitch Copper">Tough pitch copper</MaterialTooltip>, ASTM No. 30 etchant, 200X magnification. This image demonstrates the proper microstructure revealed through correct preparation techniques.</p>
               </div>
               <p>
-                Copper alloys can be challenging due to their softness and tendency to deform and smear easily. 
-                The key is to use appropriate abrasives, maintain light pressure throughout the process, and avoid 
-                over-polishing which can introduce relief and smearing. Different copper alloys may require slight variations in technique. 
-                For example, softer alloys like <MaterialTooltip materialName="C11000 Electrolytic Tough Pitch Copper">electrolytic tough pitch copper</MaterialTooltip> 
-                require extra care to prevent smearing, while harder alloys like <MaterialTooltip materialName="C17200 Beryllium Copper">beryllium copper</MaterialTooltip> 
+                Copper alloys can be challenging due to their softness and tendency to deform and smear easily.
+                The key is to use appropriate abrasives, maintain light pressure throughout the process, and avoid
+                over-polishing which can introduce relief and smearing. Different copper alloys may require slight variations in technique.
+                For example, softer alloys like <MaterialTooltip materialName="C11000 Electrolytic Tough Pitch Copper">electrolytic tough pitch copper</MaterialTooltip>
+                require extra care to prevent smearing, while harder alloys like <MaterialTooltip materialName="C17200 Beryllium Copper">beryllium copper</MaterialTooltip>
                 can tolerate slightly higher pressures during preparation.
               </p>
+              <div className="bg-red-50 border-l-4 border-red-500 p-4 my-6 rounded">
+                <p className="text-sm text-red-900">
+                  <strong>Beryllium safety — required reading before preparing any BeCu (C17200, C17500, C17510) sample.</strong>
+                  Beryllium dust is a chronic respiratory hazard — inhalation causes Chronic Beryllium Disease (CBD),
+                  an irreversible lung condition that can develop years after exposure. Visible damage during the prep
+                  session is not the warning signal. <strong>Mandatory practice for BeCu:</strong>
+                </p>
+                <ul className="text-sm text-red-900 mt-2 list-disc list-inside space-y-1">
+                  <li><strong>Wet cutting and grinding only</strong> — never dry-grind BeCu. Flood coolant during sectioning, water lubricant on every grit step.</li>
+                  <li><strong>Respiratory protection</strong> appropriate for soluble Be dust if there is any chance of dry abrasive contact (N95 minimum, P100 for routine BeCu work).</li>
+                  <li><strong>Sealed disposal</strong> of all grinding waste — used papers, polishing pad surfaces, swarf, rinse water. Treat as hazardous waste per institutional procedure.</li>
+                  <li><strong>Decontaminate work surfaces</strong> after each sample (wet wipe, not dry brush).</li>
+                </ul>
+                <p className="text-sm text-red-900 mt-2">
+                  After these controls are in place, BeCu preps as a standard hard copper alloy (NH₄OH + H₂O₂ etch,
+                  Klemm I for color). The hazard is the dust generation, not the chemistry.
+                </p>
+              </div>
             </section>
 
             <section id="sectioning" className="scroll-mt-24">
@@ -114,7 +132,7 @@ export default function CopperAlloysGuide() {
                 and softer brass alloys like <MaterialTooltip materialName="C26000 Cartridge Brass">C26000 cartridge brass</MaterialTooltip>.
               </p>
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
-                <Link 
+                <Link
                   href="https://shop.metallographic.com/collections/abrasive-blades"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -122,26 +140,26 @@ export default function CopperAlloysGuide() {
                 >
                   <Image
                     src="/images/consumables/maxcut-e.webp"
-                    alt="MAX-E abrasive cut-off blades for copper and copper alloys sectioning"
+                    alt="MAX-C abrasive cut-off blades for copper and copper alloys sectioning"
                     width={500}
                     height={375}
                     className="w-full h-auto"
                   />
                 </Link>
-                <p className="text-sm text-gray-600 mt-2 italic text-center">MAX-E abrasive cut-off blades designed for soft non-ferrous materials like copper and copper alloys. Thin blades (0.5-1.0 mm) minimize heat generation and deformation.</p>
+                <p className="text-sm text-gray-600 mt-2 italic text-center">MAX-C abrasive cut-off blades — the dedicated PACE soft-non-ferrous slot for aluminum, copper, and brass. Thin blades (0.5-1.0 mm) minimize heat generation and deformation.</p>
               </div>
               <ul>
-                <li>Use MAX-E series blades (designed for soft non-ferrous materials like copper and copper alloys)</li>
+                <li>Use <strong>MAX-C series blades</strong> — the dedicated soft-non-ferrous slot for Al, Cu, and brass. Do <em>not</em> use MAX-E (that's the hard non-ferrous / titanium blade) or MAX-D / MAX-VHS (those are steel blades).</li>
                 <li>Use a thin abrasive cut-off wheel (0.5-1.0 mm thickness)</li>
                 <li>Apply steady, light pressure to avoid deformation</li>
                 <li>Use adequate coolant to prevent overheating and smearing</li>
                 <li>Allow the wheel to do the cutting - avoid forcing</li>
                 <li>Consider using a slower feed rate than for harder materials</li>
               </ul>
-              <ProductLink 
-                productName="MAX-E Abrasive Blades"
+              <ProductLink
+                productName="MAX-C Abrasive Blades"
                 href="https://shop.metallographic.com/collections/abrasive-blades"
-                description="MAX-E series blades specifically designed for soft non-ferrous materials like copper and copper alloys"
+                description="MAX-C series blades — the dedicated PACE soft-non-ferrous slot for aluminum, copper, and brass"
               />
             </section>
 
@@ -167,21 +185,25 @@ export default function CopperAlloysGuide() {
                 <li>Allow to cure at room temperature (typically 4-8 hours)</li>
                 <li>Cold mounting avoids heat that could affect copper microstructure</li>
               </ol>
-              <ProductLink 
-                productName="Compression Mounting Equipment"
-                href="https://www.metallographic.com/metallographic-equipment/compression-mounting.html"
-                description="Automatic and manual mounting presses for consistent results"
-              />
             </section>
 
             <section id="grinding" className="scroll-mt-24">
               <h2>Grinding</h2>
               <p>
-                Grinding removes sectioning damage and prepares the surface for polishing. Start with 
-                coarse grits and progressively move to finer grits. For copper and copper alloys, use lighter pressure 
-                than for harder materials to avoid deformation. We recommend starting with 240-320 grit and progressing 
-                through finer grits. This approach works well for common alloys like <MaterialTooltip materialName="C26000 Cartridge Brass">C26000 cartridge brass</MaterialTooltip> 
+                Grinding removes sectioning damage and prepares the surface for polishing. Start with
+                coarse grits and progressively move to finer grits. For copper and copper alloys, use lighter pressure
+                than for harder materials to avoid deformation. We recommend starting with 240-320 grit and progressing
+                through finer grits. This approach works well for common alloys like <MaterialTooltip materialName="C26000 Cartridge Brass">C26000 cartridge brass</MaterialTooltip>
                 and <MaterialTooltip materialName="C36000 Free-Cutting Brass">C36000 free-cutting brass</MaterialTooltip>:
+              </p>
+              <p>
+                <strong>Abrasive choice — alumina vs. SiC:</strong> Copper is soft enough that SiC particles can
+                liberate from the paper and embed in the matrix, where they resist removal in subsequent steps.
+                The PACE recommendation for soft non-ferrous (Al, Cu, brass) is the <strong>ALO alumina paper line</strong> —
+                bonded more strongly into the backing than SiC, less liberation, less embedment. SiC is acceptable
+                as a fallback (especially on harder bronzes that don't smear as easily as pure Cu), but inspect for
+                embedded dark specks after fine grinding. The sequence below uses SiC as the most widely stocked
+                option:
               </p>
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
                 <Link 
@@ -270,36 +292,33 @@ export default function CopperAlloysGuide() {
                 <li><strong>3 μm diamond:</strong> 2-3 minutes on a soft cloth</li>
                 <li><strong>1 μm diamond:</strong> 1-2 minutes on a soft cloth</li>
               </ol>
-              <h3>Final Polishing</h3>
+              <h3>Final Polishing — Chemo-Mechanical with H₂O₂</h3>
+              <p>
+                <strong>Plain colloidal silica is not enough on copper.</strong> Pure Cu maintains a stubborn
+                deformation/smear layer from polishing that ordinary mechanical action won't lift — the surface
+                looks mirror-bright but won't take NH₄OH+H₂O₂ etchant cleanly because mechanical homogenization
+                has wiped out the orientation differences between grains. The canonical Cu final step is a
+                <em> chemo-mechanical attack-polish</em>: colloidal silica modified with hydrogen peroxide.
+              </p>
               <ol>
-                <li><strong>0.05 μm colloidal silica:</strong> 30-60 seconds on a soft cloth</li>
-                <li>Rinse thoroughly with water and dry with compressed air</li>
+                <li><strong>0.04-0.05 μm colloidal silica + 5-10% H₂O₂ (3% strength)</strong>: 3 minutes on a chemotextile pad at light pressure (~10 N), followed by a 30 s water flush on the same pad to clear silica residue. Mix the silica + H₂O₂ fresh; the peroxide loses activity within hours.</li>
+                <li>Rinse with water, then ethanol, and air-dry. The surface should now etch within seconds rather than blotchy or not at all.</li>
               </ol>
               <p>
-                <strong>Important:</strong> Use lighter pressure than for steel. Over-polishing can 
-                introduce relief around second phases and inclusions. Monitor the surface frequently 
-                to avoid smearing, which is common with soft materials like copper. Gentle polishing 
-                is required to maintain the true microstructure.
+                <strong>Important:</strong> Use lighter pressure than for steel. Over-polishing can
+                introduce relief around second phases and inclusions. Monitor the surface frequently —
+                if smearing returns, the H₂O₂ has decayed; mix fresh rather than polishing longer.
               </p>
-              <ProductLink 
-                productName="Diamond Abrasives"
-                href="https://shop.metallographic.com/collections/diamond-abrasives"
-                description="High-quality diamond polishing compounds in various particle sizes"
-              />
-              <ProductLink 
-                productName="Polishing Pads"
-                href="https://shop.metallographic.com/collections/polishing-pads"
-                description="Premium polishing pads for different polishing stages"
-              />
             </section>
 
             <section id="etching" className="scroll-mt-24">
               <h2>Etching</h2>
               <p>
-                Etching reveals the microstructure by selectively attacking grain boundaries and phases. 
-                The choice of etchant depends on the copper alloy and what features you want to reveal. 
-                Common etchants include Copper No. 1, Copper No. 2, ASTM No. 30, and various specialized 
-                solutions for specific alloys.
+                Etching reveals the microstructure by selectively attacking grain boundaries and phases.
+                The canonical first-pass etch for Cu, brass, and bronze is <strong>NH₄OH + H₂O₂</strong>
+                (also known as ASTM No. 30 in pre-mixed bottle form). For phase color contrast in brass,
+                bronze, and aluminum bronze, layer Klemm I or Klemm II tint etches on top — these produce
+                vivid blues/reds that distinguish α-eutectoid phases that grayscale Nital-style etches cannot.
               </p>
               <div className="my-6 rounded-lg overflow-hidden max-w-2xl mx-auto">
                 <Image
@@ -313,12 +332,12 @@ export default function CopperAlloysGuide() {
               </div>
               <h3>Common Etchants for Copper and Copper Alloys</h3>
               <ul>
-                <li><strong>Copper No. 1:</strong> Standard etchant for copper and brass. Reveals grain boundaries and twin boundaries (125ml HNO₃, 125ml H₂O). Most common for copper and brass alloys like <MaterialTooltip materialName="C11000 Electrolytic Tough Pitch Copper">C11000</MaterialTooltip> and <MaterialTooltip materialName="C26000 Cartridge Brass">C26000 cartridge brass</MaterialTooltip>.</li>
-                <li><strong>Copper No. 2:</strong> Alternative to Copper No. 1. Effective for copper and brass alloys. Reveals grain structure and phases (200ml H₂O, 50ml HCl, 10g FeCl₃).</li>
-                <li><strong>ASTM No. 30:</strong> Standard ASTM etchant for copper and copper alloys. Reveals grain boundaries and structure. Fresh solution works best (62.5ml NH₄OH, 125ml H₂O₂ 3%, 62.5ml H₂O). Excellent for <MaterialTooltip materialName="C11000 Electrolytic Tough Pitch Copper">tough pitch copper</MaterialTooltip>.</li>
-                <li><strong>Ammonium Persulfate:</strong> For brasses with cobalt. Reveals grain boundaries and phase structure (50g (NH₄)₂S₂O₈, 245ml H₂O).</li>
-                <li><strong>Potassium Dichromate:</strong> For revealing grain boundaries in brass and bronze alloys. Produces good contrast (2g K₂Cr₂O₇, 8ml H₂SO₄, 4ml NaCl sat., 100ml H₂O). Effective for bronze alloys like <MaterialTooltip materialName="C95400 Aluminum Bronze">aluminum bronze</MaterialTooltip>.</li>
-                <li><strong>Dichromate Etchant:</strong> For Cu-Sn (tin bronze) alloys. Reveals grain boundaries and tin phase (36ml H₂SO₄, 445ml H₂O, 18ml NaCl sat., 8.9g K₂Cr₂O₇).</li>
+                <li><strong>NH₄OH + H₂O₂ (also called ASTM No. 30 — the canonical Cu/brass etch):</strong> Equal volumes of 28% NH₄OH and 3% H₂O₂. Apply by swab for 10-60 s. <strong>Mix immediately before use</strong> — activity decays within minutes; if the etch starts working sluggishly, mix a fresh batch. The default first-pass etch for <MaterialTooltip materialName="C11000 Electrolytic Tough Pitch Copper">C11000 ETP</MaterialTooltip>, OFHC, <MaterialTooltip materialName="C26000 Cartridge Brass">C26000 cartridge brass</MaterialTooltip>, <MaterialTooltip materialName="C36000 Free-Cutting Brass">C36000 free-cutting brass</MaterialTooltip>, and most phosphor and aluminum bronzes. Reveals grain boundaries and twin boundaries.</li>
+                <li><strong>Klemm I (color tint — Cu and brass):</strong> 50 mL stock (saturated Na₂S₂O₃) + 1 g K₂S₂O₅. Immerse 30-180 s. Stock for Klemm I = 250 g Na₂S₂O₃ in 100 mL H₂O. Produces vivid blue/red color contrast that distinguishes grain orientations in pure Cu and brass — very useful for automated grain-size counts and orientation studies. <strong>Surface must be deformation-free</strong> for Klemm to develop properly (this is where the H₂O₂ chemo-mechanical final polish above pays off).</li>
+                <li><strong>Klemm II (color tint — brass, bronze, aluminum bronze):</strong> Same stock as Klemm I with a different metabisulfite addition. The canonical answer for <strong>Cu-Al aluminum bronze</strong> (C61000, C63000) — gives vivid α-eutectoid phase contrast that no grayscale etch can match. Also strong on brass for general phase imaging.</li>
+                <li><strong>Copper No. 1 (more aggressive HNO₃ variant):</strong> 50% HNO₃ in H₂O (typically 125 mL HNO₃ + 125 mL H₂O). Faster and more aggressive than NH₄OH+H₂O₂ — useful when the standard etch under-attacks a heavily-deformed surface, but tends to over-etch and produce pitting. Not the default first-pass choice.</li>
+                <li><strong>Potassium Dichromate (K₂Cr₂O₇ + H₂SO₄):</strong> 2 g K₂Cr₂O₇, 8 mL H₂SO₄, 4 mL saturated NaCl, 100 mL H₂O. For specialty grain-boundary work in brass and bronze. Cr(VI) — disposal regulated as hazardous waste.</li>
+                <li><strong>Ammonium Persulfate (50 g (NH₄)₂S₂O₈ in 245 mL H₂O):</strong> For brasses with Sn or Mn additions. Gentler than HNO₃; stable on the bench longer than NH₄OH+H₂O₂.</li>
               </ul>
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
                 <Link 
@@ -335,7 +354,7 @@ export default function CopperAlloysGuide() {
                     className="w-full h-auto"
                   />
                 </Link>
-                <p className="text-sm text-gray-600 mt-2 italic text-center">Etching solutions and reagents for copper and copper alloys. Common etchants include Copper No. 1, Copper No. 2, ASTM No. 30, and specialized solutions. Etching time typically ranges from 5-45 seconds depending on the etchant and alloy.</p>
+                <p className="text-sm text-gray-600 mt-2 italic text-center">Etching solutions and reagents for copper and copper alloys. The canonical first-pass etch is NH₄OH + 3% H₂O₂ in equal volumes (also called ASTM No. 30); follow with Klemm I for color contrast in pure Cu and brass, or Klemm II for vivid α-eutectoid contrast in aluminum bronze. Mix NH₄OH + H₂O₂ fresh — activity decays in minutes.</p>
               </div>
               <h3>Etching Procedure</h3>
               <ol>
@@ -346,15 +365,17 @@ export default function CopperAlloysGuide() {
                 <li>Dry with compressed air</li>
               </ol>
               <p>
-                <strong>Tip:</strong> Start with shorter etching times (5-10 seconds) and increase if needed. 
-                Over-etching can obscure fine details and create pitting. For Copper No. 1, use at room temperature 
-                (20°C) and ensure fresh solution for best results. ASTM No. 30 requires fresh solution and works 
-                well with swab application.
+                <strong>Tip:</strong> Start with shorter etching times (5-10 seconds) and increase if needed.
+                NH₄OH + H₂O₂ (ASTM No. 30) must be mixed fresh — activity decays within minutes, and a sluggish
+                etch is a fresh-batch problem, not a longer-time problem. For phase color work on brass and
+                aluminum bronze, follow the NH₄OH+H₂O₂ general etch with Klemm II by immersion 30-180 s — the
+                Klemm tint develops on top of the structural etch. Klemm requires a deformation-free surface;
+                if the colors come out muddy or uneven, the H₂O₂ chemo-mechanical final polish was incomplete.
               </p>
-              <ProductLink 
+              <ProductLink
                 productName="Etchants"
                 href="https://shop.metallographic.com/collections/etchants"
-                description="Pre-mixed and custom etching solutions for copper and copper alloys, including Copper No. 1, Copper No. 2, and ASTM No. 30"
+                description="Pre-mixed and custom etching solutions for copper and copper alloys, including ASTM No. 30 (NH₄OH + H₂O₂) and Klemm tint etches for brass and bronze color contrast"
               />
             </section>
 
@@ -363,7 +384,7 @@ export default function CopperAlloysGuide() {
               <h3>Common Issues and Solutions</h3>
               <ul>
                 <li><strong>Scratches remaining:</strong> Insufficient grinding/polishing time or skipped grits. Ensure complete scratch removal at each step.</li>
-                <li><strong>Smearing:</strong> Too much pressure or too hard a cloth. Use softer cloths and lighter pressure. This is a common issue with soft copper alloys.</li>
+                <li><strong>Smearing (mirror finish that won't take an etch):</strong> The dominant Cu prep failure. Mechanical polishing has homogenized the surface — orientation differences between grains have been smeared flat, so chemical etchants find no boundaries to attack. <strong>The fix is the chemo-mechanical final polish with H₂O₂</strong> (5-10% H₂O₂ in colloidal silica on a chemotextile pad, 3 min + flush) — the peroxide chemically removes the smear layer that plain silica leaves behind. Softer cloths alone do not fix smearing on Cu; they just produce a fresh smear layer at lower pressure. If smearing returns after the H₂O₂ step, the peroxide has decayed; mix a fresh batch.</li>
                 <li><strong>Relief around second phases:</strong> Over-polishing or too soft a cloth. Reduce polishing time or use slightly harder cloth.</li>
                 <li><strong>Contamination:</strong> Clean between steps, use fresh abrasives, and ensure proper sample cleaning. Copper can easily pick up contamination.</li>
                 <li><strong>Deformation:</strong> Too much pressure during grinding or polishing. Use lighter pressure throughout the process.</li>

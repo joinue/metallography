@@ -129,7 +129,7 @@ export default function AluminumGuide() {
                     >
                       <Image
                         src="/images/consumables/maxcut-e.webp"
-                        alt="MAX-E abrasive cut-off blades for aluminum sectioning"
+                        alt="MAX-C abrasive cut-off blades for aluminum sectioning"
                         width={500}
                         height={375}
                         className="w-full h-auto"
@@ -137,21 +137,21 @@ export default function AluminumGuide() {
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 500px"
                       />
                     </Link>
-                    <p className="text-sm text-gray-600 mt-2 italic text-center">MAX-E abrasive cut-off blades designed for soft non-ferrous materials like aluminum. Thin blades (0.5-1.0 mm) minimize heat generation and deformation.</p>
+                    <p className="text-sm text-gray-600 mt-2 italic text-center">MAX-C abrasive cut-off blades — the dedicated PACE soft-non-ferrous slot for aluminum, copper, and brass. Thin blades (0.5-1.0 mm) minimize heat generation and deformation.</p>
                   </div>
                 </AnimateOnScroll>
               <ul>
-                <li>Use MAX-E series blades (designed for soft non-ferrous materials like aluminum)</li>
+                <li>Use <strong>MAX-C series blades</strong> — the dedicated PACE soft-non-ferrous slot for aluminum, copper, and brass. Do <em>not</em> use MAX-E (that's the hard non-ferrous / titanium blade) or MAX-D / MAX-VHS (those are steel blades).</li>
                 <li>Use a thin abrasive cut-off wheel (0.5-1.0 mm thickness)</li>
                 <li>Apply steady, light pressure to avoid deformation</li>
                 <li>Use adequate coolant to prevent overheating and smearing</li>
                 <li>Allow the wheel to do the cutting - avoid forcing</li>
                 <li>Consider using a slower feed rate than for harder materials</li>
               </ul>
-                <ProductLink 
-                  productName="MAX-E Abrasive Blades"
+                <ProductLink
+                  productName="MAX-C Abrasive Blades"
                   href="https://shop.metallographic.com/collections/abrasive-blades"
-                  description="MAX-E series blades specifically designed for soft non-ferrous materials like aluminum"
+                  description="MAX-C series blades — the dedicated PACE soft-non-ferrous slot for aluminum, copper, and brass"
                 />
               </section>
             </AnimateOnScroll>
@@ -179,11 +179,6 @@ export default function AluminumGuide() {
                 <li>Allow to cure at room temperature (typically 4-8 hours)</li>
                 <li>Cold mounting avoids heat that could affect aluminum microstructure</li>
               </ol>
-                <ProductLink 
-                  productName="Compression Mounting Equipment"
-                  href="https://www.metallographic.com/metallographic-equipment/compression-mounting.html"
-                  description="Automatic and manual mounting presses for consistent results"
-                />
               </section>
             </AnimateOnScroll>
 
@@ -191,9 +186,18 @@ export default function AluminumGuide() {
               <section id="grinding" className="scroll-mt-24">
                 <h2>Grinding</h2>
               <p>
-                Grinding removes sectioning damage and prepares the surface for polishing. Start with 
-                coarse grits and progressively move to finer grits. For aluminum, use lighter pressure 
-                than for harder materials to avoid deformation. We recommend the following sequence:
+                Grinding removes sectioning damage and prepares the surface for polishing. Start with
+                coarse grits and progressively move to finer grits. For aluminum, use lighter pressure
+                than for harder materials to avoid deformation.
+              </p>
+              <p>
+                <strong>Abrasive choice — alumina vs. SiC:</strong> Aluminum is soft enough that SiC particles
+                can embed in the surface and resist removal in subsequent steps, especially on 2xxx alloys
+                like <MaterialTooltip materialName="2024 Aluminum">2024</MaterialTooltip> and on commercially pure 1xxx.
+                When available, prefer alumina (Al₂O₃) papers or a fixed alumina grinding disc for the
+                planar step. SiC is acceptable for harder alloys (6xxx, 7xxx) and as a fallback, but inspect
+                for embedded particles after fine grinding. The sequence below uses SiC as the most widely
+                stocked option:
               </p>
                 <AnimateOnScroll animation="fadeInUp" delay={100}>
                   <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
@@ -291,14 +295,14 @@ export default function AluminumGuide() {
                 </AnimateOnScroll>
               <h3>Diamond Polishing</h3>
               <ol>
-                <li><strong>9 μm diamond:</strong> 2-3 minutes on a medium-soft cloth (e.g., Microcloth)</li>
-                <li><strong>3 μm diamond:</strong> 2-3 minutes on a soft cloth</li>
-                <li><strong>1 μm diamond:</strong> 1-2 minutes on a soft cloth</li>
+                <li><strong>9 μm diamond:</strong> 3-4 minutes on a hard woven cloth (e.g., UltraPad/TexMet). A soft napped pad like Microcloth at this stage will smear aluminum and create relief — save soft pads for later steps.</li>
+                <li><strong>3 μm diamond:</strong> 2-3 minutes on a medium napped cloth</li>
+                <li><strong>1 μm diamond:</strong> 1-2 minutes on a soft napped cloth (optional — colloidal silica will close the gap)</li>
               </ol>
               <h3>Final Polishing</h3>
               <ol>
-                <li><strong>0.05 μm colloidal silica:</strong> 30-60 seconds on a soft cloth</li>
-                <li>Rinse thoroughly with water and dry with compressed air</li>
+                <li><strong>0.04-0.05 μm colloidal silica:</strong> 2-3 minutes on a soft chemotextile, followed by a 30 s water flush on the same pad to clear silica residue</li>
+                <li>Rinse with water, then ethanol, and <strong>air-dry</strong> (or evaporate the ethanol). Do not use heated/compressed air — surface recrystallization is a known artifact on freshly polished aluminum.</li>
               </ol>
               <p>
                 <strong>Important:</strong> Use lighter pressure than for steel. Over-polishing can 
@@ -308,16 +312,6 @@ export default function AluminumGuide() {
                 while higher-strength alloys like <MaterialTooltip materialName="7075 Aluminum">7075</MaterialTooltip> 
                 are slightly more forgiving but still require careful pressure control.
               </p>
-              <ProductLink 
-                productName="Diamond Abrasives"
-                href="https://shop.metallographic.com/collections/diamond-abrasives"
-                description="High-quality diamond polishing compounds in various particle sizes"
-              />
-                <ProductLink 
-                  productName="Polishing Pads"
-                  href="https://shop.metallographic.com/collections/polishing-pads"
-                  description="Premium polishing pads for different polishing stages"
-                />
               </section>
             </AnimateOnScroll>
 
@@ -345,9 +339,9 @@ export default function AluminumGuide() {
                 </AnimateOnScroll>
               <h3>Common Etchants for Aluminum</h3>
               <ul>
-                <li><strong>Keller's Reagent:</strong> General purpose, reveals grain boundaries and second phases (1% HF, 1.5% HCl, 2.5% HNO₃, 95% H₂O)</li>
-                <li><strong>Weck's Reagent:</strong> For revealing grain boundaries (4g NaOH, 4g KMnO₄, 100ml H₂O)</li>
-                <li><strong>Barker's Reagent:</strong> Electrolytic etching for anodizing (20ml HBF₄, 200ml H₂O)</li>
+                <li><strong>Keller's Reagent:</strong> General purpose, reveals grain boundaries and second phases (1% HF, 1.5% HCl, 2.5% HNO₃, 95% H₂O — equivalently 2 mL HF, 3 mL HCl, 5 mL HNO₃ in 190 mL H₂O). <strong>HF safety:</strong> work in a fume hood, wear HF-rated gloves and face shield, and keep calcium gluconate gel on hand.</li>
+                <li><strong>Weck's Reagent:</strong> Tint etch for color contrast of phases and grain boundaries (4g KMnO₄, 1g NaOH, 100ml H₂O — immerse 30-60 s)</li>
+                <li><strong>Barker's Reagent:</strong> Electrolytic anodizing (not a chemical etch) for grain orientation contrast under polarized light. 5 ml HBF₄ in 200 ml H₂O at 20 V for 60-120 s.</li>
                 <li><strong>Graff & Sargent's Reagent:</strong> For age-hardened alloys</li>
               </ul>
                 <AnimateOnScroll animation="fadeInUp" delay={150}>
@@ -374,10 +368,10 @@ export default function AluminumGuide() {
               <h3>Etching Procedure</h3>
               <ol>
                 <li>Ensure sample is clean and dry</li>
-                <li>Apply etchant with cotton swab or immerse sample</li>
+                <li>Apply etchant with cotton swab or immerse sample (HF-containing etchants like Keller's must be used in a fume hood with HF-rated PPE; never let the surface dry between application and rinse — HF residues continue to attack)</li>
                 <li>Etch for 5-30 seconds (time varies by etchant and alloy)</li>
-                <li>Immediately rinse with water, then alcohol</li>
-                <li>Dry with compressed air</li>
+                <li>Immediately rinse with water, then ethanol</li>
+                <li>Air-dry, or let the ethanol evaporate. Avoid heated/compressed air to prevent surface recrystallization.</li>
               </ol>
               <p>
                 <strong>Tip:</strong> Start with shorter etching times (5-10 seconds) and increase if needed. 

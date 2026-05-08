@@ -19,6 +19,7 @@ const sections = [
   { id: 'welding-methods', label: 'Welding Methods' },
   { id: 'defect-detection', label: 'Defect Detection' },
   { id: 'microstructure-analysis', label: 'Microstructure Analysis' },
+  { id: 'standards-references', label: 'Standards and References' },
   { id: 'best-practices', label: 'Best Practices' },
 ]
 
@@ -325,15 +326,20 @@ export default function WeldingAnalysisGuide() {
 
               <h3>Mounting Material Selection</h3>
               <p>
-                Choose mounting materials based on your analysis needs:
+                The canonical mount for weld cross-section analysis is <strong>glass-filled epoxy
+                compression mount</strong>. Plain phenolic (Bakelite-style) is the wrong choice for serious
+                weld work — it wears 2-3× faster than the steel during long polishes and rounds the sample-mount
+                boundary by 10-50 µm. Worse, the HAZ in welded structural steels typically contains martensite
+                or bainite that is much harder than the base metal, so phenolic differential-wears against the
+                hard HAZ regions <em>and</em> against the fusion boundary itself, biasing both HAZ-width
+                measurements and hardness-traverse profiles. Glass-filled epoxy is what makes those measurements
+                defensible.
               </p>
               <ul>
-                <li><strong>Phenolic:</strong> Hard, provides excellent edge retention. Preferred for most weld 
-                analysis. Good for hardness testing across weld zones.</li>
-                <li><strong>Epoxy:</strong> Softer but still provides good edge retention. Suitable for most 
-                applications. Better for preserving delicate features.</li>
-                <li><strong>Conductive mounting:</strong> Required if using automated hardness testers or 
-                electrical testing methods.</li>
+                <li><strong>Glass-filled epoxy (preferred for weld analysis):</strong> Best edge retention; matches the differential-wear profile of welded steel and stainless. The right answer for fusion-boundary characterization, HAZ-width measurement, hardness-traverse work, and any case where the analysis turns on near-fusion-boundary features.</li>
+                <li><strong>Plain epoxy:</strong> Acceptable for low-stakes general-structure work where edge retention isn&apos;t critical. Lower curing temperature (150-180°C) than phenolic.</li>
+                <li><strong>Phenolic resins:</strong> Acceptable only for soft non-ferrous welds (Al, Cu) where the differential-wear pattern is reversed; not appropriate for steel/stainless welds where edge retention matters.</li>
+                <li><strong>Conductive mounting (carbon- or Cu-filled):</strong> For SEM/EBSD electrical continuity, not for mechanical edge retention. If you need both, use glass-filled conductive epoxy.</li>
               </ul>
 
               <h3>Mounting Orientation</h3>
@@ -568,9 +574,10 @@ export default function WeldingAnalysisGuide() {
                 Maintaining sharp zone boundaries is critical for weld analysis:
               </p>
               <ul>
-                <li><strong>Hard mounting:</strong> Use phenolic or other hard mounting materials</li>
+                <li><strong>Glass-filled epoxy mount:</strong> The single most consequential edge-retention decision; see the Mounting section above.</li>
                 <li><strong>Lighter pressure:</strong> Use lighter pressure near boundaries</li>
-                <li><strong>Shorter times:</strong> Avoid over-polishing which can round boundaries</li>
+                <li><strong>Shorter times:</strong> Cap final polish at 90 s + flush — over-polishing on soft napped pads rounds the boundary even on a glass-filled epoxy mount</li>
+                <li><strong>Harder final-step pad:</strong> Synthetic suede instead of chemotextile for the final step preserves the fusion boundary better</li>
                 <li><strong>Final check:</strong> Verify boundaries are sharp before etching</li>
               </ul>
             </section>
@@ -582,42 +589,70 @@ export default function WeldingAnalysisGuide() {
                 etchants or etching times. The goal is to reveal all zones clearly with good contrast.
               </p>
 
-              <h3>Steel Welds</h3>
+              <h3>Macroetching First — ASTM E340</h3>
               <p>
-                For carbon and low-alloy steel welds:
+                Before any microetching work, weld cross-sections are typically inspected at low magnification
+                using a <strong>macroetch per ASTM E340</strong> (or ASTM E381 for steel-product macroetch
+                acceptance). The macroetch reveals the gross weld geometry — fusion zone outline, HAZ extent,
+                weld penetration depth, root condition, multipass boundaries — at 1-10× magnification, before
+                any decisions are made about whether the weld is worth detailed microstructural analysis.
+                For carbon-steel welds, a typical macroetch is 50% HCl (50 mL HCl + 50 mL H₂O) heated to
+                70-80 °C for several minutes, or 10% ammonium persulfate at room temperature. For stainless
+                weld macroetch, glyceregia (10 mL HNO₃ + 20 mL HCl + 30 mL glycerol) by swab or immersion.
+                Macroetching catches gross defects (lack of fusion, root cracks, weld undercut, multipass
+                inter-run defects) that microscopic examination won&apos;t catch on a single field of view.
               </p>
+
+              <h3>Microetching by Alloy Class</h3>
+              <p>
+                After macroetch, microetching reveals the microstructure within each zone. The right etchant
+                depends on the base metal class — pick by the table below rather than reaching for a single
+                &quot;general purpose&quot; reagent.
+              </p>
+
+              <h4>Carbon and Low-Alloy Steel Welds</h4>
               <ul>
-                <li><strong>2% Nital:</strong> Most common etchant for steel welds. Reveals ferrite, pearlite, 
-                and martensite structures. Etch for 5-15 seconds, swab or immerse.</li>
-                <li><strong>4% Picral:</strong> Better for revealing pearlite and cementite. Use when nital 
-                doesn't provide sufficient contrast.</li>
-                <li><strong>Vilella's reagent:</strong> Good for stainless steel welds. Reveals austenite, 
-                ferrite, and sigma phase.</li>
-                <li><strong>Murakami's reagent:</strong> For high-alloy steels and stainless steels. Reveals 
-                carbides and intermetallic phases.</li>
+                <li><strong>2% Nital (2 mL HNO₃ in 98 mL ethanol):</strong> The default first-pass etch — reveals ferrite, pearlite, and martensite across all three regions (fusion zone, HAZ, base metal). Swab 5-15 s.</li>
+                <li><strong>2% Nital then 4% Picral (sequential):</strong> When pearlite washes out under Nital alone, follow with a second swab of 4% Picral. Picral darkens cementite and sharpens pearlite — particularly valuable for hardened HAZ regions in 4140-class welds.</li>
+                <li><strong>Beraha&apos;s tint etch (canonical for ferritic HAZ characterization):</strong> Beraha I (10 mL HCl + 90 mL H₂O + 1 g K₂S₂O₅) by immersion 30-180 s. Plain Nital cannot separate ferrite, pearlite, bainite, and martensite cleanly across the HAZ subzones (coarse-grained, fine-grained, intercritical, subcritical). Beraha tints each phase a distinct color, which is what the handbook recommends for serious HAZ characterization on ferritic-base welds.</li>
+                <li><strong>Picric must stay wetted:</strong> Picral and Vilella&apos;s both contain picric acid. Store stock wetted at all times — dry picric is friction- and shock-sensitive (effectively a primary explosive).</li>
               </ul>
 
-              <h3>Stainless Steel Welds</h3>
-              <p>
-                Stainless steel welds require specialized etchants:
-              </p>
+              <h4>Austenitic Stainless Steel Welds (304, 316, 321, 347)</h4>
               <ul>
-                <li><strong>Vilella's reagent:</strong> Standard etchant for austenitic stainless steels. 
-                Reveals grain boundaries and delta ferrite.</li>
-                <li><strong>Electrolytic 10% oxalic acid:</strong> For detailed microstructural analysis. 
-                Use 6V, 30-60 seconds.</li>
-                <li><strong>Glyceregia:</strong> For revealing sigma phase and other intermetallics.</li>
+                <li><strong>Glyceregia (10 mL HNO₃ + 20 mL HCl + 30 mL glycerol):</strong> The canonical chemical etch for austenitic stainless. Immerse 10-60 s. Mix fresh; activity decays within an hour.</li>
+                <li><strong>10% Oxalic acid, electrolytic (10 g oxalic in 100 mL H₂O at 6 V, 30-60 s):</strong> Cleaner grain boundaries than Glyceregia, no flash etching. The preferred technique for HAZ and base-metal characterization on austenitic welds. At 6 V for 90 s, this is also <strong>ASTM A262 Practice A</strong> for sensitization detection — directly relevant to QC of welded austenitic stainless that will see hot-water or chloride service.</li>
+                <li><strong>Lichtenberger-Bloech color etch (canonical for solidification structure):</strong> Color tint that reveals dendrite and cell structure in the austenitic weld metal — the structural feature that distinguishes a high-quality fully-mixed weld from a fast-frozen as-cast structure with potential hot-cracking susceptibility. Pair with 10% oxalic for HAZ to get the full weld characterization.</li>
+              </ul>
+              <p className="text-sm text-gray-600 italic">
+                Note: <strong>Vilella&apos;s reagent</strong> (1 g picric + 5 mL HCl + 95 mL ethanol) is sometimes
+                listed for austenitic stainless welds, but its canonical use is <em>martensitic and ferritic
+                stainless</em>, not austenitic. Use Glyceregia or oxalic electrolytic for austenitic; reserve
+                Vilella&apos;s for martensitic / ferritic / PH stainless welds.
+              </p>
+
+              <h4>Duplex Stainless Steel Welds (2205, 2507)</h4>
+              <ul>
+                <li><strong>Beraha&apos;s I (10 mL HCl + 90 mL H₂O + 1 g K₂S₂O₅):</strong> Immerse 30-180 s. Tints ferrite blue/brown, leaves austenite white. <strong>Reveals the ferrite-austenite distribution differently in fusion zone vs. base metal</strong> — the canonical etch for verifying that the duplex weld metal has the target 30-70% austenite fraction (per ASTM A923). The fusion zone in a duplex weld is typically more ferritic than the base metal because of fast cooling; Beraha shows this directly.</li>
+                <li><strong>Klemm&apos;s I (50 mL stock saturated Na₂S₂O₃ + 1 g K₂S₂O₅):</strong> Even more vivid color contrast than Beraha I. Surface must be deformation-free for Klemm to develop properly.</li>
               </ul>
 
-              <h3>Aluminum Welds</h3>
-              <p>
-                Aluminum welds require different techniques:
-              </p>
+              <h4>Martensitic and Ferritic Stainless Steel Welds (410, 420, 430, 446)</h4>
               <ul>
-                <li><strong>Keller's reagent:</strong> Standard etchant for aluminum. Reveals grain boundaries 
-                and second phases. Etch for 10-20 seconds.</li>
-                <li><strong>Weck's reagent:</strong> For anodizing aluminum to reveal grain structure.</li>
-                <li><strong>Polarized light:</strong> Often useful for aluminum without etching.</li>
+                <li><strong>Vilella&apos;s reagent (1 g picric + 5 mL HCl + 95 mL ethanol):</strong> Swab 5-60 s. Reveals martensite, ferrite, and prior-austenite grain boundaries.</li>
+                <li><strong>4% Picral:</strong> Alternative for martensitic-stainless HAZ when Vilella&apos;s under-attacks.</li>
+              </ul>
+
+              <h4>Precipitation-Hardening Stainless Welds (17-4 PH, 15-5 PH)</h4>
+              <ul>
+                <li><strong>Marble&apos;s Reagent (4 g CuSO₄ + 20 mL HCl + 20 mL H₂O):</strong> Swab 10-60 s. The handbook-canonical etch for PH stainless and Ni-base alloys.</li>
+              </ul>
+
+              <h4>Aluminum Welds</h4>
+              <ul>
+                <li><strong>Keller&apos;s reagent (2 mL HF + 3 mL HCl + 5 mL HNO₃ + 190 mL H₂O):</strong> Swab 5-30 s. The standard etch for aluminum welds; reveals grain boundaries and second phases. <strong>HF safety:</strong> fume hood, HF-rated PPE, calcium gluconate gel on hand. Never let the surface dry between application and rinse — HF residues continue to attack until flushed.</li>
+                <li><strong>Barker&apos;s anodizing (5 mL HBF₄ in 200 mL H₂O at 20 V, 60-120 s):</strong> Electrolytic anodizing technique for grain orientation contrast under polarized light. Particularly useful for grain-size measurement in the weld metal where each grain shows a distinct color. Note this is <em>anodic, not chemical</em> — requires a low-voltage power supply.</li>
+                <li><strong>Polarized light examination:</strong> Often reveals dendritic structure in weld metal without etching.</li>
               </ul>
 
               <h3>Etching Strategy</h3>
@@ -668,7 +703,7 @@ export default function WeldingAnalysisGuide() {
                     </div>
                     <h4 className="text-base font-semibold mb-1">Etching Reagents</h4>
                     <p className="text-gray-700 mb-2 text-xs leading-relaxed flex-grow">
-                      Standard etchants like Nital (for steels), Vilella's reagent (for stainless steels), and Keller's reagent (for aluminum) are essential for revealing weld zone microstructures.
+                      Standard etchants for weld microstructure: Nital and Beraha for ferrous welds, Glyceregia / 10% oxalic / Lichtenberger-Bloech for austenitic stainless welds, Beraha I / Klemm I for duplex welds, Vilella&apos;s for martensitic / ferritic stainless welds, Keller&apos;s for aluminum welds.
                     </p>
                     <Link 
                       href="https://metallographic.com/metallographic-consumables/etchants.html"
@@ -781,11 +816,41 @@ export default function WeldingAnalysisGuide() {
                 <li><strong>Analysis focus:</strong> Nugget size, fusion, HAZ extent</li>
               </ul>
 
+              <h3>Dissimilar Metal Welds</h3>
+              <p>
+                Dissimilar welds (carbon steel ↔ stainless, stainless ↔ Ni-base, Al ↔ steel via transition
+                joints) are common in process industries — boiler-tube transitions, bimetallic pressure
+                vessels, automotive multi-material structures. They require a <strong>two-step etching
+                strategy</strong> because one etchant rarely reveals both alloy classes equally:
+              </p>
+              <ul>
+                <li><strong>Step 1:</strong> Etch one base metal with its canonical etchant (e.g., 2% Nital for the carbon-steel side). Document the carbon-steel structure photographically before proceeding.</li>
+                <li><strong>Step 2:</strong> Mask the etched side with lacquer or PTFE tape, then etch the other base with its canonical etchant (e.g., Glyceregia or 10% oxalic for the austenitic stainless side, or Marble&apos;s for a Ni-base side).</li>
+                <li><strong>Fusion zone interpretation:</strong> The fusion zone in a dissimilar weld is typically a graded composition (the &quot;dilution zone&quot;) with mixed structure, and may etch differently from either base. Document the gradient — it carries the dilution information that drives weld quality assessment.</li>
+                <li><strong>Common pitfall:</strong> Etching with one alloy class&apos;s reagent for long enough to reveal the other class&apos;s structure typically over-etches the first class. The two-step approach is non-optional for serious dissimilar-weld characterization.</li>
+              </ul>
+
+              <h3>In-Service Inspection — Field Replicas (ASTM E1351)</h3>
+              <p>
+                For welds in operating equipment that cannot be sectioned — pressure vessels, pipelines,
+                large structural welds, irreplaceable components — destructive metallography isn&apos;t
+                possible. The non-destructive alternative is the <strong>field metallographic replica</strong>
+                technique per <strong>ASTM E1351</strong> (Standard Practice for Production and Evaluation
+                of Field Metallographic Replicas):
+              </p>
+              <ul>
+                <li><strong>Surface preparation in-situ:</strong> Hand-grind and polish a 25-50 mm patch on the component surface using portable grinder/polisher and progressively finer abrasives. Etch the patch with the appropriate reagent for the alloy class (Nital for carbon steel, Glyceregia for stainless, etc.).</li>
+                <li><strong>Replica application:</strong> Apply a softened cellulose-acetate film or silicone replicating compound to the etched surface. The replica picks up the topographic relief produced by etching.</li>
+                <li><strong>Lift, mount, examine:</strong> Lift the cured replica, mount it on a glass slide (acetate) or in epoxy (silicone), and examine under reflected-light microscopy. The image is a faithful negative of the etched component surface.</li>
+                <li><strong>Common applications:</strong> Creep-damage assessment in high-temperature steam piping (Type IV cracking, cavitation), in-service inspection of austenitic stainless welds on AISI 304 components, fatigue-crack monitoring at known stress concentrators on aerospace structures.</li>
+                <li><strong>Limits:</strong> Replicas resolve features down to ~1 µm; finer features (sub-grain structure, precipitates &lt; 1 µm) require destructive sampling. Surface prep quality on the component is the primary limit on image quality — field surface prep is harder than lab surface prep, and the replica only shows what was on the surface when it was applied.</li>
+              </ul>
+
               <div className="bg-primary-50 border-l-4 border-primary-600 p-4 my-6 rounded">
                 <p className="text-sm text-gray-700 mb-2">
-                  <strong>Preparation Note:</strong> Regardless of welding method, the fundamental preparation 
-                  principles remain the same: proper sectioning, mounting, grinding, polishing, and etching. 
-                  The differences lie in what you're looking for and how the zones appear after preparation.
+                  <strong>Preparation Note:</strong> Regardless of welding method, the fundamental preparation
+                  principles remain the same: proper sectioning, mounting, grinding, polishing, and etching.
+                  The differences lie in what you&apos;re looking for and how the zones appear after preparation.
                 </p>
               </div>
             </section>
@@ -885,12 +950,25 @@ export default function WeldingAnalysisGuide() {
               </p>
               <ul>
                 <li><strong>Grain growth:</strong> Coarse grains in the high-temperature region</li>
-                <li><strong>Phase transformations:</strong> In steels, may show martensite, bainite, or 
+                <li><strong>Phase transformations:</strong> In steels, may show martensite, bainite, or
                 other transformation products</li>
                 <li><strong>Precipitation:</strong> May show over-aging or dissolution of precipitates</li>
                 <li><strong>Recrystallization:</strong> Fine grains in recrystallized regions</li>
                 <li><strong>Softening:</strong> In age-hardened alloys, may show softening</li>
               </ul>
+              <div className="bg-amber-50 border-l-4 border-amber-500 p-4 my-4 rounded">
+                <p className="text-sm text-amber-900">
+                  <strong>HAZ heterogeneity is data, not a defect.</strong> A sharp transition in microstructure
+                  across the weld line — with the HAZ looking distinctly different from both the fusion zone and
+                  the unaffected base metal — is exactly what a properly-developed etch <em>should</em> reveal.
+                  Beginners sometimes mistake clean HAZ revelation for a heterogeneous-etch artifact and try to
+                  &quot;fix&quot; it by re-etching uniformly, which destroys the HAZ contrast. If the etch is
+                  showing two or three distinct zones cleanly across the fusion boundary, the etch is working
+                  correctly — proceed to characterization. The only case where uniform etch behavior across
+                  the weld line is correct is on a fully post-weld-heat-treated component where the HAZ has
+                  been deliberately homogenized.
+                </p>
+              </div>
 
               <h3>Fusion Boundary</h3>
               <p>
@@ -931,7 +1009,8 @@ export default function WeldingAnalysisGuide() {
                       <li>• Fusion boundary clearly visible</li>
                     </ul>
                     <p className="text-xs text-gray-600 mt-2">
-                      Etched with Vilella's reagent or electrolytic oxalic acid
+                      Austenitic: Glyceregia or 10% oxalic electrolytic, with Lichtenberger-Bloech for solidification.
+                      Duplex: Beraha I or Klemm I tint. Martensitic / ferritic: Vilella&apos;s.
                     </p>
                   </div>
                   <div className="bg-white p-4 rounded-lg border border-gray-200">
@@ -955,7 +1034,7 @@ export default function WeldingAnalysisGuide() {
                       <li>• Possible softening in HAZ</li>
                     </ul>
                     <p className="text-xs text-gray-600 mt-2">
-                      Etched with Keller's reagent or anodized
+                      Etched with Keller&apos;s reagent (HF safety) or anodized with Barker&apos;s reagent for grain orientation under polarized light
                     </p>
                   </div>
                   <div className="bg-white p-4 rounded-lg border border-gray-200">
@@ -988,6 +1067,42 @@ export default function WeldingAnalysisGuide() {
                 <li><strong>Descriptions:</strong> Microstructural features observed</li>
                 <li><strong>Comparisons:</strong> Compare with specifications or standards</li>
               </ul>
+            </section>
+
+            <section id="standards-references" className="scroll-mt-24">
+              <h2>Standards and References for Weld Analysis</h2>
+              <p>
+                Standards directly relevant to weld preparation, macroetching, microetching, in-service
+                inspection, and acceptance criteria:
+              </p>
+              <h3>Macroetching and Acceptance</h3>
+              <ul>
+                <li><strong>ASTM E340</strong> — Standard Practice for Macroetching Metals and Alloys. The canonical macroetch reference; covers reagent selection, etching procedures, and zone delineation for weld cross-sections.</li>
+                <li><strong>ASTM E381</strong> — Standard Method of Macroetch Testing Steel Bars, Billets, Blooms, and Forgings. Acceptance criteria for steel-product macroetch (segregation, porosity, flow lines) — frequently extended to weld inspection on steel components.</li>
+              </ul>
+              <h3>Microetching and Etchant Reference</h3>
+              <ul>
+                <li><strong>ASTM E407</strong> — Standard Practice for Microetching Metals and Alloys. Numeric IDs for standard etchants (Nital, Picral, Vilella&apos;s, Glyceregia, Marble&apos;s, Keller&apos;s, Kroll&apos;s, etc.) — the reference cited when a weld procedure specifies an etchant by ASTM E407 number.</li>
+              </ul>
+              <h3>Phase-Specific QC and Defect Detection</h3>
+              <ul>
+                <li><strong>ASTM A262</strong> — Detecting Susceptibility to Intergranular Attack in Austenitic Stainless Steels. Practice A oxalic electrolytic — the canonical sensitization detection for welded austenitic stainless that will see corrosive service.</li>
+                <li><strong>ASTM A923</strong> — Detecting Detrimental Intermetallic Phase in Duplex Austenitic/Ferritic Stainless Steels. The sigma/chi phase QC standard for welded 2205, 2507, and similar duplex grades — directly relevant to verifying the 30-70% austenite fraction in duplex weld metal.</li>
+              </ul>
+              <h3>In-Service / Non-Destructive</h3>
+              <ul>
+                <li><strong>ASTM E1351</strong> — Standard Practice for Production and Evaluation of Field Metallographic Replicas. Cellulose-acetate or silicone replication of in-service component surfaces for non-destructive metallographic examination — the standard route for welds in operating equipment that cannot be sectioned.</li>
+              </ul>
+              <h3>Mechanical Testing References</h3>
+              <ul>
+                <li><strong>AWS B4.0</strong> — Standard Methods for Mechanical Testing of Welds. Broader scope than metallography, but references metallographic methods for weld qualification and procedure verification.</li>
+              </ul>
+              <p>
+                For a comprehensive ASTM standards reference, see the{' '}
+                <Link href="/resources/astm-standards-reference" className="text-primary-600 hover:underline font-semibold">
+                  ASTM Standards Reference
+                </Link>.
+              </p>
             </section>
 
             <section id="best-practices" className="scroll-mt-24">

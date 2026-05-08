@@ -191,10 +191,14 @@ export default function StainlessSteelGuide() {
             <section id="sectioning" className="scroll-mt-24">
               <h2>Sectioning</h2>
               <p>
-                When sectioning stainless steel samples, use a slow cutting speed to minimize heat 
-                generation and deformation. A cutting speed of 100-200 RPM is typically appropriate 
-                for most stainless steel grades. Harder grades like <MaterialTooltip materialName="17-4 PH">17-4 PH Stainless Steel</MaterialTooltip> 
-                may require even slower speeds (80-150 RPM) to prevent excessive heat buildup.
+                When sectioning stainless steel samples on a standard abrasive cutoff saw, run the wheel
+                at typical metallographic surface speeds (~2,500-4,500 SFM) and manage heat through
+                <strong> blade selection, coolant flood, and feed rate</strong> rather than by lowering
+                spindle RPM — under-speeding a thin abrasive blade tends to glaze and burn rather than cut.
+                Harder grades like <MaterialTooltip materialName="17-4 PH">17-4 PH Stainless Steel</MaterialTooltip>
+                want a <em>harder-bond</em> Al₂O₃ blade (more aggressive grit replacement), not a slower wheel.
+                For very heat-sensitive cross-sections, switch to a precision (low-speed) saw with a
+                diamond wafering blade instead of slowing a standard cutoff.
               </p>
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
                 <Link 
@@ -232,23 +236,23 @@ export default function StainlessSteelGuide() {
             <section id="mounting" className="scroll-mt-24">
               <h2>Mounting</h2>
               <p>
-                Mounting provides edge retention and easier handling. For stainless steel, compression 
-                mounting with phenolic or epoxy resins works well. If edge retention is critical, 
-                consider conductive mounting materials.
+                Mounting provides edge retention and easier handling. For stainless steel, the canonical
+                choice is a <strong>glass-filled epoxy compression mount</strong>. Plain phenolic
+                (Bakelite-style) is a common pitfall: it wears 2-3× faster than the steel during long
+                polishes and rounds the sample-mount boundary, which is the most frequent cause of poor
+                edge retention reports on 304 and 316. Reserve plain phenolic for soft non-ferrous samples
+                and switch stainless and harder steels over to glass-filled epoxy. Note that conductive
+                (carbon- or Cu-filled) mounts solve electrical continuity for SEM/EBSD — they do not by
+                themselves solve mechanical edge retention.
               </p>
               <h3>Compression Mounting</h3>
               <ol>
                 <li>Clean the sample thoroughly to remove cutting fluid and debris</li>
-                <li>Place sample in mounting press with appropriate resin</li>
-                <li>Apply pressure: 3000-4000 psi for phenolic, 2000-3000 psi for epoxy</li>
+                <li>Place sample in mounting press with glass-filled epoxy (preferred) or epoxy resin</li>
+                <li>Apply pressure: 3000-4000 psi for glass-filled epoxy/phenolic, 2000-3000 psi for plain epoxy</li>
                 <li>Heat to 150-180°C and hold for 5-8 minutes</li>
                 <li>Cool under pressure to room temperature</li>
               </ol>
-              <ProductLink 
-                productName="Compression Mounting Equipment"
-                href="https://www.metallographic.com/metallographic-equipment/compression-mounting.html"
-                description="Automatic and manual mounting presses for consistent results"
-              />
             </section>
 
             <section id="grinding" className="scroll-mt-24">
@@ -356,16 +360,6 @@ export default function StainlessSteelGuide() {
                 Use appropriate polishing lubricants and maintain consistent pressure. Over-polishing 
                 can introduce relief, especially around inclusions or second phases.
               </p>
-              <ProductLink 
-                productName="Diamond Abrasives"
-                href="https://shop.metallographic.com/collections/diamond-abrasives"
-                description="Diamond polishing compounds in various particle sizes"
-              />
-              <ProductLink 
-                productName="Polishing Pads"
-                href="https://shop.metallographic.com/collections/polishing-pads"
-                description="Polishing pads for different polishing stages"
-              />
             </section>
 
             <section id="etching" className="scroll-mt-24">
@@ -387,10 +381,17 @@ export default function StainlessSteelGuide() {
                 <p className="text-sm text-gray-600 mt-2 italic text-center"><MaterialTooltip materialName="431">431 Stainless steel</MaterialTooltip> etched with Kallings no. 2, 400X magnification (DIC). Proper etching reveals grain boundaries and phase structure without over-etching artifacts.</p>
               </div>
               <h3>Common Etchants for Stainless Steel</h3>
+              <p>
+                The right etchant depends on the stainless family. Pick from the list below by alloy class
+                rather than reaching for a single "general purpose" reagent — austenitic, martensitic/ferritic,
+                precipitation-hardening, and duplex grades each respond differently.
+              </p>
               <ul>
-                <li><strong>Vilella's Reagent:</strong> General purpose, reveals grain boundaries. Works well for martensitic grades like <MaterialTooltip materialName="431">431</MaterialTooltip>.</li>
-                <li><strong>Aqua Regia:</strong> For austenitic stainless steels like <MaterialTooltip materialName="304">304</MaterialTooltip> and <MaterialTooltip materialName="316">316</MaterialTooltip>. Excellent for revealing grain boundaries and phases.</li>
-                <li><strong>Electrolytic Etching:</strong> For sensitive microstructures. Particularly useful for austenitic grades where chemical etching may be too aggressive.</li>
+                <li><strong>Glyceregia (austenitic — 304, 316, 321, 347):</strong> 10 mL HNO₃ + 20 mL HCl + 30 mL glycerol. Immerse 10-60 s. Mix fresh; activity decays within an hour. The standard general-purpose etch for austenitic stainless.</li>
+                <li><strong>10% Oxalic acid, electrolytic (austenitic):</strong> 10 g oxalic acid in 100 mL H₂O. Apply at 6 V for 30-60 s. Cleaner grain boundaries than Glyceregia with no flash etching. At 6 V for 90 s, this is also <strong>ASTM A262 Practice A</strong> for sensitization detection (reveals "ditched" chromium-carbide grain boundaries).</li>
+                <li><strong>Vilella's Reagent (martensitic — 410, 420, 440 — and ferritic — 430, 446):</strong> 1 g picric acid + 5 mL HCl + 95 mL ethanol. Swab 5-60 s. <strong>Picric safety:</strong> store the reagent and any picric acid stock <em>wetted</em>; dry picric is friction- and shock-sensitive. Vilella's also works for martensitic/PH grades like <MaterialTooltip materialName="431">431</MaterialTooltip>.</li>
+                <li><strong>Marble's Reagent (precipitation-hardening — 17-4 PH, 15-5 PH, 13-8 PH, 17-7 PH):</strong> 4 g CuSO₄ + 20 mL HCl + 20 mL H₂O. Swab 10-60 s. Modified Vilella's is an acceptable alternative for PH grades.</li>
+                <li><strong>Beraha's I or Klemm's I, tint etch (duplex — 2205, 2507):</strong> Beraha I = 10 mL HCl + 90 mL H₂O + 1 g K₂S₂O₅. Immerse 30-180 s. Tints ferrite blue/brown and leaves austenite white — required for duplex phase quantification. Klemm I gives even more vivid contrast on a deformation-free surface.</li>
               </ul>
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
                 <Link 
@@ -420,10 +421,12 @@ export default function StainlessSteelGuide() {
                 <li>Dry with compressed air</li>
               </ol>
               <p>
-                <strong>Tip:</strong> Start with shorter etching times and increase if needed. 
-                Over-etching can obscure fine details. Austenitic grades like <MaterialTooltip materialName="304">304</MaterialTooltip> 
-                typically require 10-30 seconds, while martensitic grades may need only 5-15 seconds 
-                depending on the etchant used.
+                <strong>Tip:</strong> Start with shorter etching times and increase if needed.
+                Over-etching can obscure fine details. Austenitic grades like <MaterialTooltip materialName="304">304</MaterialTooltip>
+                typically take 10-30 s in Glyceregia or 30-60 s electrolytic in 10% oxalic at 6 V; martensitic
+                grades may need only 5-15 s in Vilella's; PH grades respond in 10-30 s with Marble's. Duplex
+                tint etches (Beraha I, Klemm I) are timed by color development, not by clock — pull the
+                sample when ferrite is clearly tinted relative to austenite.
               </p>
               <ProductLink 
                 productName="Etchants"

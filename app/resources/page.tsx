@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
-import { Search, FileText, BarChart3, BookOpen, AlertCircle, ChevronRight, Scale, Shield, Eye, PlayCircle } from 'lucide-react'
+import { Search, FileText, BarChart3, BookOpen, AlertCircle, ChevronRight, Scale, Shield, Eye, PlayCircle, NotebookPen } from 'lucide-react'
 import AnimatedCard from '@/components/AnimatedCard'
 
 // Resource categories in order
@@ -80,7 +80,7 @@ const resources = [
     category: 'Reference Charts',
     type: 'Guide',
     icon: Eye,
-    order: 5,
+    order: 7,
   },
   {
     title: 'Material-Specific Preparation Guide',
@@ -99,6 +99,16 @@ const resources = [
     type: 'Guide',
     icon: BookOpen,
     order: 2,
+  },
+  {
+    title: 'Metallography ELN: Materials Prep',
+    slug: 'materials-prep',
+    description: "A digital lab notebook for sample preparation. Captures batches, recipes, micrographs, and prep history so a lab's knowledge survives staff turnover. Materials Prep is a paid PACE Technologies product.",
+    category: 'Preparation Guides',
+    type: 'Software',
+    icon: NotebookPen,
+    order: 3,
+    externalUrl: '/materials-prep',
   },
   {
     title: 'Metallography Glossary',

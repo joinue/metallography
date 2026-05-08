@@ -142,10 +142,32 @@ export default function QualityControlInspectionGuide() {
               <ul>
                 <li><strong>Detailed documentation:</strong> Recording all parameters and conditions</li>
                 <li><strong>Operator training:</strong> Ensuring all operators are properly trained</li>
-                <li><strong>Calibrated equipment:</strong> Regular calibration of microscopes, hardness testers, and 
-                other instruments</li>
+                <li><strong>Calibrated equipment:</strong> Regular calibration of microscopes, hardness testers, and
+                other instruments — see Microscope Calibration below for the specific procedures that &quot;calibration&quot;
+                means in practice for an optical microscope used for measurement.</li>
                 <li><strong>Reference standards:</strong> Using reference samples to verify procedures</li>
               </ul>
+
+              <h3>Microscope Calibration — What &quot;Calibrated Equipment&quot; Means in Practice</h3>
+              <p>
+                &quot;The microscope is calibrated&quot; is a common audit-finding gap because operators
+                often interpret it as &quot;the manufacturer set it up correctly,&quot; when accreditation
+                bodies and most ASTM measurement standards expect verifiable, recurring calibration steps
+                performed in your lab on your instrument. The minimum verifiable set:
+              </p>
+              <ul>
+                <li><strong>Stage micrometer verification at every objective used for measurement:</strong> Use a certified stage micrometer (typically 1 mm divided into 0.01 mm increments, with NIST or equivalent traceability) to verify that each objective magnification reads correctly. Any objective used for grain-size measurement (E112), inclusion rating (E45/E1245), case-depth measurement (E1077), or any other quantitative ASTM method must be verified, not assumed. Document the date, objective, certified value, observed value, and operator.</li>
+                <li><strong>Photomicrograph scale-bar calibration against the stage micrometer:</strong> The on-image scale bar from your camera/software must match the stage-micrometer reading, not a value the software calculated from the nominal objective magnification. Recalibrate any time the camera or coupler changes.</li>
+                <li><strong>Digital camera pixel-size verification:</strong> For software-driven measurements (most labs now), the pixels-per-micron value the software uses must be verified against the stage micrometer at every objective. This is the value that propagates into every grain-size, area-fraction, and length measurement; an error here corrupts every measurement made on that microscope.</li>
+                <li><strong>Köhler illumination check:</strong> Not strictly &quot;calibration&quot; but a recurring optical-alignment check; mis-aligned illumination produces uneven background that biases automated thresholding for inclusion/phase ratings.</li>
+                <li><strong>Hardness tester verification:</strong> Test blocks of known hardness (per ASTM E92, E384, E18, E10) at the start of each shift or per the standard&apos;s frequency. Out-of-range readings on a test block invalidate any sample readings made afterward until the tester is recertified.</li>
+              </ul>
+              <p>
+                Cadence depends on accreditation scope (ISO/IEC 17025 typically annually; NADCAP labs often
+                more frequently for the objectives used most). Document everything — the calibration record
+                is what an auditor checks, and missing records is the most common 17025 finding in
+                metallography labs.
+              </p>
 
               <h3>Traceability</h3>
               <p>
@@ -279,9 +301,12 @@ export default function QualityControlInspectionGuide() {
 
               <h3>ASTM Standards</h3>
               <p>
-                ASTM International publishes numerous standards relevant to metallography. Key standards include:
+                ASTM International publishes numerous standards relevant to metallography. The standards
+                most commonly cited in QC and inspection workflows fall into four families: general
+                preparation and terminology, hardness testing, defect-specific diagnostics, and lab safety.
               </p>
-              <div className="overflow-x-auto my-6">
+              <h4 className="text-lg font-semibold mt-6 mb-2">General Preparation, Photomicrography, and Grain Size</h4>
+              <div className="overflow-x-auto my-4">
                 <table className="min-w-full border-collapse border border-gray-300">
                   <thead>
                     <tr className="bg-gray-100">
@@ -299,27 +324,124 @@ export default function QualityControlInspectionGuide() {
                     <tr className="bg-gray-50">
                       <td className="border border-gray-300 px-4 py-3 font-medium">ASTM E112</td>
                       <td className="border border-gray-300 px-4 py-3">Standard Test Methods for Determining Average Grain Size</td>
-                      <td className="border border-gray-300 px-4 py-3">Grain size measurement</td>
+                      <td className="border border-gray-300 px-4 py-3">Grain size measurement (comparison-chart, intercept, planimetric)</td>
                     </tr>
                     <tr>
                       <td className="border border-gray-300 px-4 py-3 font-medium">ASTM E407</td>
                       <td className="border border-gray-300 px-4 py-3">Standard Practice for Microetching Metals and Alloys</td>
-                      <td className="border border-gray-300 px-4 py-3">Etching procedures</td>
+                      <td className="border border-gray-300 px-4 py-3">The canonical etchant reference (numeric IDs for standard etchants)</td>
                     </tr>
                     <tr className="bg-gray-50">
                       <td className="border border-gray-300 px-4 py-3 font-medium">ASTM E883</td>
                       <td className="border border-gray-300 px-4 py-3">Standard Guide for Reflected-Light Photomicrography</td>
-                      <td className="border border-gray-300 px-4 py-3">Photomicrography procedures</td>
+                      <td className="border border-gray-300 px-4 py-3">Photomicrography procedures, scale-bar requirements</td>
                     </tr>
                     <tr>
-                      <td className="border border-gray-300 px-4 py-3 font-medium">ASTM E1245</td>
-                      <td className="border border-gray-300 px-4 py-3">Standard Practice for Determining the Inclusion or Second-Phase Constituent Content</td>
-                      <td className="border border-gray-300 px-4 py-3">Inclusion rating</td>
+                      <td className="border border-gray-300 px-4 py-3 font-medium">ASTM E1382</td>
+                      <td className="border border-gray-300 px-4 py-3">Determining Average Grain Size Using Semiautomatic and Automatic Image Analysis</td>
+                      <td className="border border-gray-300 px-4 py-3">Automated/digital grain-size measurement</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <h4 className="text-lg font-semibold mt-6 mb-2">Hardness Testing — Foundational for Heat-Treatment Verification QC</h4>
+              <div className="overflow-x-auto my-4">
+                <table className="min-w-full border-collapse border border-gray-300">
+                  <thead>
+                    <tr className="bg-gray-100">
+                      <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Standard</th>
+                      <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Title</th>
+                      <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Application</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="border border-gray-300 px-4 py-3 font-medium">ASTM E92</td>
+                      <td className="border border-gray-300 px-4 py-3">Standard Test Methods for Vickers Hardness and Knoop Hardness of Metallic Materials</td>
+                      <td className="border border-gray-300 px-4 py-3">Macro Vickers (&gt;1 kgf)</td>
                     </tr>
                     <tr className="bg-gray-50">
-                      <td className="border border-gray-300 px-4 py-3 font-medium">ASTM E1382</td>
-                      <td className="border border-gray-300 px-4 py-3">Standard Test Methods for Determining Average Grain Size Using Semiautomatic and Automatic Image Analysis</td>
-                      <td className="border border-gray-300 px-4 py-3">Automated grain size measurement</td>
+                      <td className="border border-gray-300 px-4 py-3 font-medium">ASTM E384</td>
+                      <td className="border border-gray-300 px-4 py-3">Standard Test Method for Microindentation Hardness of Materials</td>
+                      <td className="border border-gray-300 px-4 py-3">Vickers and Knoop microhardness (10 g - 1 kgf); case-depth profiles</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-4 py-3 font-medium">ASTM E18</td>
+                      <td className="border border-gray-300 px-4 py-3">Standard Test Methods for Rockwell Hardness of Metallic Materials</td>
+                      <td className="border border-gray-300 px-4 py-3">Rockwell B/C and superficial scales</td>
+                    </tr>
+                    <tr className="bg-gray-50">
+                      <td className="border border-gray-300 px-4 py-3 font-medium">ASTM E10</td>
+                      <td className="border border-gray-300 px-4 py-3">Standard Test Method for Brinell Hardness of Metallic Materials</td>
+                      <td className="border border-gray-300 px-4 py-3">Brinell hardness (10 mm WC ball) — large samples, cast iron</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <h4 className="text-lg font-semibold mt-6 mb-2">Defect-Specific Diagnostic Standards</h4>
+              <div className="overflow-x-auto my-4">
+                <table className="min-w-full border-collapse border border-gray-300">
+                  <thead>
+                    <tr className="bg-gray-100">
+                      <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Standard</th>
+                      <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Title</th>
+                      <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Application</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="border border-gray-300 px-4 py-3 font-medium">ASTM A262</td>
+                      <td className="border border-gray-300 px-4 py-3">Detecting Susceptibility to Intergranular Attack in Austenitic Stainless Steels</td>
+                      <td className="border border-gray-300 px-4 py-3">Practice A oxalic electrolytic — sensitization detection on welded 304/316</td>
+                    </tr>
+                    <tr className="bg-gray-50">
+                      <td className="border border-gray-300 px-4 py-3 font-medium">ASTM A923</td>
+                      <td className="border border-gray-300 px-4 py-3">Detecting Detrimental Intermetallic Phase in Duplex Austenitic/Ferritic Stainless Steels</td>
+                      <td className="border border-gray-300 px-4 py-3">Sigma/chi phase QC for 2205, 2507</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-4 py-3 font-medium">ASTM E45</td>
+                      <td className="border border-gray-300 px-4 py-3">Determining the Inclusion Content of Steel</td>
+                      <td className="border border-gray-300 px-4 py-3">Worst-field method, A-D classification charts (sulfides, alumina, silicates, globular)</td>
+                    </tr>
+                    <tr className="bg-gray-50">
+                      <td className="border border-gray-300 px-4 py-3 font-medium">ASTM E1245</td>
+                      <td className="border border-gray-300 px-4 py-3">Determining the Inclusion or Second-Phase Constituent Content</td>
+                      <td className="border border-gray-300 px-4 py-3">Quantitative second-phase rating by automatic image analysis</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-4 py-3 font-medium">ASTM E1077</td>
+                      <td className="border border-gray-300 px-4 py-3">Estimating the Depth of Decarburization of Steel Specimens</td>
+                      <td className="border border-gray-300 px-4 py-3">Direct QC measurement for carburized / decarburized parts</td>
+                    </tr>
+                    <tr className="bg-gray-50">
+                      <td className="border border-gray-300 px-4 py-3 font-medium">ASTM A247</td>
+                      <td className="border border-gray-300 px-4 py-3">Evaluating the Microstructure of Graphite in Iron Castings</td>
+                      <td className="border border-gray-300 px-4 py-3">Cast iron nodularity rating — <em>required to be performed on as-polished, unetched specimens</em></td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-4 py-3 font-medium">ASTM E340</td>
+                      <td className="border border-gray-300 px-4 py-3">Standard Practice for Macroetching Metals and Alloys</td>
+                      <td className="border border-gray-300 px-4 py-3">Weld penetration, HAZ extent, segregation, flow lines</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <h4 className="text-lg font-semibold mt-6 mb-2">Lab Safety Compliance</h4>
+              <div className="overflow-x-auto my-4">
+                <table className="min-w-full border-collapse border border-gray-300">
+                  <thead>
+                    <tr className="bg-gray-100">
+                      <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Standard</th>
+                      <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Title</th>
+                      <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Application</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="border border-gray-300 px-4 py-3 font-medium">ASTM E2014</td>
+                      <td className="border border-gray-300 px-4 py-3">Standard Guide on Metallographic Laboratory Safety</td>
+                      <td className="border border-gray-300 px-4 py-3">Acid handling, ventilation, PPE, electrical/mechanical hazards from prep equipment, emergency response</td>
                     </tr>
                   </tbody>
                 </table>
@@ -369,11 +491,62 @@ export default function QualityControlInspectionGuide() {
 
               <div className="bg-yellow-50 border-l-4 border-yellow-600 p-4 my-4 rounded">
                 <p className="text-sm text-gray-700">
-                  <strong>Important:</strong> Standards are living documents that are regularly updated. Ensure you're 
-                  using current versions and stay informed about updates. Subscribing to standards organizations or 
+                  <strong>Important:</strong> Standards are living documents that are regularly updated. Ensure you&apos;re
+                  using current versions and stay informed about updates. Subscribing to standards organizations or
                   checking for updates regularly is essential.
                 </p>
               </div>
+
+              <h3>High-Hazard Reagent and Material Compliance</h3>
+              <p>
+                Lab-safety audits (per ASTM E2014 and most institutional EHS protocols) routinely check
+                a small number of high-hazard items where storage or handling errors carry serious
+                consequences. These should be on every QC inspection checklist and verified on a recurring
+                schedule:
+              </p>
+              <ul>
+                <li>
+                  <strong>Picric acid (used in Picral, Vilella&apos;s, Acetic Picral, Bechet-Beaujard
+                  PAGB etchants):</strong> Must be stored <em>wetted at all times</em> — water-saturated or
+                  ethanol-saturated. Dry picric acid is friction- and shock-sensitive (effectively a
+                  primary explosive). Verify stock-bottle wet status on a recurring schedule. Stock that
+                  has crystallized at the bottle neck must be remediated by a qualified hazardous-materials
+                  technician — never by the operator.
+                </li>
+                <li>
+                  <strong>Hydrofluoric acid (HF, used in Keller&apos;s, Kroll&apos;s, modified glass etchants,
+                  ALON/AlN/SiAlON etchants):</strong> Fume hood mandatory; HF-rated gloves and face shield;
+                  <strong> calcium gluconate gel kept on-site within reach of the etching station</strong>
+                  with non-expired stock. HF burns are insidious — pain often appears hours after exposure,
+                  by which point bone-deep damage may already be irreversible. Calcium gluconate availability
+                  is a verifiable compliance item; expired tubes should fail QC.
+                </li>
+                <li>
+                  <strong>Beryllium-containing materials (BeCu C17200 / C17500 / C17510, Be-bearing alloys):</strong>
+                  Wet cutting and grinding only — never dry-grind. Respiratory protection (N95 minimum, P100
+                  for routine work) for any chance of dry abrasive contact. Sealed disposal of grinding
+                  waste, papers, pad surfaces, swarf, rinse water — treat as hazardous waste per
+                  institutional procedure. Beryllium dust causes Chronic Beryllium Disease (CBD), an
+                  irreversible lung condition that develops years after exposure; visible damage during
+                  the prep session is not the warning signal.
+                </li>
+                <li>
+                  <strong>Perchloric acid (used in some electropolishing solutions for stainless and refractory metals):</strong>
+                  Stored separately from organic compounds; concentrated HClO₄ + organics is an explosion
+                  hazard. Perchloric fume hoods (with washdown) are required for heating perchloric
+                  solutions. Most labs that don&apos;t need it should not stock it.
+                </li>
+                <li>
+                  <strong>Cr(VI) reagents (chromic acid, K₂Cr₂O₇ in dichromate etchants, electropolishing chromic):</strong>
+                  Carcinogenic; disposal regulated as hazardous waste in most jurisdictions. Storage and
+                  disposal records subject to audit.
+                </li>
+              </ul>
+              <p>
+                Each of these items is verifiable on a single physical inspection of the etching station
+                and reagent cabinet — they are some of the easiest QC items to implement and some of the
+                most consequential to miss.
+              </p>
             </section>
 
             <section id="documentation" className="scroll-mt-24">
@@ -489,8 +662,8 @@ export default function QualityControlInspectionGuide() {
                     </tr>
                     <tr>
                       <td className="border border-gray-300 px-4 py-3 font-medium">Edge rounding</td>
-                      <td className="border border-gray-300 px-4 py-3">Cannot analyze edges, poor edge retention</td>
-                      <td className="border border-gray-300 px-4 py-3">Use harder mounting resins, reduce pressure</td>
+                      <td className="border border-gray-300 px-4 py-3">Cannot analyze edges; biases case-depth, coating-thickness, and decarburization measurements by 10-50 µm — exactly the dimension scale of the features being measured</td>
+                      <td className="border border-gray-300 px-4 py-3"><strong>Mount in glass-filled epoxy</strong>, not phenolic. Phenolic wears 2-3× faster than steel/stainless/superalloy and rounds the sample-mount boundary during long polishes. Also cap final-polish time at 90 s + flush, and use a harder final-step pad (synthetic suede instead of chemotextile).</td>
                     </tr>
                     <tr className="bg-gray-50">
                       <td className="border border-gray-300 px-4 py-3 font-medium">Contamination</td>
@@ -527,13 +700,61 @@ export default function QualityControlInspectionGuide() {
                 <li><strong>Incorrect documentation:</strong> Wrong magnification, etchant, or other parameters</li>
                 <li><strong>Poor photomicrograph labeling:</strong> Missing or incorrect labels on images</li>
                 <li><strong>Lost data:</strong> Inadequate backup or storage of data</li>
-                <li><strong>Inconsistent format:</strong> Reports don't follow standard format</li>
+                <li><strong>Inconsistent format:</strong> Reports don&apos;t follow standard format</li>
               </ul>
+
+              <h3>Distinguishing Real Defects from Prep Artifacts</h3>
+              <p>
+                The most consequential QC errors are not measurement mistakes — they are <em>prep artifacts
+                misreported as real defects</em>. A pull-out crater identified as gas porosity rejects a
+                perfectly good casting; a smeared surface read as &quot;no microstructure&quot; lets a real
+                sensitization or decarburization issue slip through to a production audit. Each of the
+                five common prep artifacts has a clean diagnostic question and a known fix:
+              </p>
+              <ul>
+                <li>
+                  <Link href="/blog/edge-rounding-mount-fix" className="text-primary-600 hover:underline font-semibold">
+                    Edge rounding
+                  </Link> — Coating thickness drifts between operators; near-edge structure looks blurred. The
+                  mount-material problem masquerading as a polishing problem.
+                </li>
+                <li>
+                  <Link href="/blog/smearing-soft-metals-no-etch" className="text-primary-600 hover:underline font-semibold">
+                    Mirror finish that won&apos;t etch (smearing)
+                  </Link> — Mechanical polishing has homogenized the surface; chemical etchants find nothing
+                  to attack. Common on Cu, Al, Mg, austenitic stainless, pure Ni.
+                </li>
+                <li>
+                  <Link href="/blog/comet-tails-hard-particle-drag" className="text-primary-600 hover:underline font-semibold">
+                    Comet tails behind hard particles
+                  </Link> — Unidirectional scratches behind every carbide / inclusion / fiber. Hard-particle
+                  drag artifact, not a real material defect.
+                </li>
+                <li>
+                  <Link href="/blog/sic-embedment-soft-metals" className="text-primary-600 hover:underline font-semibold">
+                    Embedded SiC dark specks
+                  </Link> — Random dark dots scattered across polished Al, Mg, Pb, or Sn. Liberated SiC grit
+                  pressed into the soft matrix. Easy to mistake for inclusions.
+                </li>
+                <li>
+                  <Link href="/blog/pullout-versus-real-porosity" className="text-primary-600 hover:underline font-semibold">
+                    Pull-out vs. real porosity
+                  </Link> — Smooth rounded pit walls = real porosity (accept/reject the casting on this).
+                  Irregular fresh-fracture pit walls = pull-out artifact (reprep the sample). Examine
+                  unetched first.
+                </li>
+              </ul>
+              <p>
+                When a QC accept/reject decision turns on the presence or absence of a defect, run through
+                these five questions before signing the report. The diagnostic confirmations are quick
+                (under 60 seconds at the microscope) and avoid the much more expensive consequences of a
+                wrongly-rejected production lot.
+              </p>
 
               <div className="bg-yellow-50 border-l-4 border-yellow-600 p-4 my-4 rounded">
                 <p className="text-sm text-gray-700">
-                  <strong>Prevention is Key:</strong> Most quality issues can be prevented with proper procedures, 
-                  training, and inspection. Establishing checkpoints and review processes helps catch issues before they 
+                  <strong>Prevention is Key:</strong> Most quality issues can be prevented with proper procedures,
+                  training, and inspection. Establishing checkpoints and review processes helps catch issues before they
                   affect results. See our{' '}
                   <Link href="/resources/troubleshooting-guide" className="text-primary-600 hover:underline font-semibold">
                     Troubleshooting Guide
@@ -726,14 +947,18 @@ export default function QualityControlInspectionGuide() {
 
               <h3>NADCAP Accreditation</h3>
               <p>
-                NADCAP (National Aerospace and Defense Contractors Accreditation Program) is specific to aerospace and 
-                defense industries:
+                NADCAP (National Aerospace and Defense Contractors Accreditation Program, administered by
+                the Performance Review Institute) is specific to aerospace and defense industries.
+                Metallography labs supporting aerospace customers — particularly those performing heat-treat
+                verification, fastener inspection, weld qualification, or single-crystal turbine-blade
+                analysis — are typically required to hold NADCAP accreditation in addition to ISO/IEC 17025.
               </p>
               <ul>
-                <li><strong>Specialized requirements:</strong> Industry-specific requirements for metallography</li>
-                <li><strong>Audits:</strong> Regular audits by qualified auditors</li>
-                <li><strong>Continuous improvement:</strong> Focus on continuous improvement</li>
-                <li><strong>Customer recognition:</strong> Recognized by major aerospace and defense customers</li>
+                <li><strong>Audit criteria documents:</strong> NADCAP accreditation is administered through a series of Audit Criteria (AC) documents that define industry-specific requirements. The AC documents covering Materials Testing Laboratories include specific sections on metallographic examination, etchant handling, hardness testing, and microscope calibration. Verify the current AC document number applicable to your scope before audit preparation — the AC documents are revised periodically and the current revision is what auditors check against.</li>
+                <li><strong>Audits:</strong> Regular on-site audits by PRI-qualified auditors against the current AC criteria. Findings are tracked and must be closed within defined timeframes.</li>
+                <li><strong>Continuous improvement:</strong> Findings, corrective actions, and root-cause analysis are themselves audited at each subsequent visit — &quot;repeat findings&quot; are weighted more heavily than first-time findings.</li>
+                <li><strong>Customer recognition:</strong> Recognized by major aerospace and defense primes (Boeing, Airbus, Lockheed, Pratt &amp; Whitney, GE Aviation, Rolls-Royce). Many primes require NADCAP accreditation as a condition of supplier qualification.</li>
+                <li><strong>Subscriber program:</strong> NADCAP membership lets primes share audit data and reduces the duplication of audits across the supply chain — one accreditation, many customer recognitions.</li>
               </ul>
 
               <h3>Operator Certification</h3>

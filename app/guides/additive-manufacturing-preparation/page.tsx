@@ -297,11 +297,6 @@ export default function AdditiveManufacturingGuide() {
                 </Link>
                 <p className="text-sm text-gray-600 mt-2 italic text-center">Castable mounting systems with vacuum impregnation capabilities for highly porous AM materials.</p>
               </div>
-              <ProductLink 
-                productName="Mounting Equipment"
-                href="https://www.metallographic.com/metallographic-equipment/compression-mounting.html"
-                description="Mounting presses and castable mounting systems for AM samples"
-              />
             </section>
 
             <section id="grinding" className="scroll-mt-24">
@@ -432,16 +427,6 @@ export default function AdditiveManufacturingGuide() {
                   <p className="text-xs text-gray-600 mt-2 italic text-center">Polishing pads and cloths for different polishing stages. Select appropriate hardness for AM materials.</p>
                 </div>
               </div>
-              <ProductLink 
-                productName="Diamond Abrasives"
-                href="https://shop.metallographic.com/collections/diamond-abrasives"
-                description="High-quality diamond polishing compounds for AM sample preparation"
-              />
-              <ProductLink 
-                productName="Polishing Pads"
-                href="https://shop.metallographic.com/collections/polishing-pads"
-                description="Polishing pads and cloths for different polishing stages"
-              />
             </section>
 
             <section id="etching" className="scroll-mt-24">

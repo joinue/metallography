@@ -121,8 +121,22 @@ export default function StandardsDatabasePage() {
         <div className="mb-4 md:mb-8">
           <h1 className="text-2xl md:text-4xl font-bold mb-2 md:mb-4">Standards Database</h1>
           <p className="text-sm md:text-xl text-gray-600">
-            Comprehensive database of metallography and materials testing standards from ASTM, ISO, and other organizations.
+            Metallography and materials-testing standards from ASTM, ISO, SAE, and ASME.
+            {!loading && standards.length > 0 && (
+              <>
+                {' '}Currently <span className="font-semibold text-gray-900">{standards.length}</span> published
+                standard{standards.length === 1 ? '' : 's'}
+                {organizations.length > 0 && (
+                  <> from <span className="font-semibold text-gray-900">{organizations.length}</span> organization{organizations.length === 1 ? '' : 's'}</>
+                )}.
+              </>
+            )}
           </p>
+          <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-sm">
+            <Link href="/resources/astm-standards-reference" className="text-primary-600 hover:underline">
+              ASTM standards quick reference →
+            </Link>
+          </div>
         </div>
 
         {/* Search and Filters */}

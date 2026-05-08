@@ -30,20 +30,20 @@ export default function SafetyDataSheetReferencePage() {
     {
       name: 'Hydrofluoric Acid (HF)',
       cas: '7664-39-3',
-      hazards: 'Highly corrosive, toxic, can cause severe burns, systemic poisoning',
-      storage: 'Store in plastic containers in cool, dry, well-ventilated area. Keep away from glass, metals, and bases.',
-      handling: 'EXTREME CAUTION. Use in fume hood with proper ventilation. Wear acid-resistant gloves (neoprene or nitrile), safety goggles, face shield, and lab coat. Have calcium gluconate gel available.',
-      firstAid: 'IMMEDIATE MEDICAL ATTENTION REQUIRED. Skin: Flush with water, apply calcium gluconate gel. Eyes: Flush with water for 15 minutes, seek immediate medical attention. Inhalation: Move to fresh air, seek immediate medical attention.',
-      disposal: 'Neutralize with calcium carbonate or lime. Follow strict local regulations. HF requires special handling.',
+      hazards: 'Highly corrosive, toxic, bone-seeking. Causes deep tissue damage that can be DELAYED — small painless splashes can still cause systemic hypocalcemia and death hours later.',
+      storage: 'Store in HF-compatible polyethylene or polypropylene containers (NEVER glass — HF etches glass). Cool, dry, well-ventilated area. Secondary containment.',
+      handling: 'Calcium gluconate 2.5% gel must be within arm\'s reach BEFORE opening any HF container — locating it during exposure is too late. Use only in a fume hood. Wear HF-rated nitrile or neoprene gloves over standard nitrile, full face shield, splash apron, and lab coat. Apply by swab; never immerse a finger to wipe.',
+      firstAid: 'IMMEDIATE MEDICAL ATTENTION REQUIRED EVEN FOR PAINLESS EXPOSURE. Skin: flush with water for 5 minutes, then apply calcium gluconate gel and massage into the affected area; continue applying gel and seek emergency care. Eyes: flush with water for at least 15 minutes; do NOT use gluconate gel in the eyes — seek emergency care immediately. Inhalation: move to fresh air; emergency care immediately.',
+      disposal: 'Neutralize with calcium carbonate, calcium hydroxide, or lime. Follow strict local regulations.',
     },
     {
       name: 'Picric Acid',
       cas: '88-89-1',
-      hazards: 'Explosive when dry, toxic, flammable',
-      storage: 'Store wet (with at least 10% water). Keep in cool, dry area away from heat, sparks, and flames. Store separately from other chemicals.',
-      handling: 'Keep wet at all times. Wear gloves, safety goggles, and lab coat. Avoid friction, shock, and heat.',
-      firstAid: 'Eyes: Flush with water. Skin: Wash with soap and water. Inhalation: Move to fresh air. Seek medical attention.',
-      disposal: 'Keep wet. Contact hazardous waste disposal service. Do not allow to dry.',
+      hazards: 'Explosive when dry — shock, friction, or heat can detonate dry crystals. Forms shock-sensitive picrate salts with metals. Toxic by ingestion and skin absorption.',
+      storage: 'Store wetted with at least 30% water by weight (visible water layer). Use plastic or amber-glass bottles with plastic-lined caps — NEVER metal caps or metal-lined closures. Keep away from copper, lead, zinc, and other metals (reactive metals form shock-sensitive picrate salts). Store away from heat, sparks, oxidizers, and reducing agents. Inspect periodically for water-layer loss; refill before crystals dry out.',
+      handling: 'Verify the bottle is wetted (water layer visible) BEFORE opening. Mix in a fume hood; standard PPE — gloves, splash goggles, lab coat. Avoid friction, shock, and heat. Never grind dry crystals; never evaporate to dryness.',
+      firstAid: 'Eyes: Flush with water for 15 minutes. Skin: Wash with soap and water (yellow staining indicates contact). Inhalation: Move to fresh air. Ingestion: Do not induce vomiting; seek medical attention.',
+      disposal: 'Keep wetted. Collect for organic-acid hazardous-waste pickup. Do not allow to dry. Bottles found with crusted necks or dried crystals should NOT be opened — call hazardous-materials specialists for safe handling.',
     },
     {
       name: 'Ethanol',
@@ -134,6 +134,15 @@ export default function SafetyDataSheetReferencePage() {
       handling: 'Wear gloves and safety goggles. Generally low hazard but avoid prolonged contact.',
       firstAid: 'Eyes: Flush with water. Skin: Wash with soap and water. Generally low hazard.',
       disposal: 'Follow local regulations. Generally can be disposed of as regular waste.',
+    },
+    {
+      name: 'Perchloric Acid (HClO₄)',
+      cas: '7601-90-3',
+      hazards: 'Strong oxidizer. Anhydrous or hot perchloric mixed with organic solvents (alcohols, acetic anhydride, glycerol) is EXPLOSIVE. Even cold dilute perchloric vapors accumulate explosive residues in ordinary fume-hood ductwork over time.',
+      storage: 'Store in original glass container in a perchloric-acid-only cabinet, away from organic materials, reducing agents, dehydrating agents, and metals. Do NOT store on a wood shelf or near combustibles. Inspect for crystallization or discoloration — discolored acid must be removed by hazardous-waste specialists.',
+      handling: 'Use ONLY in a perchloric-rated wash-down fume hood with dedicated ductwork — NEVER a standard organic-chemistry fume hood. For metallographic electropolishing, use a chilled commercial cell (Lectropol, etc.) rather than benchtop mixing. Wear acid-resistant gloves, full face shield, splash apron, and lab coat. Add acid to water slowly, with cooling.',
+      firstAid: 'Eyes: Flush with water for at least 15 minutes; emergency care. Skin: Remove contaminated clothing, flush copiously with water; emergency care for any thermal/chemical burn. Inhalation: Move to fresh air, emergency care.',
+      disposal: 'Never pour perchloric down a drain shared with organic waste. Collect for inorganic-oxidizer hazardous waste pickup. Standard fume hoods that have seen perchloric work require specialist decontamination before disposal.',
     },
   ]
 
@@ -385,6 +394,62 @@ export default function SafetyDataSheetReferencePage() {
               ))}
             </div>
 
+            {/* Common dangerous mixtures specific to metallography */}
+            <div className="mt-8 pt-6 border-t border-gray-200">
+              <h3 className="text-lg font-semibold mb-3 text-red-700">Dangerous mixtures specific to metallography</h3>
+              <p className="text-sm text-gray-700 mb-4">
+                The hazards above describe each chemical individually. Most metallographic etchants are mixtures, and
+                some of those mixtures introduce hazards that don't appear in any single component's SDS. The
+                following are the load-bearing rules every metallography lab should treat as non-negotiable.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="bg-red-50 border-l-4 border-red-600 p-4 rounded">
+                  <p className="font-semibold text-sm text-red-900 mb-1">Perchloric acid + organic solvents</p>
+                  <p className="text-sm text-red-900">
+                    Anhydrous or hot perchloric mixed with alcohols, acetic anhydride, glycerol, or other organics is
+                    EXPLOSIVE. Use only in a perchloric-rated wash-down hood, ideally in a chilled commercial
+                    electropolishing cell. Do NOT mix on the bench.
+                  </p>
+                </div>
+                <div className="bg-red-50 border-l-4 border-red-600 p-4 rounded">
+                  <p className="font-semibold text-sm text-red-900 mb-1">Murakami's reagent + acid</p>
+                  <p className="text-sm text-red-900">
+                    Potassium ferricyanide + any acid releases hydrogen cyanide gas. Murakami's is alkaline (NaOH +
+                    K₃Fe(CN)₆); never combine with acidic etchants and never dispose down the same drain as acid waste.
+                  </p>
+                </div>
+                <div className="bg-amber-50 border-l-4 border-amber-600 p-4 rounded">
+                  <p className="font-semibold text-sm text-amber-900 mb-1">Aqua regia (3 HCl : 1 HNO₃)</p>
+                  <p className="text-sm text-amber-900">
+                    Decomposes after mixing — generates NOₓ + Cl₂ + NOCl, and pressurizes a sealed container until it
+                    ruptures. Mix in a fume hood, in small volumes, immediately before use. NEVER store the mixture.
+                    Same rule for Glyceregia.
+                  </p>
+                </div>
+                <div className="bg-amber-50 border-l-4 border-amber-600 p-4 rounded">
+                  <p className="font-semibold text-sm text-amber-900 mb-1">NH₄OH + H₂O₂ (copper/brass etch)</p>
+                  <p className="text-sm text-amber-900">
+                    Decomposes rapidly; activity decays in minutes and a sealed container can rupture from gas
+                    evolution. Mix in an open beaker immediately before use. Discard within hours; never store.
+                  </p>
+                </div>
+                <div className="bg-amber-50 border-l-4 border-amber-600 p-4 rounded">
+                  <p className="font-semibold text-sm text-amber-900 mb-1">Picric acid + metals</p>
+                  <p className="text-sm text-amber-900">
+                    Picric acid forms shock-sensitive picrate salts with copper, lead, zinc, and iron. NEVER store in
+                    metal-capped bottles or near metallic fixtures. Use plastic-lined caps only.
+                  </p>
+                </div>
+                <div className="bg-amber-50 border-l-4 border-amber-600 p-4 rounded">
+                  <p className="font-semibold text-sm text-amber-900 mb-1">Hot acids (&gt;50&nbsp;°C)</p>
+                  <p className="text-sm text-amber-900">
+                    Fume generation rises dramatically with temperature. Wherever possible, increase concentration
+                    rather than temperature, or use a longer etch at room temperature.
+                  </p>
+                </div>
+              </div>
+            </div>
+
             <div className="mt-8 pt-6 border-t border-gray-200">
               <h3 className="text-lg font-semibold mb-3 text-red-600">IMPORTANT SAFETY NOTES</h3>
               <ul className="space-y-2 text-sm text-gray-700 list-disc list-inside">
@@ -395,6 +460,9 @@ export default function SafetyDataSheetReferencePage() {
                 <li>Wear appropriate Personal Protective Equipment (PPE) as specified in SDS.</li>
                 <li>Never mix incompatible chemicals (e.g., acids and bases, oxidizers and reducers).</li>
                 <li>Store chemicals according to compatibility groups.</li>
+                <li>Always pour acid into water, never water into acid.</li>
+                <li>For HF work, calcium gluconate gel must be within arm's reach BEFORE opening any HF container.</li>
+                <li>For picric acid, verify the bottle is wetted before opening; bottles with crusted necks or dried crystals are not safe to open.</li>
                 <li>Keep emergency contact numbers readily available.</li>
                 <li>Report all accidents and incidents immediately.</li>
                 <li>Follow local regulations for chemical storage, handling, and disposal.</li>

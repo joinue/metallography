@@ -601,11 +601,6 @@ export default function AutomotiveApplicationsPage() {
                     <p className="text-sm text-gray-600 mt-2 italic text-center">MAX-VHS abrasive blades for sectioning automotive steels. Proper blade selection minimizes damage and preserves microstructure.</p>
                   </div>
                 </AnimateOnScroll>
-                <ProductLink 
-                  productName="Abrasive Cut-Off Blades"
-                  href="https://shop.metallographic.com/collections/abrasive-blades"
-                  description="Select appropriate blades for steel (MAX-VHS) or aluminum (MAX-E) sectioning"
-                />
 
                 <h3>Mounting</h3>
                 <p>
@@ -676,14 +671,9 @@ export default function AutomotiveApplicationsPage() {
                     <p className="text-sm text-gray-600 mt-2 italic text-center">Silicon carbide grinding papers for progressive grinding. Essential for removing sectioning damage in automotive samples.</p>
                   </div>
                 </AnimateOnScroll>
-                <ProductLink 
-                  productName="Silicon Carbide Grinding Papers"
-                  href="https://shop.metallographic.com/collections/grinding-lapping"
-                  description="Progressive grinding papers (120, 240, 400, 600 grit) for automotive sample preparation"
-                />
                 <AnimateOnScroll animation="fadeInUp" delay={200}>
                   <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
-                    <Link 
+                    <Link
                       href="https://shop.metallographic.com/collections/polishing"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -702,11 +692,6 @@ export default function AutomotiveApplicationsPage() {
                     <p className="text-sm text-gray-600 mt-2 italic text-center">Diamond polishing compounds for fine polishing. Essential for achieving scratch-free surfaces in automotive metallography.</p>
                   </div>
                 </AnimateOnScroll>
-                <ProductLink 
-                  productName="Diamond Polishing Compounds"
-                  href="https://shop.metallographic.com/collections/polishing"
-                  description="Diamond compounds (9 μm, 3 μm, 1 μm) for polishing automotive steel and aluminum samples"
-                />
 
                 <h3>Etching</h3>
                 <p>

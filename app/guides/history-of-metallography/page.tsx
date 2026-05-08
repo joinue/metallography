@@ -462,8 +462,11 @@ export default function HistoryOfMetallographyGuide() {
 
               <h3>Automation and Standardization</h3>
               <ul>
-                <li><strong>1943:</strong> <strong>Electrolytic polishing</strong> introduced by Struers 
-                (Micropol), providing an alternative to mechanical polishing for certain materials</li>
+                <li><strong>1929–1936:</strong> <strong>Electrolytic polishing</strong> developed by Pierre A. Jacquet
+                in France. Jacquet's published work (1930 and onward) established the technique of removing the
+                deformed surface layer electrochemically, providing an alternative to mechanical polishing for materials
+                where mechanical work introduces unacceptable damage. Commercial electropolishing units became available
+                in subsequent decades.</li>
                 <li>Automated grinding and polishing equipment (1960s-1970s), reducing operator variability</li>
                 <li>Standardized preparation procedures for different material classes (1980s), ensuring 
                 reproducibility across laboratories</li>

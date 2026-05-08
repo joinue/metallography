@@ -448,8 +448,12 @@ export default function IntroductionToMetallographyGuide() {
                 <div className="bg-gray-50 p-4 rounded-lg">
                   <h4 className="font-semibold mb-2">Cementite (Fe₃C)</h4>
                   <p className="text-sm text-gray-700 mb-2">
-                    Iron carbide phase. Very hard and brittle. Appears dark with nital etching, light/white with picral etching. 
-                    Appearance depends on the etchant used. Present in pearlite, bainite, and as separate particles in some steels.
+                    Iron carbide phase. Very hard and brittle. Appearance depends on the etchant: under
+                    <strong> nital</strong> the ferrite is attacked preferentially, so cementite stands light by contrast;
+                    under <strong>picral</strong> the cementite is attacked directly and appears dark. Picral is the
+                    preferred etchant when you need clear cementite contrast — for example, resolving fine pearlite
+                    lamellae or imaging proeutectoid carbide networks. Present in pearlite, bainite, and as separate
+                    particles in some steels.
                   </p>
                 </div>
                   </div>

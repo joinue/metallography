@@ -9,6 +9,13 @@ export interface MicrostructureImage {
   magnification?: string
   technique?: string
   description?: string
+  /**
+   * Confidence level for the parsed metadata.
+   * - 'high': filename contains an explicit, descriptive label (etchant + magnification + at least one of material/phase/treatment), e.g. "1095 Steel furnace cooled, pearlite, 2% nital, 400X.JPG".
+   * - 'medium': filename has the material name but is missing etchant or magnification, e.g. "Tungsten.jpg".
+   * - 'low': filename is a bare alloy code or shorthand with no descriptive context, e.g. "1018FC.jpg".
+   */
+  labelConfidence: 'high' | 'medium' | 'low'
 }
 
 // Parse filename to extract metadata
@@ -111,7 +118,26 @@ export function parseImageMetadata(filename: string): MicrostructureImage {
   if (magnification) parts.push(magnification)
   if (technique) parts.push(technique)
   const description = parts.length > 0 ? parts.join(', ') : baseName
-  
+
+  // Confidence rating from how explicit the filename is.
+  // High: at least three of {material, etchant, magnification, treatment} parsed,
+  //       and the filename uses descriptive separators (commas / spaces) rather
+  //       than a bare alloy code.
+  // Medium: a parsed material is present but other axes are missing.
+  // Low: bare alloy codes (1018FC.jpg, Cu.jpg) — the gallery shows these but
+  //       a reviewer should verify the phase claim before treating the image
+  //       as authoritative reference.
+  const explicitFields = [material, etchant, magnification, treatment].filter(Boolean).length
+  const hasDescriptiveSeparators = /[,]/.test(baseName) || /\s\d/.test(baseName)
+  let labelConfidence: 'high' | 'medium' | 'low'
+  if (explicitFields >= 3 && hasDescriptiveSeparators) {
+    labelConfidence = 'high'
+  } else if (material && (etchant || magnification)) {
+    labelConfidence = 'medium'
+  } else {
+    labelConfidence = 'low'
+  }
+
   return {
     filename,
     url,
@@ -121,6 +147,7 @@ export function parseImageMetadata(filename: string): MicrostructureImage {
     magnification,
     technique,
     description,
+    labelConfidence,
   }
 }
 

@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
-import { Search, Calculator, FlaskConical, Workflow, Layers, Clock, Ruler, Hourglass, Square, ClipboardList, Box } from 'lucide-react'
+import { Search, Calculator, FlaskConical, Workflow, Layers, Clock, Ruler, Hourglass, Square, ClipboardList, Box, Gauge, BookOpen, NotebookPen } from 'lucide-react'
 import AnimatedCard from '@/components/AnimatedCard'
 
 // Tool categories in order
@@ -51,6 +51,21 @@ const tools = [
     calculatorOrder: 5,
   },
   {
+    title: 'Hardness Converter',
+    slug: 'hardness-converter',
+    description: 'Bidirectional converter between Rockwell (HRC, HRB, HRA), Vickers, Knoop, and Brinell per ASTM E140.',
+    icon: Gauge,
+    category: 'Calculators',
+    calculatorOrder: 6,
+  },
+  {
+    title: 'Microstructure ID Quiz',
+    slug: 'microstructure-quiz',
+    description: 'Test your eye for ferrite, pearlite, martensite, and other phases using real micrographs from the gallery.',
+    icon: BookOpen,
+    category: 'Workflow',
+  },
+  {
     title: 'Etchant Selector',
     slug: 'etchant-selector',
     description: 'Find the right etchant for your material and application.',
@@ -72,6 +87,15 @@ const tools = [
     category: 'Workflow',
     external: false,
     href: '/guides?category=Material-Specific',
+  },
+  {
+    title: 'Metallography ELN',
+    slug: 'materials-prep',
+    description: 'A digital lab notebook for sample preparation. Captures batches, recipes, micrographs, and prep history. Materials Prep is a paid PACE Technologies product.',
+    icon: NotebookPen,
+    category: 'Workflow',
+    external: false,
+    href: '/materials-prep',
   },
 ]
 
@@ -237,8 +261,8 @@ function ToolsPageContent() {
                                 Use Tool →
                               </Link>
                             ) : (
-                              <Link 
-                                href={`/tools/${tool.slug}`} 
+                              <Link
+                                href={tool.href || `/tools/${tool.slug}`}
                                 className="btn-primary inline-block w-full sm:w-auto"
                               >
                                 Use Tool →
@@ -282,8 +306,8 @@ function ToolsPageContent() {
                         Use Tool →
                       </Link>
                     ) : (
-                      <Link 
-                        href={`/tools/${tool.slug}`} 
+                      <Link
+                        href={tool.href || `/tools/${tool.slug}`}
                         className="btn-primary inline-block w-full sm:w-auto"
                       >
                         Use Tool →

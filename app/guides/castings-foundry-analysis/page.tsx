@@ -659,11 +659,6 @@ export default function CastingsFoundryAnalysisPage() {
           <p className="mb-4">
             Refer to our <Link href="/guides/sectioning" className="text-blue-600 hover:underline">sectioning guide</Link> for detailed techniques.
           </p>
-          <ProductLink 
-            productName="Abrasive Sectioning Equipment"
-            href="https://metallographic.com/metallographic-equipment/abrasive-sectioning.html"
-            description="Automated and manual cutters for sectioning cast materials while preserving microstructure"
-          />
 
           <h3 className="text-2xl font-semibold mb-3 mt-6">Mounting</h3>
           <p className="mb-4">
@@ -740,11 +735,6 @@ export default function CastingsFoundryAnalysisPage() {
           <p className="mb-4">
             See our <Link href="/guides/grinding-techniques" className="text-blue-600 hover:underline">grinding</Link> and <Link href="/guides/polishing-methods" className="text-blue-600 hover:underline">polishing</Link> guides for detailed procedures.
           </p>
-          <ProductLink 
-            productName="Grinding and Polishing Consumables"
-            href="https://shop.metallographic.com/collections/sic-grinding"
-            description="Silicon carbide papers, diamond suspensions, and polishing cloths for preparing cast materials"
-          />
 
           <h3 className="text-2xl font-semibold mb-3 mt-6">Preserving Casting Features</h3>
           <p className="mb-4">
@@ -758,11 +748,6 @@ export default function CastingsFoundryAnalysisPage() {
             <li>Consider using vibratory polishing for delicate structures</li>
             <li>Document any preparation artifacts</li>
           </ul>
-          <ProductLink 
-            productName="Polishing Cloths and Pads"
-            href="https://shop.metallographic.com/collections/polishing-pads"
-            description="Specialized polishing cloths for maintaining feature definition in cast materials, including low-nap options for preserving dendrite structure"
-          />
         </section>
 
             <section id="etching-techniques" className="mb-8 scroll-mt-24">

@@ -332,3 +332,99 @@ body.build-page-active .build-page-main {
   }
 }
 
+/* =====================================================================
+   Print styles — applies to /guides/* and any page using <article>.
+   Goal: when the user hits Ctrl/Cmd+P or the Print button on a guide,
+   the result is a clean, readable PDF with no nav chrome, no CTAs,
+   no product placement boxes — just the content.
+   ===================================================================== */
+@media print {
+  /* Page setup */
+  @page {
+    margin: 0.75in 0.6in;
+    size: letter;
+  }
+
+  /* Avoid horrible page breaks inside callouts and figures */
+  figure, img, table, pre, blockquote,
+  .product-link, [data-print-keep-together] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  h1, h2, h3, h4 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  /* Hide site chrome and any element explicitly marked print-hidden */
+  header, footer, nav,
+  .print\:hidden,
+  [data-print="hide"] {
+    display: none !important;
+  }
+
+  /* Hide product/shop callouts and CTAs in printed output —
+     keeping them clutters print and contradicts the educational
+     framing the printed copy is best at. */
+  .product-link,
+  [data-product-link],
+  [data-print-strip] {
+    display: none !important;
+  }
+
+  /* Side nav, return-to-top, scroll-anchored helpers */
+  [data-guide-sidenav],
+  [data-return-to-top] {
+    display: none !important;
+  }
+
+  /* Color and spacing: prefer black text on white, save toner */
+  body, article, main, .container-custom {
+    background: white !important;
+    color: #000 !important;
+  }
+
+  /* Make links readable in print without hiding the URL */
+  a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    color: #555;
+  }
+  /* Suppress the URL print for in-site links */
+  a[href^="/"]:after {
+    content: "";
+  }
+
+  /* Ensure full-width layout when printing */
+  .container-custom {
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  article {
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
+  /* Print-only header injected by the PrintButton block */
+  .print-only-header {
+    display: block !important;
+    border-bottom: 1px solid #999;
+    padding-bottom: 0.4em;
+    margin-bottom: 1em;
+  }
+  .print-only-header .source {
+    font-size: 0.8em;
+    color: #555;
+  }
+}
+
+/* By default the print-only header is hidden on screen */
+.print-only-header {
+  display: none;
+}
+

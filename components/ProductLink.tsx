@@ -18,14 +18,17 @@ export default function ProductLink({ productName, href, description }: ProductL
     : null
   
   return (
-    <div className="bg-gray-50 border-l-4 border-primary-600 p-4 my-4 rounded">
+    <div
+      className="bg-gray-50 border-l-4 border-primary-600 p-4 my-4 rounded product-link"
+      data-product-link
+    >
       <p className="text-sm text-gray-700 mb-2">
         <strong>Example Products:</strong> {productName}
         {cleanDescription && <span className="block text-gray-600 mt-1">{cleanDescription}</span>}
       </p>
       <p className="text-xs text-gray-600">
         For purchasing options and product specifications, see{' '}
-        <Link 
+        <Link
           href={shopUrl}
           target="_blank"
           rel="noopener noreferrer"

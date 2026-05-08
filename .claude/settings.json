@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\MarcS\\\\Documents\\\\metallography.org\" -Directory)",
+      "Bash(Select-Object Name)",
+      "Bash(xargs grep -l \"etchant\")",
+      "Bash(npx tsc *)",
+      "PowerShell(npx tsc --noEmit --skipLibCheck 2>&1)",
+      "PowerShell(npx tsc --noEmit --skipLibCheck; Write-Output \"exit=$LASTEXITCODE\")",
+      "Bash(cd \"c:/Users/MarcS/Documents/metallography.org\" && find ../.. -maxdepth 4 -name \"*.tsx\" -path \"*guides*\" -newer .gitignore 2>/dev/null | head -5)",
+      "Read(//c/Users/MarcS/**)",
+      "PowerShell(npx tsc --noEmit -p tsconfig.json 2>&1)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\MarcS\\\\Documents\\\\metallography.org\" -Recurse -Directory)",
+      "Bash(awk -F\"'\" '{print NR\": line \"$1\" -- \"$2}')",
+      "Bash(awk 'NR>=109 && NR<=240' \"c:/Users/MarcS/Documents/metallography.org/supabase/migrations/021_seed_all_consumables.sql\")",
+      "Bash(awk '-F'\\\\''' 'NR>=109 && NR<=235 { for \\(i=1; i<=NF; i++\\) if \\($i ~ /[Mm]ounting|[Rr]esin|[Cc]astable|[Cc]ompression|[Aa]crylic|[Ee]poxy|[Pp]henolic/\\) { print NR, $i; break } }' c:/Users/MarcS/Documents/metallography.org/supabase/migrations/021_seed_all_consumables.sql)",
+      "Bash(awk '-F'\\\\''' 'NR>=189 && NR<=240 { for \\(i=1; i<=NF; i++\\) if \\($i ~ /[Mm]ounting|[Rr]esin|[Cc]astable|[Cc]ompression|[Aa]crylic|[Ee]poxy|[Pp]henolic|UV/\\) { print NR, $i; break } }' c:/Users/MarcS/Documents/metallography.org/supabase/migrations/021_seed_all_consumables.sql)",
+      "Bash(git -C \"c:/Users/MarcS/Documents/metallography.org\" mv supabase/migrations/041_correct_etchant_recipes.sql supabase/migrations/042_correct_etchant_recipes.sql)",
+      "Bash(echo \"exit=$?\")",
+      "Bash(git add *)"
+    ]
+  }
+}

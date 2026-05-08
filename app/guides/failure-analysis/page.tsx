@@ -13,6 +13,7 @@ const sections = [
   { id: 'methodology', label: 'Failure Analysis Methodology' },
   { id: 'techniques', label: 'Common Failure Analysis Techniques' },
   { id: 'case-studies', label: 'Failure Analysis Case Studies' },
+  { id: 'prep-artifacts', label: 'Common Prep Artifacts' },
   { id: 'best-practices', label: 'Best Practices in Failure Analysis' },
   { id: 'tools-equipment', label: 'Tools and Equipment' },
   { id: 'standards-references', label: 'Standards and References' },
@@ -86,13 +87,14 @@ export default function FailureAnalysisPage() {
 
           <h3 className="text-2xl font-semibold mb-3 mt-6">3. Fatigue Failure</h3>
           <p className="mb-4">
-            Fatigue failures result from cyclic loading below the material's ultimate strength. Characteristics include:
+            Fatigue failures result from cyclic loading below the material&apos;s ultimate strength. Characteristics include:
           </p>
           <ul className="list-disc pl-6 mb-4">
-            <li>Beach marks or striations on fracture surfaces</li>
-            <li>Multiple crack initiation sites</li>
-            <li>Progressive crack growth patterns</li>
-            <li>Final fast fracture region</li>
+            <li><strong>Beach marks (macroscopic, optical):</strong> Concentric ring patterns visible to the naked eye or under low-power stereomicroscope. Each beach mark records a stretch of cycling under one set of conditions; transitions between beach marks correspond to load or environment changes (start/stop cycles, overload events). Useful for reconstructing the failure history.</li>
+            <li><strong>Striations (microscopic, SEM):</strong> Fine parallel ridges only resolvable under SEM. Each striation corresponds to <em>one load cycle</em> of crack advance. Used to back-calculate cycle counts and crack growth rates. Beach marks and striations are different scales of feature, not synonyms — a single beach mark may contain thousands of striations.</li>
+            <li>Multiple crack initiation sites (typical when stress concentrators or surface defects are present)</li>
+            <li>Progressive crack growth patterns radiating from initiation</li>
+            <li>Final fast fracture region (often ductile dimples in tough materials, cleavage in brittle ones)</li>
           </ul>
 
           <h3 className="text-2xl font-semibold mb-3 mt-6">4. Corrosion-Related Failure</h3>
@@ -156,8 +158,15 @@ export default function FailureAnalysisPage() {
             <li>Follow standard metallographic preparation techniques</li>
             <li>Use appropriate etching to reveal microstructure</li>
           </ul>
+          <div className="bg-amber-50 border-l-4 border-amber-500 p-4 my-6 rounded">
+            <h4 className="font-semibold mb-2">Two FA-specific prep rules that decide whether the analysis is defensible:</h4>
+            <ul className="list-disc pl-6 mb-0 text-sm">
+              <li className="mb-2"><strong>Mount in glass-filled epoxy, not phenolic.</strong> Most FA cross-section work — case-depth measurement, near-edge crack analysis, decarburization assessment, coating thickness — is exactly the case where edge retention matters most. Phenolic (Bakelite-style) mount wears 2-3× faster than steel during long polishes and rounds the sample-mount boundary by 10-50 µm — which is the same dimension scale as the features being measured. Glass-filled epoxy is the canonical FA mount.</li>
+              <li><strong>Examine unetched first, then etch.</strong> Critical for distinguishing real defects from prep artifacts. Smooth, rounded pit walls = real porosity (gas, shrinkage, intentional sintered porosity). Irregular, fresh-fracture pit walls = pull-out, an artifact of polishing too aggressively. Etching obscures this distinction by attacking the matrix and changing apparent pit morphology. For cast iron specifically, the unetched view is also the only valid view for graphite morphology rating per ASTM A247.</li>
+            </ul>
+          </div>
           <p className="mb-4">
-            Refer to our <Link href="/guides/sectioning" className="text-blue-600 hover:underline">sectioning</Link>, <Link href="/guides/grinding-techniques" className="text-blue-600 hover:underline">grinding</Link>, and <Link href="/guides/polishing-methods" className="text-blue-600 hover:underline">polishing</Link> guides for proper sample preparation.
+            Refer to our <Link href="/guides/sectioning" className="text-blue-600 hover:underline">sectioning</Link>, <Link href="/guides/grinding-techniques" className="text-blue-600 hover:underline">grinding</Link>, <Link href="/guides/polishing-methods" className="text-blue-600 hover:underline">polishing</Link>, and <Link href="/guides/metallographic-mounting" className="text-blue-600 hover:underline">mounting</Link> guides for proper sample preparation.
           </p>
 
           <h3 className="text-2xl font-semibold mb-3 mt-6">Step 4: Microscopic Examination</h3>
@@ -265,12 +274,12 @@ export default function FailureAnalysisPage() {
           
           <h3 className="text-2xl font-semibold mb-3 mt-6">Case Study 1: Fatigue Failure of a Shaft</h3>
           <p className="mb-4">
-            A rotating shaft failed after extended service. Analysis revealed:
+            A rotating shaft (typically <Link href="/guides/carbon-steel-preparation" className="text-blue-600 hover:underline">4140 or 4340 carbon/low-alloy steel</Link> in the Q&amp;T condition, or fully hardened <Link href="/guides/tool-steel-preparation" className="text-blue-600 hover:underline">tool steel</Link>) failed after extended service. Analysis revealed:
           </p>
           <ul className="list-disc pl-6 mb-4">
             <li>Multiple fatigue crack initiation sites at keyway corners</li>
-            <li>Beach marks indicating progressive crack growth</li>
-            <li>Final ductile overload region</li>
+            <li>Beach marks (macroscopic) at low magnification, with striations resolvable under SEM showing per-cycle crack advance</li>
+            <li>Final ductile overload region with dimpled fracture morphology</li>
             <li>Root cause: Stress concentration at sharp keyway corners combined with cyclic loading</li>
             <li>Solution: Redesign with radiused keyway corners and shot peening</li>
           </ul>
@@ -286,19 +295,81 @@ export default function FailureAnalysisPage() {
             <li>Root cause: Inadequate post-weld heat treatment and low-temperature service</li>
             <li>Solution: Proper PWHT and material selection for low-temperature applications</li>
           </ul>
+          <p className="mb-4 text-sm">
+            For the prep workflow specific to weld cross-sections — fusion zone, HAZ, and base metal each
+            requiring its own etch — see the <Link href="/guides/welding-analysis" className="text-blue-600 hover:underline">welding analysis guide</Link>.
+            Weld defect investigation per <strong>ASTM E340</strong> uses macroetching to expose fusion-zone
+            penetration, HAZ extent, and weld-line discontinuities at the macroscopic scale before
+            microstructural work.
+          </p>
 
           <h3 className="text-2xl font-semibold mb-3 mt-6">Case Study 3: Stress Corrosion Cracking</h3>
           <p className="mb-4">
-            Stainless steel component failed in service. Analysis identified:
+            <Link href="/guides/stainless-steel-preparation" className="text-blue-600 hover:underline">Stainless steel</Link> component failed in service. Analysis identified:
           </p>
           <ul className="list-disc pl-6 mb-4">
             <li>Intergranular crack propagation</li>
             <li>Corrosion products in crack</li>
             <li>Sensitized microstructure (grain boundary carbides)</li>
             <li>Root cause: Sensitization from welding and exposure to corrosive environment</li>
-            <li>Solution: Use low-carbon or stabilized grades and proper welding procedures</li>
+            <li>Solution: Use low-carbon or stabilized grades (304L, 321, 347) and proper welding procedures</li>
           </ul>
+          <p className="mb-4">
+            <strong>Diagnostic etch that catches this pre-failure:</strong> <strong>10% oxalic acid electrolytic at 6 V for 90 s</strong> — the canonical sensitization detection per <strong>ASTM A262 Practice A</strong>.
+            The etch reveals the &quot;ditched&quot; structure characteristic of continuous chromium-carbide precipitation along grain boundaries in sensitized 304/316. Any stainless component that has been welded and is destined for hot-water, chloride, or general corrosive service should pass A262 Practice A before commissioning. See the <Link href="/guides/stainless-steel-preparation" className="text-blue-600 hover:underline">stainless steel preparation guide</Link> for the full electrolytic-etch workflow.
+          </p>
+          <p className="mb-4">
+            <strong>Cross-references for the other case studies:</strong> Case Study 1 (fatigue shaft) prep workflow lives in the <Link href="/guides/carbon-steel-preparation" className="text-blue-600 hover:underline">carbon and low-alloy steel guide</Link> for through-hardened 4140/4340-class shafts, and the <Link href="/guides/tool-steel-preparation" className="text-blue-600 hover:underline">tool steel guide</Link> if the shaft is fully hardened. Case Study 2 (welded structure brittle fracture) prep workflow lives in the <Link href="/guides/welding-analysis" className="text-blue-600 hover:underline">welding analysis guide</Link>.
+          </p>
         </section>
+
+            <section id="prep-artifacts" className="mb-8 scroll-mt-24">
+              <h2 className="text-3xl font-semibold mb-4">Common Prep Artifacts in FA — Don&apos;t Mistake These for Defects</h2>
+              <p className="mb-4">
+                The most expensive failure-analysis mistakes are not technical fractography errors —
+                they are <em>prep artifacts misreported as real component defects</em>. A pull-out crater
+                misidentified as gas porosity will reject a perfectly good casting; a smeared surface
+                misread as &quot;no microstructure&quot; will hide a real sensitization or decarburization
+                problem. Each of the five common FA prep artifacts has a clean diagnostic question and
+                a known fix. The longer-form troubleshooters below cover each in detail:
+              </p>
+              <ul className="list-disc pl-6 mb-4">
+                <li>
+                  <Link href="/blog/edge-rounding-mount-fix" className="text-blue-600 hover:underline font-semibold">Edge rounding</Link> —
+                  the coating disappears as the field of view approaches the mount; thickness measurements
+                  drift between operators. Almost always a mount-material problem (phenolic instead of
+                  glass-filled epoxy), not a polishing problem.
+                </li>
+                <li>
+                  <Link href="/blog/smearing-soft-metals-no-etch" className="text-blue-600 hover:underline font-semibold">Mirror finish that won&apos;t etch (smearing)</Link> —
+                  mechanical polishing has homogenized the surface so chemical etchants find no boundaries
+                  to attack. Common on Cu, Al, Mg, and pure Ni. Fix: chemo-mechanical final polish with
+                  H₂O₂ in colloidal silica.
+                </li>
+                <li>
+                  <Link href="/blog/comet-tails-hard-particle-drag" className="text-blue-600 hover:underline font-semibold">Comet tails behind hard particles</Link> —
+                  unidirectional scratches trailing carbides, slag inclusions, MMC reinforcement, or
+                  cast-iron graphite. Fix: lower polishing force, harder pad, 90° rotation between
+                  intervals.
+                </li>
+                <li>
+                  <Link href="/blog/sic-embedment-soft-metals" className="text-blue-600 hover:underline font-semibold">Embedded SiC dark specks on soft metals</Link> —
+                  random dots scattered across a polished Al, Mg, Pb, or Sn sample. Liberated SiC grit
+                  pressed into the soft matrix during grinding. Fix: switch to alumina (ALO) papers
+                  instead of SiC for soft non-ferrous.
+                </li>
+                <li>
+                  <Link href="/blog/pullout-versus-real-porosity" className="text-blue-600 hover:underline font-semibold">Pull-out vs. real porosity</Link> —
+                  the diagnostic that determines whether you reject a casting or reprep your sample. Smooth,
+                  rounded pit walls = real porosity. Irregular, fresh-fracture walls = pull-out artifact.
+                  Examine unetched first.
+                </li>
+              </ul>
+              <p className="mb-4">
+                When the FA conclusion turns on the presence or absence of a defect, run through the
+                five questions above before signing the report.
+              </p>
+            </section>
 
             <section id="best-practices" className="mb-8 scroll-mt-24">
               <h2 className="text-3xl font-semibold mb-4">Best Practices in Failure Analysis</h2>
@@ -357,18 +428,38 @@ export default function FailureAnalysisPage() {
             <section id="standards-references" className="mb-8 scroll-mt-24">
               <h2 className="text-3xl font-semibold mb-4">Standards and References</h2>
           <p className="mb-4">
-            Several standards guide failure analysis practices:
+            Standards directly relevant to failure analysis practice:
           </p>
+          <h3 className="text-xl font-semibold mb-2 mt-4">General preparation and terminology</h3>
           <ul className="list-disc pl-6 mb-4">
-            <li>ASTM E3 - Standard Practice for Preparation of Metallographic Specimens</li>
-            <li>ASTM E883 - Standard Guide for Reflected-Light Photomicrography</li>
-            <li>ASTM E1920 - Standard Guide for Metallographic Preparation of Thermal Sprayed Coatings</li>
-            <li>ASTM E1823 - Standard Terminology Relating to Fatigue and Fracture Testing</li>
-            <li>ASM Handbook Volume 11 - Failure Analysis and Prevention</li>
-            <li>ASM Handbook Volume 12 - Fractography</li>
+            <li><strong>ASTM E3</strong> — Standard Practice for Preparation of Metallographic Specimens</li>
+            <li><strong>ASTM E407</strong> — Standard Practice for Microetching Metals and Alloys (the canonical etchant reference; assigns numeric IDs to standard etchants like Nital, Glyceregia, Keller&apos;s, Kroll&apos;s, Marble&apos;s)</li>
+            <li><strong>ASTM E883</strong> — Standard Guide for Reflected-Light Photomicrography</li>
+            <li><strong>ASTM E1823</strong> — Standard Terminology Relating to Fatigue and Fracture Testing</li>
+          </ul>
+          <h3 className="text-xl font-semibold mb-2 mt-4">Defect-specific diagnostic standards</h3>
+          <ul className="list-disc pl-6 mb-4">
+            <li><strong>ASTM A262</strong> — Detecting Susceptibility to Intergranular Attack in Austenitic Stainless Steels (Practice A: oxalic acid electrolytic etch — the canonical sensitization diagnostic)</li>
+            <li><strong>ASTM A923</strong> — Detecting Detrimental Intermetallic Phase in Duplex Austenitic/Ferritic Stainless Steels</li>
+            <li><strong>ASTM A763</strong> — Detecting Susceptibility to Intergranular Attack in Ferritic Stainless Steels</li>
+            <li><strong>ASTM A247</strong> — Evaluating the Microstructure of Graphite in Iron Castings (nodularity rating; <em>required to be performed on as-polished, unetched specimens</em>)</li>
+            <li><strong>ASTM E45</strong> — Determining the Inclusion Content of Steel (worst-field method; A-D classification charts)</li>
+            <li><strong>ASTM E340</strong> — Macroetching Metals and Alloys (weld penetration, HAZ extent, segregation, flow lines — relevant to weld and forging FA)</li>
+            <li><strong>ASTM E1077</strong> — Estimating the Depth of Decarburization of Steel Specimens</li>
+            <li><strong>ASTM E1351</strong> — Production and Evaluation of Field Metallographic Replicas (in-service non-destructive examination)</li>
+          </ul>
+          <h3 className="text-xl font-semibold mb-2 mt-4">Coatings and surface treatments</h3>
+          <ul className="list-disc pl-6 mb-4">
+            <li><strong>ASTM E1920</strong> — Standard Guide for Metallographic Preparation of Thermal Sprayed Coatings</li>
+          </ul>
+          <h3 className="text-xl font-semibold mb-2 mt-4">Reference handbooks</h3>
+          <ul className="list-disc pl-6 mb-4">
+            <li>ASM Handbook Volume 11 — Failure Analysis and Prevention</li>
+            <li>ASM Handbook Volume 12 — Fractography</li>
+            <li>ASM Handbook Volume 9 — Metallography and Microstructures (recipe reference for etchants and prep ladders)</li>
           </ul>
           <p className="mb-4">
-            Refer to our <Link href="/resources/astm-standards-reference" className="text-blue-600 hover:underline">ASTM standards reference</Link> for more information.
+            Refer to our <Link href="/resources/astm-standards-reference" className="text-blue-600 hover:underline">ASTM standards reference</Link> for the full list with descriptions.
           </p>
         </section>
 

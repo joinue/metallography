@@ -264,17 +264,12 @@ export default function AerospaceApplicationsGuide() {
                 </ul>
               </div>
 
-              <ProductLink 
+              <ProductLink
                 productName="Abrasive Blades for Aerospace Materials"
                 href="https://shop.metallographic.com/collections/abrasive-blades"
                 description="MAX-D, MAX-VHS, and MAX-C series blades for sectioning titanium and superalloys"
               />
-              <ProductLink 
-                productName="Diamond Polishing Compounds"
-                href="https://shop.metallographic.com/collections/diamond-abrasives"
-                description="High-quality diamond polishing compounds in various particle sizes for aerospace materials"
-              />
-              <ProductLink 
+              <ProductLink
                 productName="Silicon Carbide Grinding Papers"
                 href="https://shop.metallographic.com/collections/sic-grinding"
                 description="Premium SiC papers in all grit sizes for progressive grinding of aerospace materials"

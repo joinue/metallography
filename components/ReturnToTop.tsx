@@ -32,6 +32,7 @@ export default function ReturnToTop() {
 
   return (
     <button
+      data-return-to-top
       onClick={scrollToTop}
       className={`
         fixed bottom-8 right-8 z-40

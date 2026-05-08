@@ -117,9 +117,15 @@ export default function ToolSteelGuide() {
             <section id="sectioning" className="scroll-mt-24">
               <h2>Sectioning</h2>
               <p>
-                When sectioning tool steels and hardened steels, use slow cutting speeds to minimize heat generation 
-                and prevent phase transformation. These materials are very hard and generate significant heat during 
-                cutting. Use appropriate blades designed for hard materials.
+                Section tool steels and hardened steels on a standard abrasive cutoff saw at typical
+                metallographic surface speeds (~2,500-4,500 SFM). The right answer for hardness is
+                <strong> blade selection</strong>, not a slower wheel — under-speeding a thin abrasive
+                blade glazes and burns rather than cutting. For HRC &gt; 45, use a <strong>harder-bond
+                Al₂O₃ blade</strong> (more aggressive grit replacement). For very brittle, very-high-carbide
+                grades — fully hardened <MaterialTooltip materialName="M42 High-Speed Steel">M42</MaterialTooltip>,
+                <MaterialTooltip materialName="D2 Tool Steel">D2</MaterialTooltip>, T-grades — escalate to a
+                <strong> precision (low-speed) saw with a diamond wafering blade</strong> to avoid micro-crack
+                damage from the abrasive cutoff. Coolant flood is non-negotiable on hardened material.
               </p>
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
                 <Link 
@@ -139,17 +145,17 @@ export default function ToolSteelGuide() {
                 <p className="text-sm text-gray-600 mt-2 italic text-center">MAX-VHS abrasive cut-off blades designed for very hard and case-hardened steels. These blades are essential for tool steels and hardened steels.</p>
               </div>
               <ul>
-                <li>Use <strong>MAX-VHS series blades</strong> designed for very hard materials</li>
-                <li>Use <strong>slow cutting speeds</strong> (80-150 RPM) to minimize heat generation</li>
+                <li>Use <strong>MAX-VHS series blades</strong> (hard-bond Al₂O₃) for hardened tool steels and case-hardened components</li>
+                <li>For fully hardened high-carbide grades (M42, D2, T-grades), prefer a <strong>precision saw with a diamond wafering blade</strong></li>
                 <li>Use a thin abrasive cut-off wheel (0.5-1.0 mm thickness)</li>
                 <li>Apply steady, moderate pressure - avoid forcing</li>
-                <li>Use <strong>adequate coolant</strong> to prevent overheating and phase transformation</li>
+                <li>Use <strong>flood coolant</strong> — surface rehardening from sectioning is a real artifact and coolant is the lever that controls it</li>
                 <li>Allow the wheel to do the cutting - these materials are very hard</li>
               </ul>
               <p>
-                <strong>Important:</strong> For case-hardened steels, cut perpendicular to the case to preserve the 
-                case-core interface. For through-hardened steels, standard cutting techniques apply, but use slower 
-                speeds due to high hardness.
+                <strong>Important:</strong> For case-hardened steels, cut perpendicular to the case to preserve the
+                case-core interface. For through-hardened steels, standard cutting techniques apply with the harder
+                bond blade noted above.
               </p>
               <ProductLink 
                 productName="MAX-VHS Abrasive Blades"
@@ -161,45 +167,58 @@ export default function ToolSteelGuide() {
             <section id="mounting" className="scroll-mt-24">
               <h2>Mounting</h2>
               <p>
-                Mounting provides edge retention and easier handling. For tool steels and hardened steels, compression 
-                mounting with phenolic resin is strongly recommended for better edge retention, especially for case-hardened 
-                steels where the case-core interface must be preserved.
+                Mounting provides edge retention and easier handling. For tool steels and hardened steels, the
+                canonical choice is a <strong>glass-filled epoxy compression mount</strong>. Plain phenolic
+                (Bakelite-style) is the wrong move on hardened material: the resin wears 2-3× faster than the
+                steel and rounds the sample-mount boundary, which is the primary cause of poor edge retention
+                on hardened low-alloy and tool steels — exactly when edge retention matters most (case-depth
+                measurement on carburized 8620/9310, surface-decarb checks, near-edge carbide distribution).
               </p>
               <h3>Compression Mounting</h3>
               <p>
-                Phenolic resin provides excellent edge retention, which is critical for case-hardened steels and for 
-                preserving carbide structures near edges.
+                Glass-filled epoxy gives the edge-retention performance phenolic is sometimes credited with,
+                without the differential-wear problem. Use it for fully hardened tool steels (HRC &gt; 50),
+                high-speed steels, and all case-hardened components.
               </p>
               <ol>
                 <li>Clean the sample thoroughly to remove cutting fluid and debris</li>
-                <li>Place sample in mounting press with phenolic resin (preferred) or epoxy</li>
-                <li>Apply pressure: <strong>3000-4000 psi for phenolic</strong>, 2000-3000 psi for epoxy</li>
+                <li>Place sample in mounting press with <strong>glass-filled epoxy</strong> (preferred for hardened steels) or plain epoxy</li>
+                <li>Apply pressure: 3000-4000 psi for glass-filled epoxy, 2000-3000 psi for plain epoxy</li>
                 <li>Heat to 150-180°C and hold for 5-8 minutes</li>
                 <li>Cool under pressure to room temperature</li>
               </ol>
               <p>
-                <strong>For Case-Hardened Steels:</strong> Mount with the case edge exposed if you need to analyze the 
-                case depth. Ensure proper edge retention to preserve the case-core interface.
+                <strong>For Case-Hardened Steels:</strong> Mount with the case edge exposed if you need to
+                measure case depth. Glass-filled epoxy is what makes that measurement defensible — plain
+                phenolic will round the case boundary by 20-50 µm and bias the reading.
               </p>
-              <ProductLink 
-                productName="Compression Mounting Equipment"
-                href="https://www.metallographic.com/metallographic-equipment/compression-mounting.html"
-                description="Automatic and manual mounting presses for consistent results"
-              />
             </section>
 
             <section id="grinding" className="scroll-mt-24">
               <h2>Grinding</h2>
               <p>
-                Grinding removes sectioning damage and prepares the surface for polishing. For tool steels and hardened 
-                steels, use <strong>extended grinding sequences</strong> with <strong>longer times per step</strong> due 
-                to the very high hardness. The presence of carbides requires careful technique to avoid pullout.
+                Grinding removes sectioning damage and prepares the surface for polishing. For tool steels and hardened
+                steels, use <strong>extended grinding sequences</strong> with <strong>longer times per step</strong> due
+                to the very high hardness. The presence of carbides demands careful abrasive choice to avoid pullout.
               </p>
+              <div className="bg-red-50 border-l-4 border-red-500 p-4 my-6 rounded">
+                <p className="text-sm text-red-900">
+                  <strong>Abrasive choice — this is the lever for carbide pullout.</strong> SiC papers (~9.5 Mohs)
+                  cannot cleanly cut M₆C, MC, or M₂C carbides found in high-speed steels and high-carbide cold-work
+                  grades — the abrasive plows the carbide instead of cutting it, which is what produces the
+                  pullout the rest of this section warns about. For carbide-rich tool steels — <MaterialTooltip materialName="M2 High-Speed Steel">M2</MaterialTooltip>,
+                  <MaterialTooltip materialName="M42 High-Speed Steel">M42</MaterialTooltip>, <MaterialTooltip materialName="D2 Tool Steel">D2</MaterialTooltip>,
+                  T-grades — use a <strong>diamond grinding ladder</strong> (75 → 30 → 15 → 9 µm on diamond-impregnated
+                  discs or films). Lighter pressure on SiC mitigates the symptom; diamond removes the cause. SiC is
+                  acceptable for lower-carbide-volume hardened grades like A2, O1, S7, H11/H13, and through-hardened
+                  4140/4340/52100.
+                </p>
+              </div>
               <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-6 rounded">
                 <p className="text-sm text-yellow-900">
-                  <strong>Important:</strong> These materials are very hard and require extended grinding times. 
-                  Expect 60-120 seconds per grit, significantly longer than softer materials. Carbides can be pulled 
-                  out if grinding is too aggressive - use consistent, moderate pressure.
+                  <strong>Time per step:</strong> These materials are very hard and require extended grinding times.
+                  Expect 60-120 seconds per grit, significantly longer than softer materials. Use consistent, moderate
+                  pressure — excessive force pulls carbides regardless of abrasive type.
                 </p>
               </div>
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
@@ -219,9 +238,25 @@ export default function ToolSteelGuide() {
                 </Link>
                 <p className="text-sm text-gray-600 mt-2 italic text-center">Silicon carbide (SiC) grinding papers in various grit sizes (120, 240, 400, 600, 800, 1200) for progressive grinding. Extended sequences and longer times are required for very hard tool steels.</p>
               </div>
-              <h3>Grinding Sequence</h3>
+              <h3>Grinding Sequence — Diamond Ladder (canonical for high-carbide tool steels)</h3>
               <p>
-                For tool steels and hardened steels, use an <strong>extended grinding sequence</strong>:
+                For high-speed steels (<MaterialTooltip materialName="M2 High-Speed Steel">M2</MaterialTooltip>,
+                <MaterialTooltip materialName="M42 High-Speed Steel">M42</MaterialTooltip>),
+                <MaterialTooltip materialName="D2 Tool Steel">D2</MaterialTooltip>, T-grades, and any hardened
+                grade where carbide volume fraction is appreciable, use diamond-impregnated grinding discs or
+                diamond films:
+              </p>
+              <ol>
+                <li><strong>75 µm diamond disc / film:</strong> plane grinding, ~1 min, 30 N</li>
+                <li><strong>30 µm diamond film:</strong> ~2 min</li>
+                <li><strong>15 µm diamond film:</strong> ~2 min</li>
+                <li><strong>9 µm diamond film:</strong> ~2 min — the surface entering rough polish</li>
+              </ol>
+              <h3>Grinding Sequence — SiC Ladder (acceptable for lower-carbide hardened grades)</h3>
+              <p>
+                Use this for A2, O1, S7, H11/H13, and through-hardened 4140/4340/52100 — grades where carbide
+                volume fraction is modest enough that SiC can cut the matrix without plowing carbides. Avoid
+                this ladder for M-series, D2, and T-grades.
               </p>
               <ol>
                 <li><strong>120 grit:</strong> Remove sectioning damage (60-120 seconds per step, moderate pressure)</li>
@@ -339,16 +374,6 @@ export default function ToolSteelGuide() {
                 <strong>For Case-Hardened Steels:</strong> The case layer is very hard and may require even longer 
                 polishing times. Be careful to preserve the case-core interface.
               </p>
-              <ProductLink 
-                productName="Diamond Abrasives"
-                href="https://shop.metallographic.com/collections/diamond-abrasives"
-                description="High-quality diamond polishing compounds in various particle sizes"
-              />
-              <ProductLink 
-                productName="Polishing Pads"
-                href="https://shop.metallographic.com/collections/polishing-pads"
-                description="Premium polishing pads for different polishing stages"
-              />
             </section>
 
             <section id="etching" className="scroll-mt-24">
@@ -369,12 +394,21 @@ export default function ToolSteelGuide() {
                 <p className="text-sm text-gray-600 mt-2 italic text-center">Tool steel microstructure after proper etching. The matrix structure and carbides are revealed by appropriate etching.</p>
               </div>
               <h3>Common Etchants for Tool Steels and Hardened Steels</h3>
+              <div className="bg-red-50 border-l-4 border-red-500 p-4 my-4 rounded">
+                <p className="text-sm text-red-900">
+                  <strong>Picric acid safety (applies to Picral and Vilella's both):</strong> Picric acid must
+                  be stored <em>wetted</em> at all times — water- or ethanol-saturated — because dry picric acid
+                  is friction- and shock-sensitive (effectively a primary explosive). Keep stock bottles topped
+                  up; never let them dry out. Mixed reagents (Picral, Vilella's) are stable in solution; the
+                  hazard is in the dry crystalline form.
+                </p>
+              </div>
               <ul>
-                <li><strong>2% Nital:</strong> General purpose for most tool steels and hardened steels. Reveals martensite structure and grain boundaries (2% HNO₃ in ethanol)</li>
-                <li><strong>3-5% Nital:</strong> For very hard materials, higher concentrations may be needed (3-5% HNO₃ in ethanol)</li>
-                <li><strong>Vilella's Reagent:</strong> Excellent for revealing carbides and martensite structure. Particularly useful for high-speed steels and tool steels with complex carbides (1g picric acid, 5ml HCl, 100ml ethanol)</li>
-                <li><strong>Picral:</strong> Useful for revealing cementite and pearlite structures in some tool steels (2-4g picric acid per 100ml ethanol)</li>
-                <li><strong>Murakami's Reagent:</strong> For revealing carbides in high-speed steels and tool steels (10g K₃Fe(CN)₆, 10g KOH, 100ml H₂O)</li>
+                <li><strong>2% Nital:</strong> General purpose for most tool steels and hardened steels. Reveals martensite structure and grain boundaries (2 mL HNO₃ in 98 mL ethanol). Swab 5-30 s.</li>
+                <li><strong>3-5% Nital:</strong> For very hard materials, higher concentrations may be needed (3-5 mL HNO₃ in 95-97 mL ethanol).</li>
+                <li><strong>4% Picral:</strong> The handbook etch for cementite and carbide imaging — matrix transparent, carbides dark. Strong choice for through-hardened bearing/spring steels and pearlitic structures (4 g picric acid in 100 mL ethanol). Swab 10-60 s.</li>
+                <li><strong>Vilella's Reagent:</strong> Martensite + carbide structure for tool steels and martensitic stainless. More aggressive than Picral. Particularly useful for high-speed steels with complex carbides (1 g picric acid + 5 mL HCl + 95 mL ethanol). Swab 5-60 s.</li>
+                <li><strong>Murakami's Reagent:</strong> Selective carbide attack — the standard for distinguishing carbide types in high-alloy tool steels and high-speed steels (10 g K₃[Fe(CN)₆] + <strong>10 g NaOH</strong> + 100 mL H₂O). Use freshly mixed; activity decays. Swab or immerse, time by inspection.</li>
               </ul>
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
                 <Link 

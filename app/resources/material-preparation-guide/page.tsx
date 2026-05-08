@@ -83,8 +83,8 @@ export default function MaterialPreparationGuidePage() {
         name: 'Stainless Steel',
         grinding: 'Start with 120 grit, progress through 240, 400, 600 (800 and 1200 optional for high-quality work or high-magnification analysis)',
         polishing: '9 μm → 3 μm → 1 μm diamond, final with 0.05 μm colloidal silica',
-        etching: "Vilella's Reagent, Adler's, or Kallings No. 2 depending on grade",
-        notes: 'Work-hardening material, use consistent moderate pressure. Use 800/1200 grit for very fine finishes or high-magnification analysis.',
+        etching: "Etchant by class — Austenitic (304, 316): 10% oxalic acid electrolytic at 6 V or Glyceregia. Martensitic / PH (410, 420, 431, 17-4): Vilella's Reagent. Ferritic (430, 446): Vilella's or Marble's. Duplex (2205, 2507): Beraha's I or Klemm's I for ferrite/austenite color contrast.",
+        notes: 'Work-hardening material, use consistent moderate pressure. Use 800/1200 grit for very fine finishes or high-magnification analysis. Etchant choice is grade-specific — Vilella\'s does NOT etch 304/316 effectively.',
       },
       {
         name: 'Aluminum & Aluminum Alloys',
@@ -242,8 +242,14 @@ export default function MaterialPreparationGuidePage() {
                 <div className="bg-gray-50 p-4 rounded space-y-2">
                   <p><strong>Grinding:</strong> Start with 120 grit, progress through 240, 400, 600 (800 and 1200 optional for high-quality work or high-magnification analysis)</p>
                   <p><strong>Polishing:</strong> 9μm → 3μm → 1μm diamond, final with 0.05μm colloidal silica</p>
-                  <p><strong>Etching:</strong> Vilella's Reagent, Adler's, or Kallings No. 2 depending on grade</p>
-                  <p><strong>Notes:</strong> Work-hardening material, use consistent moderate pressure. Use 800/1200 grit for very fine finishes or high-magnification analysis.</p>
+                  <p><strong>Etching by class:</strong></p>
+                  <ul className="ml-4 list-disc text-sm">
+                    <li><strong>Austenitic (304, 316):</strong> 10% oxalic acid electrolytic at 6 V, or Glyceregia by swab.</li>
+                    <li><strong>Martensitic / PH (410, 420, 431, 17-4):</strong> Vilella's Reagent (1 g picric + 5 mL HCl + 95 mL ethanol).</li>
+                    <li><strong>Ferritic (430, 446):</strong> Vilella's or Marble's.</li>
+                    <li><strong>Duplex (2205, 2507):</strong> Beraha's I or Klemm's I — color contrast distinguishes ferrite from austenite.</li>
+                  </ul>
+                  <p><strong>Notes:</strong> Work-hardening material — use consistent moderate pressure. Use 800/1200 grit for very fine finishes. Vilella's does <em>not</em> etch 304/316 austenitic effectively, despite the popular shorthand of "Vilella's for stainless."</p>
                 </div>
               </section>
 

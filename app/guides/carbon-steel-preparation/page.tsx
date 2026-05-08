@@ -112,13 +112,18 @@ export default function CarbonSteelGuide() {
             <section id="sectioning" className="scroll-mt-24">
               <h2>Sectioning</h2>
               <p>
-                When sectioning carbon steel and low alloy steel samples, use a slow cutting speed to minimize heat 
-                generation and deformation. A cutting speed of 100-200 RPM is typically appropriate 
-                for most carbon steel grades like <MaterialTooltip materialName="AISI 1018 Carbon Steel">1018</MaterialTooltip> and 
-                <MaterialTooltip materialName="AISI 1045 Carbon Steel">1045</MaterialTooltip>, as well as low alloy steels like 
-                <MaterialTooltip materialName="AISI 4140 Chromium-Molybdenum Steel">4140</MaterialTooltip> and <MaterialTooltip materialName="AISI 4340 Nickel-Chromium-Molybdenum Steel">4340</MaterialTooltip>. 
-                For hardened or high-carbon steels such as <MaterialTooltip materialName="AISI 1095 High Carbon Steel">1095</MaterialTooltip>, or hardened alloy steels 
-                like <MaterialTooltip materialName="5160 Spring Steel">5160</MaterialTooltip> and <MaterialTooltip materialName="52100 Bearing Steel">52100</MaterialTooltip>, use slower speeds to prevent phase transformation.
+                Section carbon and low-alloy steel on a standard abrasive cutoff saw at typical metallographic
+                surface speeds (~2,500-4,500 SFM). Manage heat through <strong>coolant flood and blade
+                selection</strong> rather than by lowering spindle RPM — under-speeding a thin abrasive blade
+                glazes and burns instead of cutting. For mild grades like <MaterialTooltip materialName="AISI 1018 Carbon Steel">1018</MaterialTooltip>
+                and <MaterialTooltip materialName="AISI 1045 Carbon Steel">1045</MaterialTooltip>, a medium-bond Al₂O₃ blade is appropriate.
+                For hardened conditions (HRC &gt; 45) — <MaterialTooltip materialName="AISI 1095 High Carbon Steel">1095</MaterialTooltip>,
+                hardened <MaterialTooltip materialName="5160 Spring Steel">5160</MaterialTooltip> or <MaterialTooltip materialName="52100 Bearing Steel">52100</MaterialTooltip>,
+                Q&amp;T <MaterialTooltip materialName="AISI 4140 Chromium-Molybdenum Steel">4140</MaterialTooltip> /
+                <MaterialTooltip materialName="AISI 4340 Nickel-Chromium-Molybdenum Steel">4340</MaterialTooltip> — switch to a
+                <strong> harder-bond Al₂O₃ blade</strong> (more aggressive grit replacement) and keep the wheel speed
+                in the same range. Surface rehardening from sectioning is a thin damage band that gets removed in
+                plane grinding; coolant flood and blade choice prevent it, RPM does not.
               </p>
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
                 <Link 
@@ -154,23 +159,27 @@ export default function CarbonSteelGuide() {
             <section id="mounting" className="scroll-mt-24">
               <h2>Mounting</h2>
               <p>
-                Mounting provides edge retention and easier handling. For carbon steel, compression 
-                mounting with phenolic or epoxy resins works well. Phenolic is often preferred for 
-                better edge retention, especially for hardened steels.
+                Mounting provides edge retention and easier handling. <strong>Plain phenolic (Bakelite-style)
+                is acceptable for mild low-carbon grades</strong> in the annealed or normalized condition
+                (<MaterialTooltip materialName="AISI 1018 Carbon Steel">1018</MaterialTooltip>, 1020),
+                where it doesn't differentially wear against the sample. <strong>For hardened low-alloy and
+                high-carbon grades</strong> — Q&amp;T <MaterialTooltip materialName="AISI 4140 Chromium-Molybdenum Steel">4140</MaterialTooltip>,
+                <MaterialTooltip materialName="AISI 4340 Nickel-Chromium-Molybdenum Steel">4340</MaterialTooltip>,
+                <MaterialTooltip materialName="AISI 1095 High Carbon Steel">1095</MaterialTooltip>,
+                <MaterialTooltip materialName="5160 Spring Steel">5160</MaterialTooltip>,
+                <MaterialTooltip materialName="52100 Bearing Steel">52100</MaterialTooltip>
+                — switch to <strong>glass-filled epoxy</strong>. Hardened steels behave like stainless against
+                phenolic: the resin wears 2-3× faster than the steel and rounds the sample-mount boundary,
+                which is the single biggest cause of poor edge retention reports on heat-treated steels.
               </p>
               <h3>Compression Mounting</h3>
               <ol>
                 <li>Clean the sample thoroughly to remove cutting fluid and debris</li>
-                <li>Place sample in mounting press with appropriate resin</li>
-                <li>Apply pressure: 3000-4000 psi for phenolic, 2000-3000 psi for epoxy</li>
+                <li>Place sample in mounting press with phenolic (mild grades) or glass-filled epoxy (hardened grades)</li>
+                <li>Apply pressure: 3000-4000 psi for phenolic / glass-filled epoxy, 2000-3000 psi for plain epoxy</li>
                 <li>Heat to 150-180°C and hold for 5-8 minutes</li>
                 <li>Cool under pressure to room temperature</li>
               </ol>
-              <ProductLink 
-                productName="Compression Mounting Equipment"
-                href="https://www.metallographic.com/metallographic-equipment/compression-mounting.html"
-                description="Automatic and manual mounting presses for consistent results"
-              />
             </section>
 
             <section id="grinding" className="scroll-mt-24">
@@ -275,16 +284,6 @@ export default function CarbonSteelGuide() {
                 can introduce relief, especially around inclusions or second phases. For softer, 
                 low-carbon steels, use lighter pressure and shorter times to avoid deformation.
               </p>
-              <ProductLink 
-                productName="Diamond Abrasives"
-                href="https://shop.metallographic.com/collections/diamond-abrasives"
-                description="High-quality diamond polishing compounds in various particle sizes"
-              />
-              <ProductLink 
-                productName="Polishing Pads"
-                href="https://shop.metallographic.com/collections/polishing-pads"
-                description="Premium polishing pads for different polishing stages"
-              />
             </section>
 
             <section id="etching" className="scroll-mt-24">
@@ -307,12 +306,20 @@ export default function CarbonSteelGuide() {
               </div>
               <h3>Common Etchants for Carbon Steel and Low Alloy Steel</h3>
               <ul>
-                <li><strong>2% Nital:</strong> General purpose for softer, low-carbon steels like <MaterialTooltip materialName="AISI 1018 Carbon Steel">1018</MaterialTooltip>. Reveals ferrite grain boundaries and pearlite structure (2% HNO₃ in ethanol)</li>
-                <li><strong>3% Nital:</strong> Standard concentration for most carbon steels including <MaterialTooltip materialName="AISI 1045 Carbon Steel">1045</MaterialTooltip>, and low alloy steels like <MaterialTooltip materialName="AISI 4140 Chromium-Molybdenum Steel">4140</MaterialTooltip> and <MaterialTooltip materialName="AISI 4340 Nickel-Chromium-Molybdenum Steel">4340</MaterialTooltip>. Most commonly used (3% HNO₃ in ethanol)</li>
-                <li><strong>5% Nital:</strong> For harder carbon steels such as <MaterialTooltip materialName="AISI 1095 High Carbon Steel">1095</MaterialTooltip>, or hardened alloy steels. More aggressive etching (5% HNO₃ in ethanol)</li>
-                <li><strong>Picral:</strong> Excellent for revealing pearlite and cementite without attacking ferrite boundaries. Also works well for alloy steels like <MaterialTooltip materialName="52100 Bearing Steel">52100</MaterialTooltip> (2-4g picric acid per 100ml ethanol)</li>
-                <li><strong>Vilella's Reagent:</strong> For ferrite-carbide structures. Also useful for revealing prior austenite grain boundaries in alloy steels</li>
+                <li><strong>2% Nital:</strong> General purpose for softer, low-carbon steels like <MaterialTooltip materialName="AISI 1018 Carbon Steel">1018</MaterialTooltip>. Reveals ferrite grain boundaries and pearlite structure (2 mL HNO₃ in 98 mL ethanol). Swab 5-30 s.</li>
+                <li><strong>3% Nital:</strong> Standard concentration for most carbon steels including <MaterialTooltip materialName="AISI 1045 Carbon Steel">1045</MaterialTooltip>, and low alloy steels like <MaterialTooltip materialName="AISI 4140 Chromium-Molybdenum Steel">4140</MaterialTooltip> and <MaterialTooltip materialName="AISI 4340 Nickel-Chromium-Molybdenum Steel">4340</MaterialTooltip>. Most commonly used (3 mL HNO₃ in 97 mL ethanol).</li>
+                <li><strong>5% Nital:</strong> For harder carbon steels such as <MaterialTooltip materialName="AISI 1095 High Carbon Steel">1095</MaterialTooltip>, or hardened alloy steels. More aggressive etching (5 mL HNO₃ in 95 mL ethanol).</li>
+                <li><strong>4% Picral:</strong> Reveals pearlite and cementite cleanly without attacking ferrite boundaries — the right answer for cementite distribution work in <MaterialTooltip materialName="AISI 1045 Carbon Steel">1045</MaterialTooltip>, <MaterialTooltip materialName="52100 Bearing Steel">52100</MaterialTooltip>, and other carbide-containing alloy steels (4 g picric acid in 100 mL ethanol). Swab 10-60 s. <strong>Picric safety:</strong> store the reagent and any picric acid stock <em>wetted</em> at all times — dry picric acid is friction- and shock-sensitive (effectively a primary explosive). Keep stock bottles topped up with water or ethanol; never let them dry out.</li>
+                <li><strong>Nital then 4% Picral (sequential etch):</strong> A canonical combination for tempered martensite work in 4140-class alloys and for ferrite/pearlite differentiation. Apply 2% Nital first (5-15 s swab), rinse, then a second swab of 4% Picral on top. The Picral darkens cementite and sharpens pearlite that a Nital-only etch leaves washed out — particularly useful on Q&amp;T <MaterialTooltip materialName="AISI 4140 Chromium-Molybdenum Steel">4140</MaterialTooltip> and <MaterialTooltip materialName="AISI 4340 Nickel-Chromium-Molybdenum Steel">4340</MaterialTooltip>.</li>
+                <li><strong>Beraha's CdS / Beraha I (color tint, optional):</strong> For ferrite/pearlite/bainite/martensite differentiation by color when grayscale etches can't separate them. Each phase tints to a distinct color by film thickness. Worth knowing exists; not a daily-driver etch.</li>
               </ul>
+              <p className="text-sm text-gray-600 italic">
+                Note: Vilella's reagent (1 g picric + 5 mL HCl + 95 mL ethanol) is sometimes referenced for steels,
+                but its canonical use is <strong>tool steels and martensitic stainless</strong> — see the
+                <Link href="/guides/tool-steel-preparation" className="text-primary-600 hover:underline"> Tool Steel guide</Link> for
+                that workflow. For carbon and low-alloy steel general microstructure, stay with the Nital / Picral / Nital→Picral
+                workflow above.
+              </p>
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
                 <Link 
                   href="https://shop.metallographic.com/collections/etchants"
@@ -360,7 +367,7 @@ export default function CarbonSteelGuide() {
                 <li><strong>Scratches remaining:</strong> Insufficient grinding/polishing time or skipped grits. Ensure complete scratch removal at each step.</li>
                 <li><strong>Relief around inclusions:</strong> Over-polishing or too soft a cloth. Reduce polishing time or use slightly harder cloth.</li>
                 <li><strong>Contamination:</strong> Clean between steps, use fresh abrasives, and ensure proper sample cleaning.</li>
-                <li><strong>Poor edge retention:</strong> Consider using phenolic mounting material or different mounting technique.</li>
+                <li><strong>Poor edge retention (rounding at the sample-mount boundary):</strong> Most common on hardened low-alloy steels mounted in plain phenolic — the resin wears 2-3× faster than the steel and rounds the edge. Switch hardened grades to glass-filled epoxy. Also tighten final-polish time on soft napped pads (cap at ~2 min + flush).</li>
                 <li><strong>Over-etching:</strong> Reduce etching time or use lower Nital concentration. Start with shorter times.</li>
                 <li><strong>Under-etching:</strong> Increase etching time or use higher Nital concentration. Ensure sample is clean before etching.</li>
                 <li><strong>Phase transformation during cutting:</strong> Use slower cutting speed and adequate coolant to prevent overheating.</li>

@@ -170,11 +170,13 @@ export default function CommonMisconceptionsGuide() {
                   <strong>Reality:</strong> Poor sectioning creates damage that's difficult to remove.
                 </p>
                 <p className="text-sm text-gray-700">
-                  Sectioning with excessive speed, pressure, or inadequate cooling can introduce deep thermal damage, 
-                  deformation, and microstructural changes that may extend hundreds of micrometers into the sample. 
-                  This damage can be extremely difficult or impossible to remove completely during grinding. Proper 
-                  sectioning with appropriate blade selection, cutting parameters, and cooling is essential for 
-                  successful preparation.
+                  A typical abrasive cutoff with the correct blade and adequate coolant leaves a damaged subsurface
+                  layer on the order of <strong>50–100&nbsp;µm</strong>; precision wafering reduces that by roughly an order
+                  of magnitude. Excessive feed rate, the wrong blade-bond hardness, or inadequate cooling can push the
+                  damage zone deeper and add thermal damage (heat tinting, microstructural changes, even localized
+                  re-austenitization on hardened steels). Each subsequent grinding step must cut deeper than the prior
+                  step's damage layer or that damage stays in the sample, so a bad cut is paid for through the rest of
+                  the workflow. Proper blade selection and adequate coolant are the cheapest insurance in metallographic prep.
                 </p>
               </div>
 

@@ -83,8 +83,26 @@ export default function EtchantsDatabasePage() {
         <div className="mb-4 md:mb-8">
           <h1 className="text-2xl md:text-4xl font-bold mb-2 md:mb-4">Etchants Database</h1>
           <p className="text-sm md:text-xl text-gray-600">
-            Comprehensive database of metallographic etchants with composition, application methods, safety data, and product links.
+            Database of metallographic etchants with composition, application methods, safety data,
+            and product links.
+            {!loading && etchants.length > 0 && (
+              <>
+                {' '}Currently <span className="font-semibold text-gray-900">{etchants.length}</span> published
+                etchant{etchants.length === 1 ? '' : 's'}
+                {categories.length > 0 && (
+                  <> across <span className="font-semibold text-gray-900">{categories.length}</span> categor{categories.length === 1 ? 'y' : 'ies'}</>
+                )}.
+              </>
+            )}
           </p>
+          <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-sm">
+            <Link href="/resources/common-etchants-guide" className="text-primary-600 hover:underline">
+              Common etchants quick reference →
+            </Link>
+            <Link href="/tools/etchant-selector" className="text-primary-600 hover:underline">
+              Etchant selector tool →
+            </Link>
+          </div>
         </div>
 
         {/* Search and Filter */}

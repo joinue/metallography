@@ -179,8 +179,56 @@ export default function SafetyFundamentalsGuide() {
                       <td className="border border-gray-300 px-4 py-3">Etching</td>
                       <td className="border border-gray-300 px-4 py-3">Corrosive, toxic fumes. Use in fume hood. Avoid skin and eye contact.</td>
                     </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-4 py-3 font-medium">Perchloric Acid (HClO₄)</td>
+                      <td className="border border-gray-300 px-4 py-3">Electropolishing</td>
+                      <td className="border border-gray-300 px-4 py-3 bg-red-50">
+                        <strong>Explosive when mixed with organic solvents.</strong> Anhydrous or hot perchloric mixtures with alcohols,
+                        acetic anhydride, or other organics can detonate. Use ONLY in purpose-built electropolishing equipment with a
+                        perchloric-rated wash-down fume hood; even cold dilute mixtures accumulate explosive residues in standard
+                        ductwork over time. Most labs should run a chilled commercial cell rather than mixing solutions on the bench.
+                      </td>
+                    </tr>
+                    <tr className="bg-gray-50">
+                      <td className="border border-gray-300 px-4 py-3 font-medium">Aqua Regia (3 HCl : 1 HNO₃)</td>
+                      <td className="border border-gray-300 px-4 py-3">Stainless and Ni-base etching</td>
+                      <td className="border border-gray-300 px-4 py-3">
+                        Generates NOₓ, Cl₂, and NOCl fumes. Decomposes after mixing — pressurizes sealed containers. Mix only
+                        in a fume hood, in small volumes, immediately before use. Never store the mixed etchant.
+                      </td>
+                    </tr>
                   </tbody>
                 </table>
+              </div>
+
+              <div className="bg-red-50 border-l-4 border-red-600 p-4 my-6 rounded">
+                <h4 className="font-semibold text-red-900 mb-2">Hard rules — non-negotiable</h4>
+                <ul className="space-y-1 text-sm text-red-900">
+                  <li>
+                    <strong>Picric acid must always be stored wetted</strong> with at least 10–20% water. Dry picric acid
+                    is shock-sensitive and can detonate from friction or impact. Picric also forms shock-sensitive picrate
+                    salts with metals — never store in metal-capped bottles or near copper, lead, or zinc.
+                  </li>
+                  <li>
+                    <strong>Perchloric acid must never be mixed with organic solvents outside a purpose-built electropolishing
+                    cell.</strong> Anhydrous perchloric/organic mixtures are explosives. This is the single most common
+                    fatal-accident pathway in electropolishing labs.
+                  </li>
+                  <li>
+                    <strong>Hydrofluoric acid demands calcium gluconate gel</strong> (2.5% or higher) within arm's reach
+                    BEFORE you mix anything. HF is bone-seeking and causes delayed, lethal injury from small skin exposures
+                    that may not feel painful initially.
+                  </li>
+                  <li>
+                    <strong>Never store mixed aqua regia or freshly-prepared NH₄OH+H₂O₂.</strong> Both decompose; sealed
+                    containers will rupture from gas evolution.
+                  </li>
+                  <li>
+                    <strong>Hot acids (&gt;50&nbsp;°C) generate dramatically more fumes</strong> than the same acid at room
+                    temperature. Reduce concentration or temperature rather than working at elevated temperature whenever
+                    possible.
+                  </li>
+                </ul>
               </div>
 
               <h3>Safe Chemical Handling Practices</h3>

@@ -214,11 +214,18 @@ export default function MetallographicMountingGuide() {
                 <p className="text-sm text-gray-600 mt-2 italic text-center">Hydraulic compression mounting press (TP-7500S). Compression mounting presses apply heat and pressure to create durable mounts quickly.</p>
               </div>
               <h3>Common Compression Mounting Materials</h3>
+              <p className="text-sm">
+                Edge retention varies significantly between resin families. For coating thickness, case depth,
+                decarburization, and any other near-edge analysis, the resin choice matters more than the
+                polishing recipe. Glass-filled epoxy is the strongest performer; phenolic is fast and economical
+                but only fair for edge retention.
+              </p>
               <ul>
-                <li><strong>Phenolic:</strong> Hard, durable, excellent edge retention. Best for metals and high-throughput applications. Requires 3000-4000 psi and 150-180°C. Phenolic resins (originally Bakelite) were first introduced for metallographic mounting in 1928, revolutionizing the field by providing consistent, durable mounts.</li>
-                <li><strong>Epoxy:</strong> Strong adhesion, minimal shrinkage. Good for edge retention. Requires 2000-3000 psi and 150-180°C.</li>
-                <li><strong>Diallyl phthalate (DAP):</strong> Very hard, excellent for edge retention. Suitable for automated polishing systems.</li>
-                <li><strong>Acrylic:</strong> Fast curing, transparent. Good for quick turnaround but less durable than phenolic or epoxy.</li>
+                <li><strong>Glass-filled epoxy thermoset:</strong> The best performer for edge retention. The glass particulate keeps the mount stiff and resistant to differential wear at the sample boundary. First choice for coatings, case-hardened layers, electronic die packages, and any near-edge analysis. Requires 3000–4500 psi and 150–180 °C.</li>
+                <li><strong>Diallyl phthalate (DAP) / epoxy thermosets:</strong> Hard, low shrinkage, good edge retention. Solid middle-ground choice for general work where edge quality matters but glass-filled isn't required.</li>
+                <li><strong>Phenolic:</strong> Hard, opaque, fast cycle, lowest cost. Edge retention is fair — adequate for routine work where the field of view is in the bulk, not at the edge. Not the right choice for case-depth or coating-thickness measurement. Requires 3000–4000 psi and 150–180 °C. Phenolic resins (originally Bakelite) were first introduced for metallographic mounting in 1928.</li>
+                <li><strong>Acrylic (compression-cured):</strong> Transparent, lower hardness. Useful when you need to see through the mount to the sample. Edge retention is poor to fair.</li>
+                <li><strong>Conductive (graphite or copper-filled epoxy/phenolic):</strong> Conducts electrons; required for SEM/EDS work to prevent charging.</li>
               </ul>
               <h3>Key Benefits of Compression Mounting</h3>
               <ul>

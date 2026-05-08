@@ -97,10 +97,14 @@ export default function TitaniumGuide() {
             <section id="sectioning" className="scroll-mt-24">
               <h2>Sectioning</h2>
               <p>
-                When sectioning titanium samples, use a slow cutting speed to minimize heat generation 
-                and deformation. A cutting speed of 100-200 RPM is typically appropriate for most 
-                titanium alloys, though harder alloys like <MaterialTooltip materialName="Ti-6Al-4V">Ti-6Al-4V</MaterialTooltip> 
-                may require slightly slower speeds. Titanium's reactivity requires careful handling to prevent contamination.
+                Titanium is extremely ductile and is prone to <strong>mechanical twinning</strong> when
+                sectioned at high force — the twins look like microstructural features but are prep
+                artifacts. The right answer for Ti sectioning is a <strong>precision (low-speed) saw with
+                a diamond wafering blade</strong> whenever the sample geometry allows. The reduced load
+                and the cutting action of a diamond blade keep the deformation layer thin and minimize
+                twin generation. When a precision saw isn't an option, fall back to a standard abrasive
+                cutoff at typical metallographic surface speeds (~2,500-4,500 SFM) with copious flood
+                coolant; under-speeding the wheel glazes the blade rather than reducing damage.
               </p>
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
                 <Link 
@@ -117,20 +121,20 @@ export default function TitaniumGuide() {
                     className="w-full h-auto"
                   />
                 </Link>
-                <p className="text-sm text-gray-600 mt-2 italic text-center">MAX-D or MAX-VHS abrasive cut-off blades suitable for titanium. For harder titanium alloys, MAX-VHS series blades may be more appropriate. Thin blades (0.5-1.0 mm) minimize heat generation and deformation.</p>
+                <p className="text-sm text-gray-600 mt-2 italic text-center">When abrasive cutoff is unavoidable, MAX-E series blades (hard non-ferrous bond) are the titanium slot. Thin blades (0.5-1.0 mm) and copious flood coolant are mandatory.</p>
               </div>
               <ul>
-                <li>Use MAX-D series blades for general titanium alloys, or MAX-VHS series for harder titanium alloys</li>
+                <li><strong>Preferred:</strong> precision (low-speed) saw with a diamond wafering blade — reduces twinning and keeps the damage layer thin</li>
+                <li><strong>Fallback:</strong> standard abrasive cutoff with a <strong>MAX-E series blade</strong> (hard non-ferrous Al₂O₃ bond, the titanium slot — not MAX-D, which is a soft-steel blade, and not MAX-VHS, which is for hardened steel)</li>
                 <li>Use a thin abrasive cut-off wheel (0.5-1.0 mm thickness)</li>
-                <li>Apply steady, moderate pressure</li>
-                <li>Use adequate coolant to prevent overheating and contamination</li>
+                <li>Apply <strong>light, steady force</strong> — heavy load is what produces deformation twinning in Ti</li>
+                <li>Use generous flood coolant; surface contamination from cutting fluid is real, clean immediately after sectioning</li>
                 <li>Allow the wheel to do the cutting - avoid forcing</li>
-                <li>Clean sample immediately after sectioning to remove cutting fluid and prevent contamination</li>
               </ul>
-              <ProductLink 
-                productName="MAX-D and MAX-VHS Abrasive Blades"
+              <ProductLink
+                productName="MAX-E Abrasive Blades"
                 href="https://shop.metallographic.com/collections/abrasive-blades"
-                description="MAX-D blades for general titanium alloys, MAX-VHS blades for harder titanium alloys"
+                description="MAX-E hard non-ferrous Al₂O₃ blades — the titanium slot when a precision saw isn’t an option"
               />
             </section>
 
@@ -157,20 +161,17 @@ export default function TitaniumGuide() {
                 <li>Allow to cure at room temperature (typically 4-8 hours)</li>
                 <li>Cold mounting avoids heat that could affect titanium microstructure</li>
               </ol>
-              <ProductLink 
-                productName="Compression Mounting Equipment"
-                href="https://www.metallographic.com/metallographic-equipment/compression-mounting.html"
-                description="Automatic and manual mounting presses for consistent results"
-              />
             </section>
 
             <section id="grinding" className="scroll-mt-24">
               <h2>Grinding</h2>
               <p>
-                Grinding removes sectioning damage and prepares the surface for polishing. Start with 
-                coarse grits and progressively move to finer grits. For titanium, we recommend the 
-                following sequence. Titanium can work-harden, so maintain consistent pressure and 
-                avoid excessive grinding time.
+                Grinding removes sectioning damage and prepares the surface for polishing. Start with
+                coarse grits and progressively move to finer grits. The dominant Ti-specific concern
+                here is <strong>mechanical twinning</strong>, not classical work-hardening: heavy grinding
+                pressure introduces deformation twins that survive into the polished surface and read as
+                false microstructural features under Kroll's. <strong>Light, consistent force</strong> at
+                every grit step is the lever that controls this — much more so than time per step.
               </p>
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
                 <Link 
@@ -197,10 +198,10 @@ export default function TitaniumGuide() {
                 <li><strong>600 grit:</strong> Final grinding step (30-60 seconds)</li>
               </ol>
               <p>
-                <strong>Important:</strong> Rotate the sample 90° between each grit to ensure complete 
-                removal of previous scratches. Use water as a lubricant and maintain consistent pressure. 
-                Clean the sample thoroughly between steps to prevent contamination. Titanium can work-harden, 
-                so avoid excessive grinding time.
+                <strong>Important:</strong> Rotate the sample 90° between each grit to ensure complete
+                removal of previous scratches. Use water as a lubricant and keep force light — heavy
+                downforce on Ti drives deformation twins into the surface that the rest of the prep
+                ladder cannot remove. Clean the sample thoroughly between steps to prevent contamination.
               </p>
               <ProductLink 
                 productName="Silicon Carbide Grinding Papers"
@@ -258,27 +259,22 @@ export default function TitaniumGuide() {
                 <li><strong>3 μm diamond:</strong> 3-5 minutes on a medium-hard cloth</li>
                 <li><strong>1 μm diamond:</strong> 2-3 minutes on a soft cloth</li>
               </ol>
-              <h3>Final Polishing</h3>
+              <h3>Final Polishing — "Attack Polishing"</h3>
+              <p>
+                <strong>Plain colloidal silica is not enough on titanium.</strong> Ti maintains a stubborn
+                deformation layer that ordinary mechanical polishing won't break through, and that layer
+                obscures the α/β structure when you etch. The canonical Ti final step is a <em>chemo-mechanical</em>
+                attack-polish: colloidal silica modified with hydrogen peroxide.
+              </p>
               <ol>
-                <li><strong>0.05 μm colloidal silica:</strong> 1-2 minutes on a soft cloth</li>
-                <li>Rinse thoroughly with water and dry with compressed air</li>
+                <li><strong>0.04-0.05 μm colloidal silica + 30% H₂O₂ at a 1:5 ratio</strong> (one part 30% H₂O₂ to five parts colloidal silica): 5 minutes on a soft napped pad at ~15 N, followed by a 30 s water flush on the same pad to clear residue.</li>
+                <li>Rinse with water, then ethanol, and air-dry.</li>
               </ol>
               <p>
-                Use appropriate polishing lubricants and maintain consistent pressure. Over-polishing 
-                can introduce relief, especially around inclusions or second phases. Clean the sample 
-                thoroughly between steps to prevent contamination. Titanium is reactive, so avoid 
-                prolonged exposure to polishing solutions.
+                Use light, consistent pressure. The H₂O₂ does the chemical share of the work; pushing
+                harder doesn't speed it up, just introduces relief between α and β regions of different
+                hardness. Mix the silica + H₂O₂ fresh; the peroxide loses activity over hours.
               </p>
-              <ProductLink 
-                productName="Diamond Abrasives"
-                href="https://shop.metallographic.com/collections/diamond-abrasives"
-                description="High-quality diamond polishing compounds in various particle sizes"
-              />
-              <ProductLink 
-                productName="Polishing Pads"
-                href="https://shop.metallographic.com/collections/polishing-pads"
-                description="Premium polishing pads for different polishing stages"
-              />
             </section>
 
             <section id="etching" className="scroll-mt-24">
@@ -291,12 +287,15 @@ export default function TitaniumGuide() {
               </p>
               <h3>Common Etchants for Titanium</h3>
               <ul>
-                <li><strong>Kroll's Reagent:</strong> General purpose, most commonly used for titanium. Reveals grain boundaries and alpha/beta structure (2-3ml HF, 5-6ml HNO₃, 100ml H₂O). Works well for <MaterialTooltip materialName="Ti-6Al-4V">Ti-6Al-4V</MaterialTooltip> and most alpha-beta alloys.</li>
-                <li><strong>Modified Kroll's:</strong> For alpha-beta titanium alloys. More aggressive (1-2ml HF, 2-3ml HNO₃, 100ml H₂O). Useful for harder alloys that require more aggressive etching.</li>
-                <li><strong>Weck's Reagent:</strong> For revealing grain boundaries in alpha titanium (100ml H₂O, 4g NaOH, 4g KMnO₄). Particularly effective for <MaterialTooltip materialName="Commercially Pure Titanium (Grade 2)">commercially pure titanium (Grade 2)</MaterialTooltip> and other alpha-phase materials.</li>
-                <li><strong>Electrolytic Etching:</strong> For sensitive microstructures. Use appropriate voltage and time settings. Can be useful for <MaterialTooltip materialName="Ti-3Al-2.5V">Ti-3Al-2.5V</MaterialTooltip> and other alloys where chemical etching may be too aggressive.</li>
-                <li><strong>Hydrofluoric Acid (HF):</strong> Dilute solutions (0.5-2%) for general etching</li>
+                <li><strong>Kroll's Reagent (general purpose — CP Ti, α-β, β alloys):</strong> 2 mL HF + 6 mL HNO₃ + 92 mL H₂O. Apply by swab for 5-15 s. The default first-pass etch for every Ti family in <MaterialTooltip materialName="Commercially Pure Titanium (Grade 2)">CP Ti</MaterialTooltip>, <MaterialTooltip materialName="Ti-6Al-4V">Ti-6Al-4V</MaterialTooltip>, <MaterialTooltip materialName="Ti-3Al-2.5V">Ti-3Al-2.5V</MaterialTooltip>, and Ti-10V-2Fe-3Al-class β alloys. <strong>HF safety:</strong> work in a fume hood, wear HF-rated gloves and face shield, and keep calcium gluconate gel on hand. <strong>Never let the surface dry between application and rinse</strong> — HF residues continue to attack until the surface is flushed.</li>
+                <li><strong>10% Oxalic acid, electrolytic — for β-phase imaging:</strong> 10 g oxalic acid in 100 mL H₂O. Apply at <strong>5 V</strong> for 30-60 s. Where Kroll's gives general structure, oxalic electrolytic preferentially responds to β-phase chemistry, so it's the canonical follow-up etch on α-β alloys (Ti-6Al-4V, Ti-6-2-4-2) when you need to image the β fraction cleanly, and the primary etch for β-dominant alloys (Beta-C, Beta-21S, Ti-10V-2Fe-3Al).</li>
               </ul>
+              <p>
+                The recipe matrix above is intentionally short. Many Ti workflows publish "modified Kroll's"
+                or "Weck's tint for Ti" variants; the curated handbook does not endorse them — Weck's tint
+                is an aluminum/magnesium etch, and there is no single "modified Kroll's" the literature
+                agrees on. Stick with standard Kroll's plus an oxalic electrolytic for β-phase work.
+              </p>
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
                 <Link 
                   href="https://shop.metallographic.com/collections/etchants"
@@ -312,27 +311,21 @@ export default function TitaniumGuide() {
                     className="w-full h-auto"
                   />
                 </Link>
-                <p className="text-sm text-gray-600 mt-2 italic text-center">Etching solutions and reagents for titanium. Common etchants include Kroll's Reagent, Modified Kroll's, Weck's Reagent, and electrolytic solutions. Etching time typically ranges from 5-30 seconds depending on the etchant and alloy. <strong>Warning:</strong> Hydrofluoric acid is extremely hazardous and requires proper safety equipment.</p>
+                <p className="text-sm text-gray-600 mt-2 italic text-center">Etching solutions and reagents for titanium. The standard pair is Kroll's reagent (2 mL HF + 6 mL HNO₃ + 92 mL H₂O) for general microstructure, followed by 10% oxalic acid at 5 V electrolytic for β-phase imaging on α-β and β alloys. <strong>Warning:</strong> Hydrofluoric acid is extremely hazardous — fume hood, HF-rated PPE, calcium gluconate on hand.</p>
               </div>
               <h3>Etching Procedure</h3>
               <ol>
                 <li>Ensure sample is clean and dry</li>
-                <li>Apply etchant with cotton swab or immerse sample</li>
-                <li>Etch for 5-30 seconds (time varies by etchant and alloy)</li>
-                <li>Immediately rinse with water, then alcohol</li>
-                <li>Dry with compressed air</li>
+                <li>Apply Kroll's by cotton swab in the fume hood (HF-rated PPE on)</li>
+                <li>Swab 5-15 s; <strong>do not let the surface dry — keep it wet with reagent until you rinse</strong> (HF residues continue to attack until flushed)</li>
+                <li>Immediately rinse with water, then ethanol</li>
+                <li>Air-dry, or let the ethanol evaporate</li>
               </ol>
               <p>
-                <strong>Important Safety Note:</strong> Many titanium etchants contain hydrofluoric acid (HF), 
-                which is extremely hazardous. Always use appropriate personal protective equipment (PPE) 
-                including gloves, safety glasses, and proper ventilation. Have calcium gluconate gel 
-                available as first aid for HF exposure.
-              </p>
-              <p>
-                <strong>Tip:</strong> Start with shorter etching times (5-10 seconds) and increase if needed. 
-                Over-etching can obscure fine details and create pitting. For electrolytic etching, 
-                use appropriate voltage and time settings. Kroll's reagent is the most commonly used 
-                etchant for titanium and typically provides good results for most alloys.
+                <strong>Tip:</strong> Start with shorter etching times (5-10 seconds) and increase if needed.
+                Over-etching with Kroll's produces uniform pitting that obscures grain structure. For
+                β-phase imaging, follow Kroll's with the oxalic electrolytic step rather than pushing
+                Kroll's longer.
               </p>
               <ProductLink 
                 productName="Etchants"
@@ -349,7 +342,8 @@ export default function TitaniumGuide() {
                 <li><strong>Contamination:</strong> Titanium is highly reactive. Clean between steps thoroughly, use fresh abrasives, and avoid cross-contamination from other materials.</li>
                 <li><strong>Surface oxidation:</strong> Titanium forms oxides easily. Minimize exposure to air, clean immediately after polishing, and etch promptly after final polish.</li>
                 <li><strong>Relief around second phases:</strong> Over-polishing or too soft a cloth. Reduce polishing time or use slightly harder cloth.</li>
-                <li><strong>Work-hardening:</strong> Excessive grinding or polishing can work-harden titanium. Use appropriate pressure and avoid excessive time.</li>
+                <li><strong>Deformation twinning (false microstructural features):</strong> Heavy force during sectioning or grinding drives mechanical twins into the surface that look like real twins or grain features under Kroll's. Mitigation: precision saw with diamond wafering blade where possible, light force throughout grinding, and the H₂O₂ chemo-mechanical attack-polish at the final step to lift the deformation layer.</li>
+                <li><strong>Persistent deformation layer / α-β contrast won't develop:</strong> Plain colloidal silica isn't enough on Ti. Switch the final step to colloidal silica + 30% H₂O₂ at a 1:5 ratio for 5 min + flush.</li>
                 <li><strong>Over-etching:</strong> Reduce etching time or dilute etchant. Start with shorter times (5-10 seconds).</li>
                 <li><strong>Pitting after etching:</strong> Etchant too strong or etching time too long. Dilute etchant or reduce time. HF-based etchants are particularly aggressive.</li>
                 <li><strong>Poor edge retention:</strong> Consider using phenolic mounting material or different mounting technique.</li>

@@ -391,11 +391,6 @@ export default function PCBChipPreparationGuide() {
                   to ensure complete penetration of mounting material into any voids or cracks.
                 </p>
               </div>
-              <ProductLink 
-                productName="Mounting Equipment and Resins"
-                href="https://www.metallographic.com/metallographic-equipment/compression-mounting.html"
-                description="Mounting presses and epoxy resins for electronics sample preparation"
-              />
             </section>
 
             <section id="grinding" className="scroll-mt-24">
@@ -593,12 +588,6 @@ export default function PCBChipPreparationGuide() {
                   speed, diamond size, removal rate) so procedures can be repeated consistently.
                 </p>
               </div>
-
-              <ProductLink 
-                productName="ATTO-1000S Controlled Removal Polisher"
-                href="https://www.metallographic.com/metallographic-equipment/grinding-polishing/atto.html"
-                description="Precision controlled removal system with micrometer-level accuracy for PCB and chip preparation"
-              />
             </section>
 
             <section id="polishing" className="scroll-mt-24">
@@ -693,12 +682,7 @@ export default function PCBChipPreparationGuide() {
                 <li><strong>Clean Between Steps:</strong> Thoroughly clean sample and change cloths between steps</li>
                 <li><strong>Material-Specific Rates:</strong> Be aware that different materials polish at different rates, which can create <GlossaryTermTooltip term="Relief">relief</GlossaryTermTooltip></li>
               </ul>
-              <ProductLink 
-                productName="Diamond Polishing Compounds"
-                href="https://shop.metallographic.com/collections/diamond-abrasives"
-                description="High-quality diamond polishing compounds for electronics sample preparation"
-              />
-              <ProductLink 
+              <ProductLink
                 productName="Polishing Pads and Cloths"
                 href="https://shop.metallographic.com/collections/polishing-pads"
                 description="Polishing pads and cloths for different polishing stages"

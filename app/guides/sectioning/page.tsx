@@ -243,25 +243,18 @@ export default function SectioningGuide() {
                       <td className="border border-gray-300 px-4 py-3 text-center">MAX-C400</td>
                     </tr>
                     <tr>
-                      <td className="border border-gray-300 px-4 py-3">Soft steels</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-E250</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-E300</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-E350</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-E400</td>
-                    </tr>
-                    <tr className="bg-gray-50">
-                      <td className="border border-gray-300 px-4 py-3">Hard and case-hardened steels</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-VHS250</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-VHS300</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-VHS350</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-VHS400</td>
-                    </tr>
-                    <tr>
-                      <td className="border border-gray-300 px-4 py-3">General steels and ferrous metals</td>
+                      <td className="border border-gray-300 px-4 py-3">General steels and ferrous metals (including soft and medium-hard steels)</td>
                       <td className="border border-gray-300 px-4 py-3 text-center">MAX-D250T</td>
                       <td className="border border-gray-300 px-4 py-3 text-center">MAX-D300</td>
                       <td className="border border-gray-300 px-4 py-3 text-center">MAX-D350</td>
                       <td className="border border-gray-300 px-4 py-3 text-center">MAX-D400</td>
+                    </tr>
+                    <tr className="bg-gray-50">
+                      <td className="border border-gray-300 px-4 py-3">Hard and case-hardened steels (HRC &gt; 50)</td>
+                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-VHS250</td>
+                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-VHS300</td>
+                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-VHS350</td>
+                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-VHS400</td>
                     </tr>
                     <tr className="bg-gray-50">
                       <td className="border border-gray-300 px-4 py-3">Universal Thin Blade</td>
@@ -283,7 +276,7 @@ export default function SectioningGuide() {
 
               <h3>Understanding Blade Designations</h3>
               <ul>
-                <li><strong>MAX-E Series:</strong> Designed for soft materials like aluminum, brass, and soft steels. Features a softer bond that wears appropriately for these materials.</li>
+                <li><strong>MAX-E Series:</strong> Alumina/resin-bonded abrasive for soft non-ferrous metals (aluminum, brass, zinc). Softer bond profile wears appropriately on these materials so the blade keeps cutting cleanly instead of glazing. Use MAX-D for soft steels.</li>
                 <li><strong>MAX-C Series:</strong> Optimized for hard non-ferrous materials such as titanium and zirconium. Provides aggressive cutting with controlled wear.</li>
                 <li><strong>MAX-VHS Series:</strong> Very hard steel blades for case-hardened and hard steels. Features a hard bond and aggressive abrasive for efficient cutting.</li>
                 <li><strong>MAX-D Series:</strong> General-purpose blades for ferrous metals and steels. Balanced performance for most steel cutting applications.</li>

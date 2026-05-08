@@ -34,6 +34,19 @@ const nextConfig = {
     // Optimize package imports to reduce bundle size
     optimizePackageImports: ['lucide-react'],
   },
+  // Permanent redirects — used to consolidate duplicate slugs into a single
+  // canonical URL. Search engines see a 301; existing external links keep working.
+  async redirects() {
+    return [
+      {
+        // The old `metallographic-mounting` guide was a near-duplicate of
+        // `mounting` (same metadata slug, overlapping content). Canonical is `mounting`.
+        source: '/guides/metallographic-mounting',
+        destination: '/guides/mounting',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig

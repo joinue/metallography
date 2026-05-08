@@ -106,7 +106,7 @@ export default function NickelAlloysGuide() {
       {
         '@type': 'HowToStep',
         name: 'Sectioning',
-        text: 'Use slow cutting speeds (80-150 RPM) with MAX-C series blades (silicon carbide/resin-rubber bond) designed for hard non-ferrous metals. Cool continuously with cutting fluid.',
+        text: 'Use MAX-I series abrasive blades (the dedicated nickel/superalloy slot) with continuous flood coolant. Apply light, steady pressure and let the blade do the work — Ni and Co superalloys work-harden quickly under high force.',
         position: 1,
       },
       {
@@ -130,7 +130,7 @@ export default function NickelAlloysGuide() {
       {
         '@type': 'HowToStep',
         name: 'Etching',
-        text: 'Use Glyceregia, Aqua Regia, or electrolytic etching. Etching times vary from 5-60 seconds depending on alloy composition.',
+        text: 'Marble\'s reagent (4 g CuSO₄ + 20 mL HCl + 20 mL H₂O) by swab is the canonical general etch for Ni-base superalloys, Inconel, Hastelloy, and Co-base alloys. Modified Kalling\'s for Inconel/Hastelloy detail. For γ′ precipitate imaging, use 5% chromic acid electrolytic at 5 V for 5-10 s.',
         position: 5,
       },
     ],
@@ -267,17 +267,17 @@ export default function NickelAlloysGuide() {
               
               <h3>Cutting Parameters</h3>
               <ul>
-                <li><strong>Cutting Speed:</strong> 80-150 RPM (very slow to minimize heat and deformation)</li>
-                <li><strong>Blade Selection:</strong> MAX-C series blades (silicon carbide/resin-rubber bond) - designed for hard non-ferrous metals like nickel and cobalt superalloys</li>
-                <li><strong>Cooling:</strong> Continuous cooling with cutting fluid is essential</li>
-                <li><strong>Feed Rate:</strong> Slow, steady feed to avoid excessive pressure</li>
+                <li><strong>Blade Selection:</strong> <strong>MAX-I series</strong> abrasive blades — the dedicated nickel/superalloy slot, designed for Inconel, Hastelloy, and Co-base superalloys. Do <em>not</em> use MAX-C (that's the soft non-ferrous Al/Cu/brass blade) — it glazes immediately on Ni superalloys.</li>
+                <li><strong>Cooling:</strong> Continuous flood coolant is non-negotiable — Ni and Co superalloys generate heat fast and work-harden under it</li>
+                <li><strong>Feed Rate:</strong> Slow, steady feed; let the blade cut at its own pace. Heavy force drives mechanical deformation deeper than the next plane-grind step can remove.</li>
+                <li><strong>Wheel speed:</strong> Standard metallographic abrasive cutoff range for the saw class (typical AbrasiMet/Discotom-style machines run 2,500-4,500 SFM)</li>
               </ul>
 
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
                 <ProductLink
-                  productName="MAX-C Abrasive Blades"
+                  productName="MAX-I Abrasive Blades"
                   href="https://shop.metallographic.com/collections/abrasive-blades"
-                  description="Silicon carbide/resin-rubber bond blades optimized for hard non-ferrous metals like nickel and cobalt superalloys, titanium, and zirconium. Provides aggressive cutting with controlled wear."
+                  description="The MAX-I series is the dedicated Ni/superalloy abrasive blade — appropriate for Inconel, Hastelloy, Waspaloy, Stellite, and other hard nickel and cobalt-base alloys."
                 />
               </div>
 
@@ -313,15 +313,21 @@ export default function NickelAlloysGuide() {
             <section id="mounting" className="scroll-mt-24">
               <h2>Mounting</h2>
               <p>
-                Compression mounting is standard for nickel alloys. Epoxy mounting is preferred for superalloys 
-                to avoid thermal damage that can occur with phenolic resins.
+                The canonical mount for superalloy work is <strong>glass-filled epoxy compression
+                mount</strong>. Plain phenolic (Bakelite-style) is the wrong choice on Ni and Co superalloys
+                whenever edge retention matters — turbine blade cross-sections, fastener fatigue analysis,
+                near-edge γ′ distribution, single-crystal orientation studies — because phenolic wears 2-3×
+                faster than the alloy and rounds the sample-mount boundary, biasing every near-edge
+                measurement. Reserve plain phenolic for low-stakes general-structure work where edge fidelity
+                isn't a deliverable.
               </p>
 
               <h3>Mounting Materials</h3>
               <ul>
-                <li><strong>Epoxy Resins:</strong> Preferred for superalloys - lower curing temperature (150-180°C)</li>
-                <li><strong>Phenolic Resins:</strong> Acceptable for standard nickel alloys - higher temperature (150-180°C)</li>
-                <li><strong>Mounting Pressure:</strong> 2000-4000 psi depending on resin type</li>
+                <li><strong>Glass-filled epoxy (preferred for superalloy work):</strong> Best edge retention; matches the differential-wear profile of Ni/Co superalloys. The right answer for Inconel 718 γ′ work, Hastelloy fatigue cross-sections, and any case where near-edge structure is the analysis goal.</li>
+                <li><strong>Plain epoxy:</strong> Acceptable when the analysis goal is bulk microstructure rather than near-edge features. Lower curing temperature (150-180°C) than phenolic.</li>
+                <li><strong>Phenolic resins:</strong> Acceptable for general-structure low-stakes work only. Will round the sample-mount edge during long polishes; not appropriate when edge retention matters.</li>
+                <li><strong>Mounting Pressure:</strong> 3000-4000 psi for glass-filled epoxy; 2000-3000 psi for plain epoxy</li>
               </ul>
 
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
@@ -352,12 +358,6 @@ export default function NickelAlloysGuide() {
                 <li>Add mounting compound and mount at recommended temperature and pressure</li>
                 <li>Allow to cool slowly to room temperature before removing from mold</li>
               </ol>
-
-              <ProductLink 
-                productName="Compression Mounting Equipment"
-                href="https://www.metallographic.com/metallographic-equipment/compression-mounting.html"
-                description="Automatic and manual mounting presses for consistent results with nickel alloys"
-              />
 
               <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-6 rounded">
                 <p className="text-sm text-yellow-900">
@@ -493,22 +493,23 @@ export default function NickelAlloysGuide() {
                 <li><strong>Cloth Selection:</strong> Harder cloths for coarse steps, softer for fine steps</li>
               </ul>
 
-              <ProductLink 
-                productName="Diamond Abrasives"
-                href="https://shop.metallographic.com/collections/diamond-abrasives"
-                description="High-quality diamond polishing compounds in various particle sizes for nickel alloys"
-              />
-              <ProductLink 
-                productName="Polishing Pads"
-                href="https://shop.metallographic.com/collections/polishing-pads"
-                description="Premium polishing pads for different polishing stages of nickel alloys"
-              />
-
               <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-6 rounded">
                 <p className="text-sm text-blue-900">
-                  <strong>Superalloy Consideration:</strong> Nickel superalloys with gamma prime (γ') precipitates 
-                  require careful polishing to avoid pullout. Use light pressure and extend polishing times at 
+                  <strong>Superalloy Consideration:</strong> Nickel superalloys with gamma prime (γ') precipitates
+                  require careful polishing to avoid pullout. Use light pressure and extend polishing times at
                   each step. Final polish with colloidal silica is essential to reveal fine precipitates.
+                </p>
+              </div>
+              <div className="bg-amber-50 border-l-4 border-amber-500 p-4 my-6 rounded">
+                <p className="text-sm text-amber-900">
+                  <strong>Inconel MC-carbide comet tails — watch for these on the diamond steps.</strong>
+                  Inconel and most Ni-base superalloys carry a high density of MC carbides that drag during
+                  diamond polishing, leaving unidirectional comet-tail scratches behind every carbide. The
+                  fix is <strong>rotating the sample 90° between polishing intervals</strong> (e.g., polish
+                  90 s, stop, rotate the holder, polish another 90 s) — this breaks up the directional drag
+                  pattern. Lighter pressure helps; <em>longer</em> polishing time without rotation makes the
+                  problem worse, not better. Counter-intuitive but true: extended polish times on a Ni
+                  superalloy with MC carbides amplify comet tails rather than removing them.
                 </p>
               </div>
 
@@ -542,12 +543,15 @@ export default function NickelAlloysGuide() {
             <section id="etching" className="scroll-mt-24">
               <h2>Etching</h2>
               <p>
-                Nickel alloys require specific etchants depending on the alloy composition and the features you 
-                want to reveal. Common etchants include Glyceregia, Aqua Regia, and various electrolytic solutions.
+                Nickel and cobalt superalloys take Marble's reagent as the canonical first-pass etch, with
+                Modified Kalling's for sharper detail on Inconel and Hastelloy. The classic γ′ imaging etch
+                is electrolytic 5% chromic acid at 5 V — chemical etches don't give the same crisp γ matrix /
+                γ′ precipitate contrast that the chromic gives at SEM magnification. Murakami's reagent is the
+                Co-base carbide etch for Stellite-class wear alloys.
               </p>
 
-              <h3>Common Etchants for Nickel Alloys</h3>
-              
+              <h3>Common Etchants for Nickel and Cobalt Superalloys</h3>
+
               <div className="overflow-x-auto my-6">
                 <table className="min-w-full border border-gray-300">
                   <thead className="bg-gray-100">
@@ -555,37 +559,44 @@ export default function NickelAlloysGuide() {
                       <th className="border border-gray-300 px-4 py-2 text-left">Etchant</th>
                       <th className="border border-gray-300 px-4 py-2 text-left">Composition</th>
                       <th className="border border-gray-300 px-4 py-2 text-left">Application</th>
-                      <th className="border border-gray-300 px-4 py-2 text-left">Time</th>
+                      <th className="border border-gray-300 px-4 py-2 text-left">Method &amp; Time</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td className="border border-gray-300 px-4 py-2"><strong>Glyceregia</strong></td>
-                      <td className="border border-gray-300 px-4 py-2">15 mL HCl, 10 mL glycerol, 5 mL HNO₃</td>
-                      <td className="border border-gray-300 px-4 py-2">General nickel alloys, grain boundaries</td>
-                      <td className="border border-gray-300 px-4 py-2">10-30 sec</td>
+                      <td className="border border-gray-300 px-4 py-2"><strong>Marble's Reagent</strong></td>
+                      <td className="border border-gray-300 px-4 py-2">4 g CuSO₄ + 20 mL HCl + 20 mL H₂O</td>
+                      <td className="border border-gray-300 px-4 py-2">General Ni-base structure — <MaterialTooltip materialName="Inconel 718">Inconel</MaterialTooltip>, <MaterialTooltip materialName="Hastelloy C-276">Hastelloy</MaterialTooltip>, Co-base alloys (Stellite). The default first-pass etch for the entire family.</td>
+                      <td className="border border-gray-300 px-4 py-2">Swab 10-60 s</td>
                     </tr>
                     <tr>
-                      <td className="border border-gray-300 px-4 py-2"><strong>Aqua Regia</strong></td>
-                      <td className="border border-gray-300 px-4 py-2">3 parts HCl, 1 part HNO₃</td>
-                      <td className="border border-gray-300 px-4 py-2"><MaterialTooltip materialName="Inconel 718">Inconel</MaterialTooltip>, <MaterialTooltip materialName="Hastelloy C-276">Hastelloy</MaterialTooltip></td>
-                      <td className="border border-gray-300 px-4 py-2">5-15 sec</td>
+                      <td className="border border-gray-300 px-4 py-2"><strong>Modified Kalling's (Kalling's No. 2)</strong></td>
+                      <td className="border border-gray-300 px-4 py-2">5 g CuCl₂ + 100 mL HCl + 100 mL ethanol</td>
+                      <td className="border border-gray-300 px-4 py-2">Inconel and Hastelloy detail — sharper grain-boundary contrast than Marble's; also a respectable γ′ outline if no chromic electrolyte is available.</td>
+                      <td className="border border-gray-300 px-4 py-2">Immersion 10-30 s</td>
                     </tr>
                     <tr>
-                      <td className="border border-gray-300 px-4 py-2"><strong>Kalling's No. 2</strong></td>
-                      <td className="border border-gray-300 px-4 py-2">5 g CuCl₂, 100 mL HCl, 100 mL ethanol</td>
-                      <td className="border border-gray-300 px-4 py-2">Grain boundaries, general structure</td>
-                      <td className="border border-gray-300 px-4 py-2">10-60 sec</td>
+                      <td className="border border-gray-300 px-4 py-2"><strong>5% Chromic Acid (electrolytic) — for γ′ imaging</strong></td>
+                      <td className="border border-gray-300 px-4 py-2">5 g CrO₃ in 100 mL H₂O</td>
+                      <td className="border border-gray-300 px-4 py-2">The canonical γ′ etch for Ni superalloys (<MaterialTooltip materialName="Inconel 718">Inconel 718</MaterialTooltip>, Waspaloy, Rene 41/N5, Nimonic). The chromic preferentially attacks the γ matrix, leaving γ′ standing in relief — best at SEM magnification.</td>
+                      <td className="border border-gray-300 px-4 py-2">5 V, 5-10 s</td>
                     </tr>
                     <tr>
-                      <td className="border border-gray-300 px-4 py-2"><strong>Electrolytic (10% Oxalic)</strong></td>
-                      <td className="border border-gray-300 px-4 py-2">10% oxalic acid in water</td>
-                      <td className="border border-gray-300 px-4 py-2">Superalloys, gamma prime</td>
-                      <td className="border border-gray-300 px-4 py-2">5-10 sec @ 6V</td>
+                      <td className="border border-gray-300 px-4 py-2"><strong>Murakami's Reagent</strong></td>
+                      <td className="border border-gray-300 px-4 py-2">10 g K₃[Fe(CN)₆] + 10 g NaOH + 100 mL H₂O</td>
+                      <td className="border border-gray-300 px-4 py-2">Carbide imaging in Co-base wear alloys (<MaterialTooltip materialName="Cobalt-Chromium Alloy (Stellite 6)">Stellite 6, 12, 21</MaterialTooltip>) — the Cr-rich carbides are the metallographic interest in these alloys, and Murakami's selectively attacks them.</td>
+                      <td className="border border-gray-300 px-4 py-2">Swab 5-30 s (heated for refractory)</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
+              <p className="text-sm text-gray-600 italic">
+                Note: Glyceregia and aqua regia are <em>stainless steel</em> etchants and should not lead a Ni-base
+                workflow — Glyceregia is the canonical austenitic-stainless general etch and aqua regia is for
+                noble metals. They occasionally work on Ni alloys but Marble's gives cleaner contrast on the same
+                samples. Similarly, 10% oxalic at 6 V is the austenitic-stainless sensitization etch (ASTM A262
+                Practice A), not a γ′ etch — for γ′ imaging, use the 5% chromic electrolytic above.
+              </p>
 
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
                 <Link 
@@ -633,10 +644,12 @@ export default function NickelAlloysGuide() {
 
               <h3>Alloy-Specific Etching</h3>
               <ul>
-                <li><strong><MaterialTooltip materialName="Inconel 718">Inconel 718</MaterialTooltip>:</strong> Glyceregia or electrolytic oxalic acid</li>
-                <li><strong><MaterialTooltip materialName="Hastelloy C-276">Hastelloy C-276</MaterialTooltip>:</strong> Aqua Regia or Glyceregia</li>
-                <li><strong>Monel:</strong> Ferric chloride solution or Kalling's No. 2</li>
-                <li><strong>Superalloys with γ':</strong> Electrolytic etching often required to reveal fine precipitates</li>
+                <li><strong><MaterialTooltip materialName="Inconel 718">Inconel 718</MaterialTooltip> (general structure):</strong> Marble's reagent by swab, or Modified Kalling's by immersion for sharper grain-boundary contrast</li>
+                <li><strong>Inconel 718 (γ′ imaging):</strong> 5% chromic acid electrolytic at 5 V for 5-10 s — the canonical γ′ etch. Best at SEM magnification.</li>
+                <li><strong><MaterialTooltip materialName="Hastelloy C-276">Hastelloy C-276</MaterialTooltip>:</strong> Marble's for general structure; Modified Kalling's for detail</li>
+                <li><strong>Waspaloy, Rene 41, Rene N5, Nimonic 80A/90/105 (aerospace γ′-strengthened):</strong> Marble's or Modified Kalling's for general structure; 5% chromic electrolytic for γ′</li>
+                <li><strong>Monel 400, K-500:</strong> Treated as Ni-base — Marble's or Modified Kalling's</li>
+                <li><strong><MaterialTooltip materialName="Cobalt-Chromium Alloy (Stellite 6)">Stellite 6, 12, 21</MaterialTooltip> (Co-base):</strong> Marble's for general structure; Murakami's for the Cr-rich carbides that are usually the analysis goal</li>
               </ul>
             </section>
 

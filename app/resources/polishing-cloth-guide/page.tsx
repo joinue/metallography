@@ -10,10 +10,10 @@ export default function PolishingClothGuidePage() {
 
   const coarsePads = [
     { name: 'CERMESH', desc: 'Metal mesh pad for semi-fixed abrasive coarse to intermediate lapping. Excellent for initial removal of damage from sectioning and hard materials.', use: '9-15 μm diamond', pace: true },
-    { name: 'POLYPAD', desc: 'Durable synthetic polyester pad ideal for intermediate polishing, especially with 6–15 μm diamond abrasives. Designed as a long-life nylon alternative.', use: '6-15 μm diamond', pace: false },
+    { name: 'POLYPAD', desc: 'Durable synthetic polyester pad ideal for intermediate polishing, especially with 6–15 μm diamond abrasives. Designed as a long-life nylon alternative.', use: '6-15 μm diamond', pace: true },
     { name: 'TEXPAN', desc: 'Widely used non-woven intermediate polishing pad, compatible with most diamond suspensions. Effective across a broad range of materials.', use: '3-15 μm diamond', pace: true },
     { name: 'Black CHEM 2', desc: 'Porometric polymer pad with rubber-like consistency, offering balanced action between low and high nap pads. Ideal for moderate nap intermediate polishing.', use: '3-9 μm diamond', pace: true },
-    { name: 'DACRON II', desc: 'Low-napped soft polishing pad widely used in Europe for intermediate steps on metals. Suitable for 1–15 μm diamond abrasives.', use: '1-15 μm diamond', pace: false },
+    { name: 'DACRON II', desc: 'Low-napped soft polishing pad widely used in Europe for intermediate steps on metals. Suitable for 1–15 μm diamond abrasives.', use: '1-15 μm diamond', pace: true },
     { name: 'NYPAD', desc: 'Low-napped silk pad tailored for intermediate polishing of harder metals and alloys. Performs well with mid-size diamond abrasives.', use: '3-9 μm diamond', pace: true },
     { name: 'GOLD PAD', desc: 'Low-napped pad ideal for 1–9 μm polishing. Designed for consistent material removal and flatness control during final pre-polishing.', use: '1-9 μm diamond', pace: true },
   ]
@@ -24,7 +24,7 @@ export default function PolishingClothGuidePage() {
     { name: 'TRICOTE', desc: 'Tight high-napped final polishing pad for metals. Offers better control of surface texture and minimal abrasive drag.', use: '<1 μm diamond', pace: true },
     { name: 'NAPPAD', desc: 'Very high-napped final polishing pad tailored for soft metals and polymers. Provides gentle polishing action to minimize pull-out and relief.', use: '<1 μm diamond, soft materials', pace: true },
     { name: 'MOLTEC 2', desc: 'Wool-based final polishing cloth used when edge retention is not critical. Works well with alumina and colloidal silica on metals.', use: 'Colloidal silica, alumina', pace: true },
-    { name: 'FELT PAD', desc: 'Thick final polishing pad made for large samples or glass. Ideal for use with colloidal silica or alumina slurries where surface uniformity is key.', use: 'Colloidal silica, alumina', pace: false },
+    { name: 'FELT PAD', desc: 'Thick final polishing pad made for large samples or glass. Ideal for use with colloidal silica or alumina slurries where surface uniformity is key.', use: 'Colloidal silica, alumina', pace: true },
   ]
 
   const downloadPDF = async () => {

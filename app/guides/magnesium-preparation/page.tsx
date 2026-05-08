@@ -118,10 +118,9 @@ export default function MagnesiumGuide() {
                 
                 <h3>Cutting Parameters</h3>
                 <ul>
-                  <li><strong>Cutting Speed:</strong> 100-200 RPM (slow to minimize heat generation)</li>
-                  <li><strong>Blade Selection:</strong> MAX-E series blades (for soft non-ferrous materials) or fine-tooth saw blades</li>
-                  <li><strong>Cooling:</strong> Use ethanol-based or oil-based cutting fluid - NEVER use water-based coolants</li>
-                  <li><strong>Feed Rate:</strong> Slow, steady feed to avoid excessive heat</li>
+                  <li><strong>Blade Selection:</strong> <strong>MAX-C series blades</strong> — the dedicated PACE soft-non-ferrous slot for Al, Cu, brass, and Mg. Do <em>not</em> use MAX-E (that's the hard non-ferrous / titanium blade).</li>
+                  <li><strong>Cooling:</strong> Use ethanol-based or oil-based cutting fluid — <strong>never</strong> use water-based coolants. Mg + water = rapid oxidation and (with enough heat and surface area) Class D fire.</li>
+                  <li><strong>Feed Rate:</strong> Slow, steady feed to avoid excessive heat — heat is what turns Mg machining chips from a curiosity into a fire hazard.</li>
                 </ul>
 
                 <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-6 rounded">
@@ -134,9 +133,9 @@ export default function MagnesiumGuide() {
 
                 <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
                   <ProductLink
-                    productName="MAX-E Abrasive Blades"
+                    productName="MAX-C Abrasive Blades"
                     href="https://shop.metallographic.com/collections/abrasive-blades"
-                    description="MAX-E series blades designed for soft non-ferrous materials like magnesium. Thin blades minimize heat generation."
+                    description="MAX-C series blades — the dedicated PACE soft-non-ferrous slot for Al, Cu, brass, and Mg. Thin blades minimize heat generation."
                   />
                 </div>
 
@@ -199,10 +198,21 @@ export default function MagnesiumGuide() {
               <section id="grinding" className="scroll-mt-24">
                 <h2>Grinding</h2>
                 <p>
-                  Grinding magnesium requires the use of ethanol-based lubricants instead of water. Magnesium's 
-                  extreme reactivity with water means that water-based grinding will cause immediate oxidation 
+                  Grinding magnesium requires the use of ethanol-based lubricants instead of water. Magnesium's
+                  extreme reactivity with water means that water-based grinding will cause immediate oxidation
                   and obscure the microstructure.
                 </p>
+                <div className="bg-amber-50 border-l-4 border-amber-500 p-4 my-6 rounded">
+                  <p className="text-sm text-amber-900">
+                    <strong>Abrasive choice — alumina vs. SiC for Mg.</strong> Magnesium is the most
+                    SiC-embedment-prone of the soft non-ferrous metals. Loose SiC particles liberate from the
+                    paper backing and embed in the soft Mg matrix, where they appear as dark specks no
+                    subsequent step can lift out. The PACE recommendation for soft non-ferrous is the
+                    <strong> ALO alumina paper line</strong> — bonded more strongly into the backing, much
+                    less liberation, much less embedment. SiC is acceptable as a fallback only when alumina
+                    is unavailable; inspect for embedded dark specks after every fine-grit step.
+                  </p>
+                </div>
 
                 <h3>Grinding Sequence</h3>
                 <ol>
@@ -278,11 +288,24 @@ export default function MagnesiumGuide() {
 
                 <h3>Final Polishing</h3>
                 <p>
-                  Final polishing with ethanol-based colloidal silica (0.05 μm) is essential for magnesium. 
-                  This removes any remaining deformation and reveals the true microstructure. The sample should 
-                  be kept wet with ethanol throughout the polishing process and immediately transferred to 
+                  Final polishing with ethanol-based colloidal silica (0.05 μm) is essential for magnesium.
+                  This removes any remaining deformation and reveals the true microstructure. The sample should
+                  be kept wet with ethanol throughout the polishing process and immediately transferred to
                   ethanol storage after polishing.
                 </p>
+                <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-6 rounded">
+                  <p className="text-sm text-blue-900">
+                    <strong>Vibratory polish for pure Mg.</strong> Pure magnesium is one of the materials where
+                    <strong> mechanical polishing alone often won't produce a clean surface</strong> — the metal is
+                    soft enough that diamond polishing keeps re-introducing the deformation layer it's trying to
+                    remove. The handbook-canonical solution for pure Mg is a <strong>vibratory polish step</strong>
+                    (low-load oscillation on colloidal silica, typically 1-4 hours, ethanol-based suspension).
+                    Vibratory polishing also significantly improves Mg surface quality for EBSD and is generally
+                    worth the extra cycle time on any pure-Mg or low-alloy Mg sample. AZ/AM-class alloys can usually
+                    be finished with mechanical polishing alone; pure Mg almost always benefits from a vibratory
+                    finish.
+                  </p>
+                </div>
 
                 <h3>Post-Polishing Care</h3>
                 <ul>
@@ -298,13 +321,16 @@ export default function MagnesiumGuide() {
               <section id="etching" className="scroll-mt-24">
                 <h2>Etching</h2>
                 <p>
-                  Etching magnesium requires specific etchants that work with the material's reactivity. Common 
-                  etchants include Glycol etchant (Picral-Glycol), Acetic picral, and other specialized solutions. 
-                  Care must be taken to prevent over-etching and further oxidation.
+                  The two canonical Mg etchants are <strong>Acetic Glycol</strong> for general microstructure
+                  on the most common Mg-Al-Zn / Mg-Al-Mn alloys (AZ31, AZ91, AM50/60), and <strong>Acetic
+                  Picral</strong> for color/contrast work on Y/RE-containing alloys (WE43, WE54) — best
+                  examined under polarized light. Both use ethanol or ethylene glycol as the solvent base;
+                  none of the standard Mg etchants are water-based, which fits the broader "no water on Mg"
+                  rule that runs through the rest of this guide.
                 </p>
 
                 <h3>Common Etchants for Magnesium</h3>
-                
+
                 <div className="overflow-x-auto my-6">
                   <table className="min-w-full border border-gray-300">
                     <thead className="bg-gray-100">
@@ -317,32 +343,39 @@ export default function MagnesiumGuide() {
                     </thead>
                     <tbody>
                       <tr>
-                        <td className="border border-gray-300 px-4 py-2"><strong>Glycol Etchant (Picral-Glycol)</strong></td>
-                        <td className="border border-gray-300 px-4 py-2">4.2 g picric acid, 10 mL acetic acid, 10 mL water, 70 mL ethylene glycol</td>
-                        <td className="border border-gray-300 px-4 py-2">General microstructure, grain boundaries</td>
-                        <td className="border border-gray-300 px-4 py-2">5-15 sec</td>
+                        <td className="border border-gray-300 px-4 py-2"><strong>Acetic Glycol</strong> (canonical Mg general etch — ASM E407 #197)</td>
+                        <td className="border border-gray-300 px-4 py-2">20 mL acetic acid + 1 mL HNO₃ + 60 mL ethylene glycol + <strong>19 mL H₂O</strong></td>
+                        <td className="border border-gray-300 px-4 py-2">General microstructure for <MaterialTooltip materialName="AZ31">AZ31</MaterialTooltip>, <MaterialTooltip materialName="AZ91">AZ91</MaterialTooltip>, <MaterialTooltip materialName="AM60">AM60</MaterialTooltip>, AM50, ZK60. The default first-pass etch.</td>
+                        <td className="border border-gray-300 px-4 py-2">Swab 5-30 s</td>
                       </tr>
                       <tr>
-                        <td className="border border-gray-300 px-4 py-2"><strong>Acetic Picral</strong></td>
-                        <td className="border border-gray-300 px-4 py-2">4.2 g picric acid, 10 mL acetic acid, 100 mL ethanol</td>
-                        <td className="border border-gray-300 px-4 py-2">Grain boundaries, general structure</td>
-                        <td className="border border-gray-300 px-4 py-2">10-30 sec</td>
+                        <td className="border border-gray-300 px-4 py-2"><strong>Acetic Picral</strong> (canonical for WE-class and color work)</td>
+                        <td className="border border-gray-300 px-4 py-2">5 g picric acid + 100 mL ethanol + <strong>5 mL H₂O + 5 mL acetic acid</strong></td>
+                        <td className="border border-gray-300 px-4 py-2">Y/RE-containing alloys <MaterialTooltip materialName="WE43">WE43</MaterialTooltip>, WE54; phase contrast and color work on AZ/AM. <strong>Best under polarized light</strong> — RE-bearing intermetallics give vivid birefringent contrast.</td>
+                        <td className="border border-gray-300 px-4 py-2">Immerse 30 s</td>
                       </tr>
                       <tr>
-                        <td className="border border-gray-300 px-4 py-2"><strong>Acetic Glycol</strong></td>
-                        <td className="border border-gray-300 px-4 py-2">20 mL acetic acid, 60 mL ethylene glycol, 1 mL nitric acid</td>
-                        <td className="border border-gray-300 px-4 py-2">General microstructure</td>
-                        <td className="border border-gray-300 px-4 py-2">5-20 sec</td>
+                        <td className="border border-gray-300 px-4 py-2"><strong>Glycol Etchant (Picral-Glycol)</strong> — Vander Voort variant</td>
+                        <td className="border border-gray-300 px-4 py-2">4.2 g picric acid + 10 mL acetic acid + 10 mL H₂O + 70 mL ethylene glycol</td>
+                        <td className="border border-gray-300 px-4 py-2">Alternative general-microstructure etch combining the picric of Acetic Picral with the glycol carrier of Acetic Glycol. Defensible variant; not the handbook first-pass choice.</td>
+                        <td className="border border-gray-300 px-4 py-2">5-15 s</td>
                       </tr>
                       <tr>
-                        <td className="border border-gray-300 px-4 py-2"><strong>Nital (Dilute)</strong></td>
-                        <td className="border border-gray-300 px-4 py-2">1-2% nitric acid in ethanol</td>
-                        <td className="border border-gray-300 px-4 py-2">Some magnesium alloys</td>
-                        <td className="border border-gray-300 px-4 py-2">5-15 sec</td>
+                        <td className="border border-gray-300 px-4 py-2"><strong>Dilute Nital</strong></td>
+                        <td className="border border-gray-300 px-4 py-2">1-2% HNO₃ in ethanol</td>
+                        <td className="border border-gray-300 px-4 py-2">Specialty use on some Mg alloys when Acetic Glycol under-attacks. Not a general-purpose Mg etch.</td>
+                        <td className="border border-gray-300 px-4 py-2">5-15 s</td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
+                <p className="text-sm text-gray-600 italic">
+                  All four etchants above contain picric acid (or use HNO₃ in ethanol). <strong>Picric acid must be
+                  stored wetted at all times — dry picric is friction- and shock-sensitive (effectively a primary
+                  explosive).</strong> Keep stock bottles topped up with water or ethanol; never let them dry out.
+                  Mixed reagents (Acetic Picral, Picral-Glycol) are stable in solution; the hazard is the dry
+                  crystalline form.
+                </p>
 
                 <h3>Etching Procedure</h3>
                 <ol>
@@ -366,10 +399,11 @@ export default function MagnesiumGuide() {
 
                 <h3>Alloy-Specific Etching</h3>
                 <ul>
-                  <li><strong><MaterialTooltip materialName="AZ31">AZ31</MaterialTooltip>, <MaterialTooltip materialName="AZ91">AZ91</MaterialTooltip>:</strong> Glycol etchant or Acetic picral work well</li>
-                  <li><strong><MaterialTooltip materialName="AM60">AM60</MaterialTooltip>:</strong> Acetic picral or dilute Nital</li>
-                  <li><strong><MaterialTooltip materialName="WE43">WE43</MaterialTooltip>:</strong> Glycol etchant preferred</li>
-                  <li><strong>Pure Magnesium:</strong> Acetic picral or Glycol etchant</li>
+                  <li><strong><MaterialTooltip materialName="AZ31">AZ31</MaterialTooltip>, <MaterialTooltip materialName="AZ91">AZ91</MaterialTooltip> (Mg-Al-Zn):</strong> Acetic Glycol as the canonical first pass; Acetic Picral for phase color contrast on cast or aged samples.</li>
+                  <li><strong><MaterialTooltip materialName="AM60">AM60</MaterialTooltip>, AM50 (Mg-Al-Mn):</strong> Same recipe family as AZ — Acetic Glycol primary, Acetic Picral for color.</li>
+                  <li><strong><MaterialTooltip materialName="WE43">WE43</MaterialTooltip>, WE54 (Mg-Y-RE-Zr):</strong> <strong>Acetic Picral examined under polarized light</strong> — the rare-earth-bearing intermetallics (Y₂Mg₂₄, RE-bearing phases) are birefringent and develop vivid color contrast under crossed polars that no grayscale etch produces. This is the metallographic answer for WE-class alloys.</li>
+                  <li><strong>ZK60 (Mg-Zn-Zr):</strong> Standard Mg recipe — Acetic Glycol primary.</li>
+                  <li><strong>Pure Magnesium:</strong> Acetic Picral; pair with vibratory polishing as noted in the polishing section, since pure Mg often won't give a clean etch without a deformation-free vibratory finish first.</li>
                 </ul>
 
                 <h3>Post-Etching Care</h3>

@@ -238,11 +238,6 @@ export default function PolishingMethodsGuide() {
                 <li><strong>Cerium Oxide:</strong> Effective for glass and some ceramics</li>
                 <li><strong>CMP Alumina Silica:</strong> Chemical-mechanical polishing blend</li>
               </ul>
-              <ProductLink 
-                productName="Final Polishing Abrasives"
-                href="https://shop.metallographic.com/collections/final-polishing"
-                description="Complete range of final polishing abrasives including various alumina types, colloidal silica, and cerium oxide"
-              />
             </section>
 
             <section id="polishing-cloths" className="scroll-mt-24">
@@ -620,10 +615,20 @@ export default function PolishingMethodsGuide() {
               </ul>
               <h3>Multi-Phase Materials</h3>
               <ul>
-                <li>Use softer cloths to minimize relief</li>
+                <li>
+                  <strong>Use harder pads to minimize relief.</strong> Relief is caused by softer napped pads
+                  conforming around hard phases and recessing the softer matrix; a harder pad (woven or synthetic
+                  suede) keeps the surface co-planar across the phase boundary. Reach for chemotextile only at
+                  the very last step, if at all.
+                </li>
                 <li>Shorter polishing times to prevent over-polishing</li>
-                <li>Monitor for relief around different phases</li>
-                <li>May require specialized final polishing techniques</li>
+                <li>
+                  Use chemo-mechanical action (colloidal silica, optionally with H₂O₂ for Cu) at the final step —
+                  it removes the softer phase chemically rather than mechanically, reducing the height differential
+                  that creates relief.
+                </li>
+                <li>Vibratory polishing under low load is excellent for multi-phase systems because the low force
+                  minimizes mechanical relief while still finishing the surface.</li>
               </ul>
             </section>
 
@@ -846,6 +851,15 @@ export default function PolishingMethodsGuide() {
                 </Link>
               </div>
             </div>
+
+            {/* Recordkeeping aside */}
+            <p className="mt-8 text-sm text-gray-600 leading-relaxed">
+              Polishing is where "what worked last time" lives or dies. If a lab keeps polishing
+              recipes in a binder or in someone's head, a metallography ELN like{' '}
+              <Link href="/materials-prep" className="text-primary-600 hover:underline font-semibold">Materials Prep</Link>{' '}
+              gives those recipes a structured home and links them to the batches where they were
+              used.
+            </p>
 
             {/* Related Guides */}
             <div className="mt-12 pt-8 border-t border-gray-200">

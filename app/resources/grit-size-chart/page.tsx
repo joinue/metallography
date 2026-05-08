@@ -294,15 +294,31 @@ export default function GritSizeChartPage() {
             </p>
           </div>
 
+          {/* Important: standards diverge at the fine end */}
+          <div className="bg-amber-50 border-l-4 border-amber-500 p-4 mb-6 rounded">
+            <h3 className="text-sm font-semibold text-amber-900 mb-2">Important — these standards are NOT a 1:1 conversion</h3>
+            <p className="text-sm text-amber-900 mb-2">
+              FEPA-P (FEPA-43-GB), ANSI/CAMI B74.18, and JIS R6010 use the same grit-number scale at coarse sizes but
+              <strong> diverge sharply above roughly P400 / CAMI 600</strong>. The micron column below shows the
+              <strong> FEPA-P particle size</strong> for the row's P-grade. The ANSI and JIS numbers in the same row are
+              the closest grit-number neighbors, not the equivalent particle size in those standards. For ANSI/CAMI and
+              JIS particle sizes at the fine end, use the divergence table below.
+            </p>
+            <p className="text-xs text-amber-900">
+              For most metallographic prep work, identify which scale your paper is sold under and stay in that scale —
+              don't substitute "P1200" for "1200 grit" if your supplier ships ANSI/CAMI papers.
+            </p>
+          </div>
+
           {/* Chart Table */}
           <div className="overflow-x-auto">
             <table className="w-full border-collapse text-sm">
               <thead>
                 <tr className="bg-primary-600 text-white">
-                  <th className="border border-gray-300 px-3 py-2 text-left font-semibold">FEPA</th>
-                  <th className="border border-gray-300 px-3 py-2 text-left font-semibold">ANSI</th>
-                  <th className="border border-gray-300 px-3 py-2 text-left font-semibold">JIS</th>
-                  <th className="border border-gray-300 px-3 py-2 text-left font-semibold">Micron (μm)</th>
+                  <th className="border border-gray-300 px-3 py-2 text-left font-semibold">FEPA-P</th>
+                  <th className="border border-gray-300 px-3 py-2 text-left font-semibold">ANSI <span className="font-normal text-xs">(nearest no.)</span></th>
+                  <th className="border border-gray-300 px-3 py-2 text-left font-semibold">JIS <span className="font-normal text-xs">(nearest no.)</span></th>
+                  <th className="border border-gray-300 px-3 py-2 text-left font-semibold">FEPA-P size (μm)</th>
                   <th className="border border-gray-300 px-3 py-2 text-left font-semibold">Mesh</th>
                   <th className="border border-gray-300 px-3 py-2 text-left font-semibold">Category</th>
                 </tr>
@@ -325,17 +341,55 @@ export default function GritSizeChartPage() {
             </table>
           </div>
 
+          {/* Where the standards diverge — the fine-grit truth table */}
+          <div className="mt-8 pt-6 border-t border-gray-200">
+            <h3 className="text-lg font-bold mb-2">Where FEPA-P, ANSI/CAMI, and JIS diverge</h3>
+            <p className="text-sm text-gray-700 mb-4">
+              Below ~P400, the same grit number means very different particle sizes in each standard. If your paper
+              is labeled "1200 grit" with no other context, the actual abrasive size depends entirely on which standard
+              the manufacturer used. Use this table to translate between them.
+            </p>
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse text-sm">
+                <thead>
+                  <tr className="bg-gray-700 text-white">
+                    <th className="border border-gray-300 px-3 py-2 text-left font-semibold">Grit number</th>
+                    <th className="border border-gray-300 px-3 py-2 text-left font-semibold">FEPA-P (μm)</th>
+                    <th className="border border-gray-300 px-3 py-2 text-left font-semibold">ANSI/CAMI (μm)</th>
+                    <th className="border border-gray-300 px-3 py-2 text-left font-semibold">JIS R6010 (μm)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="bg-gray-50"><td className="border border-gray-300 px-3 py-2 font-medium">120</td><td className="border border-gray-300 px-3 py-2">125</td><td className="border border-gray-300 px-3 py-2">102</td><td className="border border-gray-300 px-3 py-2">102</td></tr>
+                  <tr><td className="border border-gray-300 px-3 py-2 font-medium">240</td><td className="border border-gray-300 px-3 py-2">58</td><td className="border border-gray-300 px-3 py-2">53</td><td className="border border-gray-300 px-3 py-2">57</td></tr>
+                  <tr className="bg-gray-50"><td className="border border-gray-300 px-3 py-2 font-medium">320</td><td className="border border-gray-300 px-3 py-2">46</td><td className="border border-gray-300 px-3 py-2">36</td><td className="border border-gray-300 px-3 py-2">40</td></tr>
+                  <tr><td className="border border-gray-300 px-3 py-2 font-medium">400</td><td className="border border-gray-300 px-3 py-2">35</td><td className="border border-gray-300 px-3 py-2">23</td><td className="border border-gray-300 px-3 py-2">32</td></tr>
+                  <tr className="bg-gray-50"><td className="border border-gray-300 px-3 py-2 font-medium">600</td><td className="border border-gray-300 px-3 py-2">26</td><td className="border border-gray-300 px-3 py-2">14.5</td><td className="border border-gray-300 px-3 py-2">20</td></tr>
+                  <tr><td className="border border-gray-300 px-3 py-2 font-medium">800</td><td className="border border-gray-300 px-3 py-2">22</td><td className="border border-gray-300 px-3 py-2">12.2</td><td className="border border-gray-300 px-3 py-2">14</td></tr>
+                  <tr className="bg-gray-50"><td className="border border-gray-300 px-3 py-2 font-medium">1200</td><td className="border border-gray-300 px-3 py-2">15</td><td className="border border-gray-300 px-3 py-2">~3</td><td className="border border-gray-300 px-3 py-2">9.2</td></tr>
+                  <tr><td className="border border-gray-300 px-3 py-2 font-medium">1500</td><td className="border border-gray-300 px-3 py-2">13</td><td className="border border-gray-300 px-3 py-2">~2</td><td className="border border-gray-300 px-3 py-2">8</td></tr>
+                  <tr className="bg-gray-50"><td className="border border-gray-300 px-3 py-2 font-medium">2000</td><td className="border border-gray-300 px-3 py-2">10</td><td className="border border-gray-300 px-3 py-2">—</td><td className="border border-gray-300 px-3 py-2">6.7</td></tr>
+                  <tr><td className="border border-gray-300 px-3 py-2 font-medium">2500</td><td className="border border-gray-300 px-3 py-2">8.4</td><td className="border border-gray-300 px-3 py-2">—</td><td className="border border-gray-300 px-3 py-2">—</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-gray-600 mt-3">
+              Source: FEPA 43-GB, ANSI B74.18, JIS R6010. Values rounded to typical manufacturer ranges.
+              The handbook ladder used in our guides (P120 → P320 → P600 → P800 → P1200 in FEPA-P) corresponds
+              roughly to US/CAMI 120 → 240 → 600 → 800 → ~1500 in actual particle size.
+            </p>
+          </div>
+
           {/* Notes Section */}
           <div className="mt-8 pt-6 border-t border-gray-200">
             <h3 className="text-lg font-bold mb-4">Notes</h3>
             <ul className="space-y-2 text-sm text-gray-700">
-              <li>• <strong>FEPA:</strong> Federation of European Producers of Abrasives standard (P-grade)</li>
-              <li>• <strong>ANSI:</strong> American National Standards Institute</li>
-              <li>• <strong>JIS:</strong> Japanese Industrial Standards</li>
-              <li>• <strong>Micron (μm):</strong> Average particle size in micrometers</li>
-              <li>• <strong>Mesh:</strong> US Standard mesh size (particles per inch)</li>
-              <li>• Conversions are approximate; actual values may vary slightly between manufacturers</li>
-              <li>• Always refer to manufacturer specifications for critical applications</li>
+              <li>• <strong>FEPA-P:</strong> Federation of European Producers of Abrasives, P-grade (FEPA 43-GB). Most European and many international metallographic papers.</li>
+              <li>• <strong>ANSI/CAMI:</strong> ANSI B74.18, the standard used by most North American manufacturers (also called CAMI for Coated Abrasive Manufacturers Institute).</li>
+              <li>• <strong>JIS:</strong> JIS R6010 — Japanese Industrial Standard.</li>
+              <li>• <strong>Mesh:</strong> US Standard mesh size (particles per linear inch in the screen used to grade the abrasive).</li>
+              <li>• Particle-size figures are nominal; manufacturer-specific values can vary by ±10–20%.</li>
+              <li>• For acceptance work, verify abrasive standard and particle size on the manufacturer's data sheet.</li>
             </ul>
           </div>
         </div>

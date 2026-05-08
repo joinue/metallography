@@ -77,12 +77,22 @@ export default function CastIronGuide() {
             <section id="introduction" className="scroll-mt-24">
               <h2>Introduction</h2>
               <p>
-                Cast iron preparation presents unique challenges that distinguish it from steel preparation. 
-                The defining characteristic of cast iron is its graphite structure, which must be preserved 
-                throughout the entire preparation process. Unlike steel, where the microstructure is revealed 
-                primarily through etching, cast iron's graphite is revealed by proper polishing - etching reveals 
+                Cast iron preparation presents unique challenges that distinguish it from steel preparation.
+                The defining characteristic of cast iron is its graphite structure, which must be preserved
+                throughout the entire preparation process. Unlike steel, where the microstructure is revealed
+                primarily through etching, cast iron's graphite is revealed by proper polishing — etching reveals
                 the matrix structure (ferrite, pearlite, or bainite).
               </p>
+              <div className="bg-amber-50 border-l-4 border-amber-500 p-4 my-6 rounded">
+                <p className="text-sm text-amber-900">
+                  <strong>Examine unetched first.</strong> The canonical cast iron workflow per <strong>ASTM A247</strong>
+                  (graphite microstructure rating; ISO 945 is the international equivalent) is to assess graphite
+                  morphology — flake, nodular, vermicular, temper carbon — on the as-polished surface <em>before</em>
+                  any etching. Etching attacks the matrix and distorts apparent graphite shape, so post-etch
+                  nodularity counts on ductile iron per ASTM A247 are unreliable. Document the unetched view first;
+                  etch second.
+                </p>
+              </div>
               <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-6 rounded">
                 <p className="text-sm text-blue-900">
                   <strong>Critical Principle:</strong> Graphite preservation is the most important aspect of 
@@ -104,16 +114,20 @@ export default function CastIronGuide() {
                 Cast iron types vary significantly in their graphite morphology and matrix structure:
               </p>
               <ul>
-                <li><strong><MaterialTooltip materialName="Gray Cast Iron">Gray Cast Iron</MaterialTooltip>:</strong> Flake graphite in pearlite or ferrite matrix (163-187 HB)</li>
-                <li><strong><MaterialTooltip materialName="Ductile Cast Iron">Ductile Cast Iron</MaterialTooltip>:</strong> Spheroidal (nodular) graphite in pearlite or ferrite matrix (217 HB)</li>
-                <li><strong><MaterialTooltip materialName="Malleable Cast Iron">Malleable Cast Iron</MaterialTooltip>:</strong> Temper carbon nodules in ferrite or pearlite matrix (163 HB)</li>
-                <li><strong><MaterialTooltip materialName="Austempered Ductile Iron">Austempered Ductile Iron (ADI)</MaterialTooltip>:</strong> Spheroidal graphite in bainitic matrix (310 HB, very hard)</li>
-                <li><strong><MaterialTooltip materialName="Compacted Graphite Iron">Compacted Graphite Iron (CGI)</MaterialTooltip>:</strong> Vermicular (compacted) graphite in pearlite matrix (230 HB)</li>
+                <li><strong><MaterialTooltip materialName="Gray Cast Iron">Gray Cast Iron</MaterialTooltip> (ASTM A48):</strong> Flake graphite in pearlite or ferrite matrix (163-187 HB)</li>
+                <li><strong><MaterialTooltip materialName="Ductile Cast Iron">Ductile Cast Iron</MaterialTooltip> (ASTM A536):</strong> Spheroidal (nodular) graphite in pearlite or ferrite matrix (217 HB) — nodularity rated per ASTM A247</li>
+                <li><strong><MaterialTooltip materialName="Malleable Cast Iron">Malleable Cast Iron</MaterialTooltip> (ASTM A220):</strong> Temper carbon nodules in ferrite or pearlite matrix (163 HB)</li>
+                <li><strong><MaterialTooltip materialName="Austempered Ductile Iron">Austempered Ductile Iron (ADI)</MaterialTooltip>:</strong> Spheroidal graphite in <em>ausferrite</em> matrix — acicular ferrite + retained austenite + bainite (310 HB, very hard)</li>
+                <li><strong><MaterialTooltip materialName="Compacted Graphite Iron">Compacted Graphite Iron (CGI)</MaterialTooltip>:</strong> Vermicular (compacted) graphite in pearlite matrix (230 HB) — graphite shape is between gray and ductile</li>
+                <li><strong>White Cast Iron / Ni-Hard / High-Cr Iron:</strong> Carbide-rich, abrasion-resistant cast iron with no free graphite. <strong>Diamond grinding ladder required</strong> — chromium carbides cannot be cleanly cut by SiC abrasive, the same SiC-vs-carbide issue that drives carbide pullout in tool steels. Etch with 4% Picral or Vilella's for carbide morphology.</li>
               </ul>
               <p>
-                Each type requires similar preparation techniques, but the graphite morphology affects how 
-                easily it can be preserved. Spheroidal graphite (ductile iron) is generally easier to preserve 
-                than flake graphite (gray iron), which can be more prone to pullout.
+                The first five types (gray, ductile, malleable, ADI, CGI) share a common preparation
+                approach focused on graphite preservation; graphite morphology determines how easily it
+                can be preserved (spheroidal &gt; vermicular &gt; flake &gt; temper carbon, in increasing
+                pullout risk). White iron is the structural exception: there is no graphite to preserve,
+                but the chromium carbides demand a different abrasive ladder — see the white-iron note
+                in the Grinding section below.
               </p>
             </section>
 
@@ -162,10 +176,22 @@ export default function CastIronGuide() {
             <section id="mounting" className="scroll-mt-24">
               <h2>Mounting</h2>
               <p>
-                Mounting provides edge retention and easier handling. For cast iron, both compression and cold 
-                mounting work well. The choice depends on whether edge retention is critical and the hardness 
+                Mounting provides edge retention and easier handling. For cast iron, both compression and cold
+                mounting work well. The choice depends on whether edge retention is critical and the hardness
                 of the specific cast iron grade.
               </p>
+              <div className="bg-amber-50 border-l-4 border-amber-500 p-4 my-6 rounded">
+                <p className="text-sm text-amber-900">
+                  <strong>Vacuum impregnation for porous castings.</strong> Real-world cast iron — especially
+                  large gray iron castings with shrinkage porosity, or any sample with visible defects under
+                  the as-received surface — needs <strong>vacuum (or pressure) impregnation with low-viscosity
+                  epoxy</strong> before mounting. Impregnation fills the pores and supports surrounding features
+                  during polishing; without it, the polishing pad levers material out at pore edges and the
+                  artifact looks identical to real solidification porosity (see the Troubleshooting section
+                  below for distinguishing the two). After impregnation, finish with a colloidal silica step —
+                  it's effectively mandatory after vacuum impregnation to clean up pore-edge pull-out.
+                </p>
+              </div>
               <h3>Compression Mounting</h3>
               <p>
                 Compression mounting with phenolic or epoxy resins is suitable for most cast irons. Phenolic 
@@ -189,20 +215,25 @@ export default function CastIronGuide() {
                 <li>Mix epoxy resin according to manufacturer's instructions</li>
                 <li>Pour into mold and allow to cure (typically 4-8 hours at room temperature)</li>
               </ol>
-              <ProductLink 
-                productName="Compression Mounting Equipment"
-                href="https://www.metallographic.com/metallographic-equipment/compression-mounting.html"
-                description="Automatic and manual mounting presses for consistent results"
-              />
             </section>
 
             <section id="grinding" className="scroll-mt-24">
               <h2>Grinding</h2>
               <p>
-                Grinding removes sectioning damage and prepares the surface for polishing. For cast iron, 
-                use gentle grinding techniques to avoid damaging or removing graphite. The graphite is soft 
+                Grinding removes sectioning damage and prepares the surface for polishing. For cast iron,
+                use gentle grinding techniques to avoid damaging or removing graphite. The graphite is soft
                 and can be easily pulled out or smeared during grinding.
               </p>
+              <div className="bg-red-50 border-l-4 border-red-500 p-4 my-6 rounded">
+                <p className="text-sm text-red-900">
+                  <strong>White iron / Ni-Hard / high-Cr iron exception.</strong> The SiC ladder below is for
+                  graphite-bearing cast irons (gray, ductile, malleable, ADI, CGI). For white cast iron and
+                  Ni-Hard / high-Cr abrasion-resistant grades, switch to a <strong>diamond grinding ladder</strong>
+                  (75 → 30 → 15 → 9 µm on diamond-impregnated discs or films). SiC at ~9.5 Mohs cannot cleanly
+                  cut Cr-rich carbides; the abrasive plows them and tears them out, destroying the carbide
+                  morphology that's the entire point of metallographic analysis on white iron.
+                </p>
+              </div>
               <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-6 rounded">
                 <p className="text-sm text-yellow-900">
                   <strong>Important:</strong> Use lighter pressure than you would for steel. Graphite is soft 
@@ -243,11 +274,6 @@ export default function CastIronGuide() {
                 <li>Monitor the surface - if graphite starts to pull out, reduce pressure further</li>
                 <li>For very hard cast irons like <MaterialTooltip materialName="Austempered Ductile Iron">ADI</MaterialTooltip>, you can use slightly more pressure, but still be gentle</li>
               </ul>
-              <ProductLink 
-                productName="Silicon Carbide Grinding Papers"
-                href="https://shop.metallographic.com/collections/sic-grinding"
-                description="Premium SiC papers in all grit sizes for consistent grinding"
-              />
             </section>
 
             <section id="polishing" className="scroll-mt-24">
@@ -326,15 +352,10 @@ export default function CastIronGuide() {
                 as dark areas (flakes, nodules, or compacted shapes depending on the cast iron type). If graphite 
                 is missing or appears damaged, you may need to reduce pressure or use softer cloths.
               </p>
-              <ProductLink 
+              <ProductLink
                 productName="Diamond Abrasives"
                 href="https://shop.metallographic.com/collections/diamond-abrasives"
                 description="High-quality diamond polishing compounds in various particle sizes"
-              />
-              <ProductLink 
-                productName="Polishing Pads"
-                href="https://shop.metallographic.com/collections/polishing-pads"
-                description="Premium polishing pads for different polishing stages"
               />
             </section>
 
@@ -357,10 +378,17 @@ export default function CastIronGuide() {
               </div>
               <h3>Common Etchants for Cast Iron</h3>
               <ul>
-                <li><strong>2% Nital:</strong> General purpose for most cast irons. Reveals ferrite grain boundaries and pearlite structure (2% HNO₃ in ethanol)</li>
-                <li><strong>4% Picral:</strong> Excellent for revealing pearlite and cementite without attacking ferrite boundaries. Particularly useful for pearlitic cast irons (2-4g picric acid per 100ml ethanol)</li>
-                <li><strong>Higher Nital concentrations:</strong> For harder cast irons like <MaterialTooltip materialName="Austempered Ductile Iron">ADI</MaterialTooltip>, 3-5% Nital may be needed</li>
+                <li><strong>2% Nital:</strong> General-purpose matrix etch for gray, ductile, malleable, and CGI cast irons. Reveals ferrite grain boundaries and pearlite structure (2 mL HNO₃ in 98 mL ethanol). Swab 5-15 s.</li>
+                <li><strong>4% Picral:</strong> Reveals cementite and pearlite cleanly without attacking ferrite boundaries (4 g picric acid in 100 mL ethanol). Swab 10-60 s. <strong>Picric safety:</strong> store the reagent and any picric acid stock <em>wetted</em> at all times — dry picric is friction- and shock-sensitive (effectively a primary explosive). Keep stock bottles topped up; never let them dry out.</li>
+                <li><strong>Nital then 4% Picral (sequential etch):</strong> The canonical cast-iron matrix workflow when 2% Nital alone leaves pearlite washed out. Apply 2% Nital first (5-15 s swab), rinse, then a second swab of 4% Picral on top — Picral darkens cementite and sharpens the pearlite lamellae against the ferrite background.</li>
+                <li><strong>Beraha's I (color tint — required for ADI ausferrite):</strong> 10 mL HCl + 90 mL H₂O + 1 g K₂S₂O₅ (potassium metabisulfite). Immerse 30-180 s. The handbook etch for <MaterialTooltip materialName="Austempered Ductile Iron">ADI</MaterialTooltip> because the ausferrite matrix is acicular ferrite + retained austenite + bainite, and grayscale Nital cannot separate those three phases. Beraha I tints them in distinct colors. Also useful for ferrite/pearlite/bainite color contrast in heat-treated ductile iron.</li>
+                <li><strong>4% Picral or Vilella's (white iron / high-Cr iron):</strong> For revealing chromium-carbide morphology in white cast iron, Ni-Hard, and high-Cr abrasion-resistant grades. Vilella's = 1 g picric + 5 mL HCl + 95 mL ethanol; same picric storage rules apply.</li>
               </ul>
+              <p className="text-sm text-gray-600 italic">
+                Note: a 3-5% Nital bump is sometimes recommended for ADI; treat this as a fallback only.
+                The right answer for ADI ausferrite imaging is Beraha I, not stronger Nital — Nital cannot
+                separate retained austenite from ferrite or bainite no matter how concentrated it gets.
+              </p>
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
                 <Link 
                   href="https://shop.metallographic.com/collections/etchants"
@@ -381,22 +409,23 @@ export default function CastIronGuide() {
               <h3>Etching Procedure</h3>
               <ol>
                 <li>Ensure sample is clean and dry after polishing</li>
-                <li>Examine polished surface first - graphite should be visible</li>
-                <li>Apply etchant with cotton swab or immerse sample</li>
-                <li>Etch for 10-30 seconds (time varies by cast iron type and hardness)</li>
-                <li>Immediately rinse with water, then alcohol</li>
+                <li><strong>Examine the polished surface unetched first</strong> — document graphite morphology per ASTM A247 (nodularity rating, graphite type and size charts) before any etching. Etching attacks the matrix and distorts apparent graphite shape, so post-etch nodularity counts on ductile iron are unreliable.</li>
+                <li>Select the etchant by family: 2% Nital (or sequential Nital→Picral) for gray/ductile/malleable/CGI matrix; Beraha I for ADI ausferrite; 4% Picral or Vilella's for white-iron carbide morphology</li>
+                <li>Apply Nital/Picral/Vilella's by cotton swab; apply Beraha I by immersion</li>
+                <li>Etch for 5-30 s (Nital, Picral, Vilella's) or 30-180 s (Beraha I tint)</li>
+                <li>Immediately rinse with water, then ethanol</li>
                 <li>Dry with compressed air</li>
               </ol>
               <p>
                 <strong>Important Notes:</strong>
               </p>
               <ul>
-                <li>Graphite is <strong>not revealed by etching</strong> - it should already be visible after polishing</li>
-                <li>Etching reveals the matrix structure (ferrite, pearlite, bainite)</li>
-                <li>Start with shorter etching times (10-15 seconds) and increase if needed</li>
-                <li>For softer cast irons like <MaterialTooltip materialName="Gray Cast Iron">Gray Cast Iron</MaterialTooltip> and <MaterialTooltip materialName="Malleable Cast Iron">Malleable Cast Iron</MaterialTooltip>, use 2% Nital</li>
-                <li>For harder cast irons like <MaterialTooltip materialName="Austempered Ductile Iron">Austempered Ductile Iron</MaterialTooltip>, use 3-5% Nital</li>
-                <li>Picral is excellent for revealing pearlite structure in pearlitic cast irons</li>
+                <li>Graphite is <strong>not revealed by etching</strong> — it should already be visible after polishing. Document the unetched view (per ASTM A247 nodularity rating) <em>before</em> etching, since etch attack distorts apparent graphite shape.</li>
+                <li>Etching reveals the matrix structure (ferrite, pearlite, bainite, ausferrite)</li>
+                <li>Start with shorter etching times (5-10 seconds) and increase if needed</li>
+                <li>Default etch for gray, ductile, malleable, CGI: <strong>2% Nital</strong>; if pearlite washes out, follow with <strong>4% Picral</strong> sequentially</li>
+                <li>Default etch for ADI ausferrite: <strong>Beraha I tint</strong> — not stronger Nital</li>
+                <li>Default etch for white iron / Ni-Hard / high-Cr iron: <strong>4% Picral or Vilella's</strong> for carbide morphology</li>
               </ul>
               <ProductLink 
                 productName="Etchants"

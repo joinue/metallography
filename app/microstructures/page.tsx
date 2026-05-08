@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Search, Filter, X, ZoomIn, ChevronLeft, ChevronRight } from 'lucide-react'
 import { parseImageMetadata, type MicrostructureImage } from '@/lib/microstructure-images'
 
@@ -211,8 +212,16 @@ export default function MicrostructuresGalleryPage() {
         <div className="mb-4 md:mb-8">
           <h1 className="text-2xl md:text-4xl font-bold mb-2 md:mb-4">Microstructure Gallery</h1>
           <p className="text-sm md:text-xl text-gray-600">
-            Explore our collection of high-quality microstructure images from various materials, treatments, and preparation techniques.
+            <span className="font-semibold text-gray-900">{allImages.length}</span> reference micrographs
+            across <span className="font-semibold text-gray-900">{materials.length}</span> material families
+            and <span className="font-semibold text-gray-900">{etchants.length}</span> etchants.
+            Click any image for full-size view and metadata.
           </p>
+          <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-sm">
+            <Link href="/tools/microstructure-quiz" className="text-primary-600 hover:underline">
+              Test yourself with the microstructure quiz →
+            </Link>
+          </div>
         </div>
 
         {/* Search and Filters */}
@@ -427,6 +436,14 @@ export default function MicrostructuresGalleryPage() {
                     {image.technique && (
                       <span className="px-2 py-0.5 bg-gray-100 rounded">{image.technique}</span>
                     )}
+                    {image.labelConfidence === 'low' && (
+                      <span
+                        className="px-2 py-0.5 bg-amber-100 text-amber-800 rounded"
+                        title="Filename has limited descriptive metadata; phase/etchant claims should be verified independently."
+                      >
+                        label unverified
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>
@@ -598,6 +615,12 @@ export default function MicrostructuresGalleryPage() {
                       <span className="px-2 py-1 bg-white/20 rounded">Treatment: {selectedImage.treatment}</span>
                     )}
                   </div>
+                  {selectedImage.labelConfidence === 'low' && (
+                    <p className="mt-3 text-xs text-amber-200 italic">
+                      Filename metadata is sparse. Phase and etchant claims should be verified
+                      against the source before citing this image as authoritative reference.
+                    </p>
+                  )}
                 </div>
               </div>
             </div>

@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import ProductLink from '@/components/ProductLink'
 import GuideSideNav from '@/components/GuideSideNav'
+import EtchantSafetyWarning from '@/components/EtchantSafetyWarning'
 import Link from 'next/link'
 import { getGuideMetadata, getGuideStructuredData, getGuideBySlug } from '@/lib/guide-seo'
 
@@ -240,24 +241,32 @@ export default function EtchingProceduresGuide() {
                 </p>
                 <ul>
                   <li>
-                    <strong>Steels:</strong> Nital (2-5% nitric acid in ethanol) is most common. Picral 
-                    (picric acid in ethanol) is used for revealing cementite and pearlite.
+                    <strong>Steels:</strong> Nital (2–5% nitric acid in ethanol) is the most common general-purpose etchant.
+                    Picral (picric acid in ethanol — store wetted; dry picric is shock-sensitive) is preferred for cementite
+                    and fine pearlite contrast.
                   </li>
                   <li>
-                    <strong>Stainless Steels:</strong> Electrolytic etching with oxalic acid or chemical 
-                    etching with Vilella's reagent (picric acid, HCl, ethanol).
+                    <strong>Stainless steels — by class:</strong>
+                    <ul className="mt-1">
+                      <li><strong>Austenitic (304, 316):</strong> 10% oxalic acid electrolytic at 6 V (per ASTM A262) or Glyceregia (HCl + HNO₃ + glycerol) by swab.</li>
+                      <li><strong>Martensitic (410, 420, 431):</strong> Vilella's reagent (1 g picric + 5 mL HCl + 95 mL ethanol).</li>
+                      <li><strong>Ferritic (430, 446):</strong> Vilella's, or Marble's reagent for grain boundaries.</li>
+                      <li><strong>Duplex (2205, 2507):</strong> Beraha's I or Klemm's I for color contrast between ferrite and austenite.</li>
+                    </ul>
                   </li>
                   <li>
-                    <strong>Aluminum Alloys:</strong> Keller's reagent (HF, HCl, HNO₃, H₂O) or Weck's 
-                    reagent for color etching.
+                    <strong>Aluminum alloys:</strong> Keller's reagent (HF, HCl, HNO₃, H₂O) for general microstructure;
+                    Weck's tint etch for color phase contrast; Barker's anodizing under polarized light for grain orientation
+                    and ASTM E112 grain-size work.
                   </li>
                   <li>
-                    <strong>Copper Alloys:</strong> Ammonium hydroxide and hydrogen peroxide, or ferric 
-                    chloride solutions.
+                    <strong>Copper alloys:</strong> Equal volumes 28% NH₄OH + 3% H₂O₂ (mixed fresh) is the standard for pure
+                    copper and brass. Alcoholic FeCl₃ is the etchant of choice for Mn-Al and Ni-Al bronzes specifically. Klemm's I
+                    gives vivid color contrast in bronzes.
                   </li>
                   <li>
-                    <strong>Titanium:</strong> Kroll's reagent (HF, HNO₃, H₂O) or electrolytic etching 
-                    with various solutions.
+                    <strong>Titanium and Ti alloys:</strong> Kroll's reagent (2 mL HF + 6 mL HNO₃ + 92 mL H₂O — fume hood,
+                    HF-rated PPE) by swab 5–15 s. Weck's tint etch for color phase ID in α-β alloys.
                   </li>
                 </ul>
 
@@ -518,8 +527,11 @@ export default function EtchingProceduresGuide() {
                   reveals cementite and pearlite. Etching time: 5-15 seconds typically.
                 </p>
                 <p>
-                  <strong>Stainless Steels:</strong> Often require electrolytic etching with oxalic acid 
-                  or chemical etching with Vilella's reagent. More resistant to etching than carbon steels.
+                  <strong>Stainless Steels:</strong> Etchant choice depends on grade. Austenitic grades (304, 316) —
+                  10% oxalic acid electrolytic at 6 V or Glyceregia by swab. Martensitic (410, 420, 431) and
+                  ferritic (430, 446) grades — Vilella's reagent (1 g picric + 5 mL HCl + 95 mL ethanol). Duplex
+                  grades (2205, 2507) — Beraha's I or Klemm's I for ferrite-vs-austenite color contrast.
+                  Stainless steels are generally more resistant to etching than carbon steels.
                 </p>
                 <p>
                   <strong>Tool Steels:</strong> May require multiple etchants or longer etching times due 
@@ -563,8 +575,18 @@ export default function EtchingProceduresGuide() {
               <section id="safety-considerations" className="scroll-mt-24">
                 <h2>Safety Considerations</h2>
                 <p>
-                  Etchants are chemical reagents that can be hazardous. Always prioritize safety:
+                  Etchants are chemical reagents that can be hazardous. Always prioritize safety.
+                  The four etchants below cover the highest-consequence hazards in routine
+                  metallography — read them before mixing or applying any reagent.
                 </p>
+
+                <EtchantSafetyWarning etchant="Picral" variant="full" />
+                <EtchantSafetyWarning etchant="Kroll's Reagent" variant="full" />
+                <EtchantSafetyWarning etchant="Aqua Regia" variant="full" />
+                <EtchantSafetyWarning etchant="Nital" variant="compact" />
+                <EtchantSafetyWarning etchant="Murakami's Reagent" variant="compact" />
+                <EtchantSafetyWarning etchant="Perchloric" variant="compact" />
+
 
                 <h3>Personal Protective Equipment (PPE)</h3>
                 <ul>
@@ -803,6 +825,14 @@ export default function EtchingProceduresGuide() {
                   </Link>
                 </div>
               </div>
+
+              {/* Recordkeeping aside */}
+              <p className="mt-8 text-sm text-gray-600 leading-relaxed">
+                Etchant recipes drift as operators rotate and conditions change. Labs that need
+                recipe consistency across operators sometimes use a metallography ELN like{' '}
+                <Link href="/materials-prep" className="text-primary-600 hover:underline font-semibold">Materials Prep</Link>{' '}
+                to keep the recipe book and the actual batch records in one place.
+              </p>
 
               {/* Related Guides */}
               <div className="mt-12 pt-8 border-t border-gray-200">
