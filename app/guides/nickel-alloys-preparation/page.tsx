@@ -106,7 +106,7 @@ export default function NickelAlloysGuide() {
       {
         '@type': 'HowToStep',
         name: 'Sectioning',
-        text: 'Use MAX-I series abrasive blades (the dedicated nickel/superalloy slot) with continuous flood coolant. Apply light, steady pressure and let the blade do the work — Ni and Co superalloys work-harden quickly under high force.',
+        text: 'Use an abrasive blade formulated for nickel and cobalt superalloys (typically a hard-bond SiC or Al₂O₃ wheel) with continuous flood coolant. Apply light, steady pressure and let the blade do the work — Ni and Co superalloys work-harden quickly under high force.',
         position: 1,
       },
       {
@@ -267,7 +267,7 @@ export default function NickelAlloysGuide() {
               
               <h3>Cutting Parameters</h3>
               <ul>
-                <li><strong>Blade Selection:</strong> <strong>MAX-I series</strong> abrasive blades — the dedicated nickel/superalloy slot, designed for Inconel, Hastelloy, and Co-base superalloys. Do <em>not</em> use MAX-C (that's the soft non-ferrous Al/Cu/brass blade) — it glazes immediately on Ni superalloys.</li>
+                <li><strong>Blade Selection:</strong> an <strong>abrasive blade formulated for nickel and cobalt superalloys</strong> — typically a hard-bond SiC or Al₂O₃ wheel rated for Inconel, Hastelloy, and Co-base superalloys. Do <em>not</em> substitute a soft non-ferrous (Al/Cu/brass) blade — it glazes immediately on Ni superalloys.</li>
                 <li><strong>Cooling:</strong> Continuous flood coolant is non-negotiable — Ni and Co superalloys generate heat fast and work-harden under it</li>
                 <li><strong>Feed Rate:</strong> Slow, steady feed; let the blade cut at its own pace. Heavy force drives mechanical deformation deeper than the next plane-grind step can remove.</li>
                 <li><strong>Wheel speed:</strong> Standard metallographic abrasive cutoff range for the saw class (typical AbrasiMet/Discotom-style machines run 2,500-4,500 SFM)</li>
@@ -275,9 +275,9 @@ export default function NickelAlloysGuide() {
 
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
                 <ProductLink
-                  productName="MAX-I Abrasive Blades"
+                  productName="Nickel/Superalloy Abrasive Blades"
                   href="https://shop.metallographic.com/collections/abrasive-blades"
-                  description="The MAX-I series is the dedicated Ni/superalloy abrasive blade — appropriate for Inconel, Hastelloy, Waspaloy, Stellite, and other hard nickel and cobalt-base alloys."
+                  description="Hard-bond abrasive blades formulated for nickel and cobalt superalloys — appropriate for Inconel, Hastelloy, Waspaloy, Stellite, and other hard Ni- and Co-base alloys."
                 />
               </div>
 

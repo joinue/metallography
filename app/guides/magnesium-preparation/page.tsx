@@ -118,7 +118,7 @@ export default function MagnesiumGuide() {
                 
                 <h3>Cutting Parameters</h3>
                 <ul>
-                  <li><strong>Blade Selection:</strong> <strong>MAX-C series blades</strong> — the dedicated PACE soft-non-ferrous slot for Al, Cu, brass, and Mg. Do <em>not</em> use MAX-E (that's the hard non-ferrous / titanium blade).</li>
+                  <li><strong>Blade Selection:</strong> a <strong>soft-bond abrasive blade formulated for soft non-ferrous metals</strong> — the right category for Al, Cu, brass, and Mg. Do <em>not</em> substitute a hard non-ferrous (titanium-class) blade.</li>
                   <li><strong>Cooling:</strong> Use ethanol-based or oil-based cutting fluid — <strong>never</strong> use water-based coolants. Mg + water = rapid oxidation and (with enough heat and surface area) Class D fire.</li>
                   <li><strong>Feed Rate:</strong> Slow, steady feed to avoid excessive heat — heat is what turns Mg machining chips from a curiosity into a fire hazard.</li>
                 </ul>
@@ -133,9 +133,9 @@ export default function MagnesiumGuide() {
 
                 <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
                   <ProductLink
-                    productName="MAX-C Abrasive Blades"
+                    productName="Soft Non-Ferrous Abrasive Blades"
                     href="https://shop.metallographic.com/collections/abrasive-blades"
-                    description="MAX-C series blades — the dedicated PACE soft-non-ferrous slot for Al, Cu, brass, and Mg. Thin blades minimize heat generation."
+                    description="Soft-bond abrasive blades formulated for soft non-ferrous metals — Al, Cu, brass, and Mg. Thin blades minimize heat generation."
                   />
                 </div>
 
@@ -207,8 +207,8 @@ export default function MagnesiumGuide() {
                     <strong>Abrasive choice — alumina vs. SiC for Mg.</strong> Magnesium is the most
                     SiC-embedment-prone of the soft non-ferrous metals. Loose SiC particles liberate from the
                     paper backing and embed in the soft Mg matrix, where they appear as dark specks no
-                    subsequent step can lift out. The PACE recommendation for soft non-ferrous is the
-                    <strong> ALO alumina paper line</strong> — bonded more strongly into the backing, much
+                    subsequent step can lift out. The standard recommendation for soft non-ferrous is an
+                    <strong> alumina (Al₂O₃) abrasive paper</strong> — bonded more strongly into the backing, much
                     less liberation, much less embedment. SiC is acceptable as a fallback only when alumina
                     is unavailable; inspect for embedded dark specks after every fine-grit step.
                   </p>

@@ -147,16 +147,16 @@ export default function CastIronGuide() {
                 >
                   <Image
                     src="/images/consumables/maxcut-d.webp"
-                    alt="MAX-D abrasive cut-off blades for cast iron sectioning"
+                    alt="Medium resin-bonded Al₂O₃ abrasive blade for cast iron sectioning"
                     width={500}
                     height={375}
                     className="w-full h-auto"
                   />
                 </Link>
-                <p className="text-sm text-gray-600 mt-2 italic text-center">MAX-D abrasive cut-off blades designed for general ferrous metals including cast iron. For very hard cast irons like <MaterialTooltip materialName="Austempered Ductile Iron">ADI</MaterialTooltip>, MAX-VHS series blades may be more appropriate.</p>
+                <p className="text-sm text-gray-600 mt-2 italic text-center">Medium resin-bonded Al₂O₃ blades designed for general ferrous metals including cast iron. For very hard cast irons like <MaterialTooltip materialName="Austempered Ductile Iron">ADI</MaterialTooltip>, a hard-bond blade for hardened steels may be more appropriate.</p>
               </div>
               <ul>
-                <li>Use MAX-D series blades for general cast iron grades, or MAX-VHS series for very hard cast irons like <MaterialTooltip materialName="Austempered Ductile Iron">ADI</MaterialTooltip></li>
+                <li>Use a medium resin-bonded Al₂O₃ blade (general ferrous category) for typical cast iron grades, or step up to a hard-bond Al₂O₃ blade (hardened/case-hardened steel category) for very hard cast irons like <MaterialTooltip materialName="Austempered Ductile Iron">ADI</MaterialTooltip></li>
                 <li>Use a standard abrasive cut-off wheel (0.5-1.0 mm thickness)</li>
                 <li>Apply steady, moderate pressure</li>
                 <li>Use adequate coolant to prevent overheating</li>
@@ -167,9 +167,9 @@ export default function CastIronGuide() {
                 use slower cutting speeds similar to hardened steel to prevent excessive heat buildup.
               </p>
               <ProductLink 
-                productName="MAX-D and MAX-VHS Abrasive Blades"
+                productName="Ferrous Abrasive Blades (General & Hardened)"
                 href="https://shop.metallographic.com/collections/abrasive-blades"
-                description="MAX-D blades for general cast iron, MAX-VHS blades for very hard cast irons like Austempered Ductile Iron (ADI)"
+                description="Medium resin-bonded Al₂O₃ blades for general cast iron, plus hard-bond Al₂O₃ blades for very hard cast irons like Austempered Ductile Iron (ADI)"
               />
             </section>
 

@@ -217,19 +217,19 @@ export default function StainlessSteelGuide() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 500px"
                   />
                 </Link>
-                <p className="text-sm text-gray-600 mt-2 italic text-center">MAX-VHS abrasive cut-off blades designed for hard and case-hardened stainless steels. For general stainless steel grades, MAX-D series blades are also suitable. Thin blades (0.5-1.0 mm) minimize heat generation and deformation.</p>
+                <p className="text-sm text-gray-600 mt-2 italic text-center">Hard-bond Al₂O₃ abrasive cut-off blades designed for hard and case-hardened stainless steels. For general stainless steel grades, a medium resin-bonded Al₂O₃ blade is also suitable. Thin blades (0.5-1.0 mm) minimize heat generation and deformation.</p>
               </div>
               <ul>
-                <li>Use MAX-VHS series blades for hard and case-hardened stainless steels, or MAX-D series for general stainless steel grades</li>
+                <li>Use a hard-bond Al₂O₃ blade (hardened/case-hardened steel category) for hard and case-hardened stainless steels, or a medium resin-bonded Al₂O₃ blade (general ferrous category) for typical stainless grades</li>
                 <li>Use a thin abrasive cut-off wheel (0.5-1.0 mm thickness)</li>
                 <li>Apply steady, moderate pressure</li>
                 <li>Use adequate coolant to prevent overheating</li>
                 <li>Allow the wheel to do the cutting - avoid forcing</li>
               </ul>
               <ProductLink 
-                productName="MAX-VHS and MAX-D Abrasive Blades"
+                productName="Stainless Steel Abrasive Blades"
                 href="https://shop.metallographic.com/collections/abrasive-blades"
-                description="MAX-VHS blades for hard/case-hardened stainless steel, MAX-D blades for general stainless steel grades"
+                description="Hard-bond Al₂O₃ blades for hard/case-hardened stainless steel, plus medium resin-bonded Al₂O₃ blades for general stainless steel grades"
               />
             </section>
 

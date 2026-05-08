@@ -598,7 +598,7 @@ export default function AutomotiveApplicationsPage() {
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 500px"
                       />
                     </Link>
-                    <p className="text-sm text-gray-600 mt-2 italic text-center">MAX-VHS abrasive blades for sectioning automotive steels. Proper blade selection minimizes damage and preserves microstructure.</p>
+                    <p className="text-sm text-gray-600 mt-2 italic text-center">Hard-bond Al₂O₃ abrasive blades for sectioning automotive steels. Proper blade selection minimizes damage and preserves microstructure.</p>
                   </div>
                 </AnimateOnScroll>
 

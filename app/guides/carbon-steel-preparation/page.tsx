@@ -134,25 +134,25 @@ export default function CarbonSteelGuide() {
                 >
                   <Image
                     src="/images/consumables/maxcut-d.webp"
-                    alt="MAX-D abrasive cut-off blades for carbon steel sectioning"
+                    alt="Medium resin-bonded Al₂O₃ abrasive blade for carbon steel sectioning"
                     width={500}
                     height={375}
                     className="w-full h-auto"
                   />
                 </Link>
-                <p className="text-sm text-gray-600 mt-2 italic text-center">MAX-D abrasive cut-off blades designed for general steels and ferrous metals like carbon steel and low alloy steel. For hard or case-hardened steels, MAX-VHS series blades may be more appropriate. Thin blades (0.5-1.0 mm) minimize heat generation and deformation.</p>
+                <p className="text-sm text-gray-600 mt-2 italic text-center">Medium resin-bonded Al₂O₃ blades designed for general steels and ferrous metals like carbon steel and low alloy steel. For hard or case-hardened steels, a hard-bond Al₂O₃ blade is more appropriate. Thin blades (0.5-1.0 mm) minimize heat generation and deformation.</p>
               </div>
               <ul>
-                <li>Use MAX-D series blades for general carbon steel and low alloy steel grades, or MAX-VHS series for hard/case-hardened steels</li>
+                <li>Use a medium resin-bonded Al₂O₃ blade (general ferrous category) for carbon steel and low-alloy steel grades, or step up to a hard-bond Al₂O₃ blade (hardened/case-hardened steel category) for harder grades</li>
                 <li>Use a thin abrasive cut-off wheel (0.5-1.0 mm thickness)</li>
                 <li>Apply steady, moderate pressure</li>
                 <li>Use adequate coolant to prevent overheating and phase transformation</li>
                 <li>Allow the wheel to do the cutting - avoid forcing</li>
               </ul>
               <ProductLink 
-                productName="MAX-D and MAX-VHS Abrasive Blades"
+                productName="Ferrous Abrasive Blades (General & Hardened)"
                 href="https://shop.metallographic.com/collections/abrasive-blades"
-                description="MAX-D blades for general carbon steel and low alloy steel, MAX-VHS blades for hard/case-hardened steels"
+                description="Medium resin-bonded Al₂O₃ blades for general carbon steel and low-alloy steel, plus hard-bond Al₂O₃ blades for hard or case-hardened steels"
               />
             </section>
 

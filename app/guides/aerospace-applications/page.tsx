@@ -143,7 +143,7 @@ export default function AerospaceApplicationsGuide() {
                 Key considerations for aerospace titanium components include:
               </p>
               <ul>
-                <li><strong><GlossaryTermTooltip term="Sectioning">Sectioning</GlossaryTermTooltip>:</strong> Use slow cutting speeds (100-200 RPM) with MAX-D or MAX-VHS blades to minimize heat generation and deformation</li>
+                <li><strong><GlossaryTermTooltip term="Sectioning">Sectioning</GlossaryTermTooltip>:</strong> Use slow cutting speeds (100-200 RPM) with a hard-bond Al₂O₃ blade rated for hard non-ferrous metals (the titanium category) to minimize heat generation and deformation</li>
                 <li><strong><GlossaryTermTooltip term="Mounting">Mounting</GlossaryTermTooltip>:</strong> <GlossaryTermTooltip term="Castable Mounting">Cold mounting</GlossaryTermTooltip> with epoxy is preferred to avoid thermal effects on <GlossaryTermTooltip term="Microstructure">microstructure</GlossaryTermTooltip></li>
                 <li><strong><GlossaryTermTooltip term="Grinding">Grinding</GlossaryTermTooltip>:</strong> Progressive grinding (120, 240, 400, 600 grit) with light pressure to avoid work-hardening</li>
                 <li><strong><GlossaryTermTooltip term="Polishing">Polishing</GlossaryTermTooltip>:</strong> <GlossaryTermTooltip term="Diamond Polishing">Diamond polishing</GlossaryTermTooltip> (9 μm → 3 μm → 1 μm) followed by 0.05 μm colloidal silica</li>
@@ -157,14 +157,14 @@ export default function AerospaceApplicationsGuide() {
                   className="block hover:opacity-90 transition-opacity"
                 >
                   <Image
-                    src="/images/consumables/maxcut-d.webp"
-                    alt="MAX-D abrasive cut-off blades for titanium sectioning"
+                    src="/images/consumables/maxcut-e.webp"
+                    alt="Hard non-ferrous Al₂O₃ abrasive cut-off blade for titanium sectioning"
                     width={500}
                     height={375}
                     className="w-full h-auto"
                   />
                 </Link>
-                <p className="text-sm text-gray-600 mt-2 italic text-center">MAX-D or MAX-VHS abrasive cut-off blades suitable for titanium. Thin blades (0.5-1.0 mm) minimize heat generation and deformation during sectioning.</p>
+                <p className="text-sm text-gray-600 mt-2 italic text-center">A hard-bond Al₂O₃ blade for hard non-ferrous metals — the dedicated titanium category. Thin blades (0.5-1.0 mm) minimize heat generation and deformation during sectioning.</p>
               </div>
               <p>
                 <strong>Critical Note:</strong> Titanium forms surface oxides easily. Minimize exposure 
@@ -196,7 +196,7 @@ export default function AerospaceApplicationsGuide() {
                 Key considerations for aerospace superalloys include:
               </p>
               <ul>
-                <li><strong><GlossaryTermTooltip term="Sectioning">Sectioning</GlossaryTermTooltip>:</strong> Use MAX-C series blades (silicon carbide/resin-rubber bond) at slow speeds (80-150 RPM) with continuous cooling</li>
+                <li><strong><GlossaryTermTooltip term="Sectioning">Sectioning</GlossaryTermTooltip>:</strong> Use a hard-bond abrasive blade (SiC or Al₂O₃) rated for nickel and cobalt superalloys at slow speeds (80-150 RPM) with continuous cooling</li>
                 <li><strong><GlossaryTermTooltip term="Mounting">Mounting</GlossaryTermTooltip>:</strong> Epoxy mounting is preferred to avoid thermal damage to sensitive <GlossaryTermTooltip term="Microstructure">microstructures</GlossaryTermTooltip></li>
                 <li><strong><GlossaryTermTooltip term="Grinding">Grinding</GlossaryTermTooltip>:</strong> Progressive grinding through 120, 240, 400, 600, 800 grit with light pressure</li>
                 <li><strong><GlossaryTermTooltip term="Polishing">Polishing</GlossaryTermTooltip>:</strong> Extended <GlossaryTermTooltip term="Diamond Polishing">diamond polishing</GlossaryTermTooltip> sequence (9 μm → 6 μm → 3 μm → 1 μm) with appropriate cloths for each stage</li>
@@ -217,14 +217,14 @@ export default function AerospaceApplicationsGuide() {
                     className="block hover:opacity-90 transition-opacity"
                   >
                     <Image
-                      src="/images/consumables/maxcut-c.webp"
-                      alt="MAX-C series abrasive blades for superalloy sectioning"
+                      src="/images/consumables/maxcut-i.webp"
+                      alt="Hard-bond abrasive blade for superalloy sectioning"
                       width={300}
                       height={225}
                       className="w-full h-auto"
                     />
                   </Link>
-                  <p className="text-xs text-gray-600 mt-2 italic text-center">MAX-C series blades (silicon carbide/resin-rubber bond) for sectioning nickel-based superalloys.</p>
+                  <p className="text-xs text-gray-600 mt-2 italic text-center">Hard-bond abrasive blade rated for nickel and cobalt superalloys (the right category for Inconel, Hastelloy, and Co-base alloys).</p>
                 </div>
                 <div className="rounded-lg overflow-hidden">
                   <Link 
@@ -267,7 +267,7 @@ export default function AerospaceApplicationsGuide() {
               <ProductLink
                 productName="Abrasive Blades for Aerospace Materials"
                 href="https://shop.metallographic.com/collections/abrasive-blades"
-                description="MAX-D, MAX-VHS, and MAX-C series blades for sectioning titanium and superalloys"
+                description="Hard non-ferrous Al₂O₃ blades for titanium, plus hard-bond SiC/Al₂O₃ blades for nickel and cobalt superalloys"
               />
               <ProductLink
                 productName="Silicon Carbide Grinding Papers"

@@ -115,26 +115,26 @@ export default function TitaniumGuide() {
                 >
                   <Image
                     src="/images/consumables/maxcut-e.webp"
-                    alt="MAX-E abrasive cut-off blades for titanium sectioning (hard non-ferrous Al₂O₃ bond)"
+                    alt="Hard non-ferrous Al₂O₃ abrasive cut-off blade for titanium sectioning"
                     width={500}
                     height={375}
                     className="w-full h-auto"
                   />
                 </Link>
-                <p className="text-sm text-gray-600 mt-2 italic text-center">When abrasive cutoff is unavoidable, MAX-E series blades (hard non-ferrous bond) are the titanium slot. Thin blades (0.5-1.0 mm) and copious flood coolant are mandatory.</p>
+                <p className="text-sm text-gray-600 mt-2 italic text-center">When abrasive cutoff is unavoidable, use a hard-bond Al₂O₃ blade formulated for hard non-ferrous metals — the dedicated titanium category. Thin blades (0.5-1.0 mm) and copious flood coolant are mandatory.</p>
               </div>
               <ul>
                 <li><strong>Preferred:</strong> precision (low-speed) saw with a diamond wafering blade — reduces twinning and keeps the damage layer thin</li>
-                <li><strong>Fallback:</strong> standard abrasive cutoff with a <strong>MAX-E series blade</strong> (hard non-ferrous Al₂O₃ bond, the titanium slot — not MAX-D, which is a soft-steel blade, and not MAX-VHS, which is for hardened steel)</li>
+                <li><strong>Fallback:</strong> standard abrasive cutoff with a <strong>hard-bond Al₂O₃ blade for hard non-ferrous metals</strong> — the dedicated titanium category. Avoid blades formulated for soft steel or hardened steel; the bond chemistry is wrong for Ti.</li>
                 <li>Use a thin abrasive cut-off wheel (0.5-1.0 mm thickness)</li>
                 <li>Apply <strong>light, steady force</strong> — heavy load is what produces deformation twinning in Ti</li>
                 <li>Use generous flood coolant; surface contamination from cutting fluid is real, clean immediately after sectioning</li>
                 <li>Allow the wheel to do the cutting - avoid forcing</li>
               </ul>
               <ProductLink
-                productName="MAX-E Abrasive Blades"
+                productName="Hard Non-Ferrous Abrasive Blades (Titanium)"
                 href="https://shop.metallographic.com/collections/abrasive-blades"
-                description="MAX-E hard non-ferrous Al₂O₃ blades — the titanium slot when a precision saw isn’t an option"
+                description="Hard-bond Al₂O₃ abrasive blades formulated for titanium and other hard non-ferrous alloys — the right blade category when a precision saw isn’t an option"
               />
             </section>
 

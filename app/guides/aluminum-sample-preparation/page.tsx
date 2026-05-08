@@ -129,7 +129,7 @@ export default function AluminumGuide() {
                     >
                       <Image
                         src="/images/consumables/maxcut-c.webp"
-                        alt="MAX-C abrasive cut-off blades for aluminum sectioning"
+                        alt="Soft-bond abrasive cut-off blade for aluminum sectioning"
                         width={500}
                         height={375}
                         className="w-full h-auto"
@@ -137,11 +137,11 @@ export default function AluminumGuide() {
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 500px"
                       />
                     </Link>
-                    <p className="text-sm text-gray-600 mt-2 italic text-center">MAX-C abrasive cut-off blades — the dedicated PACE soft-non-ferrous slot for aluminum, copper, and brass. Thin blades (0.5-1.0 mm) minimize heat generation and deformation.</p>
+                    <p className="text-sm text-gray-600 mt-2 italic text-center">Soft-bond abrasive cut-off blades formulated for soft non-ferrous metals (aluminum, copper, brass). Thin blades (0.5-1.0 mm) minimize heat generation and deformation.</p>
                   </div>
                 </AnimateOnScroll>
               <ul>
-                <li>Use <strong>MAX-C series blades</strong> — the dedicated PACE soft-non-ferrous slot for aluminum, copper, and brass. Do <em>not</em> use MAX-E (that's the hard non-ferrous / titanium blade) or MAX-D / MAX-VHS (those are steel blades).</li>
+                <li>Use a <strong>soft-bond abrasive blade formulated for soft non-ferrous metals</strong> (aluminum, copper, brass). Do <em>not</em> substitute a hard non-ferrous (titanium-class) blade or any steel-class blade — the bond chemistry is wrong and the blade will glaze or load.</li>
                 <li>Use a thin abrasive cut-off wheel (0.5-1.0 mm thickness)</li>
                 <li>Apply steady, light pressure to avoid deformation</li>
                 <li>Use adequate coolant to prevent overheating and smearing</li>
@@ -149,9 +149,9 @@ export default function AluminumGuide() {
                 <li>Consider using a slower feed rate than for harder materials</li>
               </ul>
                 <ProductLink
-                  productName="MAX-C Abrasive Blades"
+                  productName="Soft Non-Ferrous Abrasive Blades"
                   href="https://shop.metallographic.com/collections/abrasive-blades"
-                  description="MAX-C series blades — the dedicated PACE soft-non-ferrous slot for aluminum, copper, and brass"
+                  description="Soft-bond abrasive blades formulated for soft non-ferrous metals — aluminum, copper, and brass"
                 />
               </section>
             </AnimateOnScroll>

@@ -147,7 +147,7 @@ export default function CompositesGuide() {
                 <h3>Cutting Parameters</h3>
                 <ul>
                   <li><strong>Cutting Speed:</strong> Slow speeds (100-200 RPM) to minimize heat and mechanical damage. For polymer matrix composites, use 100-150 RPM; for metal matrix composites, 150-200 RPM may be acceptable</li>
-                  <li><strong>Blade Selection:</strong> MAX-E series thin abrasive cut-off wheels (0.5-1.0 mm) for most composites, or diamond blades for very hard ceramic reinforcements</li>
+                  <li><strong>Blade Selection:</strong> a thin (0.5-1.0 mm) abrasive cut-off wheel rated for fiber-reinforced composites for most polymer-matrix work, or a diamond blade for very hard ceramic reinforcements</li>
                   <li><strong>Cooling:</strong> Continuous cooling with water or cutting fluid is essential. Use adequate flow rate to prevent thermal damage to polymer matrices</li>
                   <li><strong>Feed Rate:</strong> Slow, steady feed (0.5-1.0 mm/min) to avoid excessive pressure and delamination</li>
                   <li><strong>Cutting Direction:</strong> Consider fiber orientation - cut perpendicular to fiber direction when possible to minimize pullout</li>
@@ -162,7 +162,7 @@ export default function CompositesGuide() {
                     >
                       <Image
                         src="/images/consumables/maxcut-e.webp"
-                        alt="MAX-E series thin abrasive cut-off blades for composite sectioning"
+                        alt="Thin abrasive cut-off blade for composite sectioning"
                         width={500}
                         height={375}
                         className="w-full h-auto"
@@ -170,7 +170,7 @@ export default function CompositesGuide() {
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 500px"
                       />
                     </Link>
-                    <p className="text-sm text-gray-600 mt-2 italic text-center">MAX-E series thin abrasive cut-off blades (0.5-1.0 mm) minimize kerf loss and reduce the risk of delamination in composite materials. These blades are specifically designed for cutting soft to medium-hard materials with minimal heat generation.</p>
+                    <p className="text-sm text-gray-600 mt-2 italic text-center">Thin abrasive cut-off blades (0.5-1.0 mm) minimize kerf loss and reduce the risk of delamination in composite materials. Choose a blade rated for soft to medium-hard materials with minimal heat generation.</p>
                   </div>
                 </AnimateOnScroll>
                 <h3>Composite-Specific Sectioning Considerations</h3>
@@ -178,17 +178,17 @@ export default function CompositesGuide() {
                   <h4 className="font-semibold mb-2">By Composite Type</h4>
                   <ul className="text-sm space-y-2">
                     <li>
-                      <strong><MaterialTooltip materialName="Carbon Fiber Reinforced Polymer (CFRP)">CFRP (Carbon Fiber Reinforced Polymer)</MaterialTooltip>:</strong> Use MAX-E blades at 100-120 RPM. 
+                      <strong><MaterialTooltip materialName="Carbon Fiber Reinforced Polymer (CFRP)">CFRP (Carbon Fiber Reinforced Polymer)</MaterialTooltip>:</strong> Use a thin abrasive blade rated for fiber composites at 100-120 RPM.
                       Carbon fibers are very hard and can cause blade wear. Monitor blade condition and replace 
                       when cutting efficiency decreases. Use continuous water cooling.
                     </li>
                     <li>
-                      <strong><MaterialTooltip materialName="Glass Fiber Reinforced Polymer (GFRP)">GFRP (Glass Fiber Reinforced Polymer)</MaterialTooltip>:</strong> Use MAX-E blades at 100-150 RPM. 
+                      <strong><MaterialTooltip materialName="Glass Fiber Reinforced Polymer (GFRP)">GFRP (Glass Fiber Reinforced Polymer)</MaterialTooltip>:</strong> Use a thin abrasive blade rated for fiber composites at 100-150 RPM.
                       Glass fibers are brittle and can shatter if cut too aggressively. Very sensitive to heat - 
                       ensure adequate cooling throughout the cut.
                     </li>
                     <li>
-                      <strong>MMC (Metal Matrix Composites):</strong> Use MAX-E or diamond blades depending on 
+                      <strong>MMC (Metal Matrix Composites):</strong> Use a fiber-composite-rated abrasive blade or a diamond blade depending on
                       reinforcement hardness. <MaterialTooltip materialName="Aluminum Matrix Composite (AMC)">Aluminum matrix composites</MaterialTooltip>: 150-180 RPM. Steel matrix: 120-150 RPM. 
                       Diamond blades recommended for SiC or B4C reinforcements.
                     </li>
@@ -218,9 +218,9 @@ export default function CompositesGuide() {
                   </p>
                 </div>
                 <ProductLink
-                  productName="MAX-E Abrasive Cut-Off Blades"
+                  productName="Composite-Rated Abrasive Blades"
                   href="https://shop.metallographic.com/collections/abrasive-blades"
-                  description="MAX-E series thin abrasive blades (0.5-1.0 mm) specifically designed for cutting composite materials with minimal heat generation and delamination"
+                  description="Thin abrasive blades (0.5-1.0 mm) designed for cutting fiber-reinforced composite materials with minimal heat generation and delamination"
                 />
               </section>
             </AnimateOnScroll>

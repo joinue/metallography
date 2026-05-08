@@ -136,16 +136,16 @@ export default function ToolSteelGuide() {
                 >
                   <Image
                     src="/images/consumables/maxcut-vhs.png"
-                    alt="MAX-VHS abrasive cut-off blades for tool steel and hardened steel sectioning"
+                    alt="Hard-bond Al₂O₃ abrasive cut-off blade for tool steel and hardened steel sectioning"
                     width={500}
                     height={375}
                     className="w-full h-auto"
                   />
                 </Link>
-                <p className="text-sm text-gray-600 mt-2 italic text-center">MAX-VHS abrasive cut-off blades designed for very hard and case-hardened steels. These blades are essential for tool steels and hardened steels.</p>
+                <p className="text-sm text-gray-600 mt-2 italic text-center">Hard-bond Al₂O₃ abrasive cut-off blades designed for very hard and case-hardened steels. This blade category is essential for tool steels and hardened steels.</p>
               </div>
               <ul>
-                <li>Use <strong>MAX-VHS series blades</strong> (hard-bond Al₂O₃) for hardened tool steels and case-hardened components</li>
+                <li>Use a <strong>hard-bond Al₂O₃ abrasive blade</strong> (the hardened/case-hardened steel category) for hardened tool steels and case-hardened components</li>
                 <li>For fully hardened high-carbide grades (M42, D2, T-grades), prefer a <strong>precision saw with a diamond wafering blade</strong></li>
                 <li>Use a thin abrasive cut-off wheel (0.5-1.0 mm thickness)</li>
                 <li>Apply steady, moderate pressure - avoid forcing</li>
@@ -158,9 +158,9 @@ export default function ToolSteelGuide() {
                 bond blade noted above.
               </p>
               <ProductLink 
-                productName="MAX-VHS Abrasive Blades"
+                productName="Hardened-Steel Abrasive Blades"
                 href="https://shop.metallographic.com/collections/abrasive-blades"
-                description="MAX-VHS blades specifically designed for very hard and case-hardened steels"
+                description="Hard-bond Al₂O₃ abrasive blades formulated for very hard and case-hardened steels — the right category for tool steels"
               />
             </section>
 

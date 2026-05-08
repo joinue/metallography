@@ -140,16 +140,16 @@ export default function CopperAlloysGuide() {
                 >
                   <Image
                     src="/images/consumables/maxcut-c.webp"
-                    alt="MAX-C abrasive cut-off blades for copper and copper alloys sectioning"
+                    alt="Soft-bond abrasive cut-off blade for copper and copper alloys sectioning"
                     width={500}
                     height={375}
                     className="w-full h-auto"
                   />
                 </Link>
-                <p className="text-sm text-gray-600 mt-2 italic text-center">MAX-C abrasive cut-off blades — the dedicated PACE soft-non-ferrous slot for aluminum, copper, and brass. Thin blades (0.5-1.0 mm) minimize heat generation and deformation.</p>
+                <p className="text-sm text-gray-600 mt-2 italic text-center">Soft-bond abrasive cut-off blades formulated for soft non-ferrous metals (aluminum, copper, brass). Thin blades (0.5-1.0 mm) minimize heat generation and deformation.</p>
               </div>
               <ul>
-                <li>Use <strong>MAX-C series blades</strong> — the dedicated soft-non-ferrous slot for Al, Cu, and brass. Do <em>not</em> use MAX-E (that's the hard non-ferrous / titanium blade) or MAX-D / MAX-VHS (those are steel blades).</li>
+                <li>Use a <strong>soft-bond abrasive blade formulated for soft non-ferrous metals</strong> (Al, Cu, brass). Do <em>not</em> substitute a hard non-ferrous (titanium-class) blade or any steel-class blade — the bond chemistry is wrong and the blade will glaze or load.</li>
                 <li>Use a thin abrasive cut-off wheel (0.5-1.0 mm thickness)</li>
                 <li>Apply steady, light pressure to avoid deformation</li>
                 <li>Use adequate coolant to prevent overheating and smearing</li>
@@ -157,9 +157,9 @@ export default function CopperAlloysGuide() {
                 <li>Consider using a slower feed rate than for harder materials</li>
               </ul>
               <ProductLink
-                productName="MAX-C Abrasive Blades"
+                productName="Soft Non-Ferrous Abrasive Blades"
                 href="https://shop.metallographic.com/collections/abrasive-blades"
-                description="MAX-C series blades — the dedicated PACE soft-non-ferrous slot for aluminum, copper, and brass"
+                description="Soft-bond abrasive blades formulated for soft non-ferrous metals — aluminum, copper, and brass"
               />
             </section>
 
@@ -199,8 +199,8 @@ export default function CopperAlloysGuide() {
               <p>
                 <strong>Abrasive choice — alumina vs. SiC:</strong> Copper is soft enough that SiC particles can
                 liberate from the paper and embed in the matrix, where they resist removal in subsequent steps.
-                The PACE recommendation for soft non-ferrous (Al, Cu, brass) is the <strong>ALO alumina paper line</strong> —
-                bonded more strongly into the backing than SiC, less liberation, less embedment. SiC is acceptable
+                The standard recommendation for soft non-ferrous (Al, Cu, brass) is an <strong>alumina (Al₂O₃) abrasive paper</strong> —
+                bonded more strongly into the backing than SiC, with less liberation and less embedment. SiC is acceptable
                 as a fallback (especially on harder bronzes that don't smear as easily as pure Cu), but inspect for
                 embedded dark specks after fine grinding. The sequence below uses SiC as the most widely stocked
                 option:

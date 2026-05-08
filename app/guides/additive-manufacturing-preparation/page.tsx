@@ -222,7 +222,7 @@ export default function AdditiveManufacturingGuide() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 500px"
                   />
                 </Link>
-                <p className="text-sm text-gray-600 mt-2 italic text-center">Thin abrasive cut-off blades minimize heat generation and preserve microstructural features in AM materials. MAX-VHS or MAX-D series blades are suitable for most AM alloys.</p>
+                <p className="text-sm text-gray-600 mt-2 italic text-center">Thin abrasive cut-off blades minimize heat generation and preserve microstructural features in AM materials. Hard-bond Al₂O₃ blades (hardened-steel category) or medium resin-bonded Al₂O₃ blades (general ferrous category) are suitable for most AM alloys.</p>
               </div>
               <ProductLink 
                 productName="Abrasive Cut-Off Blades"
