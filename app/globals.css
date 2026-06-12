@@ -72,15 +72,13 @@
     white-space: normal;
   }
   
+  /* Spacing only — bullets/numbers are opt-in via Tailwind's list-disc/
+     list-decimal (and handled separately for .prose markdown). Many pages
+     hand-roll their own "•" markers, so a global disc here double-bullets them. */
   ul, ol {
     @apply mb-4 ml-6;
-    list-style-type: disc;
   }
-  
-  ol {
-    list-style-type: decimal;
-  }
-  
+
   /* Remove bullets from footer lists */
   footer ul,
   footer ol {
