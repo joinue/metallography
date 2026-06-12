@@ -3,25 +3,19 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Calendar, Clock, ArrowLeft, Share2, Twitter, Facebook, Linkedin, Mail } from 'lucide-react'
-import { getBlogPostBySlug, getAllBlogPosts } from '@/lib/supabase'
+import { getAllPosts, getPostBySlug, getRelatedPosts } from '@/lib/blog'
 import RelatedPosts from '@/components/RelatedPosts'
 import ViewTracker from './ViewTracker'
 
-export async function generateStaticParams() {
-  try {
-    const posts = await getAllBlogPosts('published')
-    return posts.map((post) => ({
-      slug: post.slug,
-    }))
-  } catch (error) {
-    console.error('Error generating static params:', error)
-    return []
-  }
+export function generateStaticParams() {
+  return getAllPosts().map((post) => ({
+    slug: post.slug,
+  }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
-  const post = await getBlogPostBySlug(slug)
+  const post = getPostBySlug(slug)
   
   if (!post) {
     return {
@@ -54,9 +48,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       ],
       locale: 'en_US',
       type: 'article',
-      publishedTime: post.published_at || post.created_at || new Date().toISOString(),
+      publishedTime: post.published_at,
       authors: post.author ? [post.author] : undefined,
-      tags: post.tags || [post.category],
+      tags: post.tags.length > 0 ? post.tags : [post.category],
     },
     twitter: {
       card: 'summary_large_image',
@@ -72,11 +66,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const post = await getBlogPostBySlug(slug)
+  const post = getPostBySlug(slug)
 
-  if (!post || post.status !== 'published') {
+  if (!post) {
     notFound()
   }
+
+  const relatedPosts = getRelatedPosts(post, 3)
 
   const formatDate = (dateString: string | null | undefined) => {
     if (!dateString) return new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
@@ -91,8 +87,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     headline: post.title,
     description: post.excerpt,
     image: `https://metallography.org${post.image || '/logo.png'}`,
-    datePublished: post.published_at || post.created_at || new Date().toISOString(),
-    dateModified: post.updated_at || post.created_at || new Date().toISOString(),
+    datePublished: post.published_at,
+    dateModified: post.published_at,
     author: {
       '@type': 'Organization',
       name: post.author || 'Metallography.org',
@@ -171,8 +167,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 </span>
                 <div className="flex items-center gap-1">
                   <Calendar className="w-3.5 h-3.5 md:w-5 md:h-5" />
-                  <time dateTime={post.published_at || post.created_at || ''} className="font-medium">
-                    {formatDate(post.published_at || post.created_at)}
+                  <time dateTime={post.published_at} className="font-medium">
+                    {formatDate(post.published_at)}
                   </time>
                 </div>
                 <div className="flex items-center gap-1">
@@ -267,7 +263,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </div>
 
           {/* Related Posts */}
-          <RelatedPosts currentPost={post} limit={3} />
+          <RelatedPosts posts={relatedPosts} />
         </div>
       </article>
     </>

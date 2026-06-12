@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 import type { User } from '@supabase/supabase-js'
-import { Package, FlaskConical, FileText, Users, BarChart3, Database } from 'lucide-react'
+import { Package, FlaskConical, Users, BarChart3, Database } from 'lucide-react'
 
 interface AdminDashboardProps {
   user: User
@@ -26,15 +26,6 @@ const adminOptions: AdminOption[] = [
     icon: Package,
     color: 'blue',
     href: '/admin/materials',
-    status: 'active',
-  },
-  {
-    id: 'blog',
-    title: 'Blog Posts',
-    description: 'Create, edit, and manage blog posts',
-    icon: FileText,
-    color: 'purple',
-    href: '/admin/blog',
     status: 'active',
   },
   {

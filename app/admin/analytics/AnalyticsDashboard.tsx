@@ -264,7 +264,6 @@ export default function AnalyticsDashboard({
                   value={blogStats.total}
                   icon={FileText}
                   color="purple"
-                  onClick={() => router.push('/admin/blog')}
                 />
                 <StatCard
                   title="Published"
@@ -272,7 +271,6 @@ export default function AnalyticsDashboard({
                   icon={CheckCircle}
                   color="green"
                   subtitle="Live on site"
-                  onClick={() => router.push('/admin/blog')}
                 />
                 <StatCard
                   title="Drafts"
@@ -280,7 +278,6 @@ export default function AnalyticsDashboard({
                   icon={Clock}
                   color="orange"
                   subtitle="In progress"
-                  onClick={() => router.push('/admin/blog')}
                 />
                 <StatCard
                   title="Total Views"
@@ -299,7 +296,7 @@ export default function AnalyticsDashboard({
                       Most Viewed Posts
                     </h3>
                     <button
-                      onClick={() => router.push('/admin/blog')}
+                      onClick={() => router.push('/blog')}
                       className="text-sm text-primary-600 hover:text-primary-700 flex items-center gap-1 font-medium"
                     >
                       View All
@@ -311,7 +308,7 @@ export default function AnalyticsDashboard({
                       blogStats.mostViewed.map((post, index) => (
                         <div
                           key={post.id}
-                          onClick={() => router.push(`/admin/blog/${post.slug}`)}
+                          onClick={() => router.push(`/blog/${post.slug}`)}
                           className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer group"
                         >
                           <div className="flex items-center gap-3 flex-1 min-w-0">
@@ -341,7 +338,7 @@ export default function AnalyticsDashboard({
                       Recent Posts
                     </h3>
                     <button
-                      onClick={() => router.push('/admin/blog')}
+                      onClick={() => router.push('/blog')}
                       className="text-sm text-primary-600 hover:text-primary-700 flex items-center gap-1 font-medium"
                     >
                       View All
@@ -353,7 +350,7 @@ export default function AnalyticsDashboard({
                       blogStats.recentPosts.map((post) => (
                         <div
                           key={post.id}
-                          onClick={() => router.push(`/admin/blog/${post.slug}`)}
+                          onClick={() => router.push(`/blog/${post.slug}`)}
                           className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer group"
                         >
                           <div className="flex-1 min-w-0">

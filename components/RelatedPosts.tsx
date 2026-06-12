@@ -1,60 +1,17 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Calendar, Clock, ArrowRight } from 'lucide-react'
-import type { BlogPost } from '@/lib/supabase'
-import { getAllBlogPosts } from '@/lib/supabase'
+import { Calendar, ArrowRight, Newspaper } from 'lucide-react'
+import type { BlogPost } from '@/lib/blog'
 
 interface RelatedPostsProps {
-  currentPost: BlogPost
-  limit?: number
+  /** Related posts computed server-side via lib/blog getRelatedPosts() */
+  posts: BlogPost[]
 }
 
-export default async function RelatedPosts({ currentPost, limit = 3 }: RelatedPostsProps) {
-  let allPosts: BlogPost[] = []
-  try {
-    allPosts = await getAllBlogPosts('published')
-  } catch (error) {
-    console.error('Error fetching posts for related posts:', error)
-    return null
-  }
+export default function RelatedPosts({ posts }: RelatedPostsProps) {
+  if (posts.length === 0) return null
 
-  // Filter out current post
-  const otherPosts = allPosts.filter(post => post.slug !== currentPost.slug)
-
-  // Find related posts by:
-  // 1. Same category
-  // 2. Shared tags
-  // 3. Similar title/excerpt keywords
-  const related: BlogPost[] = []
-  
-  // Same category posts
-  const sameCategory = otherPosts.filter(
-    post => post.category === currentPost.category
-  )
-  related.push(...sameCategory.slice(0, limit))
-
-  // If not enough, add posts with shared tags
-  if (related.length < limit && currentPost.tags && Array.isArray(currentPost.tags)) {
-    const withSharedTags = otherPosts.filter(post => {
-      if (!post.tags || !Array.isArray(post.tags)) return false
-      if (related.some(r => r.slug === post.slug)) return false
-      return post.tags.some(tag => currentPost.tags!.includes(tag))
-    })
-    related.push(...withSharedTags.slice(0, limit - related.length))
-  }
-
-  // If still not enough, add most recent posts
-  if (related.length < limit) {
-    const recent = otherPosts
-      .filter(post => !related.some(r => r.slug === post.slug))
-      .slice(0, limit - related.length)
-    related.push(...recent)
-  }
-
-  if (related.length === 0) return null
-
-  const formatDate = (dateString: string | null | undefined) => {
-    if (!dateString) return new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+  const formatDate = (dateString: string) => {
     const date = new Date(dateString)
     return date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
   }
@@ -63,20 +20,26 @@ export default async function RelatedPosts({ currentPost, limit = 3 }: RelatedPo
     <section className="mt-16 md:mt-20 pt-8 md:pt-12 border-t border-gray-200">
       <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-gray-900">Related Posts</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-        {related.slice(0, limit).map((post) => (
+        {posts.map((post) => (
           <Link
             key={post.slug}
             href={`/blog/${post.slug}`}
             className="group bg-white border-2 border-gray-200 rounded-xl overflow-hidden hover:border-primary-400 hover:shadow-lg transition-all duration-200 flex flex-col"
           >
             <div className="relative w-full h-48 bg-gray-100">
-              <Image
-                src={post.image || '/logo.png'}
-                alt={post.title}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-300"
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
+              {post.image ? (
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              ) : (
+                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
+                  <Newspaper className="w-10 h-10 text-gray-300" />
+                </div>
+              )}
             </div>
             <div className="p-5 md:p-6 flex flex-col flex-grow">
               <div className="flex items-center gap-2 text-xs text-gray-500 mb-2">
@@ -85,8 +48,8 @@ export default async function RelatedPosts({ currentPost, limit = 3 }: RelatedPo
                 </span>
                 <div className="flex items-center gap-1">
                   <Calendar className="w-3 h-3" />
-                  <time dateTime={post.published_at || post.created_at || ''}>
-                    {formatDate(post.published_at || post.created_at)}
+                  <time dateTime={post.published_at}>
+                    {formatDate(post.published_at)}
                   </time>
                 </div>
               </div>
@@ -107,4 +70,3 @@ export default async function RelatedPosts({ currentPost, limit = 3 }: RelatedPo
     </section>
   )
 }
-

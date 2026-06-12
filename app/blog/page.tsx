@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Suspense } from 'react'
-import { getPublishedBlogPosts } from '@/lib/supabase'
+import { getAllPosts } from '@/lib/blog'
 import BlogClient from '@/components/BlogClient'
 import NewsletterSubscription from '@/components/NewsletterSubscription'
 
@@ -44,20 +44,9 @@ export const metadata: Metadata = {
   },
 }
 
-export default async function BlogPage() {
-  // Fetch blog posts from database
-  let blogPosts: Awaited<ReturnType<typeof getPublishedBlogPosts>> = []
-  try {
-    blogPosts = await getPublishedBlogPosts()
-  } catch (error: any) {
-    console.error('Error fetching blog posts:', error)
-    // If table doesn't exist, return empty array
-    if (error?.code === '42P01' || error?.message?.includes('does not exist')) {
-      console.warn('Blog posts table does not exist yet. Please run the migration.')
-    }
-    // Fallback to empty array if database is not available
-    blogPosts = []
-  }
+export default function BlogPage() {
+  // Posts come from markdown files in content/blog/ at build time
+  const blogPosts = getAllPosts()
 
   // CollectionPage structured data
   const structuredData = {
@@ -77,7 +66,7 @@ export default async function BlogPage() {
           headline: post.title,
           description: post.excerpt,
           url: `https://metallography.org/blog/${post.slug}`,
-          datePublished: post.published_at || post.created_at || new Date().toISOString(),
+          datePublished: post.published_at,
         },
       })),
     },
@@ -126,21 +115,12 @@ export default async function BlogPage() {
           </div>
 
           {/* Blog Client Component with Search, Filtering, and Pagination */}
-          {blogPosts.length > 0 ? (
-            <Suspense fallback={<div className="py-8">Loading blog posts...</div>}>
-              <BlogClient initialPosts={blogPosts} />
-            </Suspense>
-          ) : (
-            <div className="text-center py-12">
-              <p className="text-gray-600 mb-4">No blog posts yet. Check back soon!</p>
-              <Link href="/guides" className="btn-primary inline-flex">
-                Browse Guides
-              </Link>
-            </div>
-          )}
+          <Suspense fallback={<div className="py-8">Loading blog posts...</div>}>
+            <BlogClient initialPosts={blogPosts} />
+          </Suspense>
 
           {/* Newsletter Subscription */}
-          {blogPosts.length > 0 && <NewsletterSubscription />}
+          <NewsletterSubscription />
 
           {/* CTA Section */}
           <div className="mt-8 sm:mt-12 md:mt-20">

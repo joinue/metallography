@@ -7,8 +7,14 @@ import { useRouter } from 'next/navigation'
 import { ChevronRight, Menu, X, ChevronDown, Search, LogOut } from 'lucide-react'
 import GlobalSearch from '@/components/GlobalSearch'
 import { createClient } from '@/lib/supabase-client'
+import type { BlogSearchItem } from '@/lib/blog'
 
-export default function Header() {
+interface HeaderProps {
+  /** Build-time blog search entries, computed in the server layout */
+  blogSearchItems?: BlogSearchItem[]
+}
+
+export default function Header({ blogSearchItems = [] }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [searchOpen, setSearchOpen] = useState(false)
@@ -238,9 +244,6 @@ export default function Header() {
                         <Link href="/tools/grit-size-converter" className="block px-5 py-2 text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50/50 rounded-lg transition-all duration-200">
                           Grit Size Converter
                         </Link>
-                        <Link href="/tools/etchant-selector" className="block px-5 py-2 text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50/50 rounded-lg transition-all duration-200">
-                          Etchant Selector
-                        </Link>
                         <Link href="/tools/polishing-time-calculator" className="block px-5 py-2 text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50/50 rounded-lg transition-all duration-200">
                           Polishing Time Calculator
                         </Link>
@@ -282,7 +285,7 @@ export default function Header() {
                           Materials Database
                         </Link>
                         <Link href="/etchants" className="block px-5 py-2 text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50/50 rounded-lg transition-all duration-200">
-                          Etchants Database
+                          Etchants
                         </Link>
                         <Link href="/standards" className="block px-5 py-2 text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50/50 rounded-lg transition-all duration-200">
                           Standards Database
@@ -489,7 +492,7 @@ export default function Header() {
               {mobileExpandedSection === 'databases' && (
                 <div className="pl-4 pt-2 pb-2 space-y-1 animate-in slide-in-from-top-2 duration-200">
                   <Link href="/materials" className="block py-1.5 text-sm text-gray-600 hover:text-primary-600" onClick={() => setMobileMenuOpen(false)}>Materials Database</Link>
-                  <Link href="/etchants" className="block py-1.5 text-sm text-gray-600 hover:text-primary-600" onClick={() => setMobileMenuOpen(false)}>Etchants Database</Link>
+                  <Link href="/etchants" className="block py-1.5 text-sm text-gray-600 hover:text-primary-600" onClick={() => setMobileMenuOpen(false)}>Etchants</Link>
                   <Link href="/standards" className="block py-1.5 text-sm text-gray-600 hover:text-primary-600" onClick={() => setMobileMenuOpen(false)}>Standards Database</Link>
                 </div>
               )}
@@ -564,7 +567,7 @@ export default function Header() {
       </nav>
 
       {/* Global Search */}
-      <GlobalSearch isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
+      <GlobalSearch isOpen={searchOpen} onClose={() => setSearchOpen(false)} blogPosts={blogSearchItems} />
     </header>
   )
 }

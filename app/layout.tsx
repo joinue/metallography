@@ -4,6 +4,7 @@ import { Suspense } from 'react'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import { getBlogSearchItems } from '@/lib/blog'
 import ReturnToTop from '@/components/ReturnToTop'
 import PageViewTracker from '@/components/PageViewTracker'
 
@@ -131,7 +132,7 @@ export default function RootLayout({
           <PageViewTracker />
           </Suspense>
           <div className="build-page-hidden">
-            <Header />
+            <Header blogSearchItems={getBlogSearchItems()} />
           </div>
           <main className="min-h-screen pt-24 build-page-main">{children}</main>
           <div className="build-page-hidden">

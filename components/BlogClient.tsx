@@ -4,8 +4,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect, useMemo } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
-import { Calendar, Clock, ArrowRight, Tag, Search, X, ChevronLeft, ChevronRight, Star } from 'lucide-react'
-import type { BlogPost } from '@/lib/supabase'
+import { Calendar, Clock, ArrowRight, Tag, Search, X, ChevronLeft, ChevronRight, Star, Newspaper } from 'lucide-react'
+import type { BlogPost } from '@/lib/blog'
 
 interface BlogClientProps {
   initialPosts: BlogPost[]
@@ -81,9 +81,10 @@ export default function BlogClient({ initialPosts }: BlogClientProps) {
     return filtered
   }, [initialPosts, selectedCategory, selectedTag, searchQuery])
 
-  // Featured posts (first 3 posts, or most recent if no featured flag)
+  // Featured posts (posts flagged featured, falling back to the most recent)
   const featuredPosts = useMemo(() => {
-    return filteredPosts.slice(0, 3)
+    const flagged = filteredPosts.filter(post => post.featured)
+    return (flagged.length > 0 ? flagged : filteredPosts).slice(0, 3)
   }, [filteredPosts])
 
   // Pagination
@@ -364,6 +365,14 @@ export default function BlogClient({ initialPosts }: BlogClientProps) {
   )
 }
 
+function PostImagePlaceholder() {
+  return (
+    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
+      <Newspaper className="w-8 h-8 text-gray-300" />
+    </div>
+  )
+}
+
 function FeaturedPostCard({ post, formatDate }: { post: BlogPost; formatDate: (date: string | null | undefined) => string }) {
   return (
     <Link
@@ -371,13 +380,17 @@ function FeaturedPostCard({ post, formatDate }: { post: BlogPost; formatDate: (d
       className="group bg-white border border-gray-200 rounded-lg overflow-hidden hover:border-gray-300 hover:shadow-md transition-all duration-200"
     >
       <div className="relative w-full h-32 bg-gray-100">
-        <Image
-          src={post.image || '/logo.png'}
-          alt={post.title}
-          fill
-          className="object-cover group-hover:scale-105 transition-transform duration-300"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        />
+        {post.image ? (
+          <Image
+            src={post.image}
+            alt={post.title}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          />
+        ) : (
+          <PostImagePlaceholder />
+        )}
       </div>
       <div className="p-3">
         <div className="flex items-center gap-2 text-xs text-gray-500 mb-1.5">
@@ -410,13 +423,17 @@ function BlogPostCard({
       <div className="flex flex-col sm:flex-row">
         {/* Image */}
         <Link href={`/blog/${post.slug}`} className="relative w-full sm:w-40 md:w-48 h-40 sm:h-auto flex-shrink-0 bg-gray-100 block">
-          <Image
-            src={post.image || '/logo.png'}
-            alt={post.title}
-            fill
-            className="object-cover group-hover:scale-105 transition-transform duration-300"
-            sizes="(max-width: 640px) 100vw, 192px"
-          />
+          {post.image ? (
+            <Image
+              src={post.image}
+              alt={post.title}
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-300"
+              sizes="(max-width: 640px) 100vw, 192px"
+            />
+          ) : (
+            <PostImagePlaceholder />
+          )}
         </Link>
         
         {/* Content */}
@@ -428,8 +445,8 @@ function BlogPostCard({
             </span>
             <div className="flex items-center gap-1">
               <Calendar className="w-3 h-3" />
-              <time dateTime={post.published_at || post.created_at || ''}>
-                {formatDate(post.published_at || post.created_at)}
+              <time dateTime={post.published_at}>
+                {formatDate(post.published_at)}
               </time>
             </div>
             {post.read_time && (

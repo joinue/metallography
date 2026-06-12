@@ -4,7 +4,8 @@ import { useState, useEffect, useRef, useMemo } from 'react'
 import { Search, X, BookOpen, FileText, Calculator, ChevronRight, Hash, Database, Newspaper } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { getAllMaterials, getPublishedBlogPosts, type Material, type BlogPost } from '@/lib/supabase'
+import { getAllMaterials, type Material } from '@/lib/supabase'
+import type { BlogSearchItem } from '@/lib/blog'
 
 // Search data structure
 interface SearchItem {
@@ -302,7 +303,6 @@ const buildSearchIndex = (): SearchItem[] => {
     { title: 'Grain Size Calculator', slug: 'grain-size-calculator', description: 'Calculate ASTM grain size numbers', category: 'Calculators' },
     { title: 'Mounting Material Calculator', slug: 'mounting-material-calculator', description: 'Calculate mounting material needed', category: 'Calculators' },
     { title: 'Total Procedure Time Estimator', slug: 'procedure-time-estimator', description: 'Estimate total time for sample preparation', category: 'Calculators' },
-    { title: 'Etchant Selector', slug: 'etchant-selector', description: 'Find the right etchant for your material', category: 'Reference' },
     { title: 'Sample Size/Mold Compatibility Checker', slug: 'mold-compatibility-checker', description: 'Check if your sample fits in standard molds', category: 'Reference' },
   ]
 
@@ -329,28 +329,43 @@ const baseSearchIndex = buildSearchIndex()
 const MATERIALS_CACHE_KEY = 'global-search-materials'
 const MATERIALS_CACHE_EXPIRY = 1000 * 60 * 30 // 30 minutes
 
-// Cache key for blog posts
-const BLOG_POSTS_CACHE_KEY = 'global-search-blog-posts'
-const BLOG_POSTS_CACHE_EXPIRY = 1000 * 60 * 30 // 30 minutes
-
 interface GlobalSearchProps {
   isOpen: boolean
   onClose: () => void
+  /** Build-time blog search entries (from lib/blog getBlogSearchItems(), passed down via Header) */
+  blogPosts?: BlogSearchItem[]
 }
 
-export default function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
+export default function GlobalSearch({ isOpen, onClose, blogPosts = [] }: GlobalSearchProps) {
   const [query, setQuery] = useState('')
   const [results, setResults] = useState<SearchItem[]>([])
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [materials, setMaterials] = useState<Material[]>([])
-  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([])
-  const [searchIndex, setSearchIndex] = useState<SearchItem[]>(baseSearchIndex)
+  const [materialItems, setMaterialItems] = useState<SearchItem[]>([])
   const [isLoadingMaterials, setIsLoadingMaterials] = useState(false)
-  const [isLoadingBlogPosts, setIsLoadingBlogPosts] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
   const router = useRouter()
 
-  // Load materials and blog posts with caching
+  // Blog posts are static (file-based, rendered at build time) — no fetching needed
+  const blogItems = useMemo<SearchItem[]>(
+    () =>
+      blogPosts.map(post => ({
+        id: `blog-${post.slug}`,
+        title: post.title,
+        description: post.excerpt,
+        url: `/blog/${post.slug}`,
+        type: 'blog' as const,
+        category: post.category,
+      })),
+    [blogPosts]
+  )
+
+  const searchIndex = useMemo<SearchItem[]>(
+    () => [...baseSearchIndex, ...blogItems, ...materialItems],
+    [blogItems, materialItems]
+  )
+
+  // Load materials with caching
   useEffect(() => {
     async function loadMaterials() {
       // Check cache first
@@ -390,47 +405,6 @@ export default function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
         // Continue with base search index if materials fail to load
       } finally {
         setIsLoadingMaterials(false)
-      }
-    }
-
-    async function loadBlogPosts() {
-      // Check cache first
-      try {
-        const cached = sessionStorage.getItem(BLOG_POSTS_CACHE_KEY)
-        if (cached) {
-          const { data, timestamp } = JSON.parse(cached)
-          const age = Date.now() - timestamp
-          if (age < BLOG_POSTS_CACHE_EXPIRY) {
-            setBlogPosts(data)
-            buildBlogSearchIndex(data)
-            return
-          }
-        }
-      } catch (e) {
-        // Cache invalid, continue to fetch
-      }
-
-      setIsLoadingBlogPosts(true)
-      try {
-        const publishedPosts = await getPublishedBlogPosts()
-        setBlogPosts(publishedPosts)
-        
-        // Cache the blog posts
-        try {
-          sessionStorage.setItem(BLOG_POSTS_CACHE_KEY, JSON.stringify({
-            data: publishedPosts,
-            timestamp: Date.now(),
-          }))
-        } catch (e) {
-          // SessionStorage might be disabled, continue without cache
-        }
-        
-        buildBlogSearchIndex(publishedPosts)
-      } catch (error) {
-        console.error('Error loading blog posts for search:', error)
-        // Continue without blog posts if they fail to load
-      } finally {
-        setIsLoadingBlogPosts(false)
       }
     }
 
@@ -476,34 +450,11 @@ export default function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
         })
       })
       
-      // Update search index with materials, preserving blog posts if they exist
-      setSearchIndex(prev => {
-        const existingBlogPosts = prev.filter(item => item.type === 'blog')
-        return [...baseSearchIndex, ...existingBlogPosts, ...materialItems]
-      })
+      setMaterialItems(materialItems)
     }
 
-    function buildBlogSearchIndex(allBlogPosts: BlogPost[]) {
-      // Add blog posts to search index
-      const blogItems: SearchItem[] = allBlogPosts.map(post => ({
-        id: `blog-${post.id}`,
-        title: post.title,
-        description: post.excerpt,
-        url: `/blog/${post.slug}`,
-        type: 'blog',
-        category: post.category,
-      }))
-      
-      // Update search index with blog posts, preserving materials if they exist
-      setSearchIndex(prev => {
-        const existingMaterials = prev.filter(item => item.type === 'material')
-        return [...baseSearchIndex, ...blogItems, ...existingMaterials]
-      })
-    }
-    
     if (isOpen) {
       loadMaterials()
-      loadBlogPosts()
     }
   }, [isOpen])
 
@@ -826,7 +777,7 @@ export default function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
             {/* Results - Grouped by Type */}
             {results.length > 0 && (
               <div className="border-t border-gray-200 flex-1 overflow-y-auto">
-                {(isLoadingMaterials || isLoadingBlogPosts) && (
+                {isLoadingMaterials && (
                   <div className="px-4 py-2 text-xs text-gray-500 border-b border-gray-100">
                     Loading...
                   </div>
@@ -892,7 +843,7 @@ export default function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
             )}
 
             {/* No Results */}
-            {query && results.length === 0 && !isLoadingMaterials && !isLoadingBlogPosts && (
+            {query && results.length === 0 && !isLoadingMaterials && (
               <div className="border-t border-gray-200 px-4 sm:px-6 py-8 sm:py-12 text-center">
                 <p className="text-gray-500">No results found for "{query}"</p>
                 <p className="text-sm text-gray-400 mt-2">Try a different search term</p>

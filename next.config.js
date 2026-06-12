@@ -34,6 +34,13 @@ const nextConfig = {
     // Optimize package imports to reduce bundle size
     optimizePackageImports: ['lucide-react'],
   },
+  // The blog is file-based (content/blog/*.md, read via lib/blog.ts). Static
+  // pages read the files at build time, but dynamic routes (e.g. the
+  // force-dynamic sitemap, which lists blog URLs) read them at request time,
+  // so the markdown must be traced into the serverless bundles on Vercel.
+  outputFileTracingIncludes: {
+    '/**': ['./content/blog/**/*'],
+  },
   // Permanent redirects — used to consolidate duplicate slugs into a single
   // canonical URL. Search engines see a 301; existing external links keep working.
   async redirects() {
@@ -43,6 +50,20 @@ const nextConfig = {
         // `mounting` (same metadata slug, overlapping content). Canonical is `mounting`.
         source: '/guides/metallographic-mounting',
         destination: '/guides/mounting',
+        permanent: true,
+      },
+      {
+        // The per-etchant database pages were retired in favor of the /etchants
+        // quick reference + referral to the Materials Prep etchant database.
+        source: '/etchants/:slug',
+        destination: '/etchants',
+        permanent: true,
+      },
+      {
+        // The database-backed etchant selector tool was retired; /etchants
+        // carries the quick reference and the Materials Prep referral.
+        source: '/tools/etchant-selector',
+        destination: '/etchants',
         permanent: true,
       },
     ]

@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next'
 import { guides } from '@/data/guides'
-import { getAllMaterials, getAllEtchants, getAllStandards, getPublishedBlogPosts } from '@/lib/supabase'
+import { getAllMaterials, getAllStandards } from '@/lib/supabase'
+import { getAllPosts } from '@/lib/blog'
 
 // Force dynamic rendering to ensure database queries work
 export const dynamic = 'force-dynamic'
@@ -20,28 +21,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: guide.category === 'Material-Specific' || guide.category === 'Application-Specific' ? 0.8 : 0.7,
   }))
 
-  // Fetch dynamic content
-  let blogPosts: Awaited<ReturnType<typeof getPublishedBlogPosts>> = []
-  let materials: Awaited<ReturnType<typeof getAllMaterials>> = []
-  let etchants: Awaited<ReturnType<typeof getAllEtchants>> = []
-  let standards: Awaited<ReturnType<typeof getAllStandards>> = []
+  // Blog posts come from markdown files in content/blog/ at build time
+  const blogPosts = getAllPosts()
 
-  try {
-    blogPosts = await getPublishedBlogPosts()
-  } catch (error) {
-    console.error('Error fetching blog posts for sitemap:', error)
-  }
+  // Fetch dynamic content
+  let materials: Awaited<ReturnType<typeof getAllMaterials>> = []
+  let standards: Awaited<ReturnType<typeof getAllStandards>> = []
 
   try {
     materials = await getAllMaterials()
   } catch (error) {
     console.error('Error fetching materials for sitemap:', error)
-  }
-
-  try {
-    etchants = await getAllEtchants()
-  } catch (error) {
-    console.error('Error fetching etchants for sitemap:', error)
   }
 
   try {
@@ -62,14 +52,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   // Generate blog post URLs
-  const blogPostUrls = blogPosts
-    .filter(post => post.slug && typeof post.slug === 'string' && post.slug.trim().length > 0)
-    .map(post => ({
-      url: `${baseUrl}/blog/${encodeURIComponent(post.slug!)}`,
-      lastModified: safeDate(post.updated_at || post.published_at),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    }))
+  const blogPostUrls = blogPosts.map(post => ({
+    url: `${baseUrl}/blog/${encodeURIComponent(post.slug)}`,
+    lastModified: safeDate(post.published_at),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
 
   // Generate material URLs
   const materialUrls = materials
@@ -77,16 +65,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     .map(material => ({
       url: `${baseUrl}/materials/${encodeURIComponent(material.slug!)}`,
       lastModified: safeDate(material.updated_at || material.created_at),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    }))
-
-  // Generate etchant URLs
-  const etchantUrls = etchants
-    .filter(etchant => etchant.status === 'published' && etchant.slug && typeof etchant.slug === 'string' && etchant.slug.trim().length > 0)
-    .map(etchant => ({
-      url: `${baseUrl}/etchants/${encodeURIComponent(etchant.slug!)}`,
-      lastModified: safeDate(etchant.updated_at || etchant.created_at),
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     }))
@@ -216,10 +194,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     {
       url: `${baseUrl}/etchants`,
       lastModified: now,
-      changeFrequency: 'weekly',
+      changeFrequency: 'monthly',
       priority: 0.8,
     },
-    ...etchantUrls,
     {
       url: `${baseUrl}/standards`,
       lastModified: now,
