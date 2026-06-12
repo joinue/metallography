@@ -188,7 +188,7 @@ export default function MaterialsDatabasePage() {
         <div className="mb-4 md:mb-8">
           <h1 className="text-2xl md:text-4xl font-bold mb-2 md:mb-4">Materials Database</h1>
           <p className="text-sm md:text-xl text-gray-600">
-            Comprehensive database of material properties and preparation information for metallographic analysis.
+            Searchable database of material properties and preparation information for metallographic analysis.
           </p>
         </div>
 

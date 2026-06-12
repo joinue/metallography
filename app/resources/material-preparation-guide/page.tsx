@@ -90,8 +90,8 @@ export default function MaterialPreparationGuidePage() {
         name: 'Aluminum & Aluminum Alloys',
         grinding: 'Start with 120 grit, progress through 240, 400, 600',
         polishing: '9 μm → 3 μm → 1 μm diamond, final with 0.05 μm colloidal silica',
-        etching: "Keller's Reagent or Al-NaOH etchant",
-        notes: 'Soft material, use shorter times and lighter pressure to avoid smearing',
+        etching: "Keller's Reagent or Al-NaOH etchant; Weck's tint etch for color contrast",
+        notes: 'Soft material, use shorter times and lighter pressure to avoid smearing. Alumina papers reduce abrasive embedding compared to SiC.',
       },
       {
         name: 'Titanium & Titanium Alloys',
@@ -104,29 +104,29 @@ export default function MaterialPreparationGuidePage() {
         name: 'Copper & Brass',
         grinding: 'Start with 240-320 grit, progress through finer grits',
         polishing: '6 μm → 3 μm → 1 μm diamond, final with 0.05 μm',
-        etching: 'Copper No. 1, Copper No. 2, or ASTM No. 30',
-        notes: 'Soft material, gentle polishing required',
+        etching: "Equal parts ammonium hydroxide and 3% hydrogen peroxide (mix fresh, swab), or Klemm's I for color contrast",
+        notes: 'Soft material, gentle polishing required; the ammonia-peroxide etchant loses activity within minutes of mixing',
       },
       {
         name: 'Nickel Alloys',
         grinding: 'Start with 180-240 grit, progress through standard sequence (800 optional for superalloys, 1200 for very high-quality work)',
         polishing: '9 μm → 6 μm → 3 μm → 1 μm diamond, final with 0.05 μm',
-        etching: 'Aqua Regia, Glyceregia, or Inconel Etchant',
-        notes: 'May require electrolytic etching for sensitive structures. For superalloys, consider using SiC papers up to 1200 grit for best results.',
+        etching: "Marble's Reagent or modified Kalling's; electrolytic etching (e.g., dilute chromic acid) for gamma-prime imaging",
+        notes: 'May require electrolytic etching for sensitive structures. For superalloys, consider using SiC papers up to 1200 grit.',
       },
       {
         name: 'Cast Iron',
         grinding: 'Start with 120 grit, progress through 240, 400, 600',
         polishing: '9 μm → 3 μm → 1 μm diamond, final with 0.05 μm colloidal silica',
-        etching: '2-5% Nital, Picral, or Stead\'s Reagent for graphite',
-        notes: 'Use lighter pressure than steel to preserve graphite structure',
+        etching: 'Examine unetched first to assess graphite morphology (ASTM A247), then 2% Nital for matrix structure; 4% Picral or Beraha tint etch as alternatives',
+        notes: 'Use lighter pressure than steel and do not over-polish — extra time risks graphite pull-out',
       },
       {
         name: 'Tool Steel',
         grinding: 'Start with 120 grit, progress through 240, 320, 400, 600 (800 and 1200 optional for high-quality work)',
         polishing: '9 μm → 6 μm → 3 μm → 1 μm diamond, final with 0.05 μm colloidal silica',
-        etching: '2-5% Nital, Picral, or Murakami\'s for carbides',
-        notes: 'Very hard material, use extended polishing times (5-8 minutes per step)',
+        etching: '4% Picral, Vilella\'s, or Murakami\'s for carbide identification',
+        notes: 'Very hard material, use extended polishing times (4-5 minutes per step). For high-carbide grades (D2, M2), diamond grinding discs or films can replace SiC papers.',
       },
     ]
 
@@ -258,8 +258,8 @@ export default function MaterialPreparationGuidePage() {
                 <div className="bg-gray-50 p-4 rounded space-y-2">
                   <p><strong>Grinding:</strong> Start with 120 grit, progress through 240, 400, 600</p>
                   <p><strong>Polishing:</strong> 9μm → 3μm → 1μm diamond, final with 0.05μm colloidal silica</p>
-                  <p><strong>Etching:</strong> Keller's Reagent or Al-NaOH etchant</p>
-                  <p><strong>Notes:</strong> Soft material, use shorter times and lighter pressure to avoid smearing</p>
+                  <p><strong>Etching:</strong> Keller's Reagent or Al-NaOH etchant; Weck's tint etch for color contrast</p>
+                  <p><strong>Notes:</strong> Soft material, use shorter times and lighter pressure to avoid smearing. Alumina papers reduce abrasive embedding compared to SiC.</p>
                 </div>
               </section>
             </div>

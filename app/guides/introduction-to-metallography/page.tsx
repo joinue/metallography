@@ -448,9 +448,10 @@ export default function IntroductionToMetallographyGuide() {
                 <div className="bg-gray-50 p-4 rounded-lg">
                   <h4 className="font-semibold mb-2">Cementite (Fe₃C)</h4>
                   <p className="text-sm text-gray-700 mb-2">
-                    Iron carbide phase. Very hard and brittle. Appearance depends on the etchant: under
-                    <strong> nital</strong> the ferrite is attacked preferentially, so cementite stands light by contrast;
-                    under <strong>picral</strong> the cementite is attacked directly and appears dark. Picral is the
+                    Iron carbide phase. Very hard and brittle, and resistant to common etchants, so its appearance
+                    depends on how the surrounding structure responds: under <strong>nital</strong> the ferrite is
+                    attacked preferentially, so cementite stays bright by contrast; under <strong>picral</strong> the
+                    ferrite–cementite interfaces are attacked, outlining the carbide so it appears dark. Picral is the
                     preferred etchant when you need clear cementite contrast — for example, resolving fine pearlite
                     lamellae or imaging proeutectoid carbide networks. Present in pearlite, bainite, and as separate
                     particles in some steels.
@@ -818,9 +819,11 @@ export default function IntroductionToMetallographyGuide() {
                     <div className="border-l-4 border-primary-600 pl-4">
                       <h4 className="text-lg font-semibold mb-2">4. Polishing</h4>
                       <p className="text-gray-700">
-                        Creating a mirror-like surface free of scratches. Polishing uses fine abrasives (diamond 
-                        pastes, suspensions, or oxide polishing compounds) on soft cloths. The goal is to remove all 
-                        grinding scratches and create a surface suitable for microscopic examination.
+                        Creating a mirror-like surface free of scratches. Polishing uses fine abrasives (diamond
+                        pastes, suspensions, or oxide polishing compounds) on cloth-covered platens, typically
+                        progressing from harder woven cloths to soft napped cloths for the final step. The goal is
+                        to remove all grinding scratches and create a deformation-free surface suitable for
+                        microscopic examination.
                       </p>
                       <Link 
                         href="/guides/polishing-methods" 
@@ -1115,8 +1118,8 @@ export default function IntroductionToMetallographyGuide() {
                   Preparation Checklist</Link> - Use checklists to ensure you don't miss steps</li>
                 <li><Link href="/resources/troubleshooting-guide" className="text-primary-600 hover:underline font-semibold">
                   Troubleshooting Guide</Link> - Reference when you encounter problems</li>
-                <li><Link href="/tools/etchant-selector" className="text-primary-600 hover:underline font-semibold">
-                  Etchant Selector</Link> - Find the right etchant for your material</li>
+                <li><Link href="/etchants" className="text-primary-600 hover:underline font-semibold">
+                  Etchant Reference</Link> - Find the right etchant for your material</li>
                 <li>Material-specific guides for detailed procedures</li>
               </ul>
 

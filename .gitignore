@@ -38,3 +38,7 @@ next-env.d.ts
 # ai training materials
 ai-training-materials/
 
+
+# local reference material (third-party PDFs / commercial-site snapshots) - not for the public repo
+app/docs/
+app/guides/metallographic.com/

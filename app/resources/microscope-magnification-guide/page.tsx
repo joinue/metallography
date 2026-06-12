@@ -41,8 +41,8 @@ export default function MicroscopeMagnificationGuidePage() {
     },
     {
       application: 'Precipitation analysis',
-      magnification: '500x - 2000x',
-      description: 'High magnification for observing fine precipitates, GP zones, and age-hardening features.',
+      magnification: '500x - 1500x',
+      description: 'High magnification (oil immersion at the top end) for observing coarser precipitates and age-hardening features. Very fine precipitates and GP zones are below the resolution of light microscopy and require electron microscopy.',
       useCase: 'Aluminum alloys, precipitation-hardened materials, age-hardening studies',
     },
     {
@@ -65,14 +65,14 @@ export default function MicroscopeMagnificationGuidePage() {
     },
     {
       application: 'Failure analysis',
-      magnification: '50x - 2000x',
-      description: 'Variable magnification depending on feature size - from crack propagation paths to fine fracture features.',
+      magnification: '50x - 1500x',
+      description: 'Variable magnification depending on feature size - from crack propagation paths to fine fracture features. Finer fractographic detail requires SEM.',
       useCase: 'Crack analysis, fracture surface examination, failure investigation',
     },
     {
       application: 'Intermetallic phases',
-      magnification: '500x - 2000x',
-      description: 'High magnification required to resolve fine intermetallic phases and compounds in complex alloys.',
+      magnification: '500x - 1500x',
+      description: 'High magnification (oil immersion at the top end) required to resolve fine intermetallic phases and compounds in complex alloys.',
       useCase: 'Superalloys, titanium alloys, complex phase structures',
     },
     {
@@ -94,7 +94,7 @@ export default function MicroscopeMagnificationGuidePage() {
     },
     {
       rule: 'Consider resolution limits',
-      description: 'Optical microscopes have resolution limits (~0.2 μm). Features smaller than this cannot be resolved regardless of magnification.',
+      description: 'Optical microscopes have resolution limits (~0.2 μm; d ≈ 0.61λ/NA). Features smaller than this cannot be resolved regardless of magnification. Useful magnification is roughly 500-1000× the objective\'s numerical aperture (NA); anything beyond is "empty magnification" that enlarges without adding detail.',
     },
     {
       rule: 'Balance magnification and field of view',
@@ -263,10 +263,11 @@ export default function MicroscopeMagnificationGuidePage() {
       'Magnification values are approximate and may vary based on specific microscope and objective lens combinations.',
       'Total magnification = Objective magnification × Eyepiece magnification (typically 10x).',
       'Digital magnification on camera systems may differ from optical magnification - always calibrate.',
-      'Resolution is limited by wavelength of light (~0.2 μm for visible light). Higher magnification does not improve resolution beyond this limit.',
+      'Resolution is limited by diffraction: d = 0.61 x wavelength / NA, about 0.2 μm for visible light with a high-NA objective. Higher magnification does not improve resolution beyond this limit.',
+      'Useful magnification is roughly 500-1000x the objective numerical aperture (NA). Oil-immersion objectives (NA ~1.25-1.4) top out around 1300-1400x; beyond that is empty magnification.',
       'For quantitative measurements, always calibrate using stage micrometers (ASTM E1951).',
       'Consider depth of field: higher magnification reduces depth of field, making focusing more critical.',
-      'Use appropriate lighting (brightfield, darkfield, DIC, polarized) based on feature contrast needs.',
+      'Use appropriate illumination: bright field for general microstructure; dark field for cracks, pores, and inclusions; DIC for relief and topography; polarized light for optically anisotropic materials (anodized aluminum grain contrast, Mg, Ti, minerals).',
     ]
 
     notes.forEach(note => {
@@ -355,10 +356,11 @@ export default function MicroscopeMagnificationGuidePage() {
                   <li>Magnification values are approximate and may vary based on specific microscope and objective lens combinations.</li>
                   <li>Total magnification = Objective magnification × Eyepiece magnification (typically 10x).</li>
                   <li>Digital magnification on camera systems may differ from optical magnification - always calibrate.</li>
-                  <li>Resolution is limited by wavelength of light (~0.2 μm for visible light). Higher magnification does not improve resolution beyond this limit.</li>
+                  <li>Resolution is limited by diffraction: d ≈ 0.61λ/NA, about 0.2 μm for visible light with a high-NA objective. Higher magnification does not improve resolution beyond this limit.</li>
+                  <li>Useful magnification is roughly 500–1000× the objective numerical aperture (NA). Oil-immersion objectives (NA ~1.25–1.4) top out around 1300–1400×; beyond that is empty magnification.</li>
                   <li>For quantitative measurements, always calibrate using stage micrometers (ASTM E1951).</li>
                   <li>Consider depth of field: higher magnification reduces depth of field, making focusing more critical.</li>
-                  <li>Use appropriate lighting (brightfield, darkfield, DIC, polarized) based on feature contrast needs.</li>
+                  <li>Use appropriate illumination: bright field for general microstructure; dark field for cracks, pores, and inclusions; DIC for relief and topography; polarized light for optically anisotropic materials (anodized aluminum grain contrast, Mg, Ti, minerals).</li>
                 </ul>
               </section>
             </div>

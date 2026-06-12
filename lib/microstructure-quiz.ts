@@ -29,7 +29,7 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['Pearlite', 'Bainite', 'Martensite', 'Ferrite'],
     correct: 2,
     explanation:
-      'The needle-like / lath morphology and the high apparent hardness contrast under Vilella\'s reagent are diagnostic for martensite. This is 1095 (high-carbon eutectoid steel) water-quenched from austenite — the rapid cool traps carbon in a body-centered tetragonal (BCT) structure with no time for diffusion. Pearlite would show alternating lamellar lines; bainite would show a feathery or acicular but coarser plate structure.',
+      'The needle-like / lath morphology and the high apparent hardness contrast under Vilella\'s reagent are diagnostic for martensite. This is 1095 (a high-carbon steel at ~0.95% C, slightly above the 0.77% C eutectoid composition) water-quenched from austenite — the rapid cool traps carbon in a body-centered tetragonal (BCT) structure with no time for diffusion. Pearlite would show alternating lamellar lines; bainite would show a feathery or acicular but coarser plate structure.',
     difficulty: 'beginner',
     topic: 'phase-id',
   },
@@ -40,7 +40,7 @@ export const quizQuestions: QuizQuestion[] = [
     options: ['Bainite', 'Martensite', 'Pearlite', 'Widmanstätten ferrite'],
     correct: 2,
     explanation:
-      'Pearlite is the classic eutectoid product of slow cooling from austenite — alternating plates of soft ferrite (light) and hard cementite (dark under nital). The lamellar spacing depends on cooling rate: slower furnace-cool produces coarser pearlite as shown here in 1095 steel. Etched with 2% nital, ferrite stays light and cementite darkens.',
+      'Pearlite is the classic eutectoid product of slow cooling from austenite — alternating plates of soft ferrite and hard cementite. The lamellar spacing depends on cooling rate: slower furnace-cool produces coarser pearlite as shown here in 1095 steel. With 2% nital, the ferrite between the lamellae is attacked while the cementite plates stand in relief; the relief scatters light, so pearlite colonies appear dark at low magnification while ferrite grains stay light.',
     difficulty: 'beginner',
     topic: 'phase-id',
   },
@@ -110,7 +110,7 @@ export const quizQuestions: QuizQuestion[] = [
     ],
     correct: 2,
     explanation:
-      '431 is a martensitic precipitation-hardening stainless (about 16% Cr, 2% Ni). After tempering it shows a tempered-martensite matrix with fine alloy carbides — Kalling\'s No. 2 (CuCl₂ + HCl + ethanol) preferentially attacks the martensite to give this contrast. Duplex grades like 2205 would show a two-phase ferrite + austenite morphology; austenitic grades show twins similar to brass.',
+      '431 is a martensitic stainless steel (about 16% Cr, 2% Ni). After tempering it shows a tempered-martensite matrix with fine alloy carbides — Kalling\'s No. 2 (CuCl₂ + HCl + ethanol) preferentially attacks the martensite to give this contrast. Duplex grades like 2205 would show a two-phase ferrite + austenite morphology; austenitic grades show twins similar to brass.',
     difficulty: 'advanced',
     topic: 'phase-id',
   },
@@ -207,7 +207,7 @@ export const quizQuestions: QuizQuestion[] = [
     ],
     correct: 2,
     explanation:
-      '2% Nital (2 mL HNO₃ in 98 mL ethanol) is the classic carbon-steel etchant. It darkens pearlite (because cementite gets attacked at lamellar boundaries and creates a fine relief that scatters light) while leaving ferrite light. For finer pearlite-vs-cementite distinction, picral is the next step. Kalling\'s is for stainless; aqua regia is for stainless / nickel; Marble\'s is for nickel-based superalloys.',
+      '2% Nital (2 mL HNO₃ in 98 mL ethanol) is the classic carbon-steel etchant. It darkens pearlite (the ferrite between the cementite lamellae is attacked, creating a fine relief that scatters light) while leaving ferrite grains light. For finer pearlite-vs-cementite distinction, picral is the next step. Kalling\'s is for stainless; aqua regia is for stainless / nickel; Marble\'s is for nickel-based superalloys.',
     difficulty: 'beginner',
     topic: 'etchant-id',
   },

@@ -483,7 +483,7 @@ export default function MaterialsPrepPage() {
                 {
                   question: 'What equipment does it work with?',
                   answer:
-                    'Materials Prep is equipment-agnostic. It records the equipment, consumables, and steps actually used, regardless of vendor. There is no hardware lock-in. A lab running a Buehler grinder/polisher next to a Leco mounting press and a Zeiss microscope captures all of them in the same batch record.',
+                    'Materials Prep is equipment-agnostic. It records the equipment, consumables, and steps actually used, regardless of vendor. There is no hardware lock-in. A lab running a grinder/polisher, mounting press, and microscope from three different vendors captures all of them in the same batch record.',
                 },
                 {
                   question: 'How does M.AI use our lab data?',

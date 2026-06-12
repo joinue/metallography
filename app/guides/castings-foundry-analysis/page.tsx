@@ -304,7 +304,7 @@ export default function CastingsFoundryAnalysisPage() {
           </ul>
           <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-4 rounded">
             <p className="text-sm text-yellow-900">
-              <strong>Note:</strong> Porosity in castings can be difficult to distinguish from preparation artifacts. Ensure proper <GlossaryTermTooltip term="Sample Preparation">sample preparation</GlossaryTermTooltip> to avoid introducing artifacts that could be mistaken for casting defects.
+              <strong>Real porosity vs. preparation artifact:</strong> Genuine casting porosity has rounded, smooth interior walls; pull-out artifacts (graphite, inclusions, or fragile material torn out during grinding and polishing) have irregular, freshly-fractured walls. Cracks introduced by grinding tend to be linear and at a fixed orientation to the grinding direction. If in doubt, vacuum-impregnate, prepare more gently, and verify the feature on a second specimen prepared by a different route before reporting it as a casting defect.
             </p>
           </div>
 
@@ -442,7 +442,7 @@ export default function CastingsFoundryAnalysisPage() {
             <li>ASTM E155 - Standard Reference Radiographs for Inspection of Aluminum and Magnesium Castings</li>
             <li>ASTM E272 - Standard Reference Radiographs for High-Strength Copper-Base and Nickel-Copper Alloy Castings</li>
             <li>ASTM E446 - Standard Reference Radiographs for Steel Castings Up to 2 in. (51 mm) in Thickness</li>
-            <li>ISO 11971 - Visual testing of fusion-welded joints</li>
+            <li>ISO 11971 - Steel and Iron Castings - Visual Examination of Surface Quality</li>
             <li>Company-specific acceptance criteria based on application</li>
           </ul>
         </section>
@@ -632,7 +632,7 @@ export default function CastingsFoundryAnalysisPage() {
           <ul className="list-disc pl-6 mb-4">
             <li>Select locations that represent different regions (surface, mid-thickness, center)</li>
             <li>Section perpendicular to expected solidification direction when possible</li>
-            <li>Use appropriate cutting speeds to avoid excessive heating</li>
+            <li>For abrasive cutoff, use a wheel speed of roughly 2,500-4,500 surface feet per minute (SFM) with a light feed to avoid excessive heating</li>
             <li>Preserve casting defects - avoid cutting through critical defects</li>
             <li>Document section location relative to casting geometry</li>
             <li>Use coolant to prevent thermal damage</li>
@@ -745,6 +745,7 @@ export default function CastingsFoundryAnalysisPage() {
             <li>Use appropriate polishing cloths to maintain feature definition</li>
             <li>Be careful not to pull out <GlossaryTermTooltip term="Inclusion">inclusions</GlossaryTermTooltip> or fill porosity</li>
             <li>Use low nap cloths for final polish to maintain sharp features</li>
+            <li>For cast irons, keep polishing times to the minimum needed — every extra interval risks graphite pull-out and flake distortion, which exaggerates apparent porosity</li>
             <li>Consider using vibratory polishing for delicate structures</li>
             <li>Document any preparation artifacts</li>
           </ul>
@@ -793,13 +794,13 @@ export default function CastingsFoundryAnalysisPage() {
 
           <h4 className="text-xl font-semibold mb-2 mt-4">Steel and Cast Iron Castings</h4>
           <p className="mb-4">
-            Cast steels and cast irons including <MaterialTooltip materialName="Ductile Cast Iron">ductile cast iron</MaterialTooltip> (nodular iron) and <MaterialTooltip materialName="White Cast Iron">white cast iron</MaterialTooltip> require specific etching techniques:
+            Cast steels and cast irons including <MaterialTooltip materialName="Ductile Cast Iron">ductile cast iron</MaterialTooltip> (nodular iron) and <MaterialTooltip materialName="White Cast Iron">white cast iron</MaterialTooltip> require specific etching techniques. For cast irons, always examine the sample <strong>in the as-polished (unetched) condition first</strong> to assess graphite morphology, size, and distribution per ASTM A247 — etching obscures the graphite assessment. Then etch for the matrix structure:
           </p>
           <ul className="list-disc pl-6 mb-4">
-            <li><strong>Nital (2-5%):</strong> Standard etchant for ferrite and pearlite</li>
-            <li><strong>Picral:</strong> For revealing pearlite structure</li>
-            <li><strong>Vilella's reagent:</strong> For complex structures</li>
-            <li><strong>Beraha's reagents:</strong> For color contrast</li>
+            <li><strong>Nital (2-5%):</strong> Standard first etch for the ferrite/pearlite matrix (5-15 s swab for cast irons)</li>
+            <li><strong>Picral (4%):</strong> Follow-up etch that sharpens pearlite and darkens cementite; often used sequentially after Nital</li>
+            <li><strong>Vilella's reagent or 4% Picral:</strong> For carbide morphology in white (high-Cr) irons</li>
+            <li><strong>Beraha's tint etch:</strong> Color contrast revealing ferrite/pearlite/bainite distribution</li>
           </ul>
           <div className="my-6 rounded-lg overflow-hidden max-w-2xl mx-auto">
             <Image
@@ -903,13 +904,14 @@ export default function CastingsFoundryAnalysisPage() {
           <ul className="list-disc pl-6 mb-4">
             <li>ASTM E3 - Standard Practice for Preparation of Metallographic Specimens</li>
             <li>ASTM E112 - Standard Test Methods for Determining Average Grain Size</li>
+            <li>ASTM A247 - Standard Test Method for Evaluating the Microstructure of Graphite in Iron Castings</li>
             <li>ASTM E155 - Standard Reference Radiographs for Inspection of Aluminum and Magnesium Castings</li>
             <li>ASTM E446 - Standard Reference Radiographs for Steel Castings Up to 2 in. (51 mm) in Thickness</li>
             <li>ASTM E883 - Standard Guide for Reflected-Light Photomicrography</li>
             <li>ASTM E2283 - Standard Practice for Extreme Value Analysis of Nonmetallic Inclusions in Steel and Other Microstructural Features</li>
             <li>ASM Handbook Volume 9 - Metallography and Microstructures</li>
             <li>ASM Handbook Volume 15 - Casting</li>
-            <li>ISO 11971 - Visual testing of fusion-welded joints</li>
+            <li>ISO 11971 - Steel and Iron Castings - Visual Examination of Surface Quality</li>
           </ul>
           <p className="mb-4">
             Refer to our <Link href="/resources/astm-standards-reference" className="text-blue-600 hover:underline">ASTM standards reference</Link> for more information.

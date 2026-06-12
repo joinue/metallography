@@ -7,35 +7,25 @@ export default function GritSizeConverter() {
   const [inputType, setInputType] = useState('fepa')
   const [results, setResults] = useState<Record<string, string | null>>({})
 
+  // US (ANSI/CAMI B74.18) ↔ FEPA P-grade ↔ approximate median particle size (µm)
+  // for SiC grinding papers. The two scales track each other at the coarse end
+  // but diverge sharply at the fine end (e.g. US 400 ≈ P800, NOT P400).
+  // Values are approximate; vendors vary at the margin.
   const conversions = [
-    { fepa: 'P12', ansi: '16', jis: '16', micron: '1815' },
-    { fepa: 'P16', ansi: '20', jis: '20', micron: '1324' },
-    { fepa: 'P20', ansi: '24', jis: '24', micron: '1000' },
-    { fepa: 'P24', ansi: '30', jis: '30', micron: '764' },
-    { fepa: 'P30', ansi: '36', jis: '36', micron: '642' },
-    { fepa: 'P36', ansi: '40', jis: '40', micron: '538' },
-    { fepa: 'P40', ansi: '50', jis: '50', micron: '425' },
-    { fepa: 'P50', ansi: '60', jis: '60', micron: '336' },
-    { fepa: 'P60', ansi: '80', jis: '80', micron: '269' },
-    { fepa: 'P80', ansi: '100', jis: '100', micron: '201' },
-    { fepa: 'P100', ansi: '120', jis: '120', micron: '162' },
-    { fepa: 'P120', ansi: '150', jis: '150', micron: '125' },
-    { fepa: 'P150', ansi: '180', jis: '180', micron: '100' },
-    { fepa: 'P180', ansi: '220', jis: '220', micron: '82' },
-    { fepa: 'P220', ansi: '240', jis: '240', micron: '68' },
-    { fepa: 'P240', ansi: '280', jis: '280', micron: '58.5' },
-    { fepa: 'P280', ansi: '320', jis: '320', micron: '52.2' },
-    { fepa: 'P320', ansi: '360', jis: '360', micron: '46.2' },
-    { fepa: 'P360', ansi: '400', jis: '400', micron: '40.5' },
-    { fepa: 'P400', ansi: '500', jis: '500', micron: '35.0' },
-    { fepa: 'P500', ansi: '600', jis: '600', micron: '30.2' },
-    { fepa: 'P600', ansi: '800', jis: '800', micron: '25.8' },
-    { fepa: 'P800', ansi: '1000', jis: '1000', micron: '21.8' },
-    { fepa: 'P1000', ansi: '1200', jis: '1200', micron: '18.3' },
-    { fepa: 'P1200', ansi: '1500', jis: '1500', micron: '15.3' },
-    { fepa: 'P1500', ansi: '2000', jis: '2000', micron: '12.6' },
-    { fepa: 'P2000', ansi: '2500', jis: '2500', micron: '10.3' },
-    { fepa: 'P2500', ansi: '3000', jis: '3000', micron: '8.4' },
+    { ansi: '60', fepa: 'P60', micron: '269' },
+    { ansi: '80', fepa: 'P80', micron: '201' },
+    { ansi: '120', fepa: 'P120', micron: '127' },
+    { ansi: '180', fepa: 'P180', micron: '82' },
+    { ansi: '220', fepa: 'P240', micron: '58' },
+    { ansi: '240', fepa: 'P280', micron: '52' },
+    { ansi: '320', fepa: 'P400', micron: '35' },
+    { ansi: '400', fepa: 'P800', micron: '22' },
+    { ansi: '600', fepa: 'P1200', micron: '15' },
+    { ansi: '800', fepa: 'P1500', micron: '12' },
+    { ansi: '1000', fepa: 'P2000', micron: '10' },
+    { ansi: '1200', fepa: 'P2500', micron: '8' },
+    { ansi: '1500', fepa: 'P3000', micron: '6' },
+    { ansi: '2000', fepa: 'P4000', micron: '5' },
   ]
 
   const handleConvert = () => {
@@ -50,32 +40,33 @@ export default function GritSizeConverter() {
       match = conversions.find(c => c.fepa === fepaValue)
     } else if (inputType === 'ansi') {
       match = conversions.find(c => c.ansi === value)
-    } else if (inputType === 'jis') {
-      match = conversions.find(c => c.jis === value)
     } else if (inputType === 'micron') {
-      // Find closest match for micron (allowing some tolerance)
+      // Find the closest match by relative difference, within 20% tolerance
       const micronValue = parseFloat(value)
-      if (!isNaN(micronValue)) {
-        match = conversions.find(c => {
+      if (!isNaN(micronValue) && micronValue > 0) {
+        let bestDiff = Infinity
+        for (const c of conversions) {
           const cMicron = parseFloat(c.micron)
-          // Allow 5% tolerance for matching
-          return Math.abs(cMicron - micronValue) / cMicron < 0.05
-        })
+          const diff = Math.abs(cMicron - micronValue) / cMicron
+          if (diff < bestDiff) {
+            bestDiff = diff
+            match = c
+          }
+        }
+        if (bestDiff > 0.2) match = undefined
       }
     }
 
     if (match) {
       setResults({
-        fepa: match.fepa,
         ansi: match.ansi,
-        jis: match.jis,
-        micron: `${match.micron} μm`,
+        fepa: match.fepa,
+        micron: `≈ ${match.micron} μm`,
       })
     } else {
       setResults({
-        fepa: 'Not found',
         ansi: 'Not found',
-        jis: 'Not found',
+        fepa: 'Not found',
         micron: 'Not found',
       })
     }
@@ -87,7 +78,9 @@ export default function GritSizeConverter() {
         <div>
           <h1 className="text-4xl font-bold mb-4">Grit Size Converter</h1>
           <p className="text-xl text-gray-600 mb-8">
-            Convert between different grit size standards: FEPA, ANSI, JIS, and micron measurements.
+            Convert between US (ANSI/CAMI) and European (FEPA P-grade) grit size standards for
+            SiC grinding papers, with approximate particle sizes in microns. The two scales are
+            not aliases — they diverge sharply at the fine end.
           </p>
 
           <div className="card mb-8">
@@ -102,8 +95,7 @@ export default function GritSizeConverter() {
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
               >
                 <option value="fepa">FEPA (P-Grade)</option>
-                <option value="ansi">ANSI</option>
-                <option value="jis">JIS</option>
+                <option value="ansi">US (ANSI/CAMI)</option>
                 <option value="micron">Micron (μm)</option>
               </select>
             </div>
@@ -117,7 +109,7 @@ export default function GritSizeConverter() {
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                placeholder={inputType === 'micron' ? 'e.g., 125' : inputType === 'fepa' ? 'e.g., P120 or 120' : 'e.g., 150'}
+                placeholder={inputType === 'micron' ? 'e.g., 127' : inputType === 'fepa' ? 'e.g., P120 or 120' : 'e.g., 320'}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
               />
             </div>
@@ -133,39 +125,44 @@ export default function GritSizeConverter() {
           {Object.keys(results).length > 0 && (
             <div className="card">
               <h2 className="text-2xl font-semibold mb-4">Conversion Results</h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 <div>
-                  <div className="text-sm text-gray-600 mb-1">FEPA</div>
-                  <div className="text-lg font-semibold">{results.fepa}</div>
-                </div>
-                <div>
-                  <div className="text-sm text-gray-600 mb-1">ANSI</div>
+                  <div className="text-sm text-gray-600 mb-1">US (ANSI/CAMI)</div>
                   <div className="text-lg font-semibold">{results.ansi}</div>
                 </div>
                 <div>
-                  <div className="text-sm text-gray-600 mb-1">JIS</div>
-                  <div className="text-lg font-semibold">{results.jis}</div>
+                  <div className="text-sm text-gray-600 mb-1">FEPA</div>
+                  <div className="text-lg font-semibold">{results.fepa}</div>
                 </div>
                 <div>
                   <div className="text-sm text-gray-600 mb-1">Micron</div>
                   <div className="text-lg font-semibold">{results.micron}</div>
                 </div>
               </div>
+              <p className="text-xs text-gray-500 mt-4">
+                Approximate equivalents; abrasive vendors vary at the margin.
+              </p>
             </div>
           )}
 
           <div className="mt-8 bg-gray-50 rounded-lg p-6">
             <h3 className="text-lg font-semibold mb-3">About Grit Sizes</h3>
             <p className="text-gray-700 text-sm mb-4">
-              Different standards use different numbering systems for abrasive grit sizes. 
+              Different standards use different numbering systems for abrasive grit sizes.
               This converter helps you find equivalent sizes across standards.
             </p>
-            <ul className="text-sm text-gray-700 space-y-2">
-              <li><strong>FEPA:</strong> European standard (P-Grade system)</li>
-              <li><strong>ANSI:</strong> American National Standards Institute</li>
-              <li><strong>JIS:</strong> Japanese Industrial Standard</li>
-              <li><strong>Micron:</strong> Particle size in micrometers</li>
+            <ul className="text-sm text-gray-700 space-y-2 mb-4">
+              <li><strong>US (ANSI/CAMI B74.18):</strong> The grading printed on most North American grinding papers</li>
+              <li><strong>FEPA (P-Grade):</strong> European / international standard, marked with a &quot;P&quot; prefix</li>
+              <li><strong>Micron:</strong> Approximate median abrasive particle size in micrometers</li>
             </ul>
+            <p className="text-gray-700 text-sm">
+              <strong>Important:</strong> US and FEPA numbers are roughly equal at the coarse end but
+              diverge sharply at the fine end — US 320 ≈ P400, US 400 ≈ P800, and US 600 ≈ P1200.
+              Matching the printed numbers (&quot;400 grit = P400&quot;) can put a preparation ladder a full
+              grade off. Conversions are approximate, and vendors vary at the margin; this table covers
+              the grades commonly used for metallographic SiC papers (US 60–2000 / P60–P4000).
+            </p>
           </div>
 
           <div className="mt-8 bg-primary-50 border-l-4 border-primary-600 p-6 rounded">

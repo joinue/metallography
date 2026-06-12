@@ -196,7 +196,7 @@ export default function StainlessSteelGuide() {
                 <strong> blade selection, coolant flood, and feed rate</strong> rather than by lowering
                 spindle RPM — under-speeding a thin abrasive blade tends to glaze and burn rather than cut.
                 Harder grades like <MaterialTooltip materialName="17-4 PH">17-4 PH Stainless Steel</MaterialTooltip>
-                want a <em>harder-bond</em> Al₂O₃ blade (more aggressive grit replacement), not a slower wheel.
+                want a <em>harder-bond</em> Al₂O₃ blade (the hardened/case-hardened blade category), not a slower wheel.
                 For very heat-sensitive cross-sections, switch to a precision (low-speed) saw with a
                 diamond wafering blade instead of slowing a standard cutoff.
               </p>
@@ -208,8 +208,8 @@ export default function StainlessSteelGuide() {
                   className="block hover:opacity-90 transition-opacity"
                 >
                   <Image
-                    src="/images/consumables/maxcut-vhs.png"
-                    alt="Precision cutting abrasive blades for stainless steel sectioning"
+                    src="/images/consumables/maxcut-vhs.webp"
+                    alt="Hard-bond Al₂O₃ abrasive cut-off blade for hard and case-hardened stainless steel sectioning"
                     width={500}
                     height={375}
                     className="w-full h-auto"
@@ -284,13 +284,15 @@ export default function StainlessSteelGuide() {
               <h3>Grinding Sequence</h3>
               <ol>
                 <li><strong>120 grit:</strong> Remove sectioning damage (30-60 seconds per step)</li>
-                <li><strong>240 grit:</strong> Remove previous scratches (30-60 seconds)</li>
-                <li><strong>400 grit:</strong> Further refinement (30-60 seconds)</li>
-                <li><strong>600 grit:</strong> Final grinding step (30-60 seconds)</li>
+                <li><strong>240 grit:</strong> Remove previous scratches (1-2 minutes)</li>
+                <li><strong>400 grit:</strong> Further refinement (1-2 minutes)</li>
+                <li><strong>600 grit:</strong> Final grinding step (1-2 minutes)</li>
               </ol>
               <p>
                 <strong>Important:</strong> Rotate the sample 90° between each grit to ensure complete 
-                removal of previous scratches. Use water as a lubricant and maintain light, consistent pressure.
+                removal of previous scratches. Use water as a lubricant and maintain consistent, moderate
+                force (roughly 25-30 N per sample) at a platen speed of 200-300 RPM — steady contact
+                matters because stainless work-hardens under intermittent, heavy loading.
               </p>
               <ProductLink 
                 productName="Silicon Carbide Grinding Papers"
@@ -347,17 +349,18 @@ export default function StainlessSteelGuide() {
               </div>
               <h3>Diamond Polishing</h3>
               <ol>
-                <li><strong>9 μm diamond:</strong> 3-5 minutes on a hard cloth (e.g., Texmet)</li>
-                <li><strong>3 μm diamond:</strong> 3-5 minutes on a medium-hard cloth</li>
-                <li><strong>1 μm diamond:</strong> 2-3 minutes on a soft cloth</li>
+                <li><strong>9 μm diamond:</strong> 3-5 minutes on a hard woven pad</li>
+                <li><strong>3 μm diamond:</strong> 3-5 minutes on a medium napped cloth</li>
+                <li><strong>1 μm diamond:</strong> 2-3 minutes on a soft napped cloth</li>
               </ol>
               <h3>Final Polishing</h3>
               <ol>
-                <li><strong>0.05 μm colloidal silica:</strong> 1-2 minutes on a soft cloth</li>
-                <li>Rinse thoroughly with water and dry with compressed air</li>
+                <li><strong>0.05 μm colloidal silica:</strong> ~2 minutes on a chemotextile pad</li>
+                <li>Flush with water for the final 30-60 seconds while still polishing — this removes silica residue that otherwise dries into stains — then rinse and dry with compressed air</li>
               </ol>
               <p>
-                Use appropriate polishing lubricants and maintain consistent pressure. Over-polishing 
+                Use appropriate polishing lubricants, maintain consistent pressure, and run the platen
+                at 100-150 RPM for all polishing steps. Over-polishing
                 can introduce relief, especially around inclusions or second phases.
               </p>
             </section>
@@ -410,13 +413,13 @@ export default function StainlessSteelGuide() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 500px"
                   />
                 </Link>
-                <p className="text-sm text-gray-600 mt-2 italic text-center">Etching solutions and reagents for stainless steel. Common etchants include Vilella's Reagent, Aqua Regia, and electrolytic solutions. Etching time typically ranges from 5-30 seconds depending on the etchant and steel grade.</p>
+                <p className="text-sm text-gray-600 mt-2 italic text-center">Etching solutions and reagents for stainless steel. Common etchants include Glyceregia, Vilella's Reagent, Marble's Reagent, and electrolytic oxalic acid. Etching time and method vary by stainless family — see the list above.</p>
               </div>
               <h3>Etching Procedure</h3>
               <ol>
                 <li>Ensure sample is clean and dry</li>
                 <li>Apply etchant with cotton swab or immerse sample</li>
-                <li>Etch for 5-30 seconds (time varies by etchant and grade)</li>
+                <li>Etch for the time listed above for your etchant (typically 5-60 seconds; tint etches run 30-180 seconds)</li>
                 <li>Immediately rinse with water, then alcohol</li>
                 <li>Dry with compressed air</li>
               </ol>
@@ -442,7 +445,7 @@ export default function StainlessSteelGuide() {
                 <li><strong>Scratches remaining:</strong> Insufficient grinding/polishing time or skipped grits</li>
                 <li><strong>Relief around inclusions:</strong> Over-polishing or too soft a cloth</li>
                 <li><strong>Contamination:</strong> Clean between steps, use fresh abrasives</li>
-                <li><strong>Poor edge retention:</strong> Consider different mounting material or technique</li>
+                <li><strong>Poor edge retention:</strong> Switch to a glass-filled epoxy mount — plain phenolic wears faster than the steel and rounds the sample-mount boundary</li>
                 <li><strong>Over-etching:</strong> Reduce etching time or dilute etchant</li>
               </ul>
             </section>

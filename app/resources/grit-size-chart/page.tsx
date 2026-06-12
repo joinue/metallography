@@ -8,36 +8,41 @@ import Link from 'next/link'
 export default function GritSizeChartPage() {
   const chartRef = useRef<HTMLDivElement>(null)
 
-  // Grit size conversion data - organized by category
+  // Grit size conversion data - organized by category.
+  // ANSI and JIS columns give the grit number in that standard whose particle
+  // size is closest to the row's FEPA-P size (not naive number matching).
+  // Coarse grades (macrogrits, ≤ 220) carry essentially the same numbers in
+  // all three standards; the scales diverge increasingly at the fine end
+  // (e.g. FEPA P1200 ≈ US/ANSI 600, FEPA P2500 ≈ US/ANSI 1200).
   const gritSizes = [
-    { fepa: 'P12', ansi: '16', jis: '16', micron: '1815', mesh: '12', category: 'Very Coarse' },
-    { fepa: 'P16', ansi: '20', jis: '20', micron: '1324', mesh: '16', category: 'Very Coarse' },
-    { fepa: 'P20', ansi: '24', jis: '24', micron: '1000', mesh: '20', category: 'Very Coarse' },
-    { fepa: 'P24', ansi: '30', jis: '30', micron: '764', mesh: '24', category: 'Coarse' },
-    { fepa: 'P30', ansi: '36', jis: '36', micron: '642', mesh: '30', category: 'Coarse' },
-    { fepa: 'P36', ansi: '40', jis: '40', micron: '538', mesh: '36', category: 'Coarse' },
-    { fepa: 'P40', ansi: '50', jis: '50', micron: '425', mesh: '40', category: 'Coarse' },
-    { fepa: 'P50', ansi: '60', jis: '60', micron: '336', mesh: '50', category: 'Medium' },
-    { fepa: 'P60', ansi: '80', jis: '80', micron: '269', mesh: '60', category: 'Medium' },
-    { fepa: 'P80', ansi: '100', jis: '100', micron: '201', mesh: '80', category: 'Medium' },
-    { fepa: 'P100', ansi: '120', jis: '120', micron: '162', mesh: '100', category: 'Medium' },
-    { fepa: 'P120', ansi: '150', jis: '150', micron: '125', mesh: '120', category: 'Fine' },
-    { fepa: 'P150', ansi: '180', jis: '180', micron: '100', mesh: '150', category: 'Fine' },
-    { fepa: 'P180', ansi: '220', jis: '220', micron: '82', mesh: '180', category: 'Fine' },
-    { fepa: 'P220', ansi: '240', jis: '240', micron: '68', mesh: '220', category: 'Fine' },
-    { fepa: 'P240', ansi: '280', jis: '280', micron: '58.5', mesh: '240', category: 'Very Fine' },
-    { fepa: 'P280', ansi: '320', jis: '320', micron: '52.2', mesh: '280', category: 'Very Fine' },
-    { fepa: 'P320', ansi: '360', jis: '360', micron: '46.2', mesh: '320', category: 'Very Fine' },
-    { fepa: 'P360', ansi: '400', jis: '400', micron: '40.5', mesh: '360', category: 'Very Fine' },
-    { fepa: 'P400', ansi: '500', jis: '500', micron: '35.0', mesh: '400', category: 'Very Fine' },
-    { fepa: 'P500', ansi: '600', jis: '600', micron: '30.2', mesh: '500', category: 'Ultra Fine' },
-    { fepa: 'P600', ansi: '800', jis: '800', micron: '25.8', mesh: '600', category: 'Ultra Fine' },
-    { fepa: 'P800', ansi: '1000', jis: '1000', micron: '21.8', mesh: '800', category: 'Ultra Fine' },
-    { fepa: 'P1000', ansi: '1200', jis: '1200', micron: '18.3', mesh: '1000', category: 'Ultra Fine' },
-    { fepa: 'P1200', ansi: '1500', jis: '1500', micron: '15.3', mesh: '1200', category: 'Ultra Fine' },
-    { fepa: 'P1500', ansi: '2000', jis: '2000', micron: '12.6', mesh: '1500', category: 'Ultra Fine' },
-    { fepa: 'P2000', ansi: '2500', jis: '2500', micron: '10.3', mesh: '2000', category: 'Ultra Fine' },
-    { fepa: 'P2500', ansi: '3000', jis: '3000', micron: '8.4', mesh: '2500', category: 'Ultra Fine' },
+    { fepa: 'P12', ansi: '12', jis: '12', micron: '1815', mesh: '12', category: 'Very Coarse' },
+    { fepa: 'P16', ansi: '16', jis: '16', micron: '1324', mesh: '16', category: 'Very Coarse' },
+    { fepa: 'P20', ansi: '20', jis: '20', micron: '1000', mesh: '20', category: 'Very Coarse' },
+    { fepa: 'P24', ansi: '24', jis: '24', micron: '764', mesh: '24', category: 'Coarse' },
+    { fepa: 'P30', ansi: '30', jis: '30', micron: '642', mesh: '30', category: 'Coarse' },
+    { fepa: 'P36', ansi: '36', jis: '36', micron: '538', mesh: '36', category: 'Coarse' },
+    { fepa: 'P40', ansi: '40', jis: '40', micron: '425', mesh: '40', category: 'Coarse' },
+    { fepa: 'P50', ansi: '50', jis: '50', micron: '336', mesh: '50', category: 'Medium' },
+    { fepa: 'P60', ansi: '60', jis: '60', micron: '269', mesh: '60', category: 'Medium' },
+    { fepa: 'P80', ansi: '80', jis: '80', micron: '201', mesh: '80', category: 'Medium' },
+    { fepa: 'P100', ansi: '100', jis: '100', micron: '162', mesh: '100', category: 'Medium' },
+    { fepa: 'P120', ansi: '120', jis: '120', micron: '125', mesh: '120', category: 'Fine' },
+    { fepa: 'P150', ansi: '150', jis: '150', micron: '100', mesh: '150', category: 'Fine' },
+    { fepa: 'P180', ansi: '180', jis: '180', micron: '82', mesh: '180', category: 'Fine' },
+    { fepa: 'P220', ansi: '220', jis: '220', micron: '68', mesh: '220', category: 'Fine' },
+    { fepa: 'P240', ansi: '220', jis: '240', micron: '58.5', mesh: '—', category: 'Very Fine' },
+    { fepa: 'P280', ansi: '240', jis: '280', micron: '52.2', mesh: '—', category: 'Very Fine' },
+    { fepa: 'P320', ansi: '280', jis: '280', micron: '46.2', mesh: '—', category: 'Very Fine' },
+    { fepa: 'P360', ansi: '320', jis: '320', micron: '40.5', mesh: '—', category: 'Very Fine' },
+    { fepa: 'P400', ansi: '320', jis: '360', micron: '35.0', mesh: '—', category: 'Very Fine' },
+    { fepa: 'P500', ansi: '360', jis: '400', micron: '30.2', mesh: '—', category: 'Ultra Fine' },
+    { fepa: 'P600', ansi: '400', jis: '500', micron: '25.8', mesh: '—', category: 'Ultra Fine' },
+    { fepa: 'P800', ansi: '400', jis: '600', micron: '21.8', mesh: '—', category: 'Ultra Fine' },
+    { fepa: 'P1000', ansi: '500', jis: '700', micron: '18.3', mesh: '—', category: 'Ultra Fine' },
+    { fepa: 'P1200', ansi: '600', jis: '800', micron: '15.3', mesh: '—', category: 'Ultra Fine' },
+    { fepa: 'P1500', ansi: '800', jis: '1000', micron: '12.6', mesh: '—', category: 'Ultra Fine' },
+    { fepa: 'P2000', ansi: '1000', jis: '1200', micron: '10.3', mesh: '—', category: 'Ultra Fine' },
+    { fepa: 'P2500', ansi: '1200', jis: '1500', micron: '8.4', mesh: '—', category: 'Ultra Fine' },
   ]
 
   const downloadPDF = async () => {
@@ -228,10 +233,11 @@ export default function GritSizeChartPage() {
       pdf.setTextColor(80, 80, 80)
       const notes = [
         '• FEPA: Federation of European Producers of Abrasives (P-grade standard)',
-        '• ANSI: American National Standards Institute',
-        '• JIS: Japanese Industrial Standards',
-        '• Micron (μm): Average particle size in micrometers',
-        '• Mesh: US Standard mesh size (particles per inch)',
+        '• ANSI: American National Standards Institute (B74.18 / CAMI). Column shows the nearest ANSI grit number by particle size.',
+        '• JIS: Japanese Industrial Standards (R6010). Column shows the nearest JIS grit number by particle size.',
+        '• Micron (μm): Nominal FEPA-P average particle size in micrometers',
+        '• Mesh: US Standard mesh size (screen openings per inch). Applies to macrogrits (~220 and coarser) only; finer grades are graded by sedimentation, not screening.',
+        '• The standards diverge at the fine end (e.g. FEPA P1200 ≈ ANSI 600). Do not match grit numbers directly.',
         '• Conversions are approximate; actual values may vary between manufacturers',
       ]
 
@@ -298,8 +304,9 @@ export default function GritSizeChartPage() {
           <div className="bg-amber-50 border-l-4 border-amber-500 p-4 mb-6 rounded">
             <h3 className="text-sm font-semibold text-amber-900 mb-2">Important — these standards are NOT a 1:1 conversion</h3>
             <p className="text-sm text-amber-900 mb-2">
-              FEPA-P (FEPA-43-GB), ANSI/CAMI B74.18, and JIS R6010 use the same grit-number scale at coarse sizes but
-              <strong> diverge sharply above roughly P400 / CAMI 600</strong>. The micron column below shows the
+              FEPA-P (FEPA-43-GB), ANSI/CAMI B74.18, and JIS R6010 use essentially the same grit numbers at coarse
+              sizes (about 220 and coarser) but <strong>diverge increasingly at finer sizes — by the fine end,
+              US/CAMI 600 grit ≈ FEPA P1200, and US 1200 ≈ P2500</strong>. The micron column below shows the
               <strong> FEPA-P particle size</strong> for the row's P-grade. The ANSI and JIS numbers in the same row are
               the closest grit-number neighbors, not the equivalent particle size in those standards. For ANSI/CAMI and
               JIS particle sizes at the fine end, use the divergence table below.
@@ -345,9 +352,9 @@ export default function GritSizeChartPage() {
           <div className="mt-8 pt-6 border-t border-gray-200">
             <h3 className="text-lg font-bold mb-2">Where FEPA-P, ANSI/CAMI, and JIS diverge</h3>
             <p className="text-sm text-gray-700 mb-4">
-              Below ~P400, the same grit number means very different particle sizes in each standard. If your paper
-              is labeled "1200 grit" with no other context, the actual abrasive size depends entirely on which standard
-              the manufacturer used. Use this table to translate between them.
+              Beyond roughly 240 grit, the same grit number means very different particle sizes in each standard. If
+              your paper is labeled "1200 grit" with no other context, the actual abrasive size depends entirely on
+              which standard the manufacturer used. Use this table to translate between them.
             </p>
             <div className="overflow-x-auto">
               <table className="w-full border-collapse text-sm">
@@ -360,23 +367,23 @@ export default function GritSizeChartPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="bg-gray-50"><td className="border border-gray-300 px-3 py-2 font-medium">120</td><td className="border border-gray-300 px-3 py-2">125</td><td className="border border-gray-300 px-3 py-2">102</td><td className="border border-gray-300 px-3 py-2">102</td></tr>
-                  <tr><td className="border border-gray-300 px-3 py-2 font-medium">240</td><td className="border border-gray-300 px-3 py-2">58</td><td className="border border-gray-300 px-3 py-2">53</td><td className="border border-gray-300 px-3 py-2">57</td></tr>
-                  <tr className="bg-gray-50"><td className="border border-gray-300 px-3 py-2 font-medium">320</td><td className="border border-gray-300 px-3 py-2">46</td><td className="border border-gray-300 px-3 py-2">36</td><td className="border border-gray-300 px-3 py-2">40</td></tr>
-                  <tr><td className="border border-gray-300 px-3 py-2 font-medium">400</td><td className="border border-gray-300 px-3 py-2">35</td><td className="border border-gray-300 px-3 py-2">23</td><td className="border border-gray-300 px-3 py-2">32</td></tr>
-                  <tr className="bg-gray-50"><td className="border border-gray-300 px-3 py-2 font-medium">600</td><td className="border border-gray-300 px-3 py-2">26</td><td className="border border-gray-300 px-3 py-2">14.5</td><td className="border border-gray-300 px-3 py-2">20</td></tr>
-                  <tr><td className="border border-gray-300 px-3 py-2 font-medium">800</td><td className="border border-gray-300 px-3 py-2">22</td><td className="border border-gray-300 px-3 py-2">12.2</td><td className="border border-gray-300 px-3 py-2">14</td></tr>
-                  <tr className="bg-gray-50"><td className="border border-gray-300 px-3 py-2 font-medium">1200</td><td className="border border-gray-300 px-3 py-2">15</td><td className="border border-gray-300 px-3 py-2">~3</td><td className="border border-gray-300 px-3 py-2">9.2</td></tr>
-                  <tr><td className="border border-gray-300 px-3 py-2 font-medium">1500</td><td className="border border-gray-300 px-3 py-2">13</td><td className="border border-gray-300 px-3 py-2">~2</td><td className="border border-gray-300 px-3 py-2">8</td></tr>
-                  <tr className="bg-gray-50"><td className="border border-gray-300 px-3 py-2 font-medium">2000</td><td className="border border-gray-300 px-3 py-2">10</td><td className="border border-gray-300 px-3 py-2">—</td><td className="border border-gray-300 px-3 py-2">6.7</td></tr>
+                  <tr className="bg-gray-50"><td className="border border-gray-300 px-3 py-2 font-medium">120</td><td className="border border-gray-300 px-3 py-2">125</td><td className="border border-gray-300 px-3 py-2">~125</td><td className="border border-gray-300 px-3 py-2">~125</td></tr>
+                  <tr><td className="border border-gray-300 px-3 py-2 font-medium">240</td><td className="border border-gray-300 px-3 py-2">58</td><td className="border border-gray-300 px-3 py-2">52</td><td className="border border-gray-300 px-3 py-2">57</td></tr>
+                  <tr className="bg-gray-50"><td className="border border-gray-300 px-3 py-2 font-medium">320</td><td className="border border-gray-300 px-3 py-2">46</td><td className="border border-gray-300 px-3 py-2">35</td><td className="border border-gray-300 px-3 py-2">40</td></tr>
+                  <tr><td className="border border-gray-300 px-3 py-2 font-medium">400</td><td className="border border-gray-300 px-3 py-2">35</td><td className="border border-gray-300 px-3 py-2">22</td><td className="border border-gray-300 px-3 py-2">32</td></tr>
+                  <tr className="bg-gray-50"><td className="border border-gray-300 px-3 py-2 font-medium">600</td><td className="border border-gray-300 px-3 py-2">26</td><td className="border border-gray-300 px-3 py-2">15</td><td className="border border-gray-300 px-3 py-2">20</td></tr>
+                  <tr><td className="border border-gray-300 px-3 py-2 font-medium">800</td><td className="border border-gray-300 px-3 py-2">22</td><td className="border border-gray-300 px-3 py-2">12</td><td className="border border-gray-300 px-3 py-2">14</td></tr>
+                  <tr className="bg-gray-50"><td className="border border-gray-300 px-3 py-2 font-medium">1200</td><td className="border border-gray-300 px-3 py-2">15</td><td className="border border-gray-300 px-3 py-2">8</td><td className="border border-gray-300 px-3 py-2">9.2</td></tr>
+                  <tr><td className="border border-gray-300 px-3 py-2 font-medium">1500</td><td className="border border-gray-300 px-3 py-2">13</td><td className="border border-gray-300 px-3 py-2">6</td><td className="border border-gray-300 px-3 py-2">8</td></tr>
+                  <tr className="bg-gray-50"><td className="border border-gray-300 px-3 py-2 font-medium">2000</td><td className="border border-gray-300 px-3 py-2">10</td><td className="border border-gray-300 px-3 py-2">5</td><td className="border border-gray-300 px-3 py-2">6.7</td></tr>
                   <tr><td className="border border-gray-300 px-3 py-2 font-medium">2500</td><td className="border border-gray-300 px-3 py-2">8.4</td><td className="border border-gray-300 px-3 py-2">—</td><td className="border border-gray-300 px-3 py-2">—</td></tr>
                 </tbody>
               </table>
             </div>
             <p className="text-xs text-gray-600 mt-3">
               Source: FEPA 43-GB, ANSI B74.18, JIS R6010. Values rounded to typical manufacturer ranges.
-              The handbook ladder used in our guides (P120 → P320 → P600 → P800 → P1200 in FEPA-P) corresponds
-              roughly to US/CAMI 120 → 240 → 600 → 800 → ~1500 in actual particle size.
+              The grinding ladder used in our guides (P120 → P320 → P600 → P800 → P1200 in FEPA-P) corresponds
+              roughly to US/CAMI 120 → 280 → 360 → 400 → 600 in actual particle size.
             </p>
           </div>
 
@@ -387,7 +394,7 @@ export default function GritSizeChartPage() {
               <li>• <strong>FEPA-P:</strong> Federation of European Producers of Abrasives, P-grade (FEPA 43-GB). Most European and many international metallographic papers.</li>
               <li>• <strong>ANSI/CAMI:</strong> ANSI B74.18, the standard used by most North American manufacturers (also called CAMI for Coated Abrasive Manufacturers Institute).</li>
               <li>• <strong>JIS:</strong> JIS R6010 — Japanese Industrial Standard.</li>
-              <li>• <strong>Mesh:</strong> US Standard mesh size (particles per linear inch in the screen used to grade the abrasive).</li>
+              <li>• <strong>Mesh:</strong> US Standard mesh size (screen openings per linear inch in the screen used to grade the abrasive). Only macrogrits (~220 and coarser) are screen-graded; finer grades are classified by sedimentation, so no mesh equivalent is listed.</li>
               <li>• Particle-size figures are nominal; manufacturer-specific values can vary by ±10–20%.</li>
               <li>• For acceptance work, verify abrasive standard and particle size on the manufacturer's data sheet.</li>
             </ul>

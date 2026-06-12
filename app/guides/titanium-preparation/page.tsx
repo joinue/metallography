@@ -104,7 +104,9 @@ export default function TitaniumGuide() {
                 and the cutting action of a diamond blade keep the deformation layer thin and minimize
                 twin generation. When a precision saw isn't an option, fall back to a standard abrasive
                 cutoff at typical metallographic surface speeds (~2,500-4,500 SFM) with copious flood
-                coolant; under-speeding the wheel glazes the blade rather than reducing damage.
+                coolant. Keep the wheel inside its rated speed band and control damage with light feed
+                instead — running far below rated speed doesn't reduce damage, it just upsets the bond's
+                self-dressing behavior and wears the blade prematurely.
               </p>
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
                 <Link 
@@ -114,27 +116,28 @@ export default function TitaniumGuide() {
                   className="block hover:opacity-90 transition-opacity"
                 >
                   <Image
-                    src="/images/consumables/maxcut-e.webp"
-                    alt="Hard non-ferrous Al₂O₃ abrasive cut-off blade for titanium sectioning"
+                    src="/images/consumables/maxcut-c.webp"
+                    alt="Abrasive cut-off blade for hard non-ferrous metals, used for titanium sectioning"
                     width={500}
                     height={375}
                     className="w-full h-auto"
                   />
                 </Link>
-                <p className="text-sm text-gray-600 mt-2 italic text-center">When abrasive cutoff is unavoidable, use a hard-bond Al₂O₃ blade formulated for hard non-ferrous metals — the dedicated titanium category. Thin blades (0.5-1.0 mm) and copious flood coolant are mandatory.</p>
+                <p className="text-sm text-gray-600 mt-2 italic text-center">When abrasive cutoff is unavoidable, use a medium-hard-bond blade rated for hard non-ferrous metals (titanium, zirconium) — the dedicated titanium category. Thin blades (0.5-1.0 mm) and copious flood coolant are mandatory.</p>
               </div>
               <ul>
                 <li><strong>Preferred:</strong> precision (low-speed) saw with a diamond wafering blade — reduces twinning and keeps the damage layer thin</li>
-                <li><strong>Fallback:</strong> standard abrasive cutoff with a <strong>hard-bond Al₂O₃ blade for hard non-ferrous metals</strong> — the dedicated titanium category. Avoid blades formulated for soft steel or hardened steel; the bond chemistry is wrong for Ti.</li>
+                <li><strong>Fallback:</strong> standard abrasive cutoff with a <strong>medium-hard-bond blade rated for hard non-ferrous metals (titanium, zirconium)</strong> — the dedicated titanium category; blades in this class are sold with alumina, silicon carbide, or CBN abrasive. Avoid blades formulated for soft non-ferrous metals or for steels; the bond is wrong for Ti.</li>
                 <li>Use a thin abrasive cut-off wheel (0.5-1.0 mm thickness)</li>
                 <li>Apply <strong>light, steady force</strong> — heavy load is what produces deformation twinning in Ti</li>
                 <li>Use generous flood coolant; surface contamination from cutting fluid is real, clean immediately after sectioning</li>
+                <li><strong>Never dry-cut titanium</strong> — fine Ti swarf is pyrophoric and can self-ignite. Flood coolant keeps it wet; collect and dispose of swarf wet, never in a dry dust-collection system</li>
                 <li>Allow the wheel to do the cutting - avoid forcing</li>
               </ul>
               <ProductLink
                 productName="Hard Non-Ferrous Abrasive Blades (Titanium)"
                 href="https://shop.metallographic.com/collections/abrasive-blades"
-                description="Hard-bond Al₂O₃ abrasive blades formulated for titanium and other hard non-ferrous alloys — the right blade category when a precision saw isn’t an option"
+                description="Abrasive blades rated for titanium and other hard non-ferrous alloys — the right blade category when a precision saw isn’t an option"
               />
             </section>
 
@@ -158,7 +161,7 @@ export default function TitaniumGuide() {
               <ol>
                 <li>Clean and dry the sample thoroughly</li>
                 <li>Place in mounting cup with epoxy resin</li>
-                <li>Allow to cure at room temperature (typically 4-8 hours)</li>
+                <li>Allow to cure at room temperature (typically 6-12 hours for slow-cure epoxy)</li>
                 <li>Cold mounting avoids heat that could affect titanium microstructure</li>
               </ol>
             </section>
@@ -192,7 +195,7 @@ export default function TitaniumGuide() {
               </div>
               <h3>Grinding Sequence</h3>
               <ol>
-                <li><strong>120 grit:</strong> Remove sectioning damage (30-60 seconds per step)</li>
+                <li><strong>120 grit (only when needed):</strong> Reserve for heavy stock removal after abrasive cutoff (30-60 seconds). The standard Ti ladder starts at 240 grit — on titanium a coarse grit drives deformation twins deeper even as it removes damage. If the sample was cut on a precision saw, always start at 240.</li>
                 <li><strong>240 grit:</strong> Remove previous scratches (30-60 seconds)</li>
                 <li><strong>400 grit:</strong> Further refinement (30-60 seconds)</li>
                 <li><strong>600 grit:</strong> Final grinding step (30-60 seconds)</li>
@@ -255,10 +258,16 @@ export default function TitaniumGuide() {
               </div>
               <h3>Diamond Polishing</h3>
               <ol>
-                <li><strong>9 μm diamond:</strong> 3-5 minutes on a hard cloth (e.g., Texmet)</li>
-                <li><strong>3 μm diamond:</strong> 3-5 minutes on a medium-hard cloth</li>
-                <li><strong>1 μm diamond:</strong> 2-3 minutes on a soft cloth</li>
+                <li><strong>9 μm diamond:</strong> 3-5 minutes on a hard woven cloth</li>
+                <li><strong>3 μm diamond:</strong> 3-5 minutes on a medium-napped cloth</li>
               </ol>
+              <p>
+                There is deliberately <strong>no 1 μm diamond step</strong> in the Ti ladder. Finer diamond
+                doesn't refine a titanium surface — each diamond pass keeps re-introducing mechanical
+                deformation that the final step then has to strip, so go straight from 3 μm to the attack
+                polish. (On commercially pure titanium the effect is strongest; some labs minimize diamond
+                polishing on CP Ti altogether and lean on the chemo-mechanical step.)
+              </p>
               <h3>Final Polishing — "Attack Polishing"</h3>
               <p>
                 <strong>Plain colloidal silica is not enough on titanium.</strong> Ti maintains a stubborn
@@ -287,14 +296,18 @@ export default function TitaniumGuide() {
               </p>
               <h3>Common Etchants for Titanium</h3>
               <ul>
-                <li><strong>Kroll's Reagent (general purpose — CP Ti, α-β, β alloys):</strong> 2 mL HF + 6 mL HNO₃ + 92 mL H₂O. Apply by swab for 5-15 s. The default first-pass etch for every Ti family in <MaterialTooltip materialName="Commercially Pure Titanium (Grade 2)">CP Ti</MaterialTooltip>, <MaterialTooltip materialName="Ti-6Al-4V">Ti-6Al-4V</MaterialTooltip>, <MaterialTooltip materialName="Ti-3Al-2.5V">Ti-3Al-2.5V</MaterialTooltip>, and Ti-10V-2Fe-3Al-class β alloys. <strong>HF safety:</strong> work in a fume hood, wear HF-rated gloves and face shield, and keep calcium gluconate gel on hand. <strong>Never let the surface dry between application and rinse</strong> — HF residues continue to attack until the surface is flushed.</li>
-                <li><strong>10% Oxalic acid, electrolytic — for β-phase imaging:</strong> 10 g oxalic acid in 100 mL H₂O. Apply at <strong>5 V</strong> for 30-60 s. Where Kroll's gives general structure, oxalic electrolytic preferentially responds to β-phase chemistry, so it's the canonical follow-up etch on α-β alloys (Ti-6Al-4V, Ti-6-2-4-2) when you need to image the β fraction cleanly, and the primary etch for β-dominant alloys (Beta-C, Beta-21S, Ti-10V-2Fe-3Al).</li>
+                <li><strong>Kroll's Reagent (general purpose — CP Ti, α-β, β alloys):</strong> 2 mL HF + 6 mL HNO₃ + 92 mL H₂O. Apply by swab for 5-15 s. The default first-pass etch for every Ti family — <MaterialTooltip materialName="Commercially Pure Titanium (Grade 2)">CP Ti</MaterialTooltip>, <MaterialTooltip materialName="Ti-6Al-4V">Ti-6Al-4V</MaterialTooltip>, <MaterialTooltip materialName="Ti-3Al-2.5V">Ti-3Al-2.5V</MaterialTooltip>, and Ti-10V-2Fe-3Al-class β alloys. <strong>HF safety:</strong> work in a fume hood, wear HF-rated gloves and face shield, and keep calcium gluconate gel on hand. <strong>Never let the surface dry between application and rinse</strong> — HF residues continue to attack until the surface is flushed.</li>
+                <li><strong>10% Oxalic acid, electrolytic — for β-phase imaging:</strong> 10 g oxalic acid in 100 mL H₂O. Apply at <strong>5 V</strong> for 30-60 s. Where Kroll's gives general structure, oxalic electrolytic preferentially responds to β-phase chemistry, so it's the canonical follow-up etch on α-β alloys (Ti-6Al-4V, Ti-3Al-2.5V) when you need to image the β fraction cleanly, and the primary etch for β-dominant alloys (Beta-C, Beta-21S, Ti-10V-2Fe-3Al).</li>
               </ul>
               <p>
-                The recipe matrix above is intentionally short. Many Ti workflows publish "modified Kroll's"
-                or "Weck's tint for Ti" variants; the curated handbook does not endorse them — Weck's tint
-                is an aluminum/magnesium etch, and there is no single "modified Kroll's" the literature
-                agrees on. Stick with standard Kroll's plus an oxalic electrolytic for β-phase work.
+                The recipe matrix above is intentionally short. Kroll's itself is published as a range
+                (1-3 mL HF and 2-6 mL HNO₃ per 100 mL water, adjusted to the alloy), so there is no single
+                "modified Kroll's" the literature agrees on — treat the 2/6/92 mix as the standard starting
+                point. A genuine Weck's tint <em>for titanium</em> does exist (5 g ammonium bifluoride in
+                100 mL water — a different recipe from the aluminum Weck's) and is the classic choice for
+                color/grain-orientation work and for revealing the brittle, oxygen-enriched α-case layer
+                that Kroll's does not bring out; reserve it for those specific jobs. For routine work,
+                stick with standard Kroll's plus an oxalic electrolytic for β-phase imaging.
               </p>
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
                 <Link 
@@ -346,8 +359,8 @@ export default function TitaniumGuide() {
                 <li><strong>Persistent deformation layer / α-β contrast won't develop:</strong> Plain colloidal silica isn't enough on Ti. Switch the final step to colloidal silica + 30% H₂O₂ at a 1:5 ratio for 5 min + flush.</li>
                 <li><strong>Over-etching:</strong> Reduce etching time or dilute etchant. Start with shorter times (5-10 seconds).</li>
                 <li><strong>Pitting after etching:</strong> Etchant too strong or etching time too long. Dilute etchant or reduce time. HF-based etchants are particularly aggressive.</li>
-                <li><strong>Poor edge retention:</strong> Consider using phenolic mounting material or different mounting technique.</li>
-                <li><strong>Inconsistent etching:</strong> Ensure sample is clean and dry before etching. Surface contamination can cause uneven etching.</li>
+                <li><strong>Poor edge retention:</strong> Switch to a harder, lower-shrinkage compression mount — glass-filled epoxy gives the best edge retention (phenolic is only fair) — and keep final polishing steps short on soft pads.</li>
+                <li><strong>Inconsistent etching:</strong> Ensure sample is clean and dry before etching. Surface contamination can cause uneven etching — residual colloidal silica from the final polish is a common culprit (mottled etch); flush on the pad, then rinse with water and ethanol before etching.</li>
               </ul>
             </section>
 

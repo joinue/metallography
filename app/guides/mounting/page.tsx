@@ -143,8 +143,8 @@ export default function MetallographicMountingGuide() {
                   <tbody>
                     <tr>
                       <td className="border border-gray-300 px-4 py-3 font-medium">Speed</td>
-                      <td className="border border-gray-300 px-4 py-3">Fast (5-15 minutes)</td>
-                      <td className="border border-gray-300 px-4 py-3">Slower (30 minutes to several hours)</td>
+                      <td className="border border-gray-300 px-4 py-3">Fast (5-15 minutes per cycle)</td>
+                      <td className="border border-gray-300 px-4 py-3">Slower (8-15 minutes for acrylics, up to 6-12 hours for epoxies)</td>
                     </tr>
                     <tr className="bg-gray-50">
                       <td className="border border-gray-300 px-4 py-3 font-medium">Cost</td>
@@ -163,7 +163,7 @@ export default function MetallographicMountingGuide() {
                     </tr>
                     <tr>
                       <td className="border border-gray-300 px-4 py-3 font-medium">Pressure</td>
-                      <td className="border border-gray-300 px-4 py-3">High (2000-4000 psi)</td>
+                      <td className="border border-gray-300 px-4 py-3">High (typically 3000-4500 psi)</td>
                       <td className="border border-gray-300 px-4 py-3">Low to none</td>
                     </tr>
                     <tr className="bg-gray-50">
@@ -192,9 +192,9 @@ export default function MetallographicMountingGuide() {
                 <li><strong>Resin selection:</strong> Choose appropriate resin pellets based on material and requirements</li>
                 <li><strong>Loading:</strong> Place the sample in a mounting mold and add resin pellets around it</li>
                 <li><strong>Heating:</strong> Apply heat (typically 150-180°C) to soften the resin</li>
-                <li><strong>Compression:</strong> Apply high pressure (2000-4000 psi depending on resin type) to form the mount</li>
-                <li><strong>Curing:</strong> Hold temperature and pressure for 5-8 minutes to ensure complete curing</li>
-                <li><strong>Cooling:</strong> Cool the mount under pressure to room temperature before removal</li>
+                <li><strong>Compression:</strong> Apply high pressure (typically 3000-4500 psi depending on resin type; ~4200 psi is a common setpoint) to form the mount</li>
+                <li><strong>Curing:</strong> Hold temperature and pressure for about 5 minutes (3-7 minutes depending on resin) to ensure complete curing</li>
+                <li><strong>Cooling:</strong> Cool the mount under pressure (about 3 minutes or until near ambient) before depressurizing and removal. Cooling under pressure prevents the resin from shrinking away from the sample and leaving a gap at the interface</li>
               </ol>
               <div className="my-6 rounded-lg overflow-hidden max-w-2xl mx-auto">
                 <Link 
@@ -211,7 +211,7 @@ export default function MetallographicMountingGuide() {
                     className="w-full h-auto"
                   />
                 </Link>
-                <p className="text-sm text-gray-600 mt-2 italic text-center">Hydraulic compression mounting press (TP-7500S). Compression mounting presses apply heat and pressure to create durable mounts quickly.</p>
+                <p className="text-sm text-gray-600 mt-2 italic text-center">Hydraulic compression mounting press. Compression mounting presses apply heat and pressure to create durable mounts quickly.</p>
               </div>
               <h3>Common Compression Mounting Materials</h3>
               <p className="text-sm">
@@ -272,8 +272,8 @@ export default function MetallographicMountingGuide() {
                   <strong>Required Equipment:</strong> Compression Mounting Press
                 </p>
                 <p className="text-xs text-gray-600 mb-2">
-                  Compression mounting presses such as the SimpliMetX (or equivalent TP-7500S hydraulic or TP-7100S pneumatic presses) 
-                  provide automated control of temperature, pressure, and timing for consistent, high-quality mounts.
+                  Hydraulic and pneumatic compression mounting presses provide automated control of
+                  temperature, pressure, and timing for consistent, high-quality mounts.
                 </p>
                 <Link 
                   href="https://metallographic.com/metallographic-equipment/compression-mounting.html"
@@ -327,7 +327,7 @@ export default function MetallographicMountingGuide() {
                       className="w-full h-auto"
                     />
                   </Link>
-                  <p className="text-xs text-gray-600 mt-2 italic text-center">Pressure mounting system (ThetaMount) for castable mounting with pressure assistance to eliminate bubbles.</p>
+                  <p className="text-xs text-gray-600 mt-2 italic text-center">Pressure mounting system for castable mounting with pressure assistance to eliminate bubbles.</p>
                 </div>
                 <div className="rounded-lg overflow-hidden">
                   <Link 
@@ -344,14 +344,14 @@ export default function MetallographicMountingGuide() {
                       className="w-full h-auto"
                     />
                   </Link>
-                  <p className="text-xs text-gray-600 mt-2 italic text-center">UV curing chamber (UVMount) for fast curing of UV-curable mounting resins.</p>
+                  <p className="text-xs text-gray-600 mt-2 italic text-center">UV curing chamber for fast curing of UV-curable mounting resins.</p>
                 </div>
               </div>
               <h3>Castable Resin Types</h3>
               <ul>
-                <li><strong>Epoxy:</strong> Strong adhesion, minimal shrinkage, excellent for edge retention. Two-part system with longer cure time (several hours to overnight). Best for critical applications.</li>
-                <li><strong>Acrylic:</strong> Fast curing (30 minutes to 2 hours), lower cost, transparent. Good for general use but may have more shrinkage than epoxy.</li>
-                <li><strong>Polyester:</strong> Budget-friendly option, moderate properties. Suitable for non-critical applications.</li>
+                <li><strong>Epoxy:</strong> Strong adhesion, minimal shrinkage, low exotherm, excellent for edge retention. Two-part system with longer cure time (typically 6-12 hours at room temperature). Best for critical applications, porous samples, and vacuum impregnation.</li>
+                <li><strong>Acrylic (methyl methacrylate):</strong> Very fast curing (8-15 minutes) but strongly exothermic, with more shrinkage than epoxy. Good for quick-turnaround work where edge retention is not critical.</li>
+                <li><strong>Polyester:</strong> Budget-friendly option with hardness between epoxy and acrylic. Cure time of roughly 30 minutes to 2 hours. Suitable for cost-sensitive, non-critical applications.</li>
                 <li><strong>UV-curable:</strong> Very fast curing (minutes) when exposed to UV light. Requires UV curing equipment but offers rapid turnaround.</li>
               </ul>
               <h3>Benefits of Castable Mounting</h3>
@@ -364,10 +364,24 @@ export default function MetallographicMountingGuide() {
               </ul>
               <h3>Limitations and Considerations</h3>
               <ul>
-                <li><strong>Longer cure time:</strong> Most resins require 30 minutes to several hours (or overnight) to fully cure</li>
+                <li><strong>Longer cure time:</strong> Cure times range from 8-15 minutes for acrylics to 6-12 hours for slow epoxies</li>
+                <li><strong>Exotherm:</strong> Fast-curing acrylics generate significant heat as they cure; large pours can stress or damage very heat-sensitive samples</li>
                 <li><strong>Air bubbles:</strong> May require vacuum degassing to eliminate porosity, especially for epoxy resins</li>
-                <li><strong>Shrinkage:</strong> Some resins shrink during curing, which can affect edge retention</li>
+                <li><strong>Shrinkage:</strong> Some resins (acrylics in particular) shrink during curing, which can affect edge retention</li>
                 <li><strong>Hardness:</strong> Generally softer than compression mounts, may require careful polishing</li>
+              </ul>
+
+              <h3>Vacuum and Pressure Impregnation</h3>
+              <p>
+                For porous samples (thermal spray coatings, sintered parts, ceramics, cracked or weathered
+                specimens), vacuum and pressure impregnation drives resin into pores that would otherwise
+                remain open in the polished face. Without impregnation, voids fill with abrasive during
+                grinding and bleed during etching.
+              </p>
+              <ul>
+                <li><strong>Vacuum draw:</strong> Pull a vacuum greater than 25 inHg and pour the resin (low-viscosity epoxy penetrates best) while the chamber is under vacuum, so trapped gas expands out of the pores and is displaced by resin</li>
+                <li><strong>Pressure cure:</strong> Cure under 1-4 bar of pressure to compress any remaining gas and force resin into the voids</li>
+                <li><strong>Keep the vacuum step short:</strong> Holding vacuum too long before pouring causes dissolved gases in the resin itself to bubble out, creating new porosity</li>
               </ul>
 
               <YouTubeVideo
@@ -398,8 +412,8 @@ export default function MetallographicMountingGuide() {
                   <strong>Optional Equipment:</strong> Vacuum and UV Curing Systems
                 </p>
                 <p className="text-xs text-gray-600 mb-2">
-                  Vacuum systems (like LSSA-011) remove air bubbles for porosity-free mounts. UV curing chambers 
-                  (like UVMount) enable rapid curing of UV-curable resins, significantly reducing processing time.
+                  Vacuum systems remove air bubbles for porosity-free mounts. UV curing chambers
+                  enable rapid curing of UV-curable resins, significantly reducing processing time.
                 </p>
                 <Link 
                   href="https://metallographic.com/metallographic-equipment/castable-mounting.html"
@@ -427,7 +441,7 @@ export default function MetallographicMountingGuide() {
               <ul>
                 <li><strong>High throughput is needed:</strong> Processing many samples per day requires the speed of compression mounting</li>
                 <li><strong>Standard metal samples:</strong> Most metals can withstand the heat and pressure of compression mounting</li>
-                <li><strong>Excellent edge retention is critical:</strong> Compression mounts provide superior edge definition</li>
+                <li><strong>Excellent edge retention is critical:</strong> Compression mounts (especially glass-filled epoxy) give the best edge definition</li>
                 <li><strong>Automated lab workflow:</strong> Compression presses integrate well with automated grinding and polishing systems</li>
                 <li><strong>Consistent, robust mounts needed:</strong> Compression mounting produces uniform, durable mounts</li>
               </ul>
@@ -562,6 +576,7 @@ export default function MetallographicMountingGuide() {
                         <ul className="list-disc list-inside space-y-1 text-sm">
                           <li>Rapid cooling → Cool compression mounts slowly under pressure</li>
                           <li>Thermal shock → Avoid sudden temperature changes</li>
+                          <li>Resin too brittle for the sample mass → Use epoxy instead of phenolic</li>
                           <li>Excessive shrinkage → Use low-shrinkage resins (epoxy) for critical applications</li>
                           <li>Sample-resin mismatch → Ensure resin thermal expansion matches sample characteristics</li>
                           <li>Insufficient resin → Use adequate resin volume to prevent stress concentration</li>
@@ -573,9 +588,10 @@ export default function MetallographicMountingGuide() {
                       <td className="border border-gray-300 px-4 py-3">Rounded edges, loss of edge definition during grinding/polishing</td>
                       <td className="border border-gray-300 px-4 py-3">
                         <ul className="list-disc list-inside space-y-1 text-sm">
-                          <li>Soft resin → Use harder resins (phenolic, DAP) for compression mounting</li>
+                          <li>Soft resin → Use glass-filled epoxy or DAP for compression mounting (phenolic edge retention is only fair)</li>
                           <li>Insufficient resin hardness → Ensure complete curing</li>
                           <li>Sample-resin hardness mismatch → Match resin hardness to sample and polishing requirements</li>
+                          <li>Shrinkage gap at the sample edge → Cool compression mounts under pressure; for castable epoxy, preheat the specimen so the resin shrinks toward it</li>
                           <li>Improper sample orientation → Orient edges perpendicular to mount surface</li>
                         </ul>
                       </td>
@@ -593,6 +609,18 @@ export default function MetallographicMountingGuide() {
                       </td>
                     </tr>
                     <tr className="bg-gray-50">
+                      <td className="border border-gray-300 px-4 py-3 font-medium">Mount-Sample Gap / Etchant Bleed-Out</td>
+                      <td className="border border-gray-300 px-4 py-3">Visible gap at the sample-mount boundary; sample lifts during polishing; dark staining that bleeds from the boundary after etching</td>
+                      <td className="border border-gray-300 px-4 py-3">
+                        <ul className="list-disc list-inside space-y-1 text-sm">
+                          <li>Differential shrinkage → Use a lower-shrinkage resin (epoxy, glass-filled epoxy)</li>
+                          <li>Depressurized while hot → Cool compression mounts to near ambient under pressure before ejecting</li>
+                          <li>Castable epoxy shrinking away from the sample → Pre-warm the specimen so the resin cures first at the interface and shrinks toward it</li>
+                          <li>Capillary leak wicking etchant → Re-mount with vacuum/pressure impregnation, or seal the gap with epoxy before etching</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
                       <td className="border border-gray-300 px-4 py-3 font-medium">Contamination</td>
                       <td className="border border-gray-300 px-4 py-3">Foreign particles, discoloration, or artifacts in the mount</td>
                       <td className="border border-gray-300 px-4 py-3">

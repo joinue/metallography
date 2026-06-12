@@ -76,24 +76,25 @@ export default function TroubleshootingGuidePage() {
       {
         category: 'Scratches',
         issues: [
-          { problem: 'Deep scratches remain', solution: 'Return to coarser grit and remove completely before proceeding' },
-          { problem: 'Scratches from previous step', solution: 'Ensure complete removal at each step, increase time if needed' },
-          { problem: 'New scratches introduced', solution: 'Check for contamination, clean between steps, use fresh abrasive' },
+          { problem: 'Residual scratches after advancing grit', solution: 'Diagnose contamination first: mount fresh paper, rinse the platen (not just the sample), and rinse the sample at every transition. Only after the abrasive, platen, and sample are confirmed clean is more time or pressure a valid lever' },
+          { problem: 'Deep scratches remain', solution: 'Rule out contaminated or loaded paper first, then return to a coarser grit and remove the damage completely before proceeding' },
+          { problem: 'One or two stray deep scratches on an otherwise clean surface', solution: 'Likely a stray oversize particle in the paper — discard that piece of paper and run a fresh one' },
+          { problem: 'New scratches introduced', solution: 'Check for contamination, clean platen and sample between steps, use fresh abrasive; dedicate brushes and rinse bottles per grit' },
         ]
       },
       {
         category: 'Relief',
         issues: [
-          { problem: 'Relief around inclusions', solution: 'Reduce polishing time, use softer cloth, decrease pressure' },
-          { problem: 'Relief between phases', solution: 'Shorter polishing times, softer cloth, monitor carefully' },
-          { problem: 'Edge relief', solution: 'Use harder cloth, reduce pressure, shorter times' },
+          { problem: 'Relief around inclusions', solution: 'Use a harder cloth, shorten polishing time, and reduce pressure — soft napped cloths make relief worse' },
+          { problem: 'Relief between phases', solution: 'Harder cloth, shorter polishing times, lighter force; finish with a chemo-mechanical step (colloidal silica)' },
+          { problem: 'Edge relief / edge rounding', solution: 'Use a glass-filled epoxy (compression) mount for best edge retention; harder cloth, reduce pressure, shorter times on soft cloths' },
         ]
       },
       {
         category: 'Contamination',
         issues: [
-          { problem: 'Embedded abrasive particles', solution: 'Clean thoroughly between steps, use fresh cloth' },
-          { problem: 'Cross-contamination', solution: 'Clean sample and equipment between grits, use separate cloths' },
+          { problem: 'Embedded abrasive particles', solution: 'Use fixed-abrasive papers and lighter force; on soft metals switch SiC to alumina (SiC embeds more readily); a vibratory polish can remove embedded grains' },
+          { problem: 'Cross-contamination', solution: 'Clean sample and equipment between grits, rinse the platen before mounting fresh paper, use separate cloths' },
           { problem: 'Oxide contamination', solution: 'Clean immediately after polishing, use appropriate solvents' },
         ]
       },
@@ -101,15 +102,16 @@ export default function TroubleshootingGuidePage() {
         category: 'Over-polishing',
         issues: [
           { problem: 'Excessive material removal', solution: 'Reduce polishing time, use lighter pressure' },
-          { problem: 'Loss of edge definition', solution: 'Shorter times, monitor frequently, use harder cloth' },
-          { problem: 'Smearing (soft materials)', solution: 'Reduce time significantly, use very light pressure' },
+          { problem: 'Loss of edge definition', solution: 'Shorter times, monitor frequently, use harder cloth and a glass-filled epoxy mount' },
+          { problem: 'Smearing (soft materials)', solution: 'Add chemical removal: chemo-mechanical final polish (colloidal silica), attack polishing, or vibratory polishing; reduce pressure' },
+          { problem: 'Pull-out of graphite or inclusions', solution: 'Lower grinding force, vacuum-impregnate porous samples, and finish with colloidal silica only — do not switch to a softer cloth' },
         ]
       },
       {
         category: 'Under-polishing',
         issues: [
-          { problem: 'Previous scratches visible', solution: 'Increase polishing time, check cloth condition' },
-          { problem: 'Incomplete scratch removal', solution: 'Extend time, ensure adequate abrasive application' },
+          { problem: 'Previous scratches visible', solution: 'Check cloth and paper condition for contamination first, then increase polishing time' },
+          { problem: 'Incomplete scratch removal', solution: 'Confirm clean abrasive, then extend time and ensure adequate abrasive application' },
           { problem: 'Uneven surface', solution: 'Maintain consistent technique, check for cloth wear' },
         ]
       },
@@ -120,14 +122,17 @@ export default function TroubleshootingGuidePage() {
           { problem: 'Under-etching', solution: 'Increase time slightly, check etchant freshness' },
           { problem: 'Uneven etching', solution: 'Apply etchant evenly, ensure clean surface' },
           { problem: 'Etching artifacts', solution: 'Clean surface thoroughly, use fresh etchant' },
+          { problem: 'Spurious grains after etching (recrystallization)', solution: 'Reduce polishing pressure, add an attack-polish step, and avoid hot-air drying' },
+          { problem: 'Apparent porosity — real or artifact?', solution: 'Real porosity has rounded, smooth interiors; pull-out artifacts have irregular, freshly fractured walls. If artifact: vacuum-impregnate and grind more gently' },
         ]
       },
       {
         category: 'Mounting Issues',
         issues: [
-          { problem: 'Voids in mount', solution: 'Check mounting procedure, ensure proper pressure/temperature' },
+          { problem: 'Voids in mount', solution: 'Check mounting procedure, ensure proper pressure/temperature; vacuum-degas castable resins' },
           { problem: 'Mount cracking', solution: 'Adjust cooling rate, check resin compatibility' },
-          { problem: 'Poor edge retention', solution: 'Use appropriate mounting material, ensure proper curing' },
+          { problem: 'Poor edge retention', solution: 'Use a glass-filled epoxy compression mount (best edge retention); cool under pressure to avoid shrinkage gaps' },
+          { problem: 'Staining or bleed-out at the sample-mount gap', solution: 'Re-mount with a lower-shrinkage resin or vacuum/pressure impregnation; rinse aggressively between etching and drying' },
         ]
       },
       {
@@ -136,6 +141,7 @@ export default function TroubleshootingGuidePage() {
           { problem: 'Excessive damage', solution: 'Start with finer grit, reduce pressure, use adequate coolant' },
           { problem: 'Incomplete damage removal', solution: 'Continue grinding until damage removed, check direction' },
           { problem: 'Uneven grinding', solution: 'Maintain consistent pressure, check paper condition' },
+          { problem: 'Paper stops cutting on soft alloys (loaded/glazed)', solution: 'Replace the paper, reduce load, or switch to alumina paper or diamond film for soft alloys' },
         ]
       },
     ]
@@ -179,6 +185,7 @@ export default function TroubleshootingGuidePage() {
     const tips = [
       'Always monitor the sample surface during preparation',
       'Clean thoroughly between each step',
+      'When scratches persist, suspect contamination before adding time or pressure',
       'Use fresh abrasives and clean cloths',
       'Start with shorter times and increase if needed',
       'Maintain consistent technique and pressure',
@@ -248,12 +255,12 @@ export default function TroubleshootingGuidePage() {
                 <h3 className="text-lg font-semibold mb-3 text-primary-600">Scratches</h3>
                 <div className="space-y-3">
                   <div className="bg-gray-50 p-4 rounded">
-                    <p className="font-semibold mb-1">Problem: Deep scratches remain</p>
-                    <p className="text-sm text-gray-700">Solution: Return to coarser grit and remove completely before proceeding</p>
+                    <p className="font-semibold mb-1">Problem: Residual scratches after advancing grit</p>
+                    <p className="text-sm text-gray-700">Solution: Diagnose contamination first — mount fresh paper and rinse the platen and sample at every transition. Only after the abrasive surface, platen, and sample are confirmed clean is more time or pressure a valid lever</p>
                   </div>
                   <div className="bg-gray-50 p-4 rounded">
-                    <p className="font-semibold mb-1">Problem: Scratches from previous step</p>
-                    <p className="text-sm text-gray-700">Solution: Ensure complete removal at each step, increase time if needed</p>
+                    <p className="font-semibold mb-1">Problem: Deep scratches remain</p>
+                    <p className="text-sm text-gray-700">Solution: Rule out contaminated or loaded paper first, then return to a coarser grit and remove the damage completely before proceeding</p>
                   </div>
                 </div>
               </section>
@@ -262,7 +269,7 @@ export default function TroubleshootingGuidePage() {
                 <h3 className="text-lg font-semibold mb-3 text-primary-600">Relief</h3>
                 <div className="bg-gray-50 p-4 rounded">
                   <p className="font-semibold mb-1">Problem: Relief around inclusions</p>
-                  <p className="text-sm text-gray-700">Solution: Reduce polishing time, use softer cloth, decrease pressure</p>
+                  <p className="text-sm text-gray-700">Solution: Use a harder cloth, shorten polishing time, and reduce pressure — soft napped cloths make relief worse</p>
                 </div>
               </section>
 
@@ -270,7 +277,7 @@ export default function TroubleshootingGuidePage() {
                 <h3 className="text-lg font-semibold mb-3 text-primary-600">Contamination</h3>
                 <div className="bg-gray-50 p-4 rounded">
                   <p className="font-semibold mb-1">Problem: Embedded abrasive particles</p>
-                  <p className="text-sm text-gray-700">Solution: Clean thoroughly between steps, use fresh cloth</p>
+                  <p className="text-sm text-gray-700">Solution: Use fixed-abrasive papers and lighter force; on soft metals switch SiC to alumina — SiC embeds more readily</p>
                 </div>
               </section>
 
@@ -279,6 +286,7 @@ export default function TroubleshootingGuidePage() {
                 <ul className="list-disc list-inside space-y-2 text-gray-700">
                   <li>Always monitor the sample surface during preparation</li>
                   <li>Clean thoroughly between each step</li>
+                  <li>When scratches persist, suspect contamination before adding time or pressure</li>
                   <li>Use fresh abrasives and clean cloths</li>
                 </ul>
               </section>

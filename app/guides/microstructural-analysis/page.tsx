@@ -703,6 +703,22 @@ export default function MicrostructuralAnalysisGuide() {
                 properties?</li>
               </ol>
 
+              <h3>Quantitative Microstructural Measurements</h3>
+              <p>
+                When the analysis requires numbers rather than descriptions, use the established standard methods:
+              </p>
+              <ul>
+                <li><strong>Grain size:</strong> ASTM E112 (comparison-chart, intercept, and planimetric methods);
+                ASTM E1382 for grain size by semiautomatic or automatic image analysis</li>
+                <li><strong>Inclusion content of steel:</strong> ASTM E45 (worst-field method with reference charts)</li>
+                <li><strong>Phase (volume) fraction:</strong> ASTM E562 (systematic point counting, manual or automated)</li>
+              </ul>
+              <p>
+                All of these methods assume a deformation-free surface with a uniform etch — residual scratches,
+                smearing, relief, or uneven grain-boundary etching bias the measurement before any counting begins.
+                If the preparation is questionable, fix it before quantifying anything.
+              </p>
+
               <h3>Common Interpretation Challenges</h3>
               <ul>
                 <li><strong>Preparation artifacts:</strong> Scratches, contamination, or relief can be mistaken for 

@@ -53,7 +53,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     term: 'Cementite',
-    definition: 'A hard, brittle phase of iron carbide (Fe3C) that forms in steel. Its appearance in etched microstructures depends on the etchant: appears dark with nital, light/white with picral.',
+    definition: 'A hard, brittle phase of iron carbide (Fe3C) that forms in steel. Cementite itself is not attacked by nital or picral and appears bright/white, standing in slight relief; the etchants attack the surrounding ferrite and interfaces, outlining it. Boiling alkaline sodium picrate colors cementite dark for positive identification.',
     category: 'Microstructure',
     relatedTerms: ['Phase', 'Ferrite', 'Pearlite'],
     example: 'Cementite provides hardness to steel but reduces ductility.',
@@ -67,7 +67,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     term: 'Austenite',
-    definition: 'A face-centered cubic (FCC) phase of iron that exists at high temperatures. It can transform to ferrite, pearlite, or martensite depending on cooling rate.',
+    definition: 'A face-centered cubic (FCC) phase of iron. In plain carbon steels it is stable only at elevated temperature and transforms to ferrite, pearlite, bainite, or martensite on cooling depending on cooling rate; alloying (e.g., nickel in austenitic stainless steels) can retain it at room temperature.',
     category: 'Microstructure',
     relatedTerms: ['Phase', 'Martensite', 'Heat Treatment'],
     example: 'Steel is heated to the austenite region before quenching to form martensite.',
@@ -138,7 +138,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     term: 'Compression Mounting',
-    definition: 'A mounting method where resin pellets are heated and compressed under high pressure to form a solid mount. Fast (5-15 minutes) and produces hard, durable mounts.',
+    definition: 'A mounting method where resin pellets are heated (~150-180°C) and compressed under high pressure to form a solid mount. Fast (cycles of roughly 2-10 minutes) and produces hard, durable mounts with the best edge retention.',
     category: 'Sample Preparation',
     relatedTerms: ['Mounting', 'Castable Mounting'],
     example: 'Compression mounting is ideal for high-throughput laboratories and standard metal samples.',
@@ -201,10 +201,10 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     term: 'Relief',
-    definition: 'A polishing artifact where different phases or features stand above or below the polished surface due to different removal rates. Can be minimized with proper polishing technique.',
+    definition: 'A polishing artifact where phases of different hardness sit at different heights: the soft phase is recessed and the hard phase stands proud. Caused by soft napped cloths and long polishing times; minimized with harder pads and shorter polishing steps.',
     category: 'Sample Preparation',
     relatedTerms: ['Polishing', 'Artifact'],
-    example: 'Hard phases may stand in relief above softer phases if polishing pressure is too high.',
+    example: 'Hard phases stand proud of softer phases after prolonged polishing on a soft napped cloth.',
   },
   {
     term: 'Artifact',
@@ -248,7 +248,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     term: 'Vibratory Polisher',
-    definition: 'Equipment that uses vibration to polish samples. Eliminates subsurface damage and produces superior surface finishes, ideal for EBSD preparation.',
+    definition: 'Equipment that polishes via low-energy vibration of a suspension-charged cloth. Samples are gravity-loaded (their own weight or a small added weight) with no applied pressure, removing the last traces of subsurface deformation over long cycles (typically 1-24 hours). Ideal for EBSD preparation and soft metals.',
     category: 'Equipment',
     relatedTerms: ['Polishing', 'Vibratory Polishing'],
   },
@@ -327,10 +327,10 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     term: 'EBSD',
-    definition: 'Electron Backscatter Diffraction - a technique used in scanning electron microscopy to determine crystal orientation, grain boundaries, and phase identification.',
+    definition: 'Electron Backscatter Diffraction - a technique used in scanning electron microscopy to determine crystal orientation, grain boundaries, and phase identification. Requires a deformation-free surface; residual mechanical damage degrades pattern indexing.',
     category: 'Analysis',
     relatedTerms: ['SEM', 'Microstructure'],
-    example: 'EBSD requires very high-quality sample preparation with minimal surface damage.',
+    example: 'EBSD preparation typically ends with a long colloidal silica polish, often on a vibratory polisher, to remove all residual deformation.',
   },
   {
     term: 'SEM',
@@ -476,7 +476,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     term: 'Edge Retention',
-    definition: 'The ability of a mount to maintain sharp edges and interfaces during grinding and polishing. Important for analyzing coatings, edges, or interfaces.',
+    definition: 'The ability of a mount to keep the sample edge flat and in focus during grinding and polishing, rather than rounding it. Important for analyzing coatings, case depths, and near-edge features; best achieved with hard, low-shrinkage mounting resins (e.g., glass-filled epoxy) and harder polishing pads.',
     category: 'Sample Preparation',
     relatedTerms: ['Mounting', 'Compression Mounting'],
   },
@@ -512,7 +512,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     term: 'Colloidal Silica',
-    definition: 'A fine oxide polishing suspension used for final polishing. Produces excellent surface finishes with minimal damage.',
+    definition: 'A very fine (typically 0.02-0.06 μm) silica suspension used for final polishing. Acts chemo-mechanically, combining gentle abrasion with mild chemical attack to produce near deformation-free surfaces; the standard finish for EBSD and color etching.',
     category: 'Sample Preparation',
     relatedTerms: ['Oxide Polishing', 'Final Polishing'],
   },
@@ -530,7 +530,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     term: 'Electrolytic Etching',
-    definition: 'An etching method using electrical current to enhance the etching process. Used for some stainless steels and other materials.',
+    definition: 'An etching method in which the polished specimen is made the anode in an electrolytic cell and a controlled voltage drives selective dissolution. Common for stainless steels (e.g., 10% oxalic acid at 6 V for 30-90 s) and superalloys.',
     category: 'Sample Preparation',
     relatedTerms: ['Etching', 'Etchant'],
   },
@@ -554,7 +554,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     term: 'Comet Tailing',
-    definition: 'A polishing artifact where hard particles create trailing marks resembling comets. Caused by improper polishing technique or contaminated abrasives.',
+    definition: 'A polishing artifact where tear-drop shaped trails form behind hard inclusions or precipitates as they drag during unidirectional polishing and scratch the softer matrix behind them. Reduced by lowering force, rotating the sample between polishing intervals, or switching to a harder pad.',
     category: 'Sample Preparation',
     relatedTerms: ['Artifact', 'Polishing'],
   },

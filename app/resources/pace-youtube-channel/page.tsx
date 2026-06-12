@@ -67,14 +67,14 @@ export default function PACEYouTubeChannelPage() {
               <h2>About the Channel</h2>
               <p>
                 The PACE Technologies YouTube channel features instructional videos created by 
-                <strong> Dr. Donald Zipperian</strong>, the founder of PACE Technologies and a leading 
-                expert in metallographic sample preparation. These videos provide hands-on demonstrations 
+                <strong> Dr. Donald Zipperian</strong>, the founder of PACE Technologies, who has decades
+                of experience in metallographic sample preparation. These videos provide hands-on demonstrations
                 of equipment operation and proper techniques for various stages of sample preparation.
               </p>
               <p>
-                All videos are <strong>completely free</strong> and serve as valuable educational resources 
-                for metallographers at all skill levels, from beginners learning the basics to experienced 
-                professionals looking to optimize their techniques.
+                All videos are <strong>free to watch</strong> and serve as educational resources
+                for metallographers at all skill levels, from beginners learning the basics to experienced
+                professionals refining their techniques.
               </p>
             </section>
 
@@ -150,7 +150,7 @@ export default function PACEYouTubeChannelPage() {
             <section className="mb-8">
               <h2>Sample Video</h2>
               <p>
-                Here's an example of the high-quality instructional content available on the channel:
+                Here's an example of the instructional content available on the channel:
               </p>
               
               <YouTubeVideo

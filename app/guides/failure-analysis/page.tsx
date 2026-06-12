@@ -152,9 +152,10 @@ export default function FailureAnalysisPage() {
             Careful sample selection is important for meaningful analysis:
           </p>
           <ul className="list-disc pl-6 mb-4">
+            <li>Document the component fully — condition, orientation, identifying marks, photographs — before any cutting; sectioning is irreversible</li>
             <li>Select samples from failure origin and unaffected areas</li>
-            <li>Preserve fracture surfaces when possible</li>
-            <li>Prepare cross-sections perpendicular to fracture surface</li>
+            <li>Never cut through the fracture face itself — section well away from it, and protect the fracture surface from coolant, cutting debris, and handling damage during sectioning</li>
+            <li>Prepare cross-sections perpendicular to the fracture surface</li>
             <li>Follow standard metallographic preparation techniques</li>
             <li>Use appropriate etching to reveal microstructure</li>
           </ul>
@@ -355,7 +356,7 @@ export default function FailureAnalysisPage() {
                 <li>
                   <Link href="/blog/sic-embedment-soft-metals" className="text-blue-600 hover:underline font-semibold">Embedded SiC dark specks on soft metals</Link> —
                   random dots scattered across a polished Al, Mg, Pb, or Sn sample. Liberated SiC grit
-                  pressed into the soft matrix during grinding. Fix: switch to alumina (ALO) papers
+                  pressed into the soft matrix during grinding. Fix: switch to alumina papers
                   instead of SiC for soft non-ferrous.
                 </li>
                 <li>

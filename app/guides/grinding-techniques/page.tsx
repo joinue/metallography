@@ -173,7 +173,7 @@ export default function GrindingTechniquesGuide() {
               <ProductLink 
                 productName="Silicon Carbide Grinding Papers"
                 href="https://shop.metallographic.com/collections/sic-grinding"
-                description="Premium SiC grinding papers available in all standard grit sizes"
+                description="SiC grinding papers available in all standard grit sizes"
               />
               <div className="bg-gray-50 border-l-4 border-primary-600 p-4 my-4 rounded">
                 <div className="mb-3 rounded-lg overflow-hidden max-w-xs mx-auto">
@@ -185,7 +185,7 @@ export default function GrindingTechniquesGuide() {
                   >
                     <Image
                       src="/images/equipment/grinding & polishing/hand & belt grinders/penta-7500s/penta-7500s-cover.webp"
-                      alt="PENTA Series hand and belt grinders"
+                      alt="Hand and belt grinder for manual grinding steps"
                       width={250}
                       height={188}
                       className="w-full h-auto"
@@ -195,10 +195,10 @@ export default function GrindingTechniquesGuide() {
                   </Link>
                 </div>
                 <p className="text-sm text-gray-700 mb-2">
-                  <strong>Recommended Equipment:</strong> Hand & Belt Grinders
+                  <strong>Equipment:</strong> Hand & Belt Grinders
                 </p>
                 <p className="text-xs text-gray-600 mb-2">
-                  PENTA Series hand and belt grinders deliver precise material removal with robust construction and efficient cooling.
+                  Hand and belt grinders are used for manual planar grinding and rapid initial material removal, with water cooling to limit heat and flush swarf.
                 </p>
                 <Link 
                   href="https://metallographic.com/metallographic-equipment/grinding-polishing/penta.html"
@@ -220,15 +220,27 @@ export default function GrindingTechniquesGuide() {
               <h3>Standard Grinding Sequence</h3>
               <ol>
                 <li><strong>120 grit:</strong> Remove sectioning damage (30-60 seconds)</li>
-                <li><strong>240 grit:</strong> Remove 120-grit scratches (30-60 seconds)</li>
-                <li><strong>320 grit:</strong> Further refinement (30-60 seconds)</li>
-                <li><strong>400 grit:</strong> Continue refinement (30-60 seconds)</li>
-                <li><strong>600 grit:</strong> Final grinding step (30-60 seconds)</li>
-                <li><strong>800 grit (optional):</strong> For very fine finishes (30-60 seconds)</li>
-                <li><strong>1200 grit (optional):</strong> For ultra-fine finishes (30-60 seconds)</li>
+                <li><strong>240 grit:</strong> Remove 120-grit scratches (1-2 minutes)</li>
+                <li><strong>320 grit:</strong> Further refinement (1-2 minutes)</li>
+                <li><strong>400 grit:</strong> Continue refinement (1-2 minutes)</li>
+                <li><strong>600 grit:</strong> Final grinding step (1-2 minutes)</li>
+                <li><strong>800 grit (optional):</strong> For very fine finishes (1-2 minutes)</li>
+                <li><strong>1200 grit (optional):</strong> For ultra-fine finishes (1-2 minutes)</li>
               </ol>
+              <h3>Why Each Step Must Cut Below the Last</h3>
               <p>
-                <strong>Important:</strong> The exact sequence may vary based on material and initial 
+                Each abrasive size leaves a damaged subsurface layer roughly 1.5-3 times the abrasive
+                particle diameter. The next step must cut deeper than the previous step&apos;s damage depth,
+                or that damage is preserved beneath a surface that looks clean. This is why skipping
+                grits saves no time: the following step simply takes longer to clear the residual damage.
+              </p>
+              <p>
+                <strong>Rule of thumb:</strong> at each grit, continue for about twice the time it takes
+                for the previous step&apos;s scratches to visibly disappear. The visible scratches go first;
+                the subsurface deformation beneath them takes the second half of the step.
+              </p>
+              <p>
+                <strong>Important:</strong> The exact sequence may vary based on material and initial
                 damage. Always inspect the surface after each step to ensure complete scratch removal.
               </p>
             </section>
@@ -237,8 +249,11 @@ export default function GrindingTechniquesGuide() {
               <h2>Proper Grinding Technique</h2>
               <h3>Sample Orientation</h3>
               <p>
-                Rotate the sample 90° between each grit to ensure complete removal of previous scratches. 
-                This is critical - grinding in the same direction as previous scratches will not remove them.
+                On a belt or stationary paper, where scratches are unidirectional, rotate the sample 90°
+                between each grit. The previous scratch pattern is then perpendicular to the current one,
+                making it obvious when it has been fully removed. On a rotating platen the scratch pattern
+                is multidirectional, so rotation matters less, but inspecting the surface between steps
+                under good light remains essential.
               </p>
               <h3>Grinding Motion</h3>
               <ul>
@@ -247,24 +262,35 @@ export default function GrindingTechniquesGuide() {
                 <li>Avoid staying in one area too long (prevents over-grinding)</li>
                 <li>Maintain consistent contact with the grinding surface</li>
               </ul>
+              <h3>Rotation Direction (Automated Heads)</h3>
+              <p>
+                On machines with a powered sample head, co-rotation (head and platen turning the same
+                direction) is the gentler default for routine grinding and polishing. It reduces tearing
+                of soft phases and distributes pressure more evenly. Counter-rotation gives more
+                aggressive abrasive contact and has its place in specific edge-retention-sensitive work
+                and on harder materials, but it is not a universal default. Treat rotation direction as
+                one tunable parameter among many; mount quality, abrasive selection, force, and time
+                matter more for most outcomes.
+              </p>
 
               <YouTubeVideo
                 id="manual-grinding-video"
                 videoId="oFQoUkcwTMc"
                 title="Manual Grinding with PENTA 7500S & PENTA 5000A"
-                description="Learn proper manual grinding techniques from Dr. Donald Zipperian. This video demonstrates correct sample orientation, grinding motion, pressure control, and proper use of the PENTA manual grinding systems."
+                description="Learn proper manual grinding techniques from Dr. Donald Zipperian. This video demonstrates correct sample orientation, grinding motion, pressure control, and proper use of manual grinding equipment."
               />
 
               <YouTubeVideo
                 id="automated-grinding-video"
                 videoId="PT2fRdSvhDM"
                 title="Automated Grinding & Polishing with NANO 1000S & FEMTO 1100S"
-                description="Watch Dr. Donald Zipperian demonstrate automated grinding and polishing using the NANO 1000S and FEMTO 1100S systems. Learn how to program and operate these automated systems for consistent, high-quality results."
+                description="Watch Dr. Donald Zipperian demonstrate automated grinding and polishing using a manual polisher fitted with a semi-automatic power head. Learn how to program and operate automated systems for consistent, repeatable results."
               />
 
               <h3>Time Management</h3>
               <p>
-                Each grinding step typically requires 30-60 seconds, but this varies based on:
+                The planar step typically requires 30-60 seconds and subsequent steps 1-2 minutes each,
+                but this varies based on:
               </p>
               <ul>
                 <li>Material hardness</li>
@@ -280,15 +306,29 @@ export default function GrindingTechniquesGuide() {
                 Applying the correct pressure is crucial for effective grinding. Too much pressure can 
                 cause deformation, while too little may not remove scratches efficiently.
               </p>
-              <h3>Guidelines for Pressure</h3>
+              <h3>Guidelines for Force</h3>
+              <p>
+                Force depends more on the material than on the grit. Typical per-sample values:
+              </p>
               <ul>
-                <li><strong>Coarse grits (120-240):</strong> Moderate pressure (2-4 lbs)</li>
-                <li><strong>Medium grits (320-400):</strong> Light to moderate pressure (1-3 lbs)</li>
-                <li><strong>Fine grits (600+):</strong> Light pressure (1-2 lbs)</li>
+                <li><strong>Steels, copper alloys, superalloys:</strong> 25-35 N (about 5.5-8 lbf)</li>
+                <li><strong>Soft metals (aluminum, lead, tin):</strong> 10-15 N (about 2-3.5 lbf) to avoid abrasive embedding</li>
+                <li><strong>Hard ceramics:</strong> 40-60 N (about 9-13.5 lbf)</li>
               </ul>
               <p>
-                <strong>Rule of thumb:</strong> Use enough pressure to maintain contact and remove 
+                Reduce force slightly at the finest grits, where the goal shifts from material removal
+                to surface refinement.
+              </p>
+              <p>
+                <strong>Rule of thumb:</strong> Use enough pressure to maintain contact and remove
                 material, but not so much that you feel excessive resistance or see deformation.
+              </p>
+              <h3>Platen Speed</h3>
+              <p>
+                For rotary grinding, run the platen at 200-300 RPM with a copious water flush. Pressure
+                and velocity multiply: increasing either raises the removal rate, but both are limited by
+                what the sample tolerates without deformation. Slower speeds (100-150 RPM) are reserved
+                for the polishing and finishing steps that follow grinding.
               </p>
               <h3>Pressure Distribution</h3>
               <p>
@@ -360,11 +400,17 @@ export default function GrindingTechniquesGuide() {
                 <p className="text-sm text-gray-600 mt-2 italic text-center">Proper grinding technique helps avoid contamination and surface defects. Clean samples between grits, use fresh abrasives, and maintain consistent pressure to prevent artifacts.</p>
               </div>
               <h3>Scratches Not Removing</h3>
+              <p>
+                Check abrasive condition and contamination before adjusting time or load. In practice,
+                the most common causes in rough order:
+              </p>
               <ul>
-                <li>Insufficient grinding time at current grit</li>
-                <li>Not rotating sample 90° between grits</li>
-                <li>Pressure too light</li>
-                <li>Grit progression too aggressive (skipped grits)</li>
+                <li>Loaded or glazed paper (swarf welded into the abrasive, common on soft alloys) - the paper looks fine but stops cutting; replace it</li>
+                <li>Coarse particles embedded in finer paper from dried slurry on a shared platen - the paper no longer cuts at its nominal size; use fresh paper and rinse the platen, not just the sample</li>
+                <li>A stray oversize particle in fresh paper - one or two deep unidirectional scratches on an otherwise clean surface; run a fresh piece</li>
+                <li>Platen contamination independent of the paper - rinse and wipe the platen before mounting fresh paper</li>
+                <li>Insufficient grinding time at the current grit, or a skipped grit - valid causes, but only after the abrasive, platen, and sample are confirmed clean</li>
+                <li>Not rotating the sample 90° between grits on unidirectional (belt or stationary) grinding</li>
               </ul>
               <h3>Excessive Deformation</h3>
               <ul>
@@ -403,7 +449,7 @@ export default function GrindingTechniquesGuide() {
                     >
                       <Image
                         src="/images/equipment/grinding & polishing/hand & belt grinders/penta-7500s/penta-7500s-cover.webp"
-                        alt="PENTA Series hand and belt grinders"
+                        alt="Hand and belt grinder for manual grinding steps"
                         width={250}
                         height={188}
                         className="max-w-full max-h-full object-contain"
@@ -412,16 +458,16 @@ export default function GrindingTechniquesGuide() {
                   </div>
                   <h3 className="text-base font-semibold mb-1">Hand & Belt Grinders</h3>
                   <p className="text-gray-700 mb-2 text-xs leading-relaxed flex-grow">
-                    PENTA Series hand and belt grinders provide precise material removal with robust construction 
-                    and efficient cooling systems.
+                    Hand and belt grinders handle manual planar grinding and rapid initial material
+                    removal, with water cooling to limit heat and flush swarf.
                   </p>
-                  <Link 
+                  <Link
                     href="https://metallographic.com/metallographic-equipment/grinding-polishing/penta.html"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary-600 hover:text-primary-700 font-semibold text-xs inline-flex items-center gap-1"
                   >
-                    View PENTA Hand & Belt Grinders →
+                    View Hand & Belt Grinders →
                   </Link>
                 </div>
                 <div className="flex flex-col">
@@ -434,7 +480,7 @@ export default function GrindingTechniquesGuide() {
                     >
                       <Image
                         src="/images/equipment/grinding & polishing/manual grinder polishers/nano-1000s/nano-1000s-cover.webp"
-                        alt="NANO Series manual polishers"
+                        alt="Manual grinder-polisher with rotating platen"
                         width={250}
                         height={188}
                         className="max-w-full max-h-full object-contain"
@@ -445,16 +491,16 @@ export default function GrindingTechniquesGuide() {
                   </div>
                   <h3 className="text-base font-semibold mb-1">Manual Polishers</h3>
                   <p className="text-gray-700 mb-2 text-xs leading-relaxed flex-grow">
-                    NANO Series manual polishers offer precise control with variable speed and versatile wheel options. 
-                    Available in single, double, or large wheel configurations.
+                    Manual grinder-polishers provide variable platen speed for both grinding and polishing
+                    steps. Available in single, double, or large wheel configurations.
                   </p>
-                  <Link 
+                  <Link
                     href="https://metallographic.com/metallographic-equipment/grinding-polishing/nano.html"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary-600 hover:text-primary-700 font-semibold text-xs inline-flex items-center gap-1"
                   >
-                    View NANO Manual Polishers →
+                    View Manual Polishers →
                   </Link>
                 </div>
                 <div className="flex flex-col">
@@ -467,7 +513,7 @@ export default function GrindingTechniquesGuide() {
                     >
                       <Image
                         src="/images/equipment/grinding & polishing/semi-auto grinder polishers/femto-1100s/femto-1100s-cover.webp"
-                        alt="FEMTO automated polishing heads"
+                        alt="Semi-automatic power head attached to a manual polisher"
                         width={250}
                         height={188}
                         className="max-w-full max-h-full object-contain"
@@ -478,16 +524,16 @@ export default function GrindingTechniquesGuide() {
                   </div>
                   <h3 className="text-base font-semibold mb-1">Semi-Automated Polishing Attachments</h3>
                   <p className="text-gray-700 mb-2 text-xs leading-relaxed flex-grow">
-                    FEMTO automated polishing heads attach to manual polishers to automate force application 
+                    Semi-automatic power heads attach to manual polishers to automate force application
                     and improve consistency.
                   </p>
-                  <Link 
+                  <Link
                     href="https://metallographic.com/metallographic-equipment/grinding-polishing/femto.html"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary-600 hover:text-primary-700 font-semibold text-xs inline-flex items-center gap-1"
                   >
-                    View FEMTO Semi-Auto Attachments →
+                    View Semi-Automatic Attachments →
                   </Link>
                 </div>
               </div>

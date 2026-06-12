@@ -143,11 +143,11 @@ export default function AerospaceApplicationsGuide() {
                 Key considerations for aerospace titanium components include:
               </p>
               <ul>
-                <li><strong><GlossaryTermTooltip term="Sectioning">Sectioning</GlossaryTermTooltip>:</strong> Use slow cutting speeds (100-200 RPM) with a hard-bond Al₂O₃ blade rated for hard non-ferrous metals (the titanium category) to minimize heat generation and deformation</li>
+                <li><strong><GlossaryTermTooltip term="Sectioning">Sectioning</GlossaryTermTooltip>:</strong> Prefer a precision saw with a diamond wafering blade for small or critical sections; for abrasive cutoff, use a medium-hard-bond blade rated for hard non-ferrous metals (the titanium category) at typical surface speeds (~2,500-4,500 SFM) with light feed and copious flood coolant to minimize heat generation and deformation</li>
                 <li><strong><GlossaryTermTooltip term="Mounting">Mounting</GlossaryTermTooltip>:</strong> <GlossaryTermTooltip term="Castable Mounting">Cold mounting</GlossaryTermTooltip> with epoxy is preferred to avoid thermal effects on <GlossaryTermTooltip term="Microstructure">microstructure</GlossaryTermTooltip></li>
                 <li><strong><GlossaryTermTooltip term="Grinding">Grinding</GlossaryTermTooltip>:</strong> Progressive grinding (120, 240, 400, 600 grit) with light pressure to avoid work-hardening</li>
-                <li><strong><GlossaryTermTooltip term="Polishing">Polishing</GlossaryTermTooltip>:</strong> <GlossaryTermTooltip term="Diamond Polishing">Diamond polishing</GlossaryTermTooltip> (9 μm → 3 μm → 1 μm) followed by 0.05 μm colloidal silica</li>
-                <li><strong><GlossaryTermTooltip term="Etching">Etching</GlossaryTermTooltip>:</strong> Kroll's reagent is most commonly used, but modified Kroll's or Weck's reagent may be needed for specific alloys</li>
+                <li><strong><GlossaryTermTooltip term="Polishing">Polishing</GlossaryTermTooltip>:</strong> <GlossaryTermTooltip term="Diamond Polishing">Diamond polishing</GlossaryTermTooltip> (9 μm → 3 μm → 1 μm) followed by a chemo-mechanical final polish of colloidal silica with hydrogen peroxide (1:5 H₂O₂:silica)—plain colloidal silica leaves a stubborn deformation layer on titanium</li>
+                <li><strong><GlossaryTermTooltip term="Etching">Etching</GlossaryTermTooltip>:</strong> Kroll's reagent for general microstructure; 10% oxalic acid electrolytic at 5 V for β-phase imaging on α-β and β alloys</li>
               </ul>
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
                 <Link 
@@ -157,14 +157,14 @@ export default function AerospaceApplicationsGuide() {
                   className="block hover:opacity-90 transition-opacity"
                 >
                   <Image
-                    src="/images/consumables/maxcut-e.webp"
-                    alt="Hard non-ferrous Al₂O₃ abrasive cut-off blade for titanium sectioning"
+                    src="/images/consumables/maxcut-c.webp"
+                    alt="Abrasive cut-off blade rated for hard non-ferrous metals, used for titanium sectioning"
                     width={500}
                     height={375}
                     className="w-full h-auto"
                   />
                 </Link>
-                <p className="text-sm text-gray-600 mt-2 italic text-center">A hard-bond Al₂O₃ blade for hard non-ferrous metals — the dedicated titanium category. Thin blades (0.5-1.0 mm) minimize heat generation and deformation during sectioning.</p>
+                <p className="text-sm text-gray-600 mt-2 italic text-center">A medium-hard-bond abrasive blade rated for hard non-ferrous metals (titanium, zirconium) — the dedicated titanium category. Thin blades (0.5-1.0 mm) minimize heat generation and deformation during sectioning.</p>
               </div>
               <p>
                 <strong>Critical Note:</strong> Titanium forms surface oxides easily. Minimize exposure 
@@ -196,11 +196,11 @@ export default function AerospaceApplicationsGuide() {
                 Key considerations for aerospace superalloys include:
               </p>
               <ul>
-                <li><strong><GlossaryTermTooltip term="Sectioning">Sectioning</GlossaryTermTooltip>:</strong> Use a hard-bond abrasive blade (SiC or Al₂O₃) rated for nickel and cobalt superalloys at slow speeds (80-150 RPM) with continuous cooling</li>
+                <li><strong><GlossaryTermTooltip term="Sectioning">Sectioning</GlossaryTermTooltip>:</strong> Use an abrasive blade rated for nickel and cobalt superalloys (a medium-hard-bond Al₂O₃ or CBN wheel) at typical abrasive-cutoff surface speeds (~2,500-4,500 SFM) with light, steady feed and continuous flood cooling</li>
                 <li><strong><GlossaryTermTooltip term="Mounting">Mounting</GlossaryTermTooltip>:</strong> Epoxy mounting is preferred to avoid thermal damage to sensitive <GlossaryTermTooltip term="Microstructure">microstructures</GlossaryTermTooltip></li>
                 <li><strong><GlossaryTermTooltip term="Grinding">Grinding</GlossaryTermTooltip>:</strong> Progressive grinding through 120, 240, 400, 600, 800 grit with light pressure</li>
                 <li><strong><GlossaryTermTooltip term="Polishing">Polishing</GlossaryTermTooltip>:</strong> Extended <GlossaryTermTooltip term="Diamond Polishing">diamond polishing</GlossaryTermTooltip> sequence (9 μm → 6 μm → 3 μm → 1 μm) with appropriate cloths for each stage</li>
-                <li><strong><GlossaryTermTooltip term="Etching">Etching</GlossaryTermTooltip>:</strong> Glyceregia, Aqua Regia, or electrolytic etching depending on the specific superalloy and features to be revealed</li>
+                <li><strong><GlossaryTermTooltip term="Etching">Etching</GlossaryTermTooltip>:</strong> Marble's reagent or Modified Kalling's for general structure; electrolytic etching (e.g., 5% chromic acid at 5 V) for gamma prime imaging, depending on the specific superalloy and features to be revealed</li>
               </ul>
               <p>
                 <strong>Microstructure Features:</strong> Superalloys typically contain gamma prime (γ') 
@@ -217,14 +217,14 @@ export default function AerospaceApplicationsGuide() {
                     className="block hover:opacity-90 transition-opacity"
                   >
                     <Image
-                      src="/images/consumables/maxcut-i.webp"
-                      alt="Hard-bond abrasive blade for superalloy sectioning"
+                      src="/images/consumables/diamond-cbn-blades.webp"
+                      alt="CBN abrasive cut-off blades for superalloy sectioning"
                       width={300}
                       height={225}
                       className="w-full h-auto"
                     />
                   </Link>
-                  <p className="text-xs text-gray-600 mt-2 italic text-center">Hard-bond abrasive blade rated for nickel and cobalt superalloys (the right category for Inconel, Hastelloy, and Co-base alloys).</p>
+                  <p className="text-xs text-gray-600 mt-2 italic text-center">CBN and medium-hard-bond Al₂O₃ blades rated for nickel and cobalt superalloys (the right category for Inconel, Hastelloy, and Co-base alloys).</p>
                 </div>
                 <div className="rounded-lg overflow-hidden">
                   <Link 
@@ -267,7 +267,7 @@ export default function AerospaceApplicationsGuide() {
               <ProductLink
                 productName="Abrasive Blades for Aerospace Materials"
                 href="https://shop.metallographic.com/collections/abrasive-blades"
-                description="Hard non-ferrous Al₂O₃ blades for titanium, plus hard-bond SiC/Al₂O₃ blades for nickel and cobalt superalloys"
+                description="Medium-hard-bond blades rated for hard non-ferrous metals (titanium), plus Al₂O₃/CBN blades rated for nickel and cobalt superalloys"
               />
               <ProductLink
                 productName="Silicon Carbide Grinding Papers"
@@ -430,7 +430,7 @@ export default function AerospaceApplicationsGuide() {
 
               <h4>Sectioning</h4>
               <ul>
-                <li>Use slow cutting speeds to minimize damage to brittle coatings</li>
+                <li>Use light feed rates to minimize damage to brittle coatings</li>
                 <li>Consider using a precision saw with diamond blade for hard ceramic coatings</li>
                 <li>Cut perpendicular to the coating surface for thickness measurement</li>
                 <li>Use adequate <GlossaryTermTooltip term="Coolant">coolant</GlossaryTermTooltip> to prevent thermal damage</li>

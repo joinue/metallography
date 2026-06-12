@@ -68,7 +68,7 @@ export const etchantHazards: Record<string, EtchantHazard> = {
   'picral': {
     name: 'Picral / Picric acid solutions',
     level: 'danger',
-    headline: 'Picric acid is shock-sensitive and explosive when dry. Store wetted with at least 30% water by weight; 10% is the regulatory shipping minimum, not a safe lab-bench storage threshold.',
+    headline: 'Picric acid is shock-sensitive and explosive when dry. Store wetted with 10–20% water — a visible water layer at all times — and never let it dry out.',
     hazards: [
       'Dry picric acid (or its metal picrate salts) can detonate from friction, shock, or heat.',
       'Picric acid forms shock-sensitive picrates with metals — never store in metal-capped bottles or near copper, lead, or zinc.',
@@ -81,7 +81,7 @@ export const etchantHazards: Record<string, EtchantHazard> = {
       'Never evaporate to dryness when concentrating; never grind dry crystals.',
     ],
     storage: [
-      'Store wetted with ≥30% water by weight in a labeled plastic or amber-glass bottle, away from acids and metals (Cu, Pb, Zn, Fe).',
+      'Store wetted with 10–20% water (visible water layer) in a labeled plastic or amber-glass bottle, away from acids and metals (Cu, Pb, Zn, Fe).',
       'Inspect periodically for water-layer loss; refill before crystals begin to dry out.',
       'Bottles with crusted necks or dried crystals must be handled by hazardous-materials specialists — do not open.',
       'Spent picral solutions remain toxic; collect for organic-acid waste stream.',
@@ -114,16 +114,17 @@ export const etchantHazards: Record<string, EtchantHazard> = {
     hazards: [
       'Ethanol is flammable; ignition sources (open flames, hot plates, sparks) must be eliminated.',
       'Nitric acid produces NO₂ vapors (orange-brown) — toxic to lungs and eyes, can cause delayed pulmonary edema.',
-      'Concentration matters: 5–10% nital is significantly more aggressive and produces more NOₓ than 2% nital.',
+      'Concentration matters: above ~5% HNO₃ in ethanol the solution trends unstable in storage; above 10% it is dangerous to store at all.',
     ],
     handling: [
       'Mix and apply in a fume hood.',
       'Standard PPE: nitrile gloves, safety glasses, lab coat.',
       'Always pour acid into ethanol slowly — never the reverse — and not above 30 °C; mixing is exothermic.',
-      'Cap bottle tightly; nital evolves NOₓ slowly even sealed.',
+      'Dilute (≤5%) nital may be capped and stored, but it still evolves NOₓ slowly — vent periodically.',
     ],
     storage: [
       'Amber bottle, away from sunlight; replace every 3–6 months.',
+      'Do not store concentrations above ~5% long-term; above 10% HNO₃ in ethanol, mix fresh immediately before use and never store.',
       'Spent nital: dilute heavily, neutralize with NaHCO₃ to pH 6–8 before disposal.',
     ],
   },
@@ -174,7 +175,7 @@ export const etchantHazards: Record<string, EtchantHazard> = {
     headline: 'Sodium thiosulfate / potassium metabisulfite stock. Releases SO₂ when acidified or heated.',
     hazards: [
       'Potassium metabisulfite + acid evolves sulfur dioxide (SO₂) — irritant to lungs.',
-      'Stock and working solutions are not stable — color response degrades quickly.',
+      'Mixed working solutions are not stable — color response degrades within the working session (stock Na₂S₂O₃ keeps for months).',
     ],
     handling: [
       'Mix and apply in a fume hood; standard PPE.',
@@ -273,7 +274,7 @@ export const etchantHazards: Record<string, EtchantHazard> = {
     ],
     handling: [
       'Use only purpose-built electropolishing equipment with a perchloric-rated wash-down hood.',
-      'Most labs should use a commercial Lectropol-style cell with chilled solution, not bench mixes.',
+      'Most labs should use a purpose-built electropolishing cell with chilled solution, not bench mixes.',
     ],
     storage: ['Per institutional policy. Spent solution must not be poured down a drain shared with organic waste.'],
   },

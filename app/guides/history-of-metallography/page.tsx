@@ -226,8 +226,8 @@ export default function HistoryOfMetallographyGuide() {
                 and <strong>cementite</strong>. He introduced the Greek letter symbols (α, β, γ, δ) for steel 
                 phases that are still used today.</li>
                 
-                <li><strong>Henry Marion Howe (1848–1922)</strong> - An American metallurgist and the first 
-                president of ASTM. Howe made significant contributions to understanding steel microstructures 
+                <li><strong>Henry Marion Howe (1848–1922)</strong> - An American metallurgist and early
+                ASTM leader. Howe made significant contributions to understanding steel microstructures
                 and heat treatment, and was instrumental in establishing metallography as an academic discipline.</li>
                 
                 <li><strong>Edgar C. Bain (1891–1971)</strong> - An American metallurgist who discovered 
@@ -266,8 +266,9 @@ export default function HistoryOfMetallographyGuide() {
                 provided predictive power that transformed metallography from descriptive to predictive science. 
                 Key contributors included <strong>William Hume-Rothery (1899–1968)</strong>, who developed 
                 the <strong>Hume-Rothery rules</strong> for predicting solid solution formation in alloys, 
-                and <strong>Léon Guillet (1873–1946)</strong>, a French metallurgist who contributed to 
-                understanding aluminum alloys and phase relationships. These diagrams allowed metallographers to:
+                and <strong>Léon Guillet (1873–1946)</strong>, a French metallurgist who conducted pioneering
+                research on chromium steels (later known as stainless steels) and contributed to understanding
+                alloy phase relationships. These diagrams allowed metallographers to:
               </p>
               <ul>
                 <li>Predict phase formation at different temperatures and compositions</li>
@@ -303,8 +304,8 @@ export default function HistoryOfMetallographyGuide() {
               <p>
                 The need for standardized methods led to the formation of <strong>ASTM Committee E-4 on Metallography</strong> 
                 in 1916 (initially as "Committee E-4 on Magnification Scales for Micrographs," renamed in 1920). This committee, 
-                organized by <strong>Edgar Marburg</strong> with founding members including <strong>Dr. Henry Marion Howe</strong> 
-                (first ASTM president) and <strong>George Kimball Burgess</strong> (Director of the National Bureau of Standards), 
+                organized by <strong>Edgar Marburg</strong> with founding members including <strong>Dr. Henry Marion Howe</strong>
+                and <strong>George Kimball Burgess</strong> (Director of the National Bureau of Standards),
                 began developing standards that would shape the field. The first standard, E 2 (Methods for Preparation of 
                 Micrographs of Metals and Alloys), was introduced in 1917, establishing foundational practices that continue 
                 to guide metallography today.
@@ -462,8 +463,8 @@ export default function HistoryOfMetallographyGuide() {
 
               <h3>Automation and Standardization</h3>
               <ul>
-                <li><strong>1929–1936:</strong> <strong>Electrolytic polishing</strong> developed by Pierre A. Jacquet
-                in France. Jacquet's published work (1930 and onward) established the technique of removing the
+                <li><strong>1935–1936:</strong> <strong>Electrolytic polishing</strong> technique published by Pierre A. Jacquet
+                in France. Jacquet's work established the technique of removing the
                 deformed surface layer electrochemically, providing an alternative to mechanical polishing for materials
                 where mechanical work introduces unacceptable damage. Commercial electropolishing units became available
                 in subsequent decades.</li>

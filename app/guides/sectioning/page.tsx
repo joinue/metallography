@@ -211,77 +211,64 @@ export default function SectioningGuide() {
 
               <h3>Blade Types and Applications</h3>
               <p>
-                Abrasive blades are classified by their abrasive type, bond hardness, and application. 
-                The following table provides specific blade recommendations for different materials and 
-                blade diameters:
+                Abrasive blades are classified by their abrasive type, bond hardness, and application.
+                The guiding principle is that the bond should break down at a rate matched to the
+                material being cut: a bond that is too hard glazes over and burns the sample, while
+                a bond that is too soft wears away quickly but cuts cleanly. The following table maps
+                material classes to the appropriate abrasive and bond type:
               </p>
 
               <div className="overflow-x-auto my-6">
                 <table className="min-w-full border-collapse border border-gray-300">
                   <thead>
                     <tr className="bg-gray-100">
-                      <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Description</th>
-                      <th className="border border-gray-300 px-4 py-3 text-center font-semibold">10-inch</th>
-                      <th className="border border-gray-300 px-4 py-3 text-center font-semibold">12-inch</th>
-                      <th className="border border-gray-300 px-4 py-3 text-center font-semibold">14-inch</th>
-                      <th className="border border-gray-300 px-4 py-3 text-center font-semibold">16-inch</th>
+                      <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Material Class</th>
+                      <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Abrasive / Bond Type</th>
+                      <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Typical Blade Thickness (Kerf)</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td className="border border-gray-300 px-4 py-3">Soft non-ferrous materials (aluminum, brass, zinc, etc.)</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-E250</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-E300</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-E350</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-E400</td>
+                      <td className="border border-gray-300 px-4 py-3">Alumina or silicon carbide, resin bonded (softer bond)</td>
+                      <td className="border border-gray-300 px-4 py-3">Standard, 1.5&ndash;2.5 mm</td>
                     </tr>
                     <tr className="bg-gray-50">
                       <td className="border border-gray-300 px-4 py-3">Hard non-ferrous materials (titanium, zirconium, etc.)</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-C250</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-C300</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-C350</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-C400</td>
+                      <td className="border border-gray-300 px-4 py-3">Silicon carbide, resin-rubber bonded</td>
+                      <td className="border border-gray-300 px-4 py-3">Standard, 1.5&ndash;2.5 mm</td>
                     </tr>
                     <tr>
-                      <td className="border border-gray-300 px-4 py-3">General steels and ferrous metals (including soft and medium-hard steels)</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-D250T</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-D300</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-D350</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-D400</td>
+                      <td className="border border-gray-300 px-4 py-3">Soft steels</td>
+                      <td className="border border-gray-300 px-4 py-3">Alumina, resin bonded</td>
+                      <td className="border border-gray-300 px-4 py-3">Standard, 1.5&ndash;2.5 mm</td>
                     </tr>
                     <tr className="bg-gray-50">
-                      <td className="border border-gray-300 px-4 py-3">Hard and case-hardened steels (HRC &gt; 50)</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-VHS250</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-VHS300</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-VHS350</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-VHS400</td>
-                    </tr>
-                    <tr className="bg-gray-50">
-                      <td className="border border-gray-300 px-4 py-3">Universal Thin Blade</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-A250</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-A300</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-A350</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-A400</td>
+                      <td className="border border-gray-300 px-4 py-3">Hard and case-hardened steels (HRC &gt; 45)</td>
+                      <td className="border border-gray-300 px-4 py-3">Alumina, hard bond</td>
+                      <td className="border border-gray-300 px-4 py-3">Standard, 1.5&ndash;2.5 mm</td>
                     </tr>
                     <tr>
-                      <td className="border border-gray-300 px-4 py-3">Industrial general purpose thin blade</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-I250</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-I300</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-I350</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">MAX-I400</td>
+                      <td className="border border-gray-300 px-4 py-3">General steels and ferrous metals (including medium-hard steels)</td>
+                      <td className="border border-gray-300 px-4 py-3">Alumina, resin bonded, reinforced thin</td>
+                      <td className="border border-gray-300 px-4 py-3">Thin, 1.0&ndash;1.5 mm</td>
+                    </tr>
+                    <tr className="bg-gray-50">
+                      <td className="border border-gray-300 px-4 py-3">Universal / industrial general-purpose (mixed materials)</td>
+                      <td className="border border-gray-300 px-4 py-3">Alumina, general-purpose bond</td>
+                      <td className="border border-gray-300 px-4 py-3">Thin, 1.0&ndash;1.5 mm</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
 
-              <h3>Understanding Blade Designations</h3>
+              <h3>Understanding Blade Categories</h3>
               <ul>
-                <li><strong>MAX-E Series:</strong> Alumina/resin-bonded abrasive for soft non-ferrous metals (aluminum, brass, zinc). Softer bond profile wears appropriately on these materials so the blade keeps cutting cleanly instead of glazing. Use MAX-D for soft steels.</li>
-                <li><strong>MAX-C Series:</strong> Optimized for hard non-ferrous materials such as titanium and zirconium. Provides aggressive cutting with controlled wear.</li>
-                <li><strong>MAX-VHS Series:</strong> Very hard steel blades for case-hardened and hard steels. Features a hard bond and aggressive abrasive for efficient cutting.</li>
-                <li><strong>MAX-D Series:</strong> General-purpose blades for ferrous metals and steels. Balanced performance for most steel cutting applications.</li>
-                <li><strong>MAX-A Series:</strong> Universal thin blades for general applications. Thin profile minimizes material loss and heat generation.</li>
-                <li><strong>MAX-I Series:</strong> Industrial general-purpose thin blades. Versatile option for mixed material cutting.</li>
+                <li><strong>Soft non-ferrous blades:</strong> Resin-bonded abrasive with a softer bond profile for aluminum, brass, and zinc. The softer bond wears appropriately on these materials so the blade keeps cutting cleanly instead of glazing. Use a general ferrous blade for soft steels instead.</li>
+                <li><strong>Hard non-ferrous blades:</strong> Silicon carbide in a resin-rubber bond for hard non-ferrous materials such as titanium and zirconium. Silicon carbide fractures and cleaves easily, which makes it self-sharpening on these alloys.</li>
+                <li><strong>Hard-steel blades:</strong> Alumina with a hard bond for case-hardened and hard steels (HRC &gt; 45). The harder bond holds the abrasive long enough to cut efficiently through hardened material.</li>
+                <li><strong>General ferrous blades:</strong> Alumina, resin bonded, often in a reinforced thin profile (1.0&ndash;1.5 mm kerf). Balanced performance for most steel cutting applications.</li>
+                <li><strong>Universal and industrial thin blades:</strong> General-purpose alumina blades for mixed material cutting. The thin profile minimizes material loss and heat generation, and suits labs that cannot justify a full set of material-specific blades.</li>
               </ul>
 
               <h3>Blade Diameter Selection</h3>
@@ -336,7 +323,7 @@ export default function SectioningGuide() {
                 <li>Higher cost compared to abrasive blades</li>
                 <li>Slower cutting speed for some materials</li>
                 <li>Requires more precise equipment and setup</li>
-                <li>May not be suitable for very large or hard materials</li>
+                <li>Limited sample capacity (typically samples under ~50 mm)</li>
               </ul>
 
               <h3>When to Use Precision Wafering</h3>
@@ -417,10 +404,10 @@ export default function SectioningGuide() {
             <section id="diamond-blade-selection" className="scroll-mt-24">
               <h2>Diamond and CBN Blade Selection for Precision Wafering</h2>
               <p>
-                Precision wafering requires diamond or cubic boron nitride (CBN) blades, which are 
-                fundamentally different from abrasive blades. These blades use diamond or CBN particles 
-                bonded to a metal or resin core, providing superior cutting performance for hard and 
-                brittle materials.
+                Precision wafering requires diamond or cubic boron nitride (CBN) blades, which are
+                fundamentally different from abrasive blades. These blades use diamond or CBN particles
+                bonded to a metal or resin core, and are designed to cut hard and brittle materials
+                with minimal damage.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6 max-w-2xl mx-auto">
@@ -456,16 +443,16 @@ export default function SectioningGuide() {
                       className="w-full h-auto"
                     />
                   </Link>
-                  <p className="text-xs text-gray-600 mt-2 italic text-center">Electroplated diamond blades provide aggressive cutting action for hard materials and composites.</p>
+                  <p className="text-xs text-gray-600 mt-2 italic text-center">Electroplated diamond blades expose a single layer of diamond with a high, rough abrasive profile, suited to soft or gummy materials that would clog smoother blades.</p>
                 </div>
               </div>
 
               <h3>Types of Diamond Blades</h3>
               <ul>
                 <li><strong>Resin-bonded diamond blades:</strong> Diamond particles embedded in a resin matrix. Provide smooth cutting with minimal damage. Ideal for brittle materials and when surface quality is critical.</li>
-                <li><strong>Metal-bonded diamond blades:</strong> Diamond particles in a metal matrix. More aggressive cutting, longer life. Suitable for hard materials and high-volume applications.</li>
-                <li><strong>Electroplated diamond blades:</strong> Diamond particles electroplated onto a metal core. Very aggressive cutting, excellent for hard materials. Single layer of diamonds provides maximum cutting efficiency.</li>
-                <li><strong>CBN blades:</strong> Cubic boron nitride particles instead of diamond. Excellent for ferrous materials, as CBN doesn't react with iron like diamond can. Ideal for hardened steels.</li>
+                <li><strong>Metal-bonded diamond blades:</strong> Diamond particles pressed into a metal binder along the rim. The most common precision wafering blade: long life and broad applicability, including hard ceramics and high-volume work.</li>
+                <li><strong>Electroplated diamond blades:</strong> A single layer of diamond particles electroplated onto a metal core, producing a high, rough abrasive profile. Used for soft and &quot;gummy&quot; materials (bone, plastics, rubbery composites) where a smoother blade would clog.</li>
+                <li><strong>CBN blades:</strong> Cubic boron nitride particles instead of diamond. Excellent for ferrous materials: diamond reacts with iron at cutting-zone temperatures and dulls rapidly, while CBN does not. Ideal for high-carbon and hardened steels.</li>
               </ul>
 
               <h3>Wafer Blade Selection Guidelines</h3>
@@ -527,7 +514,7 @@ export default function SectioningGuide() {
                       <td className="border border-gray-300 px-4 py-3">Friable/Brittle</td>
                       <td className="border border-gray-300 px-4 py-3 text-center">&gt;1500</td>
                       <td className="border border-gray-300 px-4 py-3 text-center">&gt;500</td>
-                      <td className="border border-gray-300 px-4 py-3 text-center">Fine/Low</td>
+                      <td className="border border-gray-300 px-4 py-3 text-center">Medium/Low</td>
                     </tr>
                     <tr>
                       <td className="border border-gray-300 px-4 py-3">Alumina ceramic</td>
@@ -552,20 +539,30 @@ export default function SectioningGuide() {
                     </tr>
                     <tr className="bg-gray-50">
                       <td className="border border-gray-300 px-4 py-3">Metal matrix composites</td>
-                      <td className="border border-gray-300 px-4 py-3">N/A</td>
+                      <td className="border border-gray-300 px-4 py-3">Varies</td>
                       <td className="border border-gray-300 px-4 py-3 text-center">&gt;3500</td>
                       <td className="border border-gray-300 px-4 py-3 text-center">&gt;500</td>
                       <td className="border border-gray-300 px-4 py-3 text-center">Medium/High</td>
                     </tr>
                     <tr>
                       <td className="border border-gray-300 px-4 py-3">General purpose</td>
-                      <td className="border border-gray-300 px-4 py-3">N/A</td>
+                      <td className="border border-gray-300 px-4 py-3">Varies</td>
                       <td className="border border-gray-300 px-4 py-3 text-center">Variable</td>
                       <td className="border border-gray-300 px-4 py-3 text-center">Variable</td>
                       <td className="border border-gray-300 px-4 py-3 text-center">Medium/High</td>
                     </tr>
                   </tbody>
                 </table>
+              </div>
+
+              <div className="bg-gray-50 border-l-4 border-primary-600 p-4 my-4 rounded">
+                <p className="text-sm text-gray-700 mb-2">
+                  <strong>Counter-intuitive but true:</strong> hard, tough ceramics such as partially-stabilized
+                  zirconia, silicon nitride, and dense alumina cut better at <em>high</em> speed and <em>high</em> load.
+                  At high speed and load the crack propagates in the direction of the cut rather than laterally
+                  into the specimen. For softer brittle materials (silicon, gallium arsenide, glasses), the
+                  opposite holds: use low speed and low load with a fine blade.
+                </p>
               </div>
 
               <h3>Understanding Diamond Blade Specifications</h3>
@@ -619,18 +616,25 @@ export default function SectioningGuide() {
 
               <h3>Cutting Speed</h3>
               <p>
-                Cutting speed (RPM) affects heat generation, cutting efficiency, and blade life. 
-                General guidelines:
+                Cutting speed affects heat generation, cutting efficiency, and blade life, but the two
+                sectioning methods specify speed differently:
               </p>
               <ul>
-                <li><strong>Soft materials (aluminum, brass):</strong> 200-400 RPM</li>
-                <li><strong>Medium-hard materials (steels):</strong> 100-300 RPM</li>
-                <li><strong>Hard materials (hardened steels, titanium):</strong> 50-150 RPM</li>
-                <li><strong>Brittle materials (ceramics):</strong> 50-100 RPM</li>
+                <li><strong>Abrasive cut-off wheels</strong> are rated by surface speed, typically
+                2,500&ndash;4,500 surface feet per minute (SFM). The corresponding RPM depends on blade
+                diameter, and most metallographic abrasive cutters run at a fixed wheel speed (roughly
+                2,800&ndash;3,800 RPM for 250&ndash;350 mm wheels). In practice, your adjustable variables
+                are feed rate, force, and coolant flow rather than wheel speed.</li>
+                <li><strong>Precision wafering saws</strong> are specified by spindle speed (RPM) together
+                with an applied load in grams. Speeds range from under 300 RPM for soft, brittle materials
+                such as silicon up to several thousand RPM for hard, tough ceramics. See the wafer blade
+                selection table above for material-specific starting points.</li>
               </ul>
               <p>
-                <strong>Rule of thumb:</strong> Use slower speeds for harder materials and when minimal 
-                damage is critical. Faster speeds can be used for soft materials but may increase heat generation.
+                <strong>Rule of thumb:</strong> for precision wafering, match speed and load to the material&apos;s
+                response: low speed and low load for soft, brittle materials, and high speed and high load for
+                hard, tough ceramics. For abrasive cutting, control heat through feed rate and coolant rather
+                than speed.
               </p>
 
               <h3>Feed Rate and Pressure</h3>
@@ -780,7 +784,7 @@ export default function SectioningGuide() {
                       </td>
                       <td className="border border-gray-300 px-4 py-3 align-top">
                         <ul className="list-disc list-inside space-y-1 text-sm">
-                          <li>Reduce RPM</li>
+                          <li>Reduce cutting speed (where adjustable)</li>
                           <li>Reduce feed rate and pressure</li>
                           <li>Increase coolant flow, check delivery</li>
                           <li>Select blade appropriate for material</li>
@@ -837,7 +841,7 @@ export default function SectioningGuide() {
                       <td className="border border-gray-300 px-4 py-3 align-top">
                         <ul className="list-disc list-inside space-y-1 text-sm">
                           <li>Reduce feed rate and pressure</li>
-                          <li>Reduce RPM</li>
+                          <li>Reduce cutting speed (where adjustable)</li>
                           <li>Use thinner blade or precision wafering</li>
                           <li>Increase coolant flow</li>
                           <li>Consider precision wafering for delicate materials</li>
@@ -865,7 +869,7 @@ export default function SectioningGuide() {
                       <td className="border border-gray-300 px-4 py-3 align-top">
                         <ul className="list-disc list-inside space-y-1 text-sm">
                           <li>Select blade with appropriate bond hardness</li>
-                          <li>Reduce RPM</li>
+                          <li>Reduce cutting speed (where adjustable)</li>
                           <li>Reduce feed rate</li>
                           <li>Increase coolant flow</li>
                           <li>Use harder bond blade or different abrasive type</li>
@@ -894,7 +898,7 @@ export default function SectioningGuide() {
                           <li>Increase feed rate moderately</li>
                           <li>Replace blade</li>
                           <li>Select more aggressive blade</li>
-                          <li>Increase RPM within recommended range</li>
+                          <li>Increase cutting speed within the recommended range</li>
                           <li>Dress blade or replace</li>
                         </ul>
                       </td>

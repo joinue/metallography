@@ -121,7 +121,7 @@ export default function CarbonSteelGuide() {
                 hardened <MaterialTooltip materialName="5160 Spring Steel">5160</MaterialTooltip> or <MaterialTooltip materialName="52100 Bearing Steel">52100</MaterialTooltip>,
                 Q&amp;T <MaterialTooltip materialName="AISI 4140 Chromium-Molybdenum Steel">4140</MaterialTooltip> /
                 <MaterialTooltip materialName="AISI 4340 Nickel-Chromium-Molybdenum Steel">4340</MaterialTooltip> — switch to a
-                <strong> harder-bond Al₂O₃ blade</strong> (more aggressive grit replacement) and keep the wheel speed
+                <strong> harder-bond Al₂O₃ blade</strong> and keep the wheel speed
                 in the same range. Surface rehardening from sectioning is a thin damage band that gets removed in
                 plane grinding; coolant flood and blade choice prevent it, RPM does not.
               </p>
@@ -168,9 +168,9 @@ export default function CarbonSteelGuide() {
                 <MaterialTooltip materialName="AISI 1095 High Carbon Steel">1095</MaterialTooltip>,
                 <MaterialTooltip materialName="5160 Spring Steel">5160</MaterialTooltip>,
                 <MaterialTooltip materialName="52100 Bearing Steel">52100</MaterialTooltip>
-                — switch to <strong>glass-filled epoxy</strong>. Hardened steels behave like stainless against
-                phenolic: the resin wears 2-3× faster than the steel and rounds the sample-mount boundary,
-                which is the single biggest cause of poor edge retention reports on heat-treated steels.
+                — switch to <strong>glass-filled epoxy</strong>. Phenolic offers only fair edge retention:
+                against a hardened steel the resin wears faster than the sample and rounds the sample-mount
+                boundary, one of the most common causes of poor edge retention on heat-treated steels.
               </p>
               <h3>Compression Mounting</h3>
               <ol>
@@ -209,13 +209,14 @@ export default function CarbonSteelGuide() {
               <h3>Grinding Sequence</h3>
               <ol>
                 <li><strong>120 grit:</strong> Remove sectioning damage (30-60 seconds per step)</li>
-                <li><strong>240 grit:</strong> Remove previous scratches (30-60 seconds)</li>
-                <li><strong>400 grit:</strong> Further refinement (30-60 seconds)</li>
-                <li><strong>600 grit:</strong> Final grinding step (30-60 seconds)</li>
+                <li><strong>240 grit:</strong> Remove previous scratches (1-2 minutes)</li>
+                <li><strong>400 grit:</strong> Further refinement (1-2 minutes)</li>
+                <li><strong>600 grit:</strong> Final grinding step (1-2 minutes)</li>
               </ol>
               <p>
                 <strong>Important:</strong> Rotate the sample 90° between each grit to ensure complete 
-                removal of previous scratches. Use water as a lubricant and maintain consistent pressure. 
+                removal of previous scratches. Use water as a lubricant and maintain consistent, moderate
+                force (roughly 25-30 N per sample) at a platen speed of 200-300 RPM.
                 For softer, low-carbon steels, use lighter pressure to avoid deformation.
               </p>
               <ProductLink 
@@ -270,18 +271,19 @@ export default function CarbonSteelGuide() {
               </div>
               <h3>Diamond Polishing</h3>
               <ol>
-                <li><strong>9 μm diamond:</strong> 3-5 minutes on a hard cloth (e.g., Texmet)</li>
-                <li><strong>3 μm diamond:</strong> 3-5 minutes on a medium-hard cloth</li>
-                <li><strong>1 μm diamond:</strong> 2-3 minutes on a soft cloth</li>
+                <li><strong>9 μm diamond:</strong> 3-5 minutes on a hard woven pad</li>
+                <li><strong>3 μm diamond:</strong> 3-5 minutes on a medium napped cloth</li>
+                <li><strong>1 μm diamond:</strong> ~3 minutes on a soft napped cloth</li>
               </ol>
               <h3>Final Polishing</h3>
               <ol>
-                <li><strong>0.05 μm colloidal silica:</strong> 1-2 minutes on a soft cloth</li>
-                <li>Rinse thoroughly with water and dry with compressed air</li>
+                <li><strong>0.05 μm colloidal silica:</strong> ~2 minutes on a chemotextile pad</li>
+                <li>Flush with water for the final 30-60 seconds while still polishing — this removes silica residue that otherwise dries into stains — then rinse and dry with compressed air</li>
               </ol>
               <p>
-                Use appropriate polishing lubricants and maintain consistent pressure. Over-polishing 
-                can introduce relief, especially around inclusions or second phases. For softer, 
+                Use appropriate polishing lubricants, maintain consistent pressure, and run the platen
+                at 100-150 RPM for all polishing steps. Over-polishing
+                can introduce relief, especially around inclusions or second phases. For softer,
                 low-carbon steels, use lighter pressure and shorter times to avoid deformation.
               </p>
             </section>
@@ -306,12 +308,12 @@ export default function CarbonSteelGuide() {
               </div>
               <h3>Common Etchants for Carbon Steel and Low Alloy Steel</h3>
               <ul>
-                <li><strong>2% Nital:</strong> General purpose for softer, low-carbon steels like <MaterialTooltip materialName="AISI 1018 Carbon Steel">1018</MaterialTooltip>. Reveals ferrite grain boundaries and pearlite structure (2 mL HNO₃ in 98 mL ethanol). Swab 5-30 s.</li>
-                <li><strong>3% Nital:</strong> Standard concentration for most carbon steels including <MaterialTooltip materialName="AISI 1045 Carbon Steel">1045</MaterialTooltip>, and low alloy steels like <MaterialTooltip materialName="AISI 4140 Chromium-Molybdenum Steel">4140</MaterialTooltip> and <MaterialTooltip materialName="AISI 4340 Nickel-Chromium-Molybdenum Steel">4340</MaterialTooltip>. Most commonly used (3 mL HNO₃ in 97 mL ethanol).</li>
+                <li><strong>2% Nital:</strong> The most commonly used etchant for carbon and low-alloy steels and the standard starting point, from low-carbon grades like <MaterialTooltip materialName="AISI 1018 Carbon Steel">1018</MaterialTooltip> up through Q&amp;T alloy grades. Reveals ferrite grain boundaries, pearlite, and martensite (2 mL HNO₃ in 98 mL ethanol). Swab 5-30 s.</li>
+                <li><strong>3% Nital:</strong> A step up in strength when 2% under-etches — useful for medium-carbon steels like <MaterialTooltip materialName="AISI 1045 Carbon Steel">1045</MaterialTooltip>, and low alloy steels like <MaterialTooltip materialName="AISI 4140 Chromium-Molybdenum Steel">4140</MaterialTooltip> and <MaterialTooltip materialName="AISI 4340 Nickel-Chromium-Molybdenum Steel">4340</MaterialTooltip> (3 mL HNO₃ in 97 mL ethanol).</li>
                 <li><strong>5% Nital:</strong> For harder carbon steels such as <MaterialTooltip materialName="AISI 1095 High Carbon Steel">1095</MaterialTooltip>, or hardened alloy steels. More aggressive etching (5 mL HNO₃ in 95 mL ethanol).</li>
                 <li><strong>4% Picral:</strong> Reveals pearlite and cementite cleanly without attacking ferrite boundaries — the right answer for cementite distribution work in <MaterialTooltip materialName="AISI 1045 Carbon Steel">1045</MaterialTooltip>, <MaterialTooltip materialName="52100 Bearing Steel">52100</MaterialTooltip>, and other carbide-containing alloy steels (4 g picric acid in 100 mL ethanol). Swab 10-60 s. <strong>Picric safety:</strong> store the reagent and any picric acid stock <em>wetted</em> at all times — dry picric acid is friction- and shock-sensitive (effectively a primary explosive). Keep stock bottles topped up with water or ethanol; never let them dry out.</li>
-                <li><strong>Nital then 4% Picral (sequential etch):</strong> A canonical combination for tempered martensite work in 4140-class alloys and for ferrite/pearlite differentiation. Apply 2% Nital first (5-15 s swab), rinse, then a second swab of 4% Picral on top. The Picral darkens cementite and sharpens pearlite that a Nital-only etch leaves washed out — particularly useful on Q&amp;T <MaterialTooltip materialName="AISI 4140 Chromium-Molybdenum Steel">4140</MaterialTooltip> and <MaterialTooltip materialName="AISI 4340 Nickel-Chromium-Molybdenum Steel">4340</MaterialTooltip>.</li>
-                <li><strong>Beraha's CdS / Beraha I (color tint, optional):</strong> For ferrite/pearlite/bainite/martensite differentiation by color when grayscale etches can't separate them. Each phase tints to a distinct color by film thickness. Worth knowing exists; not a daily-driver etch.</li>
+                <li><strong>4% Picral then 2% Nital (sequential etch):</strong> The classic combination for ferrite/pearlite work in carbon and low-alloy steels — banding assessment, ferrite/pearlite fraction, HSLA structures. Swab 4% Picral first to delineate the pearlite and cementite, rinse, then a short 2% Nital swab to bring up the ferrite grain boundaries that Picral leaves invisible. For tempered martensite in Q&amp;T <MaterialTooltip materialName="AISI 4140 Chromium-Molybdenum Steel">4140</MaterialTooltip> and <MaterialTooltip materialName="AISI 4340 Nickel-Chromium-Molybdenum Steel">4340</MaterialTooltip>, plain 2% Nital remains the standard etch.</li>
+                <li><strong>Beraha I (color tint, optional):</strong> For ferrite/pearlite/bainite/martensite differentiation by color when grayscale etches can't separate them (10 mL HCl + 90 mL H₂O + 1 g K₂S₂O₅; immersion 30-180 s). Each phase tints to a distinct color by film thickness. Requires a deformation-free, colloidal-silica-finished surface. Worth knowing exists; not a daily-driver etch.</li>
               </ul>
               <p className="text-sm text-gray-600 italic">
                 Note: Vilella's reagent (1 g picric + 5 mL HCl + 95 mL ethanol) is sometimes referenced for steels,
@@ -335,7 +337,7 @@ export default function CarbonSteelGuide() {
                     className="w-full h-auto"
                   />
                 </Link>
-                <p className="text-sm text-gray-600 mt-2 italic text-center">Etching solutions and reagents for carbon steel and low alloy steel. Common etchants include Nital (2%, 3%, 5%), Picral, and Vilella's Reagent. The same etchants work for both carbon steels and low alloy steels. Etching time typically ranges from 5-30 seconds depending on the etchant and steel grade.</p>
+                <p className="text-sm text-gray-600 mt-2 italic text-center">Etching solutions and reagents for carbon steel and low alloy steel. Common etchants include Nital (2%, 3%, 5%) and Picral. The same etchants work for both carbon steels and low alloy steels. Etching time typically ranges from 5-30 seconds depending on the etchant and steel grade.</p>
               </div>
               <h3>Etching Procedure</h3>
               <ol>
@@ -367,10 +369,10 @@ export default function CarbonSteelGuide() {
                 <li><strong>Scratches remaining:</strong> Insufficient grinding/polishing time or skipped grits. Ensure complete scratch removal at each step.</li>
                 <li><strong>Relief around inclusions:</strong> Over-polishing or too soft a cloth. Reduce polishing time or use slightly harder cloth.</li>
                 <li><strong>Contamination:</strong> Clean between steps, use fresh abrasives, and ensure proper sample cleaning.</li>
-                <li><strong>Poor edge retention (rounding at the sample-mount boundary):</strong> Most common on hardened low-alloy steels mounted in plain phenolic — the resin wears 2-3× faster than the steel and rounds the edge. Switch hardened grades to glass-filled epoxy. Also tighten final-polish time on soft napped pads (cap at ~2 min + flush).</li>
+                <li><strong>Poor edge retention (rounding at the sample-mount boundary):</strong> Most common on hardened low-alloy steels mounted in plain phenolic — the softer resin wears faster than the steel and rounds the edge. Switch hardened grades to glass-filled epoxy. Also tighten final-polish time on soft napped pads (cap at ~2 min + flush).</li>
                 <li><strong>Over-etching:</strong> Reduce etching time or use lower Nital concentration. Start with shorter times.</li>
                 <li><strong>Under-etching:</strong> Increase etching time or use higher Nital concentration. Ensure sample is clean before etching.</li>
-                <li><strong>Phase transformation during cutting:</strong> Use slower cutting speed and adequate coolant to prevent overheating.</li>
+                <li><strong>Phase transformation during cutting:</strong> Increase coolant flood and reduce feed rate, and check that the blade bond suits the steel's hardness. Do not under-speed the wheel — a glazed blade rubs instead of cutting and generates more heat.</li>
               </ul>
             </section>
 

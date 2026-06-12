@@ -197,6 +197,15 @@ export default function SafetyFundamentalsGuide() {
                         in a fume hood, in small volumes, immediately before use. Never store the mixed etchant.
                       </td>
                     </tr>
+                    <tr>
+                      <td className="border border-gray-300 px-4 py-3 font-medium">Cyanide-Containing Etchants</td>
+                      <td className="border border-gray-300 px-4 py-3">Silver and gold etching</td>
+                      <td className="border border-gray-300 px-4 py-3">
+                        Highly toxic; contact with acids releases lethal hydrogen cyanide gas. Use only with proper
+                        ventilation (fume hood), keep strictly separated from all acids, and collect for licensed
+                        hazardous waste disposal — never drain disposal.
+                      </td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -342,9 +351,20 @@ export default function SafetyFundamentalsGuide() {
             <section id="personal-protection" className="scroll-mt-24">
               <h2>Personal Protective Equipment (PPE)</h2>
               <p>
-                Personal protective equipment is your last line of defense against hazards. Always use appropriate PPE 
+                Personal protective equipment is your last line of defense against hazards. Always use appropriate PPE
                 for the task at hand.
               </p>
+
+              <div className="bg-blue-50 border-l-4 border-blue-600 p-4 my-4 rounded">
+                <p className="text-sm text-gray-700 mb-2">
+                  <strong>PPE by task — quick reference:</strong>
+                </p>
+                <ul className="text-sm text-gray-700 space-y-1 list-disc list-inside ml-2">
+                  <li><strong>Standard lab work:</strong> safety glasses, lab coat, nitrile gloves</li>
+                  <li><strong>HF or perchloric acid work:</strong> add a face shield, HF-rated gloves, and a splash apron</li>
+                  <li><strong>Dust-generating prep (dry grinding, ceramics):</strong> N95 respirator at minimum</li>
+                </ul>
+              </div>
 
               <h3>Eye Protection</h3>
               <ul>
@@ -363,6 +383,7 @@ export default function SafetyFundamentalsGuide() {
               <h3>Hand Protection</h3>
               <ul>
                 <li><strong>Chemical-resistant gloves:</strong> Nitrile, neoprene, or other appropriate materials for chemical handling</li>
+                <li><strong>HF-rated gloves:</strong> Required for any work with hydrofluoric acid or HF-containing etchants (Keller's, Kroll's). Thin disposable nitrile is not sufficient protection against HF</li>
                 <li><strong>Heat-resistant gloves:</strong> For handling hot mounts and equipment</li>
                 <li><strong>Cut-resistant gloves:</strong> When handling sharp samples or blades (use with caution around rotating equipment)</li>
                 <li><strong>Proper fit:</strong> Gloves should fit well but not be too tight or loose</li>
@@ -390,6 +411,7 @@ export default function SafetyFundamentalsGuide() {
               <h3>Respiratory Protection</h3>
               <ul>
                 <li><strong>Fume hoods:</strong> Primary protection for chemical vapors and fumes</li>
+                <li><strong>N95 respirators:</strong> Minimum protection for dust-generating preparation such as dry grinding and ceramics work</li>
                 <li><strong>Respirators:</strong> May be required for specific operations (requires fit testing and training)</li>
                 <li><strong>Proper ventilation:</strong> Ensure adequate general ventilation in laboratory</li>
               </ul>
@@ -458,6 +480,17 @@ export default function SafetyFundamentalsGuide() {
                 <li><strong>Document waste:</strong> Maintain waste inventory and disposal records</li>
               </ul>
 
+              <h3>Spent Etchant Disposal</h3>
+              <p>
+                Most spent etchants must be neutralized or segregated before disposal:
+              </p>
+              <ul>
+                <li><strong>Acid etchants:</strong> Dilute heavily, then neutralize with sodium bicarbonate (NaHCO₃) to pH 6-8 before disposing per local regulations</li>
+                <li><strong>Heavy-metal etchants (copper, chromium):</strong> Collect for licensed hazardous waste pickup — neutralizing does not remove the metals, so drain disposal is never appropriate</li>
+                <li><strong>Organic-acid etchants (acetic, picric/picral):</strong> Route to the organic waste stream</li>
+                <li><strong>Cyanide-containing etchants:</strong> Collect for licensed hazardous waste disposal; never mix with acid waste</li>
+              </ul>
+
               <h3>Hazardous Waste</h3>
               <ul>
                 <li><strong>Identify hazardous waste:</strong> Understand what constitutes hazardous waste</li>
@@ -522,7 +555,7 @@ export default function SafetyFundamentalsGuide() {
               <ul>
                 <li><strong>Know fire exits:</strong> Identify all exits and evacuation routes</li>
                 <li><strong>Know fire extinguisher locations:</strong> Know where extinguishers are and how to use them</li>
-                <li><strong>Use appropriate extinguishers:</strong> Different fires require different extinguisher types</li>
+                <li><strong>Use appropriate extinguishers:</strong> Different fires require different extinguisher types. Class B covers flammable liquids (most solvent fires); metal fires (magnesium or titanium fines from grinding) require a Class D extinguisher — a standard ABC unit will not safely extinguish a metal-dust fire</li>
                 <li><strong>Evacuate if fire is large:</strong> Don't attempt to fight large fires</li>
                 <li><strong>Pull fire alarm:</strong> Alert others to evacuate</li>
                 <li><strong>Never use elevators:</strong> Use stairs during fire evacuations</li>

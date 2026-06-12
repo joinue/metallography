@@ -18,7 +18,7 @@ const sections = [
   { id: 'sectioning', label: 'Sectioning PCBs and Chips' },
   { id: 'mounting', label: 'Mounting Techniques' },
   { id: 'grinding', label: 'Grinding and Initial Preparation' },
-  { id: 'controlled-removal', label: 'Controlled Removal (ATTO)' },
+  { id: 'controlled-removal', label: 'Controlled Removal' },
   { id: 'polishing', label: 'Polishing Techniques' },
   { id: 'applications', label: 'Specific Applications' },
   { id: 'troubleshooting', label: 'Troubleshooting' },
@@ -38,7 +38,7 @@ export default function PCBChipPreparationGuide() {
     tool: [
       {
         '@type': 'HowToTool',
-        name: 'ATTO-1000S Controlled Removal Polisher',
+        name: 'Controlled removal polisher',
       },
       {
         '@type': 'HowToTool',
@@ -75,7 +75,7 @@ export default function PCBChipPreparationGuide() {
       {
         '@type': 'HowToStep',
         name: 'Controlled Removal',
-        text: 'Use ATTO-1000S controlled removal polisher for precise material removal with micrometer-level accuracy.',
+        text: 'Use a controlled removal polisher for precise material removal with micrometer-level accuracy.',
         position: 4,
       },
       {
@@ -137,7 +137,7 @@ export default function PCBChipPreparationGuide() {
               <li><a href="#sectioning" className="text-primary-600 hover:underline">Sectioning PCBs and Chips</a></li>
               <li><a href="#mounting" className="text-primary-600 hover:underline">Mounting Techniques</a></li>
               <li><a href="#grinding" className="text-primary-600 hover:underline">Grinding and Initial Preparation</a></li>
-              <li><a href="#controlled-removal" className="text-primary-600 hover:underline">Controlled Removal (ATTO)</a></li>
+              <li><a href="#controlled-removal" className="text-primary-600 hover:underline">Controlled Removal</a></li>
               <li><a href="#polishing" className="text-primary-600 hover:underline">Polishing Techniques</a></li>
               <li><a href="#applications" className="text-primary-600 hover:underline">Specific Applications</a></li>
               <li><a href="#troubleshooting" className="text-primary-600 hover:underline">Troubleshooting</a></li>
@@ -236,9 +236,10 @@ export default function PCBChipPreparationGuide() {
                 Modern electronics contain extremely fine features:
               </p>
               <ul>
-                <li>Trace widths down to micrometers or even nanometers</li>
+                <li>PCB trace widths from hundreds of micrometers down to roughly 25-50 μm on HDI boards;
+                on-die interconnects inside the chip itself reach the nanometer scale</li>
                 <li>Via diameters of 50-100 μm or smaller</li>
-                <li>Layer thicknesses of 10-50 μm</li>
+                <li>Copper layers from about 17 μm (½ oz) to 70 μm (2 oz), with dielectric layers typically 50-200 μm</li>
                 <li>Solder joints with critical dimensions requiring precise <GlossaryTermTooltip term="Preparation">preparation</GlossaryTermTooltip></li>
                 <li>Bond wires and interconnects</li>
               </ul>
@@ -255,7 +256,7 @@ export default function PCBChipPreparationGuide() {
               <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-6 rounded">
                 <p className="text-sm text-gray-700 mb-2">
                   <strong>Critical Point:</strong> These challenges make traditional metallographic techniques 
-                  insufficient. Controlled removal systems like the ATTO-1000S are not just beneficial—they 
+                  insufficient. Controlled removal systems are not just beneficial—they
                   are often essential for successful PCB and chip preparation.
                 </p>
               </div>
@@ -291,8 +292,10 @@ export default function PCBChipPreparationGuide() {
               </div>
               <h3>Sectioning Considerations</h3>
               <ul>
-                <li><strong>Low Speed:</strong> Use slow cutting speeds (50-150 RPM) to minimize heat generation 
-                and mechanical damage</li>
+                <li><strong>Light Load:</strong> Use a precision saw with light loads (typically 100-500 g for
+                silicon and package cross-sections; 30-80 g for delicate multilayer ceramic capacitors) to minimize
+                heat generation and mechanical damage. Resin-bond diamond wafering blades on silicon typically run
+                2,500-5,000 RPM—control damage with load and blade selection rather than feed force</li>
                 <li><strong>Thin Blades:</strong> Use thin <GlossaryTermTooltip term="Diamond Blade">diamond blades</GlossaryTermTooltip> or abrasive blades (0.3-0.5 mm) to minimize kerf loss 
                 and reduce damage</li>
                 <li><strong><GlossaryTermTooltip term="Coolant">Coolant</GlossaryTermTooltip>:</strong> Adequate coolant is essential to prevent overheating, which can 
@@ -306,7 +309,7 @@ export default function PCBChipPreparationGuide() {
                 <li>Identify the area of interest and mark the cutting plane</li>
                 <li>Secure the sample in the cutting fixture</li>
                 <li>Use a thin, fine-grit abrasive blade or <GlossaryTermTooltip term="Diamond Blade">diamond blade</GlossaryTermTooltip></li>
-                <li>Cut at low speed with steady, light pressure</li>
+                <li>Cut with a light, steady load and let the blade run at its rated speed</li>
                 <li>Use continuous <GlossaryTermTooltip term="Coolant">coolant</GlossaryTermTooltip> flow</li>
                 <li>Allow the blade to do the cutting—avoid forcing</li>
                 <li>After cutting, clean the sample thoroughly to remove cutting debris</li>
@@ -380,10 +383,10 @@ export default function PCBChipPreparationGuide() {
               <ol>
                 <li>Clean the sample thoroughly to remove cutting fluid and debris</li>
                 <li>If using <GlossaryTermTooltip term="Castable Mounting">castable epoxy</GlossaryTermTooltip>, mix according to manufacturer's instructions</li>
-                <li>Place sample in mounting cup with cut surface facing up</li>
+                <li>Place sample in mounting cup with the cut surface (the surface to be prepared) facing down against the bottom of the cup</li>
                 <li>Pour epoxy carefully to avoid bubbles</li>
-                <li>Allow to cure completely (typically 4-8 hours for room temperature cure)</li>
-                <li>For <GlossaryTermTooltip term="Compression Mounting">compression mounting</GlossaryTermTooltip>, use low pressure (1000-2000 psi) and moderate temperature (120-150°C)</li>
+                <li>Allow to cure completely (typically 6-12 hours for a slow-cure, low-shrinkage epoxy)</li>
+                <li>Avoid <GlossaryTermTooltip term="Compression Mounting">compression mounting</GlossaryTermTooltip> for solder joints and other heat- or pressure-sensitive packages—the heat and pressure can damage the sample. Reserve it for robust samples only, at reduced pressure and temperature</li>
               </ol>
               <div className="bg-gray-50 border-l-4 border-primary-600 p-4 my-4 rounded">
                 <p className="text-sm text-gray-700 mb-2">
@@ -454,7 +457,7 @@ export default function PCBChipPreparationGuide() {
             </section>
 
             <section id="controlled-removal" className="scroll-mt-24">
-              <h2>Controlled Removal (ATTO) - The Critical Technique</h2>
+              <h2>Controlled Removal - The Critical Technique</h2>
               <p>
                 <strong>Controlled removal, also known as metered removal, is the most important technique for 
                 PCB and chip preparation.</strong> This method allows for precise material removal in 
@@ -485,8 +488,8 @@ export default function PCBChipPreparationGuide() {
 
               <h3>How Controlled Removal Works</h3>
               <p>
-                Controlled removal systems, such as the ATTO-1000S, use precision measurement and feedback 
-                to remove material in exact increments. The system monitors removal in real-time with 
+                Controlled removal systems use precision measurement and feedback
+                to remove material in exact increments. The system monitors removal in real-time with
                 micrometer-level resolution, allowing operators to:
               </p>
               <ul>
@@ -506,7 +509,7 @@ export default function PCBChipPreparationGuide() {
                 >
                   <Image
                     src="/images/equipment/grinding & polishing/controlled removal polisher/atto-1000s/atto-polisher-cover.webp"
-                    alt="ATTO-1000S Controlled Removal Polisher for PCB and chip preparation"
+                    alt="Controlled removal polisher for PCB and chip preparation"
                     width={600}
                     height={450}
                     className="w-full h-auto"
@@ -515,17 +518,17 @@ export default function PCBChipPreparationGuide() {
                   />
                 </Link>
                 <p className="text-sm text-gray-600 mt-2 italic text-center">
-                  The ATTO-1000S Controlled Removal Polisher provides micrometer-level precision essential 
-                  for PCB and chip preparation. Real-time monitoring and feedback ensure precise material 
+                  A controlled removal polisher provides the micrometer-level precision essential
+                  for PCB and chip preparation. Real-time monitoring and feedback ensure precise material
                   removal to target specific features or depths.
                 </p>
               </div>
 
-              <h3>Key Features of the ATTO-1000S</h3>
+              <h3>Key Features of Controlled Removal Systems</h3>
               <ul>
                 <li><strong>Micrometer-Adjustable Control:</strong> Pitch and roll control for exacting results</li>
-                <li><strong>Real-Time Monitoring:</strong> 0.2 micron resolution removal monitoring</li>
-                <li><strong>Precise Load Control:</strong> Sample load control from 0-300 grams</li>
+                <li><strong>Real-Time Monitoring:</strong> Sub-micron (typically ~0.2 μm) resolution removal monitoring</li>
+                <li><strong>Precise Load Control:</strong> Sample load control (typically 0-300 grams)</li>
                 <li><strong>Variable Speed:</strong> Optimal material removal rates for different materials</li>
                 <li><strong>Touchscreen Interface:</strong> Easy operation and parameter adjustment</li>
                 <li><strong>Planarity Control:</strong> Maintains flatness across multi-material samples</li>
@@ -538,7 +541,7 @@ export default function PCBChipPreparationGuide() {
                     <li>Mount sample securely in holder</li>
                     <li>Set initial load (typically 50-150 grams for PCBs)</li>
                     <li>Select appropriate polishing pad and compound</li>
-                    <li>Set polishing speed (typically 50-100 RPM)</li>
+                    <li>Set polishing speed to a slow, controlled rate per the manufacturer's recommendations</li>
                   </ul>
                 </li>
                 <li><strong>Calibration:</strong>
@@ -641,7 +644,7 @@ export default function PCBChipPreparationGuide() {
                 If not using controlled removal for all steps, use this sequence:
               </p>
               <ol>
-                <li><strong>9 μm <GlossaryTermTooltip term="Diamond Polishing">diamond</GlossaryTermTooltip>:</strong> 3-5 minutes on hard <GlossaryTermTooltip term="Polishing Cloth">cloth</GlossaryTermTooltip> (Texmet or similar)</li>
+                <li><strong>9 μm <GlossaryTermTooltip term="Diamond Polishing">diamond</GlossaryTermTooltip>:</strong> 3-5 minutes on a hard, non-napped <GlossaryTermTooltip term="Polishing Cloth">cloth</GlossaryTermTooltip> (e.g., silk or woven nylon)</li>
                 <li><strong>3 μm diamond:</strong> 3-5 minutes on medium-hard cloth</li>
                 <li><strong>1 μm diamond:</strong> 2-3 minutes on soft cloth</li>
               </ol>
@@ -681,6 +684,7 @@ export default function PCBChipPreparationGuide() {
                 <li><strong>Frequent Inspection:</strong> Check progress frequently under microscope</li>
                 <li><strong>Clean Between Steps:</strong> Thoroughly clean sample and change cloths between steps</li>
                 <li><strong>Material-Specific Rates:</strong> Be aware that different materials polish at different rates, which can create <GlossaryTermTooltip term="Relief">relief</GlossaryTermTooltip></li>
+                <li><strong>Solder Joints:</strong> Soft tin-based solders smear easily; a final polish of <GlossaryTermTooltip term="Colloidal Silica">colloidal silica</GlossaryTermTooltip> with a small ammonia addition helps lift smeared metal</li>
               </ul>
               <ProductLink
                 productName="Polishing Pads and Cloths"
@@ -830,8 +834,8 @@ export default function PCBChipPreparationGuide() {
             <div className="bg-primary-50 border-l-4 border-primary-600 p-6 mt-12 rounded">
               <h2 className="text-2xl font-semibold mb-4">Essential Equipment for PCB and Chip Preparation</h2>
               <p className="mb-4">
-                Successful PCB and chip preparation requires specialized equipment, especially controlled removal 
-                systems. The ATTO-1000S is the industry standard for precision electronics sample preparation.
+                Successful PCB and chip preparation requires specialized equipment, especially controlled removal
+                systems, which provide the depth control and planarity that electronics cross-sections demand.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link 
@@ -840,7 +844,7 @@ export default function PCBChipPreparationGuide() {
                   rel="noopener noreferrer"
                   className="btn-primary text-center"
                 >
-                  View ATTO-1000S Controlled Removal Polisher
+                  View Controlled Removal Equipment Example
                 </Link>
                 <Link 
                   href="https://shop.metallographic.com"

@@ -230,10 +230,10 @@ export default function EquipmentOverviewGuide() {
               
               <div className="bg-gray-50 border-l-4 border-primary-600 p-4 my-4 rounded">
                 <p className="text-sm text-gray-700 mb-2">
-                  <strong>When to Use Precision Wafering:</strong> Choose precision wafering saws when working with delicate 
-                  materials, small samples, thin sections, heat-sensitive materials, or when minimal sectioning damage is 
-                  critical. Precision wafering is slower and more expensive than abrasive sectioning but produces superior 
-                  results for sensitive applications. Essential for PCB preparation, ceramic analysis, and EBSD sample 
+                  <strong>When to Use Precision Wafering:</strong> Choose precision wafering saws when working with delicate
+                  materials, small samples, thin sections, heat-sensitive materials, or when minimal sectioning damage is
+                  critical. Precision sectioning produces a damage layer roughly ten times thinner than abrasive cutoff,
+                  though it is slower and more expensive. Essential for PCB preparation, ceramic analysis, and EBSD sample
                   preparation.
                 </p>
               </div>
@@ -326,9 +326,10 @@ export default function EquipmentOverviewGuide() {
 
               <h3>Compression Mounting Presses</h3>
               <p>
-                Compression mounting uses heat (typically 150-180°C) and pressure (2000-4000 psi) to embed samples in 
-                thermosetting resins. This method is fast (typically 5-15 minutes per cycle) and produces durable, hard 
-                mounts with excellent edge retention. Ideal for high-throughput laboratories and standard metal samples.
+                Compression mounting uses heat (typically 150-180°C) and pressure (typically 3,000-4,500 psi) to embed
+                samples in thermosetting resins. This method is fast (complete cycles typically run about 2-10 minutes)
+                and produces durable, hard mounts with excellent edge retention. Ideal for high-throughput laboratories
+                and standard metal samples.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
@@ -412,9 +413,9 @@ export default function EquipmentOverviewGuide() {
               <h3>Castable Mounting Systems</h3>
               <p>
                 Castable mounting (also called cold mounting) uses room-temperature or low-temperature curing resins 
-                that cure without the high heat and pressure of compression mounting. This method is ideal for 
-                heat-sensitive samples, delicate materials, and when compression mounting isn't suitable. Curing times 
-                vary from 30 minutes to several hours depending on the resin type. Castable mounting is also useful for 
+                that cure without the high heat and pressure of compression mounting. This method is ideal for
+                heat-sensitive samples, delicate materials, and when compression mounting isn't suitable. Curing times
+                vary from about 10-15 minutes for fast acrylics to overnight (6-12 hours) for slow-cure epoxies. Castable mounting is also useful for 
                 mounting multiple samples simultaneously or when working with irregular shapes that don't fit standard 
                 compression molds.
               </p>
@@ -677,9 +678,11 @@ export default function EquipmentOverviewGuide() {
 
               <h3>Vibratory Polishers</h3>
               <p>
-                Vibratory polishing uses vibration to polish samples, eliminating subsurface damage and producing 
-                superior surface finishes. This method is particularly effective for EBSD (Electron Backscatter 
-                Diffraction) sample preparation and applications requiring minimal deformation.
+                Vibratory polishing uses a low-energy, high-frequency oscillation with only the weight of the sample
+                (no applied pressure) to remove residual subsurface deformation over long cycles (typically 1-24 hours).
+                Because no force is applied, it produces a stress-free finish that rotary polishing cannot deliver.
+                This method is particularly effective for EBSD (Electron Backscatter Diffraction) sample preparation,
+                soft metals that smear under applied force, and applications requiring minimal deformation.
               </p>
 
               <div className="bg-gray-50 p-4 rounded-lg my-6">
@@ -701,11 +704,11 @@ export default function EquipmentOverviewGuide() {
                 </div>
                 <h4 className="font-semibold mb-2">Vibratory Polishing Systems</h4>
                 <p className="text-sm text-gray-700 mb-2">
-                  Cost-effective alternative for final polishing that eliminates subsurface damage and produces superior 
-                  flatness and planarity. Ideal for batch processing and applications requiring minimal deformation.
+                  Final polishing method that removes subsurface damage and maintains flatness and planarity.
+                  Well suited to batch processing and applications requiring minimal deformation.
                 </p>
                 <ul className="text-xs text-gray-600 space-y-1 mb-3">
-                  <li>• Eliminates subsurface damage</li>
+                  <li>• Removes subsurface damage without introducing new deformation</li>
                   <li>• Superior flatness and planarity</li>
                   <li>• Ideal for EBSD preparation</li>
                   <li>• Batch processing capability</li>

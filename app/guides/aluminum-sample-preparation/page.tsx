@@ -112,12 +112,14 @@ export default function AluminumGuide() {
               <section id="sectioning" className="scroll-mt-24">
                 <h2>Sectioning</h2>
                 <p>
-                  When sectioning aluminum samples, use a slow cutting speed to minimize heat generation 
-                  and deformation. A cutting speed of 100-200 RPM is typically appropriate for most 
-                  aluminum alloys. Softer alloys like <MaterialTooltip materialName="6061 Aluminum">6061</MaterialTooltip> require 
-                  particularly careful handling to prevent deformation, while harder alloys such as 
-                  <MaterialTooltip materialName="7075 Aluminum">7075</MaterialTooltip> can tolerate slightly higher cutting speeds. 
-                  Aluminum's softness requires careful handling to prevent deformation.
+                  When sectioning aluminum samples, run the abrasive cutoff wheel at typical
+                  metallographic surface speeds (roughly 2,500-4,500 SFM) and control heat with a light
+                  feed rate and copious coolant rather than by slowing the wheel — an under-speeded wheel
+                  glazes and rubs instead of cutting. Softer alloys like <MaterialTooltip materialName="6061 Aluminum">6061</MaterialTooltip> require
+                  particularly careful handling to prevent deformation, while harder alloys such as
+                  <MaterialTooltip materialName="7075 Aluminum">7075</MaterialTooltip> tolerate slightly more aggressive feed rates.
+                  For the lowest possible damage layer, a precision (low-speed) saw with a thin blade and
+                  controlled load is also an option.
                 </p>
                 <AnimateOnScroll animation="fadeInUp" delay={100}>
                   <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
@@ -128,7 +130,7 @@ export default function AluminumGuide() {
                       className="block hover:opacity-90 transition-opacity"
                     >
                       <Image
-                        src="/images/consumables/maxcut-c.webp"
+                        src="/images/consumables/maxcut-e.webp"
                         alt="Soft-bond abrasive cut-off blade for aluminum sectioning"
                         width={500}
                         height={375}
@@ -176,7 +178,7 @@ export default function AluminumGuide() {
               <ol>
                 <li>Clean and dry the sample</li>
                 <li>Place in mounting cup with epoxy resin</li>
-                <li>Allow to cure at room temperature (typically 4-8 hours)</li>
+                <li>Allow to cure at room temperature (typically 6-12 hours for slow-cure epoxy)</li>
                 <li>Cold mounting avoids heat that could affect aluminum microstructure</li>
               </ol>
               </section>
@@ -187,15 +189,19 @@ export default function AluminumGuide() {
                 <h2>Grinding</h2>
               <p>
                 Grinding removes sectioning damage and prepares the surface for polishing. Start with
-                coarse grits and progressively move to finer grits. For aluminum, use lighter pressure
+                the finest grit that will still remove the sectioning damage and flatten the sample,
+                then move progressively to finer grits. For aluminum, use lighter pressure
                 than for harder materials to avoid deformation.
               </p>
               <p>
                 <strong>Abrasive choice — alumina vs. SiC:</strong> Aluminum is soft enough that SiC particles
-                can embed in the surface and resist removal in subsequent steps, especially on 2xxx alloys
-                like <MaterialTooltip materialName="2024 Aluminum">2024</MaterialTooltip> and on commercially pure 1xxx.
+                can embed in the surface and resist removal in subsequent steps. The softer the aluminum, the
+                worse the risk — commercially pure 1xxx grades and soft, non-heat-treatable alloys (3xxx, 5xxx)
+                are the most susceptible, while age-hardened alloys
+                like <MaterialTooltip materialName="2024 Aluminum">2024</MaterialTooltip>, 6xxx, and 7xxx are
+                harder and less prone.
                 When available, prefer alumina (Al₂O₃) papers or a fixed alumina grinding disc for the
-                planar step. SiC is acceptable for harder alloys (6xxx, 7xxx) and as a fallback, but inspect
+                planar step. SiC is acceptable for the harder age-hardened alloys and as a fallback, but inspect
                 for embedded particles after fine grinding. The sequence below uses SiC as the most widely
                 stocked option:
               </p>
@@ -217,23 +223,23 @@ export default function AluminumGuide() {
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 500px"
                       />
                     </Link>
-                    <p className="text-sm text-gray-600 mt-2 italic text-center">Silicon carbide (SiC) grinding papers in various grit sizes (120, 240, 400, 600) for progressive grinding. Rotate sample 90° between each grit to ensure complete scratch removal.</p>
+                    <p className="text-sm text-gray-600 mt-2 italic text-center">Silicon carbide (SiC) grinding papers in various grit sizes (240, 400, 600) for progressive grinding. Rotate sample 90° between each grit to ensure complete scratch removal.</p>
                   </div>
                 </AnimateOnScroll>
               <h3>Grinding Sequence</h3>
               <ol>
-                <li><strong>120 grit:</strong> Remove sectioning damage (20-40 seconds per step)</li>
-                <li><strong>240 grit:</strong> Remove previous scratches (20-40 seconds)</li>
-                <li><strong>400 grit:</strong> Further refinement (20-40 seconds)</li>
-                <li><strong>600 grit:</strong> Final grinding step (20-40 seconds)</li>
+                <li><strong>240 grit:</strong> Planar step — remove sectioning damage and establish flatness (30-60 seconds, or until plane). Avoid coarser starting grits on aluminum; they drive deformation deep into the soft surface. Reserve them for heavy sectioning damage on large castings.</li>
+                <li><strong>400 grit:</strong> Remove previous scratches (1-2 minutes)</li>
+                <li><strong>600 grit:</strong> Final grinding step (1-2 minutes)</li>
               </ol>
               <p>
-                <strong>Important:</strong> Rotate the sample 90° between each grit to ensure complete 
-                removal of previous scratches. Use water as a lubricant and maintain <strong>light</strong> pressure 
-                to avoid deformation. Softer alloys like <MaterialTooltip materialName="6061 Aluminum">6061</MaterialTooltip> require 
-                even lighter pressure and shorter grinding times, while precipitation-hardened alloys 
-                like <MaterialTooltip materialName="7075 Aluminum">7075</MaterialTooltip> may need slightly longer times per step. 
-                Aluminum requires less time per step than harder materials.
+                <strong>Important:</strong> Rotate the sample 90° between each grit to ensure complete
+                removal of previous scratches. Use water as a lubricant and maintain <strong>light</strong> pressure
+                to avoid deformation. Softer alloys like <MaterialTooltip materialName="6061 Aluminum">6061</MaterialTooltip> require
+                even lighter pressure, while precipitation-hardened alloys
+                like <MaterialTooltip materialName="7075 Aluminum">7075</MaterialTooltip> may need slightly longer times per step.
+                Run each step just long enough to remove the previous step&apos;s damage — roughly twice the
+                time it takes for the previous scratches to disappear.
               </p>
                 <ProductLink 
                   productName="Silicon Carbide Grinding Papers"
@@ -247,9 +253,10 @@ export default function AluminumGuide() {
               <section id="polishing" className="scroll-mt-24">
                 <h2>Polishing</h2>
               <p>
-                Polishing removes grinding scratches and prepares a mirror-like surface. For aluminum, 
-                diamond polishing followed by oxide polishing typically yields excellent results. Use 
-                softer cloths and lighter pressure to avoid smearing and relief.
+                Polishing removes grinding scratches and prepares a mirror-like surface. For aluminum,
+                diamond polishing followed by oxide polishing typically yields excellent results. Use
+                lighter pressure than for harder metals, and match cloth hardness to the step — hard
+                woven cloths early, soft napped cloths only at the end — to control smearing and relief.
               </p>
                 <AnimateOnScroll animation="fadeInUp" delay={100}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6 max-w-2xl mx-auto">
@@ -289,20 +296,20 @@ export default function AluminumGuide() {
                           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 300px"
                         />
                       </Link>
-                      <p className="text-xs text-gray-600 mt-2 italic text-center">Soft to medium polishing pads are recommended for aluminum to prevent smearing and excessive relief.</p>
+                      <p className="text-xs text-gray-600 mt-2 italic text-center">Start diamond polishing on a hard woven cloth and reserve softer napped cloths for the final steps to limit smearing and relief.</p>
                     </div>
                   </div>
                 </AnimateOnScroll>
               <h3>Diamond Polishing</h3>
               <ol>
-                <li><strong>9 μm diamond:</strong> 3-4 minutes on a hard woven cloth (e.g., UltraPad/TexMet). A soft napped pad like Microcloth at this stage will smear aluminum and create relief — save soft pads for later steps.</li>
+                <li><strong>9 μm diamond:</strong> 3-4 minutes on a hard woven cloth. A soft napped cloth at this stage will smear aluminum and create relief — save soft cloths for later steps.</li>
                 <li><strong>3 μm diamond:</strong> 2-3 minutes on a medium napped cloth</li>
                 <li><strong>1 μm diamond:</strong> 1-2 minutes on a soft napped cloth (optional — colloidal silica will close the gap)</li>
               </ol>
               <h3>Final Polishing</h3>
               <ol>
                 <li><strong>0.04-0.05 μm colloidal silica:</strong> 2-3 minutes on a soft chemotextile, followed by a 30 s water flush on the same pad to clear silica residue</li>
-                <li>Rinse with water, then ethanol, and <strong>air-dry</strong> (or evaporate the ethanol). Do not use heated/compressed air — surface recrystallization is a known artifact on freshly polished aluminum.</li>
+                <li>Rinse with water, then ethanol, and dry with <strong>room-temperature air</strong> (let the ethanol evaporate, or use unheated compressed air). Do not use heated air — recrystallization of the deformed surface layer is a known artifact on freshly polished aluminum.</li>
               </ol>
               <p>
                 <strong>Important:</strong> Use lighter pressure than for steel. Over-polishing can 
@@ -371,7 +378,7 @@ export default function AluminumGuide() {
                 <li>Apply etchant with cotton swab or immerse sample (HF-containing etchants like Keller's must be used in a fume hood with HF-rated PPE; never let the surface dry between application and rinse — HF residues continue to attack)</li>
                 <li>Etch for 5-30 seconds (time varies by etchant and alloy)</li>
                 <li>Immediately rinse with water, then ethanol</li>
-                <li>Air-dry, or let the ethanol evaporate. Avoid heated/compressed air to prevent surface recrystallization.</li>
+                <li>Dry with room-temperature air (still air or unheated compressed air). Avoid heated drying to prevent surface recrystallization.</li>
               </ol>
               <p>
                 <strong>Tip:</strong> Start with shorter etching times (5-10 seconds) and increase if needed. 
@@ -392,7 +399,7 @@ export default function AluminumGuide() {
               <h3>Common Issues and Solutions</h3>
               <ul>
                 <li><strong>Scratches remaining:</strong> Insufficient grinding/polishing time or skipped grits. Ensure complete scratch removal at each step.</li>
-                <li><strong>Smearing:</strong> Too much pressure or too hard a cloth. Use softer cloths and lighter pressure.</li>
+                <li><strong>Smearing:</strong> Too much mechanical work without enough chemical removal — the classic soft-aluminum defect. Reduce pressure and rely on the chemo-mechanical colloidal silica step to remove the smeared layer; switching to soft napped cloths too early makes it worse.</li>
                 <li><strong>Relief around second phases:</strong> Over-polishing or too soft a cloth. Reduce polishing time or use slightly harder cloth.</li>
                 <li><strong>Contamination:</strong> Clean between steps, use fresh abrasives, and ensure proper sample cleaning.</li>
                 <li><strong>Deformation:</strong> Too much pressure during grinding or polishing. Use lighter pressure throughout.</li>

@@ -5,14 +5,16 @@ import Link from 'next/link'
 
 type MaterialType = 'hard' | 'soft' | 'work-hardening' | 'multi-phase'
 
+// Times in minutes. Planar (first) grinding step is 30-60 s; each subsequent
+// fine-grinding step is 1-2 min (long enough to remove the prior step's damage).
 const grindingSteps = [
-  { grit: '120', time: { min: 30, max: 60 } },
-  { grit: '240', time: { min: 30, max: 60 } },
-  { grit: '320', time: { min: 30, max: 60 } },
-  { grit: '400', time: { min: 30, max: 60 } },
-  { grit: '600', time: { min: 30, max: 60 } },
-  { grit: '800', time: { min: 30, max: 60 }, optional: true },
-  { grit: '1200', time: { min: 30, max: 60 }, optional: true },
+  { grit: '120', time: { min: 0.5, max: 1 } },
+  { grit: '240', time: { min: 1, max: 2 } },
+  { grit: '320', time: { min: 1, max: 2 } },
+  { grit: '400', time: { min: 1, max: 2 } },
+  { grit: '600', time: { min: 1, max: 2 } },
+  { grit: '800', time: { min: 1, max: 2 }, optional: true },
+  { grit: '1200', time: { min: 1, max: 2 }, optional: true },
 ]
 
 const polishingSteps = {
@@ -20,33 +22,33 @@ const polishingSteps = {
     { grit: '9', time: { min: 4, max: 6 } },
     { grit: '6', time: { min: 3, max: 5 } },
     { grit: '3', time: { min: 3, max: 5 } },
-    { grit: '1', time: { min: 2, max: 4 } },
+    { grit: '1', time: { min: 3, max: 4 } },
     { grit: '0.5', time: { min: 2, max: 3 } },
-    { grit: '0.25', time: { min: 1, max: 2 } },
-    { grit: '0.05', time: { min: 1, max: 2 } },
+    { grit: '0.25', time: { min: 2, max: 3 } },
+    { grit: '0.05', time: { min: 3, max: 5 } },
   ],
   soft: [
-    { grit: '6', time: { min: 2, max: 4 } },
-    { grit: '3', time: { min: 2, max: 3 } },
-    { grit: '1', time: { min: 1, max: 2 } },
-    { grit: '0.5', time: { min: 1, max: 2 } },
-    { grit: '0.25', time: { min: 1, max: 1.5 } },
-    { grit: '0.05', time: { min: 0.5, max: 1 } },
-  ],
-  'work-hardening': [
     { grit: '9', time: { min: 3, max: 5 } },
-    { grit: '6', time: { min: 3, max: 4 } },
-    { grit: '3', time: { min: 3, max: 5 } },
+    { grit: '3', time: { min: 3, max: 4 } },
     { grit: '1', time: { min: 2, max: 3 } },
     { grit: '0.5', time: { min: 1, max: 2 } },
     { grit: '0.25', time: { min: 1, max: 2 } },
-    { grit: '0.05', time: { min: 1, max: 2 } },
+    { grit: '0.05', time: { min: 2, max: 3 } },
+  ],
+  'work-hardening': [
+    { grit: '9', time: { min: 4, max: 5 } },
+    { grit: '6', time: { min: 3, max: 4 } },
+    { grit: '3', time: { min: 3, max: 5 } },
+    { grit: '1', time: { min: 3, max: 4 } },
+    { grit: '0.5', time: { min: 1, max: 2 } },
+    { grit: '0.25', time: { min: 1, max: 2 } },
+    { grit: '0.05', time: { min: 2, max: 3 } },
   ],
   'multi-phase': [
     { grit: '9', time: { min: 3, max: 4 } },
     { grit: '6', time: { min: 2, max: 3 } },
-    { grit: '3', time: { min: 2, max: 4 } },
-    { grit: '1', time: { min: 1, max: 3 } },
+    { grit: '3', time: { min: 3, max: 4 } },
+    { grit: '1', time: { min: 2, max: 3 } },
     { grit: '0.5', time: { min: 1, max: 2 } },
     { grit: '0.25', time: { min: 1, max: 1.5 } },
     { grit: '0.05', time: { min: 1, max: 2 } },
@@ -54,9 +56,9 @@ const polishingSteps = {
 }
 
 const materialExamples: Record<MaterialType, string[]> = {
-  hard: ['Hardened Steels', 'Tool Steels', 'Ceramics', 'Titanium Alloys', 'Hardened Cast Iron'],
+  hard: ['Hardened Steels', 'Tool Steels', 'Ceramics', 'Cermets', 'Hardened Cast Iron'],
   soft: ['Aluminum', 'Copper', 'Lead', 'Tin', 'Soft Brass', 'Pure Metals'],
-  'work-hardening': ['Stainless Steel', 'Nickel Alloys', 'Austenitic Steels', 'Work-Hardened Materials'],
+  'work-hardening': ['Stainless Steel', 'Nickel Alloys', 'Titanium Alloys', 'Austenitic Steels'],
   'multi-phase': ['Cast Iron', 'Duplex Stainless Steel', 'Multi-Phase Alloys', 'Materials with Inclusions'],
 }
 
@@ -370,7 +372,7 @@ export default function ProcedureTimeEstimator() {
               <li><strong>Material type:</strong> Hard materials may require longer polishing times</li>
               <li><strong>Starting condition:</strong> Samples with heavy sectioning damage need more grinding</li>
               <li><strong>Optional steps:</strong> Fine grinding (800, 1200 grit) adds time but may improve results</li>
-              <li><strong>Mounting:</strong> Compression mounting (5-15 min) is faster than castable (30 min to hours)</li>
+              <li><strong>Mounting:</strong> Compression mounting (5-15 min including heat-up and cooling) is the high-throughput option; castable resins range from ~8-15 min (acrylic) through 30 min-2 h (polyester) to 6-12 h (slow-cure epoxy)</li>
               <li><strong>Operator experience:</strong> Experienced operators may work faster</li>
               <li><strong>Equipment:</strong> Automated systems can reduce manual time</li>
             </ul>

@@ -78,7 +78,8 @@ export default function ToolSteelGuide() {
               <h2>Introduction</h2>
               <p>
                 Tool steels and hardened steels are among the most challenging materials to prepare for metallographic 
-                analysis. These materials are very hard (typically 200-450 HB, 20-50 HRC) and contain complex carbide 
+                analysis. These materials are very hard (commonly 45-65 HRC in the hardened condition, with
+                high-speed steels at the top of that range and beyond — fully hardened M42 can reach 68 HRC) and contain complex carbide
                 structures that must be preserved throughout preparation. The high hardness requires extended grinding 
                 and polishing times, while the presence of carbides demands careful techniques to avoid pullout or damage.
               </p>
@@ -119,9 +120,9 @@ export default function ToolSteelGuide() {
               <p>
                 Section tool steels and hardened steels on a standard abrasive cutoff saw at typical
                 metallographic surface speeds (~2,500-4,500 SFM). The right answer for hardness is
-                <strong> blade selection</strong>, not a slower wheel — under-speeding a thin abrasive
-                blade glazes and burns rather than cutting. For HRC &gt; 45, use a <strong>harder-bond
-                Al₂O₃ blade</strong> (more aggressive grit replacement). For very brittle, very-high-carbide
+                <strong> blade selection</strong>, not a slower wheel — a blade whose bond does not
+                suit the material glazes and burns rather than cutting. For HRC &gt; 45, use a <strong>harder-bond
+                Al₂O₃ blade</strong> (the hardened-steel blade category). For very brittle, very-high-carbide
                 grades — fully hardened <MaterialTooltip materialName="M42 High-Speed Steel">M42</MaterialTooltip>,
                 <MaterialTooltip materialName="D2 Tool Steel">D2</MaterialTooltip>, T-grades — escalate to a
                 <strong> precision (low-speed) saw with a diamond wafering blade</strong> to avoid micro-crack
@@ -135,7 +136,7 @@ export default function ToolSteelGuide() {
                   className="block hover:opacity-90 transition-opacity"
                 >
                   <Image
-                    src="/images/consumables/maxcut-vhs.png"
+                    src="/images/consumables/maxcut-vhs.webp"
                     alt="Hard-bond Al₂O₃ abrasive cut-off blade for tool steel and hardened steel sectioning"
                     width={500}
                     height={375}
@@ -204,8 +205,9 @@ export default function ToolSteelGuide() {
               <div className="bg-red-50 border-l-4 border-red-500 p-4 my-6 rounded">
                 <p className="text-sm text-red-900">
                   <strong>Abrasive choice — this is the lever for carbide pullout.</strong> SiC papers (~9.5 Mohs)
-                  cannot cleanly cut M₆C, MC, or M₂C carbides found in high-speed steels and high-carbide cold-work
-                  grades — the abrasive plows the carbide instead of cutting it, which is what produces the
+                  have little hardness margin over the M₆C, MC, and M₂C carbides in high-speed steels and
+                  high-carbide cold-work grades — vanadium-rich MC carbides are actually harder than SiC — so
+                  the abrasive plows the carbide instead of cutting it, which is what produces the
                   pullout the rest of this section warns about. For carbide-rich tool steels — <MaterialTooltip materialName="M2 High-Speed Steel">M2</MaterialTooltip>,
                   <MaterialTooltip materialName="M42 High-Speed Steel">M42</MaterialTooltip>, <MaterialTooltip materialName="D2 Tool Steel">D2</MaterialTooltip>,
                   T-grades — use a <strong>diamond grinding ladder</strong> (75 → 30 → 15 → 9 µm on diamond-impregnated
@@ -252,6 +254,12 @@ export default function ToolSteelGuide() {
                 <li><strong>15 µm diamond film:</strong> ~2 min</li>
                 <li><strong>9 µm diamond film:</strong> ~2 min — the surface entering rough polish</li>
               </ol>
+              <p>
+                <strong>For nitrided cases:</strong> skip the 75 µm step and plane-grind at <strong>30 µm
+                diamond film with light force</strong>, then 15 and 9 µm. The compound layer is brittle, and
+                chipping and cracking of the case are introduced almost entirely at the first grinding step —
+                light force here is what preserves the case-core interface.
+              </p>
               <h3>Grinding Sequence — SiC Ladder (acceptable for lower-carbide hardened grades)</h3>
               <p>
                 Use this for A2, O1, S7, H11/H13, and through-hardened 4140/4340/52100 — grades where carbide
@@ -345,22 +353,22 @@ export default function ToolSteelGuide() {
                 Use an extended diamond polishing sequence with longer times:
               </p>
               <ol>
-                <li><strong>9 μm diamond:</strong> 5-8 minutes on a hard cloth (e.g., Texmet), moderate pressure</li>
-                <li><strong>6 μm diamond:</strong> 5-8 minutes on a medium-hard cloth, moderate pressure</li>
-                <li><strong>3 μm diamond:</strong> 5-8 minutes on a medium-hard cloth, moderate pressure</li>
-                <li><strong>1 μm diamond:</strong> 3-5 minutes on a soft cloth, lighter pressure</li>
+                <li><strong>9 μm diamond (only if coming off the SiC ladder):</strong> ~4 minutes on a hard woven pad, moderate pressure — skip if grinding ended on the 9 µm diamond film</li>
+                <li><strong>6 μm diamond:</strong> ~4 minutes on a hard pad, moderate pressure</li>
+                <li><strong>3 μm diamond:</strong> ~4 minutes on a hard pad, moderate pressure — keep this step on a hard surface; a napped cloth here creates relief around carbides</li>
+                <li><strong>1 μm diamond:</strong> ~3 minutes on a medium napped cloth, lighter pressure</li>
               </ol>
               <h3>Final Polishing</h3>
               <ol>
-                <li><strong>0.05 μm colloidal silica:</strong> 2-3 minutes on a soft cloth, light pressure</li>
-                <li>Rinse thoroughly with water and dry with compressed air</li>
+                <li><strong>0.05 μm colloidal silica:</strong> ~2 minutes on a soft napped cloth, light pressure</li>
+                <li>Flush with water for the final 30-60 seconds while still polishing — this removes silica residue that otherwise dries into stains — then rinse and dry with compressed air</li>
               </ol>
               <p>
                 <strong>Critical Guidelines:</strong>
               </p>
               <ul>
-                <li>Use <strong>extended times</strong> (5-8 minutes per diamond step) - these materials are very hard</li>
-                <li>Use <strong>appropriate cloth hardness</strong> - harder cloths for coarser steps, softer for fine steps</li>
+                <li>Use <strong>extended times</strong> (3-4 minutes per diamond step) - these materials are very hard</li>
+                <li>Use <strong>appropriate cloth hardness</strong> - hard pads through 3 µm, napped cloths only for the final steps</li>
                 <li>Use <strong>moderate pressure</strong> for diamond steps, lighter for final polishing</li>
                 <li>Monitor the surface - carbides should remain intact, not pulled out</li>
                 <li>Avoid over-polishing - extended times can cause relief around carbides</li>
@@ -368,11 +376,15 @@ export default function ToolSteelGuide() {
               </ul>
               <p>
                 <strong>For High-Speed Steels (<MaterialTooltip materialName="M2 High-Speed Steel">M2</MaterialTooltip>, <MaterialTooltip materialName="M42 High-Speed Steel">M42</MaterialTooltip>):</strong> These contain complex carbides (M₆C, MC, M₂C) that 
-                are particularly prone to pullout. Use softer cloths and lighter pressure, especially in the final steps.
+                are particularly prone to pullout. Keep the intermediate diamond steps on <strong>hard pads with lighter
+                pressure</strong> — a soft napped cloth digs around the carbides and levers them out. Reserve napped
+                cloths for the brief 1 µm and final steps.
               </p>
               <p>
-                <strong>For Case-Hardened Steels:</strong> The case layer is very hard and may require even longer 
-                polishing times. Be careful to preserve the case-core interface.
+                <strong>For Case-Hardened Steels:</strong> Use <strong>light force</strong> — a nitrided compound
+                layer is hard but brittle, and chips or cracks under heavy load. Avoid prolonged polishing on soft
+                cloths: it rounds the edge, and since case evaluation is done at high magnification, even slight
+                rounding throws off case-depth measurement. Preserve the case-core interface.
               </p>
             </section>
 
@@ -385,13 +397,13 @@ export default function ToolSteelGuide() {
               </p>
               <div className="my-6 rounded-lg overflow-hidden max-w-2xl mx-auto">
                 <Image
-                  src="/images/microstructures/Ferrite-Pearlite steel.JPG"
-                  alt="Tool steel microstructure after proper etching, showing carbides and matrix structure"
+                  src="/images/microstructures/High-alloy-tool-steel.jpg"
+                  alt="High-alloy tool steel microstructure after proper etching, showing carbides and acicular matrix structure"
                   width={600}
                   height={450}
                   className="w-full h-auto"
                 />
-                <p className="text-sm text-gray-600 mt-2 italic text-center">Tool steel microstructure after proper etching. The matrix structure and carbides are revealed by appropriate etching.</p>
+                <p className="text-sm text-gray-600 mt-2 italic text-center">High-alloy tool steel after proper etching. The acicular matrix structure and carbides are revealed by appropriate etching.</p>
               </div>
               <h3>Common Etchants for Tool Steels and Hardened Steels</h3>
               <div className="bg-red-50 border-l-4 border-red-500 p-4 my-4 rounded">
@@ -405,10 +417,10 @@ export default function ToolSteelGuide() {
               </div>
               <ul>
                 <li><strong>2% Nital:</strong> General purpose for most tool steels and hardened steels. Reveals martensite structure and grain boundaries (2 mL HNO₃ in 98 mL ethanol). Swab 5-30 s.</li>
-                <li><strong>3-5% Nital:</strong> For very hard materials, higher concentrations may be needed (3-5 mL HNO₃ in 95-97 mL ethanol).</li>
+                <li><strong>3-5% Nital:</strong> For very hard materials, higher concentrations may be needed (3-5 mL HNO₃ in 95-97 mL ethanol). Mix fresh as needed — do not store ethanolic nital above 3% HNO₃.</li>
                 <li><strong>4% Picral:</strong> The handbook etch for cementite and carbide imaging — matrix transparent, carbides dark. Strong choice for through-hardened bearing/spring steels and pearlitic structures (4 g picric acid in 100 mL ethanol). Swab 10-60 s.</li>
                 <li><strong>Vilella's Reagent:</strong> Martensite + carbide structure for tool steels and martensitic stainless. More aggressive than Picral. Particularly useful for high-speed steels with complex carbides (1 g picric acid + 5 mL HCl + 95 mL ethanol). Swab 5-60 s.</li>
-                <li><strong>Murakami's Reagent:</strong> Selective carbide attack — the standard for distinguishing carbide types in high-alloy tool steels and high-speed steels (10 g K₃[Fe(CN)₆] + <strong>10 g NaOH</strong> + 100 mL H₂O). Use freshly mixed; activity decays. Swab or immerse, time by inspection.</li>
+                <li><strong>Murakami's Reagent:</strong> Selective carbide attack — the standard for distinguishing carbide types in high-alloy tool steels and high-speed steels (10 g K₃[Fe(CN)₆] + <strong>10 g NaOH</strong> + 100 mL H₂O). Use freshly mixed; activity decays. Swab 5-30 s. <strong>Never acidify</strong> — acidified ferricyanide solutions release hydrogen cyanide gas.</li>
               </ul>
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
                 <Link 
@@ -451,8 +463,12 @@ export default function ToolSteelGuide() {
                 specialized etchants like Murakami's Reagent to reveal properly. Vilella's Reagent is also effective.
               </p>
               <p>
-                <strong>For Case-Hardened Steels:</strong> Etching reveals the case microstructure and allows 
-                measurement of case depth. Use appropriate etchants to reveal the case-core interface clearly.
+                <strong>For Case-Hardened Steels:</strong> Etching reveals the case microstructure and allows
+                measurement of case depth. In carburized cases etched with 2% Nital, martensite plates etch dark
+                and any retained austenite stays white between them. For <strong>nitrided</strong> steels, 2% Nital
+                leaves the compound layer white (the &quot;white layer&quot;) and darkens the diffusion zone in alloy
+                steels; Beraha&apos;s tint etch gives color contrast between the compound-layer phases
+                (gamma-prime Fe₄N vs. epsilon Fe₂₋₃N).
               </p>
               <ProductLink 
                 productName="Etchants"
@@ -465,14 +481,14 @@ export default function ToolSteelGuide() {
               <h2>Troubleshooting</h2>
               <h3>Common Issues and Solutions</h3>
               <ul>
-                <li><strong>Carbide pullout:</strong> Too much pressure during grinding or polishing, or inappropriate cloth hardness. Reduce pressure, use softer cloths for fine steps, and monitor the surface carefully. Carbides are hard and brittle and can be pulled out easily.</li>
-                <li><strong>Scratches remaining:</strong> Insufficient grinding/polishing time. These materials are very hard and require extended times (60-120 seconds per grit, 5-8 minutes per polishing step). Ensure complete scratch removal at each step.</li>
+                <li><strong>Carbide pullout:</strong> Too much pressure during grinding or polishing, or too soft a cloth. Reduce pressure and keep the intermediate diamond steps on hard pads — soft napped cloths dig around carbides and lever them out. Monitor the surface carefully; carbides are hard and brittle and can be pulled out easily.</li>
+                <li><strong>Scratches remaining:</strong> Insufficient grinding/polishing time. These materials are very hard and require extended times (60-120 seconds per grit, 3-4 minutes per polishing step). Ensure complete scratch removal at each step.</li>
                 <li><strong>Relief around carbides:</strong> Over-polishing or too soft a cloth. Reduce polishing time or use slightly harder cloth, but still maintain moderate pressure to avoid carbide pullout.</li>
                 <li><strong>Contamination:</strong> Clean between steps, use fresh abrasives, and ensure proper sample cleaning.</li>
-                <li><strong>Poor edge retention:</strong> Consider using phenolic mounting material or different mounting technique. For case-hardened steels, edge retention is critical for case depth measurement.</li>
+                <li><strong>Poor edge retention:</strong> Switch to a glass-filled epoxy mount — plain phenolic wears faster than hardened steel and rounds the sample-mount boundary. For case-hardened steels, edge retention is critical for case depth measurement.</li>
                 <li><strong>Over-etching:</strong> Reduce etching time or use lower etchant concentration. Start with shorter times (10-15 seconds).</li>
                 <li><strong>Under-etching:</strong> Increase etching time or use higher etchant concentration. These materials are very hard and may require longer etching times (20-30 seconds).</li>
-                <li><strong>Phase transformation during cutting:</strong> Use slower cutting speed and adequate coolant to prevent overheating. These materials are sensitive to heat.</li>
+                <li><strong>Phase transformation during cutting:</strong> Increase coolant flood, reduce feed rate, and verify the blade bond suits the hardness — a bond that is too hard for the material glazes and burns instead of cutting. These materials are sensitive to heat.</li>
                 <li><strong>Case-core interface not visible:</strong> For case-hardened steels, ensure proper mounting with edge exposed, use appropriate etching, and preserve edge retention throughout preparation.</li>
               </ul>
               <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-6 rounded">

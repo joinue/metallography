@@ -332,11 +332,16 @@ export default function QualityControlInspectionGuide() {
                       <td className="border border-gray-300 px-4 py-3">The canonical etchant reference (numeric IDs for standard etchants)</td>
                     </tr>
                     <tr className="bg-gray-50">
+                      <td className="border border-gray-300 px-4 py-3 font-medium">ASTM E562</td>
+                      <td className="border border-gray-300 px-4 py-3">Determining Volume Fraction by Systematic Manual Point Count</td>
+                      <td className="border border-gray-300 px-4 py-3">Phase / constituent volume-fraction measurement (manual or automated)</td>
+                    </tr>
+                    <tr>
                       <td className="border border-gray-300 px-4 py-3 font-medium">ASTM E883</td>
                       <td className="border border-gray-300 px-4 py-3">Standard Guide for Reflected-Light Photomicrography</td>
                       <td className="border border-gray-300 px-4 py-3">Photomicrography procedures, scale-bar requirements</td>
                     </tr>
-                    <tr>
+                    <tr className="bg-gray-50">
                       <td className="border border-gray-300 px-4 py-3 font-medium">ASTM E1382</td>
                       <td className="border border-gray-300 px-4 py-3">Determining Average Grain Size Using Semiautomatic and Automatic Image Analysis</td>
                       <td className="border border-gray-300 px-4 py-3">Automated/digital grain-size measurement</td>
@@ -358,7 +363,7 @@ export default function QualityControlInspectionGuide() {
                     <tr>
                       <td className="border border-gray-300 px-4 py-3 font-medium">ASTM E92</td>
                       <td className="border border-gray-300 px-4 py-3">Standard Test Methods for Vickers Hardness and Knoop Hardness of Metallic Materials</td>
-                      <td className="border border-gray-300 px-4 py-3">Macro Vickers (&gt;1 kgf)</td>
+                      <td className="border border-gray-300 px-4 py-3">Macro-range Vickers and Knoop (1-120 kgf)</td>
                     </tr>
                     <tr className="bg-gray-50">
                       <td className="border border-gray-300 px-4 py-3 font-medium">ASTM E384</td>
@@ -662,8 +667,8 @@ export default function QualityControlInspectionGuide() {
                     </tr>
                     <tr>
                       <td className="border border-gray-300 px-4 py-3 font-medium">Edge rounding</td>
-                      <td className="border border-gray-300 px-4 py-3">Cannot analyze edges; biases case-depth, coating-thickness, and decarburization measurements by 10-50 µm — exactly the dimension scale of the features being measured</td>
-                      <td className="border border-gray-300 px-4 py-3"><strong>Mount in glass-filled epoxy</strong>, not phenolic. Phenolic wears 2-3× faster than steel/stainless/superalloy and rounds the sample-mount boundary during long polishes. Also cap final-polish time at 90 s + flush, and use a harder final-step pad (synthetic suede instead of chemotextile).</td>
+                      <td className="border border-gray-300 px-4 py-3">Cannot analyze edges; biases case-depth, coating-thickness, and decarburization measurements by tens of micrometres — exactly the dimension scale of the features being measured</td>
+                      <td className="border border-gray-300 px-4 py-3"><strong>Mount in glass-filled epoxy</strong>, not phenolic. Phenolic is softer than most steel, stainless, and superalloy samples, so it wears faster and rounds the sample-mount boundary during long polishes. Also keep the final-polish step short (flush with water at the end), and use a slightly harder final-step pad (synthetic suede rather than a soft napped chemotextile).</td>
                     </tr>
                     <tr className="bg-gray-50">
                       <td className="border border-gray-300 px-4 py-3 font-medium">Contamination</td>

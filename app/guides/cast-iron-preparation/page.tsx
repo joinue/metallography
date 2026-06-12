@@ -117,7 +117,7 @@ export default function CastIronGuide() {
                 <li><strong><MaterialTooltip materialName="Gray Cast Iron">Gray Cast Iron</MaterialTooltip> (ASTM A48):</strong> Flake graphite in pearlite or ferrite matrix (163-187 HB)</li>
                 <li><strong><MaterialTooltip materialName="Ductile Cast Iron">Ductile Cast Iron</MaterialTooltip> (ASTM A536):</strong> Spheroidal (nodular) graphite in pearlite or ferrite matrix (217 HB) — nodularity rated per ASTM A247</li>
                 <li><strong><MaterialTooltip materialName="Malleable Cast Iron">Malleable Cast Iron</MaterialTooltip> (ASTM A220):</strong> Temper carbon nodules in ferrite or pearlite matrix (163 HB)</li>
-                <li><strong><MaterialTooltip materialName="Austempered Ductile Iron">Austempered Ductile Iron (ADI)</MaterialTooltip>:</strong> Spheroidal graphite in <em>ausferrite</em> matrix — acicular ferrite + retained austenite + bainite (310 HB, very hard)</li>
+                <li><strong><MaterialTooltip materialName="Austempered Ductile Iron">Austempered Ductile Iron (ADI)</MaterialTooltip>:</strong> Spheroidal graphite in <em>ausferrite</em> matrix — acicular (needle-like) ferrite + carbon-enriched retained austenite. Ausferrite resembles bainite under the microscope but contains no carbides (310 HB, very hard)</li>
                 <li><strong><MaterialTooltip materialName="Compacted Graphite Iron">Compacted Graphite Iron (CGI)</MaterialTooltip>:</strong> Vermicular (compacted) graphite in pearlite matrix (230 HB) — graphite shape is between gray and ductile</li>
                 <li><strong>White Cast Iron / Ni-Hard / High-Cr Iron:</strong> Carbide-rich, abrasion-resistant cast iron with no free graphite. <strong>Diamond grinding ladder required</strong> — chromium carbides cannot be cleanly cut by SiC abrasive, the same SiC-vs-carbide issue that drives carbide pullout in tool steels. Etch with 4% Picral or Vilella's for carbide morphology.</li>
               </ul>
@@ -163,8 +163,17 @@ export default function CastIronGuide() {
                 <li>Allow the wheel to do the cutting - avoid forcing</li>
               </ul>
               <p>
-                <strong>Note:</strong> For very hard cast irons like <MaterialTooltip materialName="Austempered Ductile Iron">Austempered Ductile Iron</MaterialTooltip> (310 HB), 
-                use slower cutting speeds similar to hardened steel to prevent excessive heat buildup.
+                <strong>Note:</strong> For very hard cast irons like <MaterialTooltip materialName="Austempered Ductile Iron">Austempered Ductile Iron</MaterialTooltip> (310 HB),
+                treat the cut like hardened steel: use a hard-bond Al₂O₃ blade, generous coolant flood, and a
+                lighter feed rate. Manage heat with coolant and feed, not by under-speeding the wheel —
+                an under-sped blade glazes and burns instead of cutting.
+              </p>
+              <p>
+                <strong>White iron exception:</strong> white cast iron and Ni-Hard / high-Cr grades are very
+                hard (~600 HV) and cut like hardened steel — use a hard-bond abrasive blade (or a CBN wheel
+                where available). <strong>Never use a diamond cut-off wheel on white cast iron:</strong> at
+                cutting temperatures diamond reacts with iron, dulling the wheel rapidly and leaving a heavily
+                damaged cut surface.
               </p>
               <ProductLink 
                 productName="Ferrous Abrasive Blades (General & Hardened)"
@@ -194,8 +203,9 @@ export default function CastIronGuide() {
               </div>
               <h3>Compression Mounting</h3>
               <p>
-                Compression mounting with phenolic or epoxy resins is suitable for most cast irons. Phenolic 
-                provides better edge retention, which can be important for preserving graphite near edges.
+                Compression mounting with phenolic or epoxy resins is suitable for most cast irons. Glass-filled
+                epoxy gives the best edge retention, which can be important for preserving graphite near edges;
+                plain phenolic is acceptable for routine work on softer grades.
               </p>
               <ol>
                 <li>Clean the sample thoroughly to remove cutting fluid and debris</li>
@@ -206,8 +216,9 @@ export default function CastIronGuide() {
               </ol>
               <h3>Cold Mounting</h3>
               <p>
-                Cold mounting with epoxy resin is also suitable and avoids any thermal effects. This is 
-                particularly useful if you're concerned about any potential effects of heat on the graphite structure.
+                Cold mounting with epoxy resin is also suitable. Liquid epoxy can infiltrate open graphite
+                cavities and surface-connected porosity, supporting the graphite and improving its retention
+                during grinding and polishing — the same mechanism vacuum impregnation exploits.
               </p>
               <ol>
                 <li>Clean the sample thoroughly</li>
@@ -260,9 +271,9 @@ export default function CastIronGuide() {
               <h3>Grinding Sequence</h3>
               <ol>
                 <li><strong>120 grit:</strong> Remove sectioning damage (30-60 seconds per step, lighter pressure)</li>
-                <li><strong>240 grit:</strong> Remove previous scratches (30-60 seconds, lighter pressure)</li>
-                <li><strong>400 grit:</strong> Further refinement (30-60 seconds, lighter pressure)</li>
-                <li><strong>600 grit:</strong> Final grinding step (30-60 seconds, lighter pressure)</li>
+                <li><strong>240 grit:</strong> Remove previous scratches (1-2 minutes, lighter pressure)</li>
+                <li><strong>400 grit:</strong> Further refinement (1-2 minutes, lighter pressure)</li>
+                <li><strong>600 grit:</strong> Final grinding step (1-2 minutes, lighter pressure)</li>
               </ol>
               <p>
                 <strong>Critical Guidelines:</strong>
@@ -323,34 +334,34 @@ export default function CastIronGuide() {
                       className="w-full h-auto"
                     />
                   </Link>
-                  <p className="text-xs text-gray-600 mt-2 italic text-center">Various polishing pads and cloths. Use softer cloths and lighter pressure for cast iron to preserve graphite.</p>
+                  <p className="text-xs text-gray-600 mt-2 italic text-center">Various polishing pads and cloths. Use lighter pressure and short polishing times for cast iron to preserve graphite — harder pads through 1 µm resist graphite pull-out.</p>
                 </div>
               </div>
               <h3>Diamond Polishing</h3>
               <ol>
-                <li><strong>6 μm diamond:</strong> 2-4 minutes on a medium-hard cloth (e.g., Texmet), <strong>lighter pressure</strong></li>
-                <li><strong>3 μm diamond:</strong> 2-4 minutes on a medium-hard cloth, <strong>lighter pressure</strong></li>
-                <li><strong>1 μm diamond:</strong> 2-3 minutes on a soft cloth, <strong>lighter pressure</strong></li>
+                <li><strong>9 μm diamond:</strong> 3-4 minutes on a hard woven pad — the hard pad supports graphite edges and resists pull-out</li>
+                <li><strong>3 μm diamond:</strong> 2-3 minutes on a medium napped cloth, <strong>lighter pressure</strong></li>
+                <li><strong>1 μm diamond:</strong> 2-3 minutes on a medium napped cloth, <strong>lighter pressure</strong></li>
               </ol>
               <h3>Final Polishing</h3>
               <ol>
-                <li><strong>0.05 μm colloidal silica:</strong> 1-2 minutes on a soft cloth, <strong>very light pressure</strong></li>
-                <li>Rinse thoroughly with water and dry with compressed air</li>
+                <li><strong>0.05 μm colloidal silica:</strong> ~2 minutes on a soft napped or chemotextile pad, <strong>very light pressure</strong></li>
+                <li>Flush with water for the final 30-60 seconds while still polishing to remove silica residue, then rinse and dry with compressed air</li>
               </ol>
               <p>
                 <strong>Critical Guidelines:</strong>
               </p>
               <ul>
                 <li>Use <strong>lighter pressure</strong> throughout polishing - graphite is soft and can be removed</li>
-                <li>Use <strong>softer cloths</strong> than you would for steel to reduce the risk of graphite pullout</li>
+                <li>Stay on <strong>harder pads and medium napped cloths</strong> through 1 µm — long dwell on soft napped cloths plucks graphite out of the matrix and rounds flake edges</li>
                 <li>Monitor the surface - graphite should be clearly visible after polishing</li>
                 <li>Avoid over-polishing - extended times can remove graphite</li>
                 <li>For very hard cast irons like <MaterialTooltip materialName="Austempered Ductile Iron">ADI</MaterialTooltip>, you can use slightly more pressure, but still be gentle</li>
               </ul>
               <p>
                 After polishing, examine the sample under the microscope. The graphite should be clearly visible 
-                as dark areas (flakes, nodules, or compacted shapes depending on the cast iron type). If graphite 
-                is missing or appears damaged, you may need to reduce pressure or use softer cloths.
+                as dark areas (flakes, nodules, or compacted shapes depending on the cast iron type). If graphite
+                is missing or appears damaged, reduce pressure and shorten the polishing times — do not extend them.
               </p>
               <ProductLink
                 productName="Diamond Abrasives"
@@ -368,26 +379,27 @@ export default function CastIronGuide() {
               </p>
               <div className="my-6 rounded-lg overflow-hidden max-w-2xl mx-auto">
                 <Image
-                  src="/images/microstructures/Ferrite-Pearlite steel.JPG"
-                  alt="Cast iron microstructure after proper etching, showing matrix structure and graphite"
+                  src="/images/microstructures/CI-nodular-100X-etch-2.jpg"
+                  alt="Nodular cast iron after etching, showing graphite nodules with ferrite halos in a pearlitic matrix"
                   width={600}
                   height={450}
                   className="w-full h-auto"
                 />
-                <p className="text-sm text-gray-600 mt-2 italic text-center">Cast iron microstructure after proper etching. The matrix structure (ferrite/pearlite) is revealed by etching, while graphite is visible from polishing.</p>
+                <p className="text-sm text-gray-600 mt-2 italic text-center">Nodular cast iron after etching, 100X. The matrix structure (ferrite/pearlite) is revealed by etching, while the spheroidal graphite is preserved from polishing.</p>
               </div>
               <h3>Common Etchants for Cast Iron</h3>
               <ul>
                 <li><strong>2% Nital:</strong> General-purpose matrix etch for gray, ductile, malleable, and CGI cast irons. Reveals ferrite grain boundaries and pearlite structure (2 mL HNO₃ in 98 mL ethanol). Swab 5-15 s.</li>
-                <li><strong>4% Picral:</strong> Reveals cementite and pearlite cleanly without attacking ferrite boundaries (4 g picric acid in 100 mL ethanol). Swab 10-60 s. <strong>Picric safety:</strong> store the reagent and any picric acid stock <em>wetted</em> at all times — dry picric is friction- and shock-sensitive (effectively a primary explosive). Keep stock bottles topped up; never let them dry out.</li>
+                <li><strong>4% Picral:</strong> Reveals cementite and pearlite cleanly without attacking ferrite boundaries (4 g picric acid in 100 mL ethanol). Swab 10-60 s. <strong>Picric safety:</strong> store the reagent and any picric acid stock <em>wetted</em> at all times — dry picric acid is a friction- and shock-sensitive explosive. Keep stock bottles topped up; never let them dry out.</li>
                 <li><strong>Nital then 4% Picral (sequential etch):</strong> The canonical cast-iron matrix workflow when 2% Nital alone leaves pearlite washed out. Apply 2% Nital first (5-15 s swab), rinse, then a second swab of 4% Picral on top — Picral darkens cementite and sharpens the pearlite lamellae against the ferrite background.</li>
-                <li><strong>Beraha's I (color tint — required for ADI ausferrite):</strong> 10 mL HCl + 90 mL H₂O + 1 g K₂S₂O₅ (potassium metabisulfite). Immerse 30-180 s. The handbook etch for <MaterialTooltip materialName="Austempered Ductile Iron">ADI</MaterialTooltip> because the ausferrite matrix is acicular ferrite + retained austenite + bainite, and grayscale Nital cannot separate those three phases. Beraha I tints them in distinct colors. Also useful for ferrite/pearlite/bainite color contrast in heat-treated ductile iron.</li>
+                <li><strong>Beraha's I (color tint — first choice for ADI ausferrite):</strong> 10 mL HCl + 90 mL H₂O + 1 g K₂S₂O₅ (potassium metabisulfite). Immerse 30-180 s. The handbook etch for <MaterialTooltip materialName="Austempered Ductile Iron">ADI</MaterialTooltip> because the ausferrite matrix — acicular ferrite + carbon-enriched retained austenite — looks like bainite in grayscale, and Nital cannot reliably separate the ferrite needles from retained austenite (or from any martensite left by short austempering). A color tint etch distinguishes them. Also useful for ferrite/pearlite/bainite color contrast in heat-treated ductile iron.</li>
                 <li><strong>4% Picral or Vilella's (white iron / high-Cr iron):</strong> For revealing chromium-carbide morphology in white cast iron, Ni-Hard, and high-Cr abrasion-resistant grades. Vilella's = 1 g picric + 5 mL HCl + 95 mL ethanol; same picric storage rules apply.</li>
               </ul>
               <p className="text-sm text-gray-600 italic">
                 Note: a 3-5% Nital bump is sometimes recommended for ADI; treat this as a fallback only.
-                The right answer for ADI ausferrite imaging is Beraha I, not stronger Nital — Nital cannot
-                separate retained austenite from ferrite or bainite no matter how concentrated it gets.
+                The right answer for ADI ausferrite imaging is a color tint etch, not stronger Nital — Nital
+                cannot separate retained austenite from acicular ferrite (or martensite) no matter how
+                concentrated it gets.
               </p>
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
                 <Link 
@@ -412,7 +424,7 @@ export default function CastIronGuide() {
                 <li><strong>Examine the polished surface unetched first</strong> — document graphite morphology per ASTM A247 (nodularity rating, graphite type and size charts) before any etching. Etching attacks the matrix and distorts apparent graphite shape, so post-etch nodularity counts on ductile iron are unreliable.</li>
                 <li>Select the etchant by family: 2% Nital (or sequential Nital→Picral) for gray/ductile/malleable/CGI matrix; Beraha I for ADI ausferrite; 4% Picral or Vilella's for white-iron carbide morphology</li>
                 <li>Apply Nital/Picral/Vilella's by cotton swab; apply Beraha I by immersion</li>
-                <li>Etch for 5-30 s (Nital, Picral, Vilella's) or 30-180 s (Beraha I tint)</li>
+                <li>Etch by time per etchant: 2% Nital 5-15 s; 4% Picral 10-60 s; Vilella's 5-60 s; Beraha I tint 30-180 s</li>
                 <li>Immediately rinse with water, then ethanol</li>
                 <li>Dry with compressed air</li>
               </ol>
@@ -438,14 +450,14 @@ export default function CastIronGuide() {
               <h2>Troubleshooting</h2>
               <h3>Common Issues and Solutions</h3>
               <ul>
-                <li><strong>Graphite pullout or missing graphite:</strong> Too much pressure during grinding or polishing. Reduce pressure, use softer cloths, and monitor the surface carefully. Graphite is soft and easily removed.</li>
-                <li><strong>Graphite appears smeared:</strong> Over-polishing or too aggressive polishing. Reduce polishing time and pressure, use softer cloths.</li>
+                <li><strong>Graphite pullout or missing graphite:</strong> Too much pressure, over-long polishing, or excessive dwell on soft napped cloths. Reduce pressure, shorten polishing times, keep to harder pads through 1 µm, and monitor the surface carefully. Graphite is soft and easily removed. For porous castings, vacuum-impregnate before mounting.</li>
+                <li><strong>Graphite appears smeared:</strong> Over-polishing or too aggressive polishing. Reduce polishing time and pressure; the chemo-mechanical colloidal silica step cleans up residual smear.</li>
                 <li><strong>Scratches remaining:</strong> Insufficient grinding/polishing time or skipped grits. Ensure complete scratch removal at each step, but use lighter pressure.</li>
                 <li><strong>Graphite not visible after polishing:</strong> May have been removed during preparation. Start over with lighter pressure throughout the process.</li>
                 <li><strong>Relief around graphite:</strong> Over-polishing or too soft a cloth. Reduce polishing time or use slightly harder cloth, but still maintain light pressure.</li>
                 <li><strong>Contamination:</strong> Clean between steps, use fresh abrasives, and ensure proper sample cleaning.</li>
-                <li><strong>Poor edge retention:</strong> Consider using phenolic mounting material or different mounting technique.</li>
-                <li><strong>Over-etching:</strong> Reduce etching time or use lower Nital concentration. Start with shorter times (10-15 seconds).</li>
+                <li><strong>Poor edge retention:</strong> Switch to a glass-filled epoxy mount — it wears at a rate closer to the sample than plain phenolic and keeps the sample-mount boundary flat.</li>
+                <li><strong>Over-etching:</strong> Reduce etching time or use lower Nital concentration. Start with shorter times (5-10 seconds).</li>
                 <li><strong>Under-etching:</strong> Increase etching time or use higher Nital concentration. Ensure sample is clean before etching.</li>
                 <li><strong>Matrix structure not revealed:</strong> May need longer etching time or different etchant. Try Picral for pearlitic structures.</li>
               </ul>

@@ -101,14 +101,17 @@ export default function CommonMisconceptionsGuide() {
               <h3>Misconception: "I can skip grinding steps if I'm careful"</h3>
               <div className="bg-red-50 border-l-4 border-red-600 p-4 my-4 rounded">
                 <p className="text-sm text-gray-700 font-semibold mb-2">
-                  <strong>Reality:</strong> Skipping grinding steps always causes problems.
+                  <strong>Reality:</strong> Skipping steps preserves damage that finer grits cannot remove.
                 </p>
                 <p className="text-sm text-gray-700">
-                  Each grinding step removes damage from the previous step. If you skip steps (e.g., going from 240 
-                  grit directly to 600 grit), you'll never fully remove the deeper scratches from the coarser grit. 
-                  These scratches will persist through polishing and appear in your final microstructure. The progressive 
-                  refinement process is essential: each step builds on the previous one. As a general rule, grit sizes 
-                  should not increase by more than a factor of 2-2.5 between steps (e.g., 240 → 400 → 600 → 800).
+                  Each abrasive size leaves a damaged subsurface layer roughly 1.5-3 times the abrasive diameter deep,
+                  and each grinding step must cut below the damage left by the step before it. If you skip steps (e.g.,
+                  going from 240 grit directly to 600 grit), the finer grit cannot reach the bottom of the coarser
+                  scratches and their deformation zone in any reasonable time, so the damage persists through polishing
+                  and appears in your final microstructure. As a general rule, grit sizes should not increase by more
+                  than a factor of 2-2.5 between steps (e.g., 240 → 400 → 600 → 800). (Deliberately omitting one grit
+                  is occasionally used as an informed adjustment — for example on soft metals that accumulate
+                  deformation with every step — but that is a planned trade-off, not a shortcut.)
                 </p>
               </div>
 
@@ -133,10 +136,14 @@ export default function CommonMisconceptionsGuide() {
                   <strong>Reality:</strong> Polishing cannot fix grinding problems.
                 </p>
                 <p className="text-sm text-gray-700">
-                  If you have deep scratches, embedded abrasives, or other damage from grinding, polishing won't remove 
-                  them. You'll waste time trying to polish out problems that should have been fixed during grinding. 
-                  The rule is: fix problems at the step where they occur. Don't move to the next step until the current 
-                  step is complete.
+                  If you have deep scratches, embedded abrasives, or other damage from grinding, polishing won't remove
+                  them. You'll waste time trying to polish out problems that should have been fixed during grinding.
+                  The rule is: fix problems at the step where they occur. Don't move to the next step until the current
+                  step is complete. A related trap: when scratches persist after you advance to a finer step, the reflex
+                  is to add more time or more pressure — and that is usually the wrong first move. The most common causes
+                  are contamination (loaded or glazed paper, coarser particles carried onto a finer step from dried
+                  slurry, a dirty platen), and adding time on a contaminated surface makes the scratches worse. Confirm
+                  the paper, platen, and sample are clean before reaching for time or load as the fix.
                 </p>
               </div>
 
@@ -207,10 +214,13 @@ export default function CommonMisconceptionsGuide() {
                   <strong>Reality:</strong> Over-polishing causes problems.
                 </p>
                 <p className="text-sm text-gray-700">
-                  Excessive polishing can cause: relief between phases (hard phases stand proud, soft phases are recessed), 
-                  edge rounding, removal of important surface features, and wasted time. Polish until scratches are removed 
-                  and the surface is suitable for etching, not until it's perfect. Some materials actually need less polishing 
-                  than others.
+                  Excessive polishing can cause: relief between phases (hard phases stand proud, soft phases are recessed),
+                  edge rounding, removal of important surface features, and wasted time. Relief develops fastest on soft
+                  napped pads with long polishing times — harder pads hold flatness better but scratch more, so the
+                  practical target is the shortest polish that clears the previous step's scratches, not the longest your
+                  patience allows. In graphite-bearing cast irons and porous materials, over-polishing also causes
+                  pull-out that exaggerates apparent porosity. Polish until scratches are removed and the surface is
+                  suitable for etching, not until it's perfect.
                 </p>
               </div>
 
@@ -235,9 +245,12 @@ export default function CommonMisconceptionsGuide() {
                   <strong>Reality:</strong> Worn cloths cause contamination and poor results.
                 </p>
                 <p className="text-sm text-gray-700">
-                  Polishing cloths wear out and become contaminated. Worn cloths can: embed particles in samples, cause 
-                  inconsistent polishing, introduce contamination, and waste time. Replace cloths regularly. Clean cloths 
-                  between uses, but replace them when they show signs of wear or contamination.
+                  Polishing cloths wear out and become contaminated. Worn cloths can: embed particles in samples, cause
+                  inconsistent polishing, introduce contamination, and waste time. The usual failure mode is contamination
+                  rather than visible wear: a cloth that has picked up coarser abrasive from a previous step or session no
+                  longer polishes at its nominal particle size, and it puts deep scratches into every sample that follows.
+                  Replace cloths regularly. Clean cloths between uses, but replace them when they show signs of wear or
+                  contamination.
                 </p>
               </div>
 
@@ -247,9 +260,11 @@ export default function CommonMisconceptionsGuide() {
                   <strong>Reality:</strong> Proper cleaning is essential.
                 </p>
                 <p className="text-sm text-gray-700">
-                  Inadequate cleaning causes: cross-contamination between steps, embedded abrasives from previous steps, 
-                  contamination between samples, and poor results. Thoroughly clean samples between each step. Use appropriate 
-                  cleaning methods (water, solvents, ultrasonic cleaning) depending on the step and material.
+                  Inadequate cleaning causes: cross-contamination between steps, embedded abrasives from previous steps,
+                  contamination between samples, and poor results. Thoroughly clean samples between each step — and rinse
+                  the platen as well as the sample, because fresh paper on a dirty platen still drags coarse debris into
+                  contact. Use appropriate cleaning methods (water, solvents, ultrasonic cleaning) depending on the step
+                  and material.
                 </p>
               </div>
 

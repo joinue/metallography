@@ -140,12 +140,12 @@ function getRelevantPaceLinks(text: string): Array<{ label: string; url: string;
           key === 'castableMountingEquipment' ? 'Castable Mounting Equipment' :
           key === 'grindingSupplies' ? 'Grinding Supplies' :
           key === 'sicGrinding' ? 'SiC Grinding' :
-          key === 'handGrinderEquipment' ? 'Hand Grinders (PENTA)' :
+          key === 'handGrinderEquipment' ? 'Hand Grinders' :
           key === 'polishingSupplies' ? 'Polishing Supplies' :
-          key === 'manualPolisherEquipment' ? 'Manual Polishers (NANO)' :
-          key === 'semiAutoPolisherEquipment' ? 'Semi-Auto Polishers (FEMTO)' :
-          key === 'controlledRemovalPolisherEquipment' ? 'Controlled Removal (ATTO)' :
-          key === 'vibratoryPolisherEquipment' ? 'Vibratory Polishers (GIGA)' :
+          key === 'manualPolisherEquipment' ? 'Manual Polishers' :
+          key === 'semiAutoPolisherEquipment' ? 'Semi-Automatic Polishers' :
+          key === 'controlledRemovalPolisherEquipment' ? 'Controlled-Removal Polishers' :
+          key === 'vibratoryPolisherEquipment' ? 'Vibratory Polishers' :
           key === 'etchingSupplies' ? 'Etching & Cleaning' : 'Equipment'
         
         links.push({ label, url, isEquipment })
@@ -533,13 +533,13 @@ export default function MaterialTabs({ material }: MaterialTabsProps) {
                 allLinks.push({ label: 'Grinding Supplies', url: 'https://shop.metallographic.com/collections/grinding' })
               }
               
-              // Add equipment links - if none found, show default PENTA (most common for grinding)
+              // Add equipment links - if none found, show default hand grinder link (most common for grinding)
               const equipmentLinks = links.filter(l => (l.url.includes('equipment') || l.isEquipment) && !l.url.includes('polishing'))
               if (equipmentLinks.length > 0) {
                 allLinks.push(...equipmentLinks)
               } else {
-                // Default to PENTA hand grinder since grinding notes exist
-                allLinks.push({ label: 'Hand Grinders (PENTA)', url: 'https://www.metallographic.com/metallographic-equipment/grinding-polishing/penta.html' })
+                // Default to hand grinder equipment since grinding notes exist
+                allLinks.push({ label: 'Hand Grinders', url: 'https://www.metallographic.com/metallographic-equipment/grinding-polishing/penta.html' })
               }
               
               return allLinks.length > 0 && (
@@ -604,13 +604,13 @@ export default function MaterialTabs({ material }: MaterialTabsProps) {
                 allLinks.push({ label: 'Polishing Supplies', url: 'https://shop.metallographic.com/collections/polishing' })
               }
               
-              // Add equipment links - if none found, show default NANO (most common)
+              // Add equipment links - if none found, show default manual polisher link (most common)
               const equipmentLinks = links.filter(l => l.url.includes('equipment') || l.isEquipment)
               if (equipmentLinks.length > 0) {
                 allLinks.push(...equipmentLinks)
               } else {
-                // Default to NANO manual polisher since polishing notes exist
-                allLinks.push({ label: 'Manual Polishers (NANO)', url: 'https://www.metallographic.com/metallographic-equipment/grinding-polishing/nano.html' })
+                // Default to manual polisher equipment since polishing notes exist
+                allLinks.push({ label: 'Manual Polishers', url: 'https://www.metallographic.com/metallographic-equipment/grinding-polishing/nano.html' })
               }
               
               return allLinks.length > 0 && (

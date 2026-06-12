@@ -106,13 +106,13 @@ export default function NickelAlloysGuide() {
       {
         '@type': 'HowToStep',
         name: 'Sectioning',
-        text: 'Use an abrasive blade formulated for nickel and cobalt superalloys (typically a hard-bond SiC or Al₂O₃ wheel) with continuous flood coolant. Apply light, steady pressure and let the blade do the work — Ni and Co superalloys work-harden quickly under high force.',
+        text: 'Use an abrasive blade formulated for nickel and cobalt superalloys (typically a CBN or Al₂O₃ wheel with a medium-hard bond) with continuous flood coolant. Apply light, steady pressure and let the blade do the work — Ni and Co superalloys work-harden quickly under high force.',
         position: 1,
       },
       {
         '@type': 'HowToStep',
         name: 'Mounting',
-        text: 'Use compression mounting with epoxy or phenolic resins. For superalloys, epoxy mounting is preferred to avoid thermal damage.',
+        text: 'Use compression mounting. For superalloys, glass-filled epoxy is preferred for its superior edge retention; reserve plain phenolic for general-structure work where edge fidelity is not critical.',
         position: 2,
       },
       {
@@ -267,17 +267,17 @@ export default function NickelAlloysGuide() {
               
               <h3>Cutting Parameters</h3>
               <ul>
-                <li><strong>Blade Selection:</strong> an <strong>abrasive blade formulated for nickel and cobalt superalloys</strong> — typically a hard-bond SiC or Al₂O₃ wheel rated for Inconel, Hastelloy, and Co-base superalloys. Do <em>not</em> substitute a soft non-ferrous (Al/Cu/brass) blade — it glazes immediately on Ni superalloys.</li>
+                <li><strong>Blade Selection:</strong> an <strong>abrasive blade formulated for nickel and cobalt superalloys</strong> — a CBN or Al₂O₃ wheel with a medium-hard bond, rated for Inconel, Hastelloy, and Co-base superalloys. Do <em>not</em> substitute a soft-bond non-ferrous (Al/Cu/brass) blade — its soft bond breaks down and wears away far too fast on a hard superalloy, while a blade bonded too hard for the alloy will glaze and burn.</li>
                 <li><strong>Cooling:</strong> Continuous flood coolant is non-negotiable — Ni and Co superalloys generate heat fast and work-harden under it</li>
                 <li><strong>Feed Rate:</strong> Slow, steady feed; let the blade cut at its own pace. Heavy force drives mechanical deformation deeper than the next plane-grind step can remove.</li>
-                <li><strong>Wheel speed:</strong> Standard metallographic abrasive cutoff range for the saw class (typical AbrasiMet/Discotom-style machines run 2,500-4,500 SFM)</li>
+                <li><strong>Wheel speed:</strong> Standard metallographic abrasive cutoff range (typical machines run 2,500-4,500 SFM)</li>
               </ul>
 
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
                 <ProductLink
                   productName="Nickel/Superalloy Abrasive Blades"
                   href="https://shop.metallographic.com/collections/abrasive-blades"
-                  description="Hard-bond abrasive blades formulated for nickel and cobalt superalloys — appropriate for Inconel, Hastelloy, Waspaloy, Stellite, and other hard Ni- and Co-base alloys."
+                  description="Medium-hard bond CBN and Al₂O₃ abrasive blades formulated for nickel and cobalt superalloys — appropriate for Inconel, Hastelloy, Waspaloy, Stellite, and other hard Ni- and Co-base alloys."
                 />
               </div>
 
@@ -306,7 +306,7 @@ export default function NickelAlloysGuide() {
                 <li>Use thin blades (0.5-1.0 mm) to minimize kerf loss and heat generation</li>
                 <li>Maintain constant cooling throughout the cut</li>
                 <li>Avoid excessive pressure - let the blade do the work</li>
-                <li>For very hard superalloys, consider using a precision saw with diamond blade</li>
+                <li>For small, delicate, or very hard superalloy samples, consider a precision wafering saw at low feed — it leaves a damage layer roughly 10× thinner than abrasive cutoff</li>
               </ul>
             </section>
 
@@ -316,7 +316,7 @@ export default function NickelAlloysGuide() {
                 The canonical mount for superalloy work is <strong>glass-filled epoxy compression
                 mount</strong>. Plain phenolic (Bakelite-style) is the wrong choice on Ni and Co superalloys
                 whenever edge retention matters — turbine blade cross-sections, fastener fatigue analysis,
-                near-edge γ′ distribution, single-crystal orientation studies — because phenolic wears 2-3×
+                near-edge γ′/γ″ precipitate distribution, single-crystal orientation studies — because phenolic wears
                 faster than the alloy and rounds the sample-mount boundary, biasing every near-edge
                 measurement. Reserve plain phenolic for low-stakes general-structure work where edge fidelity
                 isn't a deliverable.
@@ -324,10 +324,10 @@ export default function NickelAlloysGuide() {
 
               <h3>Mounting Materials</h3>
               <ul>
-                <li><strong>Glass-filled epoxy (preferred for superalloy work):</strong> Best edge retention; matches the differential-wear profile of Ni/Co superalloys. The right answer for Inconel 718 γ′ work, Hastelloy fatigue cross-sections, and any case where near-edge structure is the analysis goal.</li>
-                <li><strong>Plain epoxy:</strong> Acceptable when the analysis goal is bulk microstructure rather than near-edge features. Lower curing temperature (150-180°C) than phenolic.</li>
+                <li><strong>Glass-filled epoxy (preferred for superalloy work):</strong> Best edge retention; matches the differential-wear profile of Ni/Co superalloys. The right answer for Inconel 718 γ′/γ″ work, Hastelloy fatigue cross-sections, and any case where near-edge structure is the analysis goal.</li>
+                <li><strong>Plain epoxy:</strong> Acceptable when the analysis goal is bulk microstructure rather than near-edge features. Low shrinkage reduces mount-sample gaps.</li>
                 <li><strong>Phenolic resins:</strong> Acceptable for general-structure low-stakes work only. Will round the sample-mount edge during long polishes; not appropriate when edge retention matters.</li>
-                <li><strong>Mounting Pressure:</strong> 3000-4000 psi for glass-filled epoxy; 2000-3000 psi for plain epoxy</li>
+                <li><strong>Mounting Cycle:</strong> 150-180°C at 3,000-4,500 psi (about 4,200 psi is typical); cure ~5 minutes, then cool under pressure</li>
               </ul>
 
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
@@ -347,7 +347,7 @@ export default function NickelAlloysGuide() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 500px"
                   />
                 </Link>
-                <p className="text-sm text-gray-600 mt-2 italic text-center">Epoxy mounting materials are preferred for nickel superalloys to avoid thermal damage. Lower curing temperatures help preserve microstructure integrity.</p>
+                <p className="text-sm text-gray-600 mt-2 italic text-center">Glass-filled epoxy compression mounting materials are preferred for nickel superalloys because they wear at a rate close to the alloy, preserving the sample-mount edge during long polishing cycles.</p>
               </div>
 
               <h3>Mounting Procedure</h3>
@@ -405,7 +405,7 @@ export default function NickelAlloysGuide() {
 
               <h3>Grinding Parameters</h3>
               <ul>
-                <li><strong>Pressure:</strong> Light to moderate (2-5 lbs per sample)</li>
+                <li><strong>Pressure:</strong> Moderate (25-30 N, about 5-7 lbs per sample) — enough to keep the paper cutting; excessive force work-hardens the surface</li>
                 <li><strong>Rotation:</strong> Rotate sample 90° between each grit</li>
                 <li><strong>Water Flow:</strong> Continuous water flow to remove debris and prevent loading</li>
                 <li><strong>Speed:</strong> 240-300 RPM for grinding wheels</li>
@@ -437,11 +437,11 @@ export default function NickelAlloysGuide() {
 
               <h3>Diamond Polishing Sequence</h3>
               <ol>
-                <li><strong>9 μm diamond:</strong> 5-8 minutes on hard cloth (Texmet or equivalent)</li>
+                <li><strong>9 μm diamond:</strong> 5-8 minutes on a hard woven cloth (silk or woven nylon)</li>
                 <li><strong>6 μm diamond:</strong> 4-6 minutes on medium-hard cloth</li>
                 <li><strong>3 μm diamond:</strong> 4-6 minutes on medium cloth</li>
                 <li><strong>1 μm diamond:</strong> 3-5 minutes on soft cloth</li>
-                <li><strong>Final polish:</strong> 0.05 μm colloidal silica or 0.3 μm alumina - 2-4 minutes</li>
+                <li><strong>Final polish:</strong> 0.05 μm colloidal silica or 0.3 μm alumina - 2-4 minutes; with colloidal silica, flush with water for the last 30-60 seconds while still polishing to prevent silica residue and staining</li>
               </ol>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6 max-w-2xl mx-auto">
@@ -487,7 +487,7 @@ export default function NickelAlloysGuide() {
 
               <h3>Polishing Parameters</h3>
               <ul>
-                <li><strong>Pressure:</strong> Light pressure (2-4 lbs) - avoid excessive pressure</li>
+                <li><strong>Pressure:</strong> Moderate (20-25 N, about 4-5 lbs) for the diamond steps, easing to 15-20 N on the final steps - avoid excessive pressure</li>
                 <li><strong>Speed:</strong> 120-150 RPM for diamond polishing</li>
                 <li><strong>Lubricant:</strong> Diamond suspension in water or oil-based lubricant</li>
                 <li><strong>Cloth Selection:</strong> Harder cloths for coarse steps, softer for fine steps</li>
@@ -503,13 +503,13 @@ export default function NickelAlloysGuide() {
               <div className="bg-amber-50 border-l-4 border-amber-500 p-4 my-6 rounded">
                 <p className="text-sm text-amber-900">
                   <strong>Inconel MC-carbide comet tails — watch for these on the diamond steps.</strong>
-                  Inconel and most Ni-base superalloys carry a high density of MC carbides that drag during
-                  diamond polishing, leaving unidirectional comet-tail scratches behind every carbide. The
+                  Inconel and most Ni-base superalloys carry MC carbides (NbC, TiC) that drag during
+                  diamond polishing, leaving unidirectional comet-tail scratches behind the carbides. The
                   fix is <strong>rotating the sample 90° between polishing intervals</strong> (e.g., polish
                   90 s, stop, rotate the holder, polish another 90 s) — this breaks up the directional drag
-                  pattern. Lighter pressure helps; <em>longer</em> polishing time without rotation makes the
-                  problem worse, not better. Counter-intuitive but true: extended polish times on a Ni
-                  superalloy with MC carbides amplify comet tails rather than removing them.
+                  pattern. Lighter pressure helps, as does switching to a harder pad. Simply extending the
+                  polish time without rotating won't remove comet tails — the unidirectional drag pattern
+                  keeps reforming in the same direction.
                 </p>
               </div>
 
@@ -546,8 +546,8 @@ export default function NickelAlloysGuide() {
                 Nickel and cobalt superalloys take Marble's reagent as the canonical first-pass etch, with
                 Modified Kalling's for sharper detail on Inconel and Hastelloy. The classic γ′ imaging etch
                 is electrolytic 5% chromic acid at 5 V — chemical etches don't give the same crisp γ matrix /
-                γ′ precipitate contrast that the chromic gives at SEM magnification. Murakami's reagent is the
-                Co-base carbide etch for Stellite-class wear alloys.
+                γ′ precipitate contrast that the chromic gives at SEM magnification. Murakami's reagent darkens
+                the Cr-rich carbides in Stellite-class Co-base wear alloys.
               </p>
 
               <h3>Common Etchants for Nickel and Cobalt Superalloys</h3>
@@ -578,7 +578,7 @@ export default function NickelAlloysGuide() {
                     <tr>
                       <td className="border border-gray-300 px-4 py-2"><strong>5% Chromic Acid (electrolytic) — for γ′ imaging</strong></td>
                       <td className="border border-gray-300 px-4 py-2">5 g CrO₃ in 100 mL H₂O</td>
-                      <td className="border border-gray-300 px-4 py-2">The canonical γ′ etch for Ni superalloys (<MaterialTooltip materialName="Inconel 718">Inconel 718</MaterialTooltip>, Waspaloy, Rene 41/N5, Nimonic). The chromic preferentially attacks the γ matrix, leaving γ′ standing in relief — best at SEM magnification.</td>
+                      <td className="border border-gray-300 px-4 py-2">The canonical γ′ etch for Ni superalloys (Waspaloy, Rene 41/N5, Nimonic; in <MaterialTooltip materialName="Inconel 718">Inconel 718</MaterialTooltip> it reveals the γ″/γ′ dispersion). Selective electrolytic attack throws the precipitates into sharp contrast against the γ matrix — best at SEM magnification.</td>
                       <td className="border border-gray-300 px-4 py-2">5 V, 5-10 s</td>
                     </tr>
                     <tr>
@@ -615,7 +615,7 @@ export default function NickelAlloysGuide() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 500px"
                   />
                 </Link>
-                <p className="text-sm text-gray-600 mt-2 italic text-center">Etching solutions and reagents for nickel alloys. Common etchants include Glyceregia, Aqua Regia, Kalling's No. 2, and electrolytic solutions. Etching time typically ranges from 5-60 seconds depending on the etchant and alloy composition.</p>
+                <p className="text-sm text-gray-600 mt-2 italic text-center">Etching solutions and reagents for nickel and cobalt superalloys. Common etchants include Marble's reagent, Modified Kalling's (Kalling's No. 2), Murakami's, and electrolytic chromic acid. Etching time typically ranges from 5-60 seconds depending on the etchant and alloy composition.</p>
               </div>
 
               <h3>Etching Procedure</h3>
@@ -645,7 +645,7 @@ export default function NickelAlloysGuide() {
               <h3>Alloy-Specific Etching</h3>
               <ul>
                 <li><strong><MaterialTooltip materialName="Inconel 718">Inconel 718</MaterialTooltip> (general structure):</strong> Marble's reagent by swab, or Modified Kalling's by immersion for sharper grain-boundary contrast</li>
-                <li><strong>Inconel 718 (γ′ imaging):</strong> 5% chromic acid electrolytic at 5 V for 5-10 s — the canonical γ′ etch. Best at SEM magnification.</li>
+                <li><strong>Inconel 718 (precipitate imaging):</strong> 5% chromic acid electrolytic at 5 V for 5-10 s. Note that 718 is strengthened primarily by γ″ (Ni₃Nb) with secondary γ′ — the chromic electrolytic reveals the combined dispersion. Best at SEM magnification.</li>
                 <li><strong><MaterialTooltip materialName="Hastelloy C-276">Hastelloy C-276</MaterialTooltip>:</strong> Marble's for general structure; Modified Kalling's for detail</li>
                 <li><strong>Waspaloy, Rene 41, Rene N5, Nimonic 80A/90/105 (aerospace γ′-strengthened):</strong> Marble's or Modified Kalling's for general structure; 5% chromic electrolytic for γ′</li>
                 <li><strong>Monel 400, K-500:</strong> Treated as Ni-base — Marble's or Modified Kalling's</li>
@@ -717,9 +717,6 @@ export default function NickelAlloysGuide() {
                 </Link>
                 <Link href="/etchants" className="btn-secondary text-center">
                   Find Etchants
-                </Link>
-                <Link href="/tools/etchant-selector" className="btn-tertiary text-center">
-                  Etchant Selector Tool
                 </Link>
               </div>
             </div>

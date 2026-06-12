@@ -211,8 +211,8 @@ export default function WeldingAnalysisGuide() {
                 Use appropriate sectioning methods to minimize damage:
               </p>
               <ul>
-                <li><strong>Abrasive cutoff:</strong> Use slow speeds (100-200 RPM) with adequate coolant to 
-                prevent overheating</li>
+                <li><strong>Abrasive cutoff:</strong> Use a wheel speed of roughly 2,500-4,500 surface feet per
+                minute (SFM) with a gentle feed rate and copious coolant to prevent overheating</li>
                 <li><strong>Coolant:</strong> Essential to prevent thermal damage to the HAZ microstructure</li>
                 <li><strong>Multiple cuts:</strong> For large samples, make multiple cuts to isolate the region 
                 of interest</li>
@@ -255,7 +255,7 @@ export default function WeldingAnalysisGuide() {
                       >
                         <Image
                           src="/images/equipment/abrasive sectioning/manual abrasive cutters/mega-t300s/mega-t300s-cover.webp"
-                          alt="MEGA-T300S abrasive cutoff machine for sectioning weld samples"
+                          alt="Abrasive cutoff machine for sectioning weld samples"
                           width={250}
                           height={188}
                           className="max-w-full max-h-full object-contain"
@@ -337,7 +337,7 @@ export default function WeldingAnalysisGuide() {
               </p>
               <ul>
                 <li><strong>Glass-filled epoxy (preferred for weld analysis):</strong> Best edge retention; matches the differential-wear profile of welded steel and stainless. The right answer for fusion-boundary characterization, HAZ-width measurement, hardness-traverse work, and any case where the analysis turns on near-fusion-boundary features.</li>
-                <li><strong>Plain epoxy:</strong> Acceptable for low-stakes general-structure work where edge retention isn&apos;t critical. Lower curing temperature (150-180°C) than phenolic.</li>
+                <li><strong>Plain epoxy:</strong> Acceptable for low-stakes general-structure work where edge retention isn&apos;t critical. Cures at standard compression-mounting temperatures (about 150-180°C).</li>
                 <li><strong>Phenolic resins:</strong> Acceptable only for soft non-ferrous welds (Al, Cu) where the differential-wear pattern is reversed; not appropriate for steel/stainless welds where edge retention matters.</li>
                 <li><strong>Conductive mounting (carbon- or Cu-filled):</strong> For SEM/EBSD electrical continuity, not for mechanical edge retention. If you need both, use glass-filled conductive epoxy.</li>
               </ul>
@@ -380,7 +380,7 @@ export default function WeldingAnalysisGuide() {
                       >
                         <Image
                           src="/images/equipment/compression mounting/pneumatic mounting press/tp-7100s/tp-7100s-cover.webp"
-                          alt="TP-7100S compression mounting press for weld samples"
+                          alt="Compression mounting press for weld samples"
                           width={250}
                           height={188}
                           className="max-w-full max-h-full object-contain"
@@ -419,7 +419,7 @@ export default function WeldingAnalysisGuide() {
                     </div>
                     <h4 className="text-base font-semibold mb-1">Mounting Materials</h4>
                     <p className="text-gray-700 mb-2 text-xs leading-relaxed flex-grow">
-                      Phenolic mounting materials provide excellent edge retention for weld zone analysis, while epoxy materials offer good edge retention with better feature preservation.
+                      Compression mounting resins range from phenolic for routine work to glass-filled epoxy, which provides the best edge retention for weld zone boundary analysis.
                     </p>
                     <Link 
                       href="https://metallographic.com/metallographic-consumables/mounting-materials.html"
@@ -471,7 +471,7 @@ export default function WeldingAnalysisGuide() {
                 Use a progressive polishing sequence:
               </p>
               <ol>
-                <li><strong>9 μm diamond:</strong> 3-5 minutes on hard cloth (e.g., Texmet)</li>
+                <li><strong>9 μm diamond:</strong> 3-5 minutes on a hard woven cloth</li>
                 <li><strong>3 μm diamond:</strong> 3-5 minutes on medium-hard cloth</li>
                 <li><strong>1 μm diamond:</strong> 2-3 minutes on soft cloth</li>
                 <li><strong>0.05 μm colloidal silica:</strong> 1-2 minutes on soft cloth (optional, for 
@@ -1178,7 +1178,7 @@ export default function WeldingAnalysisGuide() {
                     >
                       <Image
                         src="/images/equipment/abrasive sectioning/manual abrasive cutters/mega-t300s/mega-t300s-cover.webp"
-                        alt="MEGA-T300S abrasive cutoff machine for sectioning weld samples"
+                        alt="Abrasive cutoff machine for sectioning weld samples"
                         width={250}
                         height={188}
                         className="max-w-full max-h-full object-contain"
@@ -1208,7 +1208,7 @@ export default function WeldingAnalysisGuide() {
                     >
                       <Image
                         src="/images/equipment/compression mounting/pneumatic mounting press/tp-7100s/tp-7100s-cover.webp"
-                        alt="TP-7100S compression mounting press for weld samples"
+                        alt="Compression mounting press for weld samples"
                         width={250}
                         height={188}
                         className="max-w-full max-h-full object-contain"

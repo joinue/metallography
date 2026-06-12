@@ -40,6 +40,7 @@ export function parseImageMetadata(filename: string): MicrostructureImage {
     /(picral)/i,
     /(kallings?\s*no\.?\s*\d+)/i,
     /(vilella'?s?)/i,
+    /(adler'?s?)/i,
     /(kellers?)/i,
     /(astm[-\s]?\d+)/i,
     /(alcoholic\s*fecl3)/i,
@@ -55,41 +56,72 @@ export function parseImageMetadata(filename: string): MicrostructureImage {
     }
   }
   
-  // Extract material type (common materials)
+  // Extract material type (common materials).
+  // Order matters: specific compounds and alloy families are matched before
+  // bare element symbols, and short symbols (Al, Ti, Cu, Ni) require word
+  // boundaries so that e.g. "Steatite", "Barium titanate", "AlN" or "Al2O3"
+  // are not mislabeled as Titanium / Aluminum.
   const materialPatterns = [
     /(\d{4})\s*(?:steel|carbon\s*steel)/i,
-    /(stainless\s*steel)/i,
-    /(aluminum|aluminium|al)/i,
-    /(titanium|ti)/i,
-    /(copper|cu)/i,
+    /(stainless)(?:\s*steel)?/i,
+    /(white\s*cast\s*iron|cast\s*iron|gray\s*iron|nodular|white\s*iron)/i,
     /(brass)/i,
     /(bronze)/i,
-    /(nickel|ni)/i,
-    /(cast\s*iron|gray\s*iron|nodular|white\s*iron)/i,
+    /(inconel|hastelloy|nimonic)/i,
+    /(barium\s*titanate)/i,
+    /(ti[\s-]*6[\s-]*al[\s-]*4[\s-]*v)/i,
+    /(aluminum|aluminium|alumiunm)/i,
+    /\b(al)\b/i,
+    /(titanium)/i,
+    /\b(ti)\b/i,
+    /(copper)/i,
+    /\b(cu)\b/i,
+    /(nickel)/i,
+    /\b(ni)\b/i,
+    /(tungsten)/i,
+    /(cobalt)/i,
+    /(graphite)/i,
     /(alumina|al2o3)/i,
     /(zirconia|zro2)/i,
     /(silicon\s*carbide|sic)/i,
     /(silicon\s*nitride|si3n4)/i,
     /(composite)/i,
     /(ceramic)/i,
+    /(steel)/i,
   ]
   let material: string | undefined
   for (const pattern of materialPatterns) {
     const match = baseName.match(pattern)
     if (match) {
       material = match[1]
-      // Clean up material name
+      // Clean up / normalize material name
+      const lower = material.toLowerCase()
       if (material.match(/^\d{4}$/)) {
         material = `${material} Steel`
-      } else if (material.toLowerCase() === 'al') {
+      } else if (lower === 'al' || lower === 'aluminium' || lower === 'alumiunm') {
         material = 'Aluminum'
-      } else if (material.toLowerCase() === 'ti') {
+      } else if (lower.replace(/[\s-]/g, '') === 'ti6al4v') {
+        material = 'Ti-6Al-4V'
+      } else if (lower === 'ti') {
         material = 'Titanium'
-      } else if (material.toLowerCase() === 'cu') {
+      } else if (lower === 'cu') {
         material = 'Copper'
-      } else if (material.toLowerCase() === 'ni') {
+      } else if (lower === 'ni') {
         material = 'Nickel'
+      } else if (lower === 'stainless') {
+        material = 'Stainless Steel'
+      } else if (lower === 'inconel' || lower === 'hastelloy' || lower === 'nimonic') {
+        // De-branded display name for trademarked Ni-base alloy families
+        material = 'Nickel Superalloy'
+      } else if (lower === 'nodular') {
+        material = 'Nodular Cast Iron'
+      } else if (lower === 'white iron' || lower === 'white cast iron') {
+        material = 'White Cast Iron'
+      } else if (lower === 'steel') {
+        material = 'Steel'
       }
+      // Title-case so filter values dedupe ("brass" / "Brass" -> "Brass")
+      material = material.replace(/\b[a-z]/g, c => c.toUpperCase())
       break
     }
   }
@@ -107,8 +139,11 @@ export function parseImageMetadata(filename: string): MicrostructureImage {
     /(cast)/i,
     /(wrought)/i,
   ]
+  // Use match[0] (the full matched text): the alternatives are joined into one
+  // regex, so match[1] is only populated for the first alternative and e.g.
+  // "water quenched" or "rolled" would silently be dropped.
   const treatmentMatch = baseName.match(new RegExp(treatmentPatterns.map(p => p.source).join('|'), 'i'))
-  const treatment = treatmentMatch ? treatmentMatch[1] : undefined
+  const treatment = treatmentMatch ? treatmentMatch[0] : undefined
   
   // Build description
   const parts: string[] = []
@@ -132,7 +167,7 @@ export function parseImageMetadata(filename: string): MicrostructureImage {
   let labelConfidence: 'high' | 'medium' | 'low'
   if (explicitFields >= 3 && hasDescriptiveSeparators) {
     labelConfidence = 'high'
-  } else if (material && (etchant || magnification)) {
+  } else if (material) {
     labelConfidence = 'medium'
   } else {
     labelConfidence = 'low'

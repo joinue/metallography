@@ -16,10 +16,13 @@ export default function GrainSizeCalculator() {
   const [magnification, setMagnification] = useState('100')
   const [result, setResult] = useState<{ label: string; value: string }[] | null>(null)
 
-  // ASTM E112: N = 2^(G-1) where N = grains per square inch at 100x, G = grain size number
-  // Average grain diameter (mm) = 1 / (2^((G-1)/2)) at 100x
-  // At other magnifications: d = d_100 * (100/M)
-  
+  // ASTM E112 relationships:
+  //   N = 2^(G-1) where N = grains per square inch at 100x
+  //   N_A = 15.50 * 2^(G-1) grains per mm² at 1x
+  //   Mean grain diameter d (mm, actual) = sqrt(1/N_A) = 0.254 / 2^((G-1)/2)
+  //   Intercept (Heyn): G = -6.643856*log10(l) - 3.288, l = mean lineal intercept in mm at 1x
+  //   Planimetric (Jeffries): G = 3.321928*log10(N_A) - 2.954
+
   const calculateFromNumber = () => {
     const G = parseFloat(grainSizeNumber)
     if (isNaN(G) || G < 0 || G > 14) {
@@ -27,49 +30,48 @@ export default function GrainSizeCalculator() {
       return
     }
 
-    const M = parseFloat(magnification) || 100
     const N = Math.pow(2, G - 1) // Grains per square inch at 100x
-    const d_100 = 1 / Math.pow(2, (G - 1) / 2) // Average diameter in mm at 100x
-    const d_M = d_100 * (100 / M) // Average diameter at magnification M
-    
+    const NA = 15.50 * Math.pow(2, G - 1) // Grains per mm² at 1x
+    const d_mm = 0.254 / Math.pow(2, (G - 1) / 2) // Mean grain diameter in mm (actual size)
+    const l_mm = Math.pow(10, -(G + 3.288) / 6.643856) // Mean lineal intercept in mm (actual size)
+
     setResult([
       { label: 'ASTM Grain Size Number (G)', value: G.toFixed(1) },
-      { label: 'Grains per square inch at 100x', value: N.toFixed(0) },
-      { label: 'Average grain diameter at 100x', value: `${d_100.toFixed(3)} mm` },
-      { label: `Average grain diameter at ${M}x`, value: `${d_M.toFixed(3)} mm` },
-      { label: `Average grain diameter at ${M}x`, value: `${(d_M * 1000).toFixed(1)} μm` },
+      { label: 'Grains per square inch at 100x', value: N.toFixed(N < 10 ? 1 : 0) },
+      { label: 'Grains per mm² at 1x', value: NA.toFixed(NA < 10 ? 1 : 0) },
+      { label: 'Mean grain diameter', value: `${d_mm.toFixed(4)} mm (${(d_mm * 1000).toFixed(1)} μm)` },
+      { label: 'Mean lineal intercept', value: `${(l_mm * 1000).toFixed(1)} μm` },
     ])
   }
 
   const calculateFromDiameter = () => {
     const d = parseFloat(averageDiameter)
-    const M = parseFloat(magnification) || 100
-    
+
     if (isNaN(d) || d <= 0) {
       setResult([{ label: 'Error', value: 'Diameter must be greater than 0' }])
       return
     }
 
-    // Convert to mm if needed (assuming input is in mm, but could be μm)
-    const d_mm = d < 0.1 ? d / 1000 : d // If less than 0.1, assume it's in mm already, else assume μm
-    const d_100 = d_mm * (M / 100) // Convert to diameter at 100x
-    
-    // Solve for G: d_100 = 1 / (2^((G-1)/2))
-    // 2^((G-1)/2) = 1 / d_100
-    // (G-1)/2 = log2(1 / d_100)
-    // G = 2 * log2(1 / d_100) + 1
-    const G = 2 * (Math.log(1 / d_100) / Math.LN2) + 1
+    // Input is the actual (specimen-scale) mean grain diameter.
+    // Values < 1 are treated as mm; values >= 1 are treated as μm.
+    const d_mm = d < 1 ? d : d / 1000
+
+    // Solve for G: d_mm = 0.254 / 2^((G-1)/2)
+    // G = 1 + 2*log2(0.254 / d_mm)
+    const G = 1 + 2 * Math.log2(0.254 / d_mm)
     const N = Math.pow(2, G - 1)
-    
+    const NA = 15.50 * Math.pow(2, G - 1)
+
     if (G < 0 || G > 14) {
       setResult([{ label: 'Error', value: 'Calculated grain size number is outside ASTM E112 range (0-14)' }])
       return
     }
-    
+
     setResult([
       { label: 'ASTM Grain Size Number (G)', value: G.toFixed(2) },
-      { label: 'Grains per square inch at 100x', value: N.toFixed(0) },
-      { label: 'Average grain diameter at 100x', value: `${d_100.toFixed(3)} mm` },
+      { label: 'Grains per square inch at 100x', value: N.toFixed(N < 10 ? 1 : 0) },
+      { label: 'Grains per mm² at 1x', value: NA.toFixed(NA < 10 ? 1 : 0) },
+      { label: 'Mean grain diameter', value: `${d_mm.toFixed(4)} mm (${(d_mm * 1000).toFixed(1)} μm)` },
     ])
   }
 
@@ -83,24 +85,26 @@ export default function GrainSizeCalculator() {
       return
     }
 
-    // Mean intercept length at test magnification
-    const L_M = length / count // mm at magnification M
-    const L_100 = L_M * (100 / M) // Convert to 100x
-    
-    // ASTM E112: G = -3.2877 + 6.6439 * log10(L_100) where L_100 is in mm
-    // Or: G ≈ -3.3 + 6.64 * log10(L_100)
-    const G = -3.2877 + 6.6439 * Math.log10(L_100)
+    // Mean lineal intercept at actual (1x) scale:
+    // test-line length is measured on the image at magnification M,
+    // so the true line length is length/M.
+    const l_mm = (length / M) / count
+
+    // ASTM E112 (Heyn intercept): G = -6.643856*log10(l) - 3.288, l in mm at 1x
+    const G = -6.643856 * Math.log10(l_mm) - 3.288
     const N = Math.pow(2, G - 1)
-    
+    const NA = 15.50 * Math.pow(2, G - 1)
+
     if (G < 0 || G > 14) {
       setResult([{ label: 'Error', value: 'Calculated grain size number is outside ASTM E112 range (0-14)' }])
       return
     }
-    
+
     setResult([
       { label: 'ASTM Grain Size Number (G)', value: G.toFixed(2) },
-      { label: 'Mean intercept length at 100x', value: `${L_100.toFixed(3)} mm` },
-      { label: 'Grains per square inch at 100x', value: N.toFixed(0) },
+      { label: 'Mean lineal intercept', value: `${(l_mm * 1000).toFixed(1)} μm (${l_mm.toFixed(4)} mm)` },
+      { label: 'Grains per square inch at 100x', value: N.toFixed(N < 10 ? 1 : 0) },
+      { label: 'Grains per mm² at 1x', value: NA.toFixed(NA < 10 ? 1 : 0) },
     ])
   }
 
@@ -114,30 +118,28 @@ export default function GrainSizeCalculator() {
       return
     }
 
-    // Convert area to square inches at 100x
-    // If area is in mm², convert: 1 in² = 645.16 mm²
-    // Area at 100x = area_at_M * (100/M)²
-    const area_mm2 = area // Assuming input is in mm²
-    const area_100x = area_mm2 * Math.pow(100 / M, 2) // mm² at 100x
-    const area_in2_100x = area_100x / 645.16 // in² at 100x
-    
-    // Grains per square inch at 100x
-    const N = count / area_in2_100x
-    
-    // G = log2(N) + 1
-    const G = Math.log2(N) + 1
-    
+    // Jeffries planimetric method: the grain count is
+    // N = n_inside + n_intercepted/2 over a known area.
+    // Area is measured on the image at magnification M, so the
+    // true (1x) area is area/M². N_A = grains per mm² at 1x.
+    const NA = count / (area / Math.pow(M, 2))
+
+    // ASTM E112 (planimetric): G = 3.321928*log10(N_A) - 2.954
+    const G = 3.321928 * Math.log10(NA) - 2.954
+    const N = Math.pow(2, G - 1) // Grains per square inch at 100x
+
     if (G < 0 || G > 14) {
       setResult([{ label: 'Error', value: 'Calculated grain size number is outside ASTM E112 range (0-14)' }])
       return
     }
-    
-    const avgDiameter_100x = 1 / Math.pow(2, (G - 1) / 2)
-    
+
+    const d_mm = 0.254 / Math.pow(2, (G - 1) / 2) // Mean grain diameter, actual size
+
     setResult([
       { label: 'ASTM Grain Size Number (G)', value: G.toFixed(2) },
-      { label: 'Grains per square inch at 100x', value: N.toFixed(0) },
-      { label: 'Average grain diameter at 100x', value: `${avgDiameter_100x.toFixed(3)} mm` },
+      { label: 'Grains per mm² at 1x', value: NA.toFixed(NA < 10 ? 1 : 0) },
+      { label: 'Grains per square inch at 100x', value: N.toFixed(N < 10 ? 1 : 0) },
+      { label: 'Mean grain diameter', value: `${d_mm.toFixed(4)} mm (${(d_mm * 1000).toFixed(1)} μm)` },
     ])
   }
 
@@ -187,74 +189,45 @@ export default function GrainSizeCalculator() {
             </div>
 
             {method === 'number-to-diameter' && (
-              <>
-                <div className="mb-6">
-                  <label htmlFor="grainSizeNumber" className="block text-sm font-semibold text-gray-700 mb-2">
-                    ASTM Grain Size Number (G)
-                  </label>
-                  <input
-                    id="grainSizeNumber"
-                    type="number"
-                    step="0.1"
-                    min="0"
-                    max="14"
-                    value={grainSizeNumber}
-                    onChange={(e) => setGrainSizeNumber(e.target.value)}
-                    placeholder="e.g., 5.0"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
-                  />
-                  <p className="text-xs text-gray-500 mt-1">Range: 0 to 14 (ASTM E112)</p>
-                </div>
-                <div className="mb-6">
-                  <label htmlFor="magnification" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Magnification
-                  </label>
-                  <input
-                    id="magnification"
-                    type="number"
-                    value={magnification}
-                    onChange={(e) => setMagnification(e.target.value)}
-                    placeholder="100"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
-                  />
-                  <p className="text-xs text-gray-500 mt-1">Magnification used for measurement (default: 100x)</p>
-                </div>
-              </>
+              <div className="mb-6">
+                <label htmlFor="grainSizeNumber" className="block text-sm font-semibold text-gray-700 mb-2">
+                  ASTM Grain Size Number (G)
+                </label>
+                <input
+                  id="grainSizeNumber"
+                  type="number"
+                  step="0.1"
+                  min="0"
+                  max="14"
+                  value={grainSizeNumber}
+                  onChange={(e) => setGrainSizeNumber(e.target.value)}
+                  placeholder="e.g., 5.0"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
+                />
+                <p className="text-xs text-gray-500 mt-1">Range: 0 to 14 (ASTM E112). Results are actual (specimen-scale) sizes.</p>
+              </div>
             )}
 
             {method === 'diameter-to-number' && (
-              <>
-                <div className="mb-6">
-                  <label htmlFor="averageDiameter" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Average Grain Diameter
-                  </label>
-                  <input
-                    id="averageDiameter"
-                    type="number"
-                    step="0.001"
-                    min="0"
-                    value={averageDiameter}
-                    onChange={(e) => setAverageDiameter(e.target.value)}
-                    placeholder="e.g., 0.050 (mm) or 50 (μm)"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
-                  />
-                  <p className="text-xs text-gray-500 mt-1">Enter in mm or μm (values &lt; 0.1 are treated as mm, else μm)</p>
-                </div>
-                <div className="mb-6">
-                  <label htmlFor="magnification" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Magnification
-                  </label>
-                  <input
-                    id="magnification"
-                    type="number"
-                    value={magnification}
-                    onChange={(e) => setMagnification(e.target.value)}
-                    placeholder="100"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
-                  />
-                  <p className="text-xs text-gray-500 mt-1">Magnification at which diameter was measured</p>
-                </div>
-              </>
+              <div className="mb-6">
+                <label htmlFor="averageDiameter" className="block text-sm font-semibold text-gray-700 mb-2">
+                  Average Grain Diameter (actual size)
+                </label>
+                <input
+                  id="averageDiameter"
+                  type="number"
+                  step="0.001"
+                  min="0"
+                  value={averageDiameter}
+                  onChange={(e) => setAverageDiameter(e.target.value)}
+                  placeholder="e.g., 0.050 (mm) or 50 (μm)"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
+                />
+                <p className="text-xs text-gray-500 mt-1">
+                  Actual (specimen-scale) mean grain diameter, not the size measured on a magnified image.
+                  Values &lt; 1 are treated as mm; values ≥ 1 as μm.
+                </p>
+              </div>
             )}
 
             {method === 'intercept' && (
@@ -272,7 +245,10 @@ export default function GrainSizeCalculator() {
                     placeholder="e.g., 100"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
                   />
-                  <p className="text-xs text-gray-500 mt-1">Total number of grain boundary intercepts counted</p>
+                  <p className="text-xs text-gray-500 mt-1">
+                    Total grain-boundary intersections counted along the test line(s).
+                    Count an intersection at a triple point as 1.5; a line end terminating inside a grain as 0.5.
+                  </p>
                 </div>
                 <div className="mb-6">
                   <label htmlFor="interceptLength" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -288,7 +264,7 @@ export default function GrainSizeCalculator() {
                     placeholder="e.g., 25.0"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
                   />
-                  <p className="text-xs text-gray-500 mt-1">Total length of test line(s) in mm at test magnification</p>
+                  <p className="text-xs text-gray-500 mt-1">Total length of test line(s) in mm as measured on the image at the test magnification</p>
                 </div>
                 <div className="mb-6">
                   <label htmlFor="magnification" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -322,7 +298,10 @@ export default function GrainSizeCalculator() {
                     placeholder="e.g., 50"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
                   />
-                  <p className="text-xs text-gray-500 mt-1">Total number of grains counted in test area</p>
+                  <p className="text-xs text-gray-500 mt-1">
+                    Jeffries count: grains entirely inside the test area count as 1;
+                    grains intercepted by the area boundary count as ½ (N = n<sub>inside</sub> + n<sub>intercepted</sub>/2)
+                  </p>
                 </div>
                 <div className="mb-6">
                   <label htmlFor="testArea" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -338,7 +317,7 @@ export default function GrainSizeCalculator() {
                     placeholder="e.g., 0.5"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
                   />
-                  <p className="text-xs text-gray-500 mt-1">Area of test region in mm² at test magnification</p>
+                  <p className="text-xs text-gray-500 mt-1">Area of test region in mm² as measured on the image at the test magnification</p>
                 </div>
                 <div className="mb-6">
                   <label htmlFor="magnification" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -386,13 +365,18 @@ export default function GrainSizeCalculator() {
               ASTM E112 provides standardized methods for determining average grain size:
             </p>
             <ul className="text-sm text-gray-700 space-y-2 list-disc list-inside mb-4">
-              <li><strong>ASTM Grain Size Number (G):</strong> Logarithmic scale where G = log₂(N) + 1, where N is grains per square inch at 100x</li>
-              <li><strong>Intercept Method:</strong> Count grain boundary intercepts along test lines</li>
-              <li><strong>Planimetric Method:</strong> Count grains within a known test area</li>
+              <li><strong>ASTM Grain Size Number (G):</strong> Logarithmic scale where G = log₂(N) + 1, where N is grains per square inch at 100x (equivalently, N<sub>A</sub> = 15.50 × 2<sup>G−1</sup> grains per mm² at 1x)</li>
+              <li><strong>Intercept (Heyn) Method:</strong> Count grain-boundary intersections along test lines; triple-point intersections count as 1.5. G = −6.6439·log₁₀(ℓ) − 3.288, with ℓ the mean lineal intercept in mm at 1x</li>
+              <li><strong>Planimetric (Jeffries) Method:</strong> Count grains within a known test area — grains inside count 1, grains cut by the boundary count ½. G = 3.3219·log₁₀(N<sub>A</sub>) − 2.954</li>
               <li><strong>Comparison Method:</strong> Compare microstructure to standard charts</li>
             </ul>
+            <p className="text-gray-700 text-sm mb-4">
+              <strong>Sample preparation:</strong> Reliable grain size measurement requires a deformation-free,
+              uniformly etched surface with clearly delineated grain boundaries. Residual polishing deformation
+              or uneven etching will bias both intercept and planimetric counts.
+            </p>
             <p className="text-gray-700 text-sm">
-              <strong>Note:</strong> This calculator uses formulas from ASTM E112. For official grain size 
+              <strong>Note:</strong> This calculator uses formulas from ASTM E112. For official grain size
               determination, follow the complete ASTM E112 standard procedures.
             </p>
           </div>

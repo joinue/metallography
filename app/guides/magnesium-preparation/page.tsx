@@ -91,10 +91,14 @@ export default function MagnesiumGuide() {
                 </p>
                 <div className="bg-red-50 border-l-4 border-red-500 p-4 my-6 rounded">
                   <p className="text-sm text-red-900">
-                    <strong>⚠️ CRITICAL SAFETY WARNING:</strong> Magnesium is highly flammable and can ignite 
-                    when exposed to heat, sparks, or certain chemicals. Always have appropriate fire suppression 
-                    equipment (Class D fire extinguisher) nearby. Never use water on magnesium fires. Work in a 
-                    well-ventilated area and minimize exposure to moisture.
+                    <strong>⚠️ CRITICAL SAFETY WARNING:</strong> Magnesium swarf is pyrophoric. Fine magnesium
+                    chips, dust, and grinding swarf can ignite spontaneously in air at elevated temperature; the
+                    bulk metal is far less reactive than the fines, which is why sectioning and grinding present
+                    the highest fire risk. Never dry-cut or dry-grind magnesium. Keep a Class D fire extinguisher
+                    (sodium chloride or copper-based — NOT water, NOT CO₂, NOT foam) within reach of the cutting
+                    and grinding stations. Collect swarf in a wet container, never let it accumulate dry, and
+                    dispose of it before the end of every shift. Work in a well-ventilated area — the reaction
+                    with moisture also evolves hydrogen gas.
                   </p>
                 </div>
                 <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-6 rounded">
@@ -169,8 +173,9 @@ export default function MagnesiumGuide() {
 
                 <h3>Mounting Materials</h3>
                 <ul>
-                  <li><strong>Epoxy Resins:</strong> Preferred - lower curing temperature (150-180°C)</li>
-                  <li><strong>Phenolic Resins:</strong> Acceptable but higher temperature may increase oxidation risk</li>
+                  <li><strong>Epoxy Resins:</strong> Preferred - lower shrinkage and better edge retention; compression grades run the standard 150-180°C cycle</li>
+                  <li><strong>Phenolic Resins:</strong> Acceptable for routine work - same molding temperature range, but more shrinkage and poorer edge retention</li>
+                  <li><strong>Castable (Cold-Mount) Epoxy:</strong> Room-temperature cure - the option to reach for when heating the sample is a concern</li>
                   <li><strong>Mounting Pressure:</strong> 2000-4000 psi depending on resin type</li>
                   <li><strong>Temperature:</strong> Use lowest possible curing temperature</li>
                 </ul>
@@ -226,9 +231,9 @@ export default function MagnesiumGuide() {
                 <h3>Grinding Parameters</h3>
                 <ul>
                   <li><strong>Lubricant:</strong> Ethanol or ethanol-based solution - NEVER use water</li>
-                  <li><strong>Pressure:</strong> Light pressure (1-3 lbs per sample) - magnesium is soft</li>
+                  <li><strong>Pressure:</strong> Light pressure (1-3 lbs / roughly 5-13 N per sample) - magnesium is soft</li>
                   <li><strong>Rotation:</strong> Rotate sample 90° between each grit</li>
-                  <li><strong>Speed:</strong> 240-300 RPM for grinding wheels</li>
+                  <li><strong>Speed:</strong> 200-300 RPM platen speed for grinding</li>
                   <li><strong>Lubricant Flow:</strong> Continuous flow of ethanol to remove debris</li>
                 </ul>
 
@@ -262,7 +267,7 @@ export default function MagnesiumGuide() {
 
                 <h3>Diamond Polishing Sequence</h3>
                 <ol>
-                  <li><strong>9 μm diamond:</strong> 4-6 minutes on hard cloth (Texmet or equivalent) with ethanol-based suspension</li>
+                  <li><strong>9 μm diamond:</strong> 4-6 minutes on a hard woven cloth with ethanol-based suspension</li>
                   <li><strong>6 μm diamond:</strong> 3-5 minutes on medium-hard cloth with ethanol-based suspension</li>
                   <li><strong>3 μm diamond:</strong> 3-5 minutes on medium cloth with ethanol-based suspension</li>
                   <li><strong>1 μm diamond:</strong> 2-4 minutes on soft cloth with ethanol-based suspension</li>
@@ -272,8 +277,8 @@ export default function MagnesiumGuide() {
                 <h3>Polishing Parameters</h3>
                 <ul>
                   <li><strong>Lubricant:</strong> Ethanol-based diamond suspensions - prepare suspensions using ethanol, not water</li>
-                  <li><strong>Pressure:</strong> Very light pressure (1-2 lbs) - magnesium is very soft</li>
-                  <li><strong>Speed:</strong> 120-150 RPM for diamond polishing</li>
+                  <li><strong>Pressure:</strong> Very light pressure (1-2 lbs / roughly 5-9 N) - magnesium is very soft</li>
+                  <li><strong>Speed:</strong> 100-150 RPM platen speed for diamond polishing</li>
                   <li><strong>Cloth Selection:</strong> Harder cloths for coarse steps, softer for fine steps</li>
                   <li><strong>Final Polish:</strong> Use ethanol-based colloidal silica (0.05 μm)</li>
                 </ul>
@@ -343,7 +348,7 @@ export default function MagnesiumGuide() {
                     </thead>
                     <tbody>
                       <tr>
-                        <td className="border border-gray-300 px-4 py-2"><strong>Acetic Glycol</strong> (canonical Mg general etch — ASM E407 #197)</td>
+                        <td className="border border-gray-300 px-4 py-2"><strong>Acetic Glycol</strong> (canonical Mg general etch — ASTM E407)</td>
                         <td className="border border-gray-300 px-4 py-2">20 mL acetic acid + 1 mL HNO₃ + 60 mL ethylene glycol + <strong>19 mL H₂O</strong></td>
                         <td className="border border-gray-300 px-4 py-2">General microstructure for <MaterialTooltip materialName="AZ31">AZ31</MaterialTooltip>, <MaterialTooltip materialName="AZ91">AZ91</MaterialTooltip>, <MaterialTooltip materialName="AM60">AM60</MaterialTooltip>, AM50, ZK60. The default first-pass etch.</td>
                         <td className="border border-gray-300 px-4 py-2">Swab 5-30 s</td>
@@ -351,11 +356,11 @@ export default function MagnesiumGuide() {
                       <tr>
                         <td className="border border-gray-300 px-4 py-2"><strong>Acetic Picral</strong> (canonical for WE-class and color work)</td>
                         <td className="border border-gray-300 px-4 py-2">5 g picric acid + 100 mL ethanol + <strong>5 mL H₂O + 5 mL acetic acid</strong></td>
-                        <td className="border border-gray-300 px-4 py-2">Y/RE-containing alloys <MaterialTooltip materialName="WE43">WE43</MaterialTooltip>, WE54; phase contrast and color work on AZ/AM. <strong>Best under polarized light</strong> — RE-bearing intermetallics give vivid birefringent contrast.</td>
+                        <td className="border border-gray-300 px-4 py-2">Y/RE-containing alloys <MaterialTooltip materialName="WE43">WE43</MaterialTooltip>, WE54; phase contrast and color work on AZ/AM. <strong>Best under polarized light</strong> — the etched HCP Mg matrix gives vivid grain-orientation contrast under crossed polars.</td>
                         <td className="border border-gray-300 px-4 py-2">Immerse 30 s</td>
                       </tr>
                       <tr>
-                        <td className="border border-gray-300 px-4 py-2"><strong>Glycol Etchant (Picral-Glycol)</strong> — Vander Voort variant</td>
+                        <td className="border border-gray-300 px-4 py-2"><strong>Glycol Etchant (Picral-Glycol)</strong> — picric-bearing variant</td>
                         <td className="border border-gray-300 px-4 py-2">4.2 g picric acid + 10 mL acetic acid + 10 mL H₂O + 70 mL ethylene glycol</td>
                         <td className="border border-gray-300 px-4 py-2">Alternative general-microstructure etch combining the picric of Acetic Picral with the glycol carrier of Acetic Glycol. Defensible variant; not the handbook first-pass choice.</td>
                         <td className="border border-gray-300 px-4 py-2">5-15 s</td>
@@ -370,7 +375,8 @@ export default function MagnesiumGuide() {
                   </table>
                 </div>
                 <p className="text-sm text-gray-600 italic">
-                  All four etchants above contain picric acid (or use HNO₃ in ethanol). <strong>Picric acid must be
+                  Two of the etchants above — Acetic Picral and Picral-Glycol — contain picric acid; the others
+                  use dilute HNO₃ in an organic carrier. <strong>Picric acid must be
                   stored wetted at all times — dry picric is friction- and shock-sensitive (effectively a primary
                   explosive).</strong> Keep stock bottles topped up with water or ethanol; never let them dry out.
                   Mixed reagents (Acetic Picral, Picral-Glycol) are stable in solution; the hazard is the dry
@@ -401,7 +407,7 @@ export default function MagnesiumGuide() {
                 <ul>
                   <li><strong><MaterialTooltip materialName="AZ31">AZ31</MaterialTooltip>, <MaterialTooltip materialName="AZ91">AZ91</MaterialTooltip> (Mg-Al-Zn):</strong> Acetic Glycol as the canonical first pass; Acetic Picral for phase color contrast on cast or aged samples.</li>
                   <li><strong><MaterialTooltip materialName="AM60">AM60</MaterialTooltip>, AM50 (Mg-Al-Mn):</strong> Same recipe family as AZ — Acetic Glycol primary, Acetic Picral for color.</li>
-                  <li><strong><MaterialTooltip materialName="WE43">WE43</MaterialTooltip>, WE54 (Mg-Y-RE-Zr):</strong> <strong>Acetic Picral examined under polarized light</strong> — the rare-earth-bearing intermetallics (Y₂Mg₂₄, RE-bearing phases) are birefringent and develop vivid color contrast under crossed polars that no grayscale etch produces. This is the metallographic answer for WE-class alloys.</li>
+                  <li><strong><MaterialTooltip materialName="WE43">WE43</MaterialTooltip>, WE54 (Mg-Y-RE-Zr):</strong> <strong>Acetic Picral examined under polarized light</strong> — the etch deposits an anisotropic film on the optically anisotropic HCP magnesium matrix, so grains and deformation twins develop vivid orientation-dependent color contrast under crossed polars that no bright-field grayscale etch produces. This is the metallographic answer for WE-class alloys, with the rare-earth-bearing intermetallics (Mg₂₄Y₅, RE-bearing phases) standing out against the colored matrix.</li>
                   <li><strong>ZK60 (Mg-Zn-Zr):</strong> Standard Mg recipe — Acetic Glycol primary.</li>
                   <li><strong>Pure Magnesium:</strong> Acetic Picral; pair with vibratory polishing as noted in the polishing section, since pure Mg often won't give a clean etch without a deformation-free vibratory finish first.</li>
                 </ul>
@@ -438,13 +444,21 @@ export default function MagnesiumGuide() {
                   </div>
 
                   <div className="border border-gray-200 rounded-lg p-4">
-                    <h4 className="font-semibold text-gray-900 mb-2">Problem: Excessive Deformation</h4>
+                    <h4 className="font-semibold text-gray-900 mb-2">Problem: Excessive Deformation (Including Mechanical Twins)</h4>
                     <p className="text-sm text-gray-700 mb-2">
-                      <strong>Symptoms:</strong> Smearing, distorted microstructure, difficulty revealing grain boundaries
+                      <strong>Symptoms:</strong> Smearing, distorted microstructure, difficulty revealing grain boundaries,
+                      lenticular (lens-shaped) twins visible after etching or under polarized light
                     </p>
                     <p className="text-sm text-gray-700">
-                      <strong>Solutions:</strong> Reduce grinding/polishing pressure, use lighter pressure (1-2 lbs), 
-                      ensure proper grit progression, extend polishing times at each step, use softer polishing cloths
+                      <strong>Cause:</strong> Magnesium twins very easily under deformation — aggressive sectioning,
+                      coarse grits, or heavy pressure introduce mechanical twins that can be mistaken for the
+                      material's true deformation history
+                    </p>
+                    <p className="text-sm text-gray-700 mt-2">
+                      <strong>Solutions:</strong> Reduce grinding/polishing pressure, use lighter pressure (1-2 lbs),
+                      ensure proper grit progression, extend polishing times at each step, use softer polishing cloths.
+                      If twins persist, they were likely introduced during sectioning or coarse grinding — re-grind
+                      with finer grits and lighter force, and finish with a vibratory or chemo-mechanical polish
                     </p>
                   </div>
 
@@ -508,9 +522,6 @@ export default function MagnesiumGuide() {
                 </Link>
                 <Link href="/etchants" className="btn-secondary text-center">
                   Find Etchants
-                </Link>
-                <Link href="/tools/etchant-selector" className="btn-tertiary text-center">
-                  Etchant Selector Tool
                 </Link>
               </div>
             </div>

@@ -125,9 +125,11 @@ export default function CopperAlloysGuide() {
             <section id="sectioning" className="scroll-mt-24">
               <h2>Sectioning</h2>
               <p>
-                When sectioning copper and copper alloy samples, use a slow cutting speed to minimize heat generation 
-                and deformation. A cutting speed of 100-200 RPM is typically appropriate for most copper alloys. 
-                Copper's softness requires careful handling to prevent deformation and smearing. This is especially important 
+                When sectioning copper and copper alloy samples, run the abrasive cutoff wheel at typical
+                metallographic surface speeds (roughly 2,500-4,500 SFM) and control heat with a light feed
+                rate and copious coolant rather than by slowing the wheel — an under-speeded wheel glazes
+                and rubs instead of cutting.
+                Copper's softness requires careful handling to prevent deformation and smearing. This is especially important
                 for pure copper grades like <MaterialTooltip materialName="C11000 Electrolytic Tough Pitch Copper">C11000</MaterialTooltip> 
                 and softer brass alloys like <MaterialTooltip materialName="C26000 Cartridge Brass">C26000 cartridge brass</MaterialTooltip>.
               </p>
@@ -139,7 +141,7 @@ export default function CopperAlloysGuide() {
                   className="block hover:opacity-90 transition-opacity"
                 >
                   <Image
-                    src="/images/consumables/maxcut-c.webp"
+                    src="/images/consumables/maxcut-e.webp"
                     alt="Soft-bond abrasive cut-off blade for copper and copper alloys sectioning"
                     width={500}
                     height={375}
@@ -224,15 +226,16 @@ export default function CopperAlloysGuide() {
               </div>
               <h3>Grinding Sequence</h3>
               <ol>
-                <li><strong>240 grit:</strong> Remove sectioning damage (20-40 seconds per step)</li>
-                <li><strong>320 grit:</strong> Remove previous scratches (20-40 seconds)</li>
-                <li><strong>400 grit:</strong> Further refinement (20-40 seconds)</li>
-                <li><strong>600 grit:</strong> Final grinding step (20-40 seconds)</li>
+                <li><strong>240 grit:</strong> Remove sectioning damage and grind until plane (typically about 1 minute)</li>
+                <li><strong>320 grit:</strong> Remove previous scratches (1-2 minutes)</li>
+                <li><strong>400 grit:</strong> Further refinement (1-2 minutes)</li>
+                <li><strong>600 grit:</strong> Final grinding step (1-2 minutes)</li>
               </ol>
               <p>
                 <strong>Important:</strong> Rotate the sample 90° between each grit to ensure complete 
-                removal of previous scratches. Use water as a lubricant and maintain <strong>light</strong> pressure 
-                to avoid deformation. Copper alloys require less time per step than harder materials. For very soft 
+                removal of previous scratches. Use water as a lubricant and maintain <strong>light</strong> pressure
+                to avoid deformation — heavy pressure on copper drives deep subsurface deformation that polishing
+                cannot fully remove, and it returns as scratches after each etch. For very soft
                 copper alloys, you may start with 240 grit instead of 120 grit to minimize deformation.
               </p>
               <ProductLink 
@@ -245,10 +248,11 @@ export default function CopperAlloysGuide() {
             <section id="polishing" className="scroll-mt-24">
               <h2>Polishing</h2>
               <p>
-                Polishing removes grinding scratches and prepares a mirror-like surface. For copper and copper alloys, 
-                diamond polishing followed by oxide polishing typically yields excellent results. Use softer cloths and 
-                lighter pressure to avoid smearing and relief. The recommended sequence is 6 μm → 3 μm → 1 μm diamond, 
-                followed by final polishing with 0.05 μm colloidal silica.
+                Polishing removes grinding scratches and prepares a mirror-like surface. For copper and copper alloys,
+                diamond polishing followed by oxide polishing typically yields excellent results. Use lighter pressure
+                than for harder metals, and control smearing with the chemo-mechanical final step below rather than
+                with ever-softer cloths — softer cloths trade smearing for relief. The recommended sequence is
+                9 μm → 3 μm → 1 μm diamond, followed by final polishing with 0.05 μm colloidal silica.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6 max-w-2xl mx-auto">
                 <div className="rounded-lg overflow-hidden">
@@ -283,14 +287,14 @@ export default function CopperAlloysGuide() {
                       className="w-full h-auto"
                     />
                   </Link>
-                  <p className="text-xs text-gray-600 mt-2 italic text-center">Soft to medium polishing pads are recommended for copper alloys to prevent smearing and excessive relief.</p>
+                  <p className="text-xs text-gray-600 mt-2 italic text-center">Start diamond polishing on a hard woven cloth and reserve softer napped cloths for the final steps to limit smearing and relief.</p>
                 </div>
               </div>
               <h3>Diamond Polishing</h3>
               <ol>
-                <li><strong>6 μm diamond:</strong> 2-3 minutes on a medium-soft cloth (e.g., Microcloth)</li>
-                <li><strong>3 μm diamond:</strong> 2-3 minutes on a soft cloth</li>
-                <li><strong>1 μm diamond:</strong> 1-2 minutes on a soft cloth</li>
+                <li><strong>9 μm diamond:</strong> 4-5 minutes on a hard woven cloth — starting diamond on a soft napped cloth smears copper</li>
+                <li><strong>3 μm diamond:</strong> 3-4 minutes on a medium napped cloth</li>
+                <li><strong>1 μm diamond:</strong> 2-3 minutes on a soft napped cloth</li>
               </ol>
               <h3>Final Polishing — Chemo-Mechanical with H₂O₂</h3>
               <p>
@@ -334,10 +338,10 @@ export default function CopperAlloysGuide() {
               <ul>
                 <li><strong>NH₄OH + H₂O₂ (also called ASTM No. 30 — the canonical Cu/brass etch):</strong> Equal volumes of 28% NH₄OH and 3% H₂O₂. Apply by swab for 10-60 s. <strong>Mix immediately before use</strong> — activity decays within minutes; if the etch starts working sluggishly, mix a fresh batch. The default first-pass etch for <MaterialTooltip materialName="C11000 Electrolytic Tough Pitch Copper">C11000 ETP</MaterialTooltip>, OFHC, <MaterialTooltip materialName="C26000 Cartridge Brass">C26000 cartridge brass</MaterialTooltip>, <MaterialTooltip materialName="C36000 Free-Cutting Brass">C36000 free-cutting brass</MaterialTooltip>, and most phosphor and aluminum bronzes. Reveals grain boundaries and twin boundaries.</li>
                 <li><strong>Klemm I (color tint — Cu and brass):</strong> 50 mL stock (saturated Na₂S₂O₃) + 1 g K₂S₂O₅. Immerse 30-180 s. Stock for Klemm I = 250 g Na₂S₂O₃ in 100 mL H₂O. Produces vivid blue/red color contrast that distinguishes grain orientations in pure Cu and brass — very useful for automated grain-size counts and orientation studies. <strong>Surface must be deformation-free</strong> for Klemm to develop properly (this is where the H₂O₂ chemo-mechanical final polish above pays off).</li>
-                <li><strong>Klemm II (color tint — brass, bronze, aluminum bronze):</strong> Same stock as Klemm I with a different metabisulfite addition. The canonical answer for <strong>Cu-Al aluminum bronze</strong> (C61000, C63000) — gives vivid α-eutectoid phase contrast that no grayscale etch can match. Also strong on brass for general phase imaging.</li>
+                <li><strong>Klemm II (color tint — brass, bronze):</strong> Same stock as Klemm I with a larger metabisulfite addition (50 mL stock + 5 g K₂S₂O₅). Immerse 30-180 s. Stronger than Klemm I; the best choice for <strong>α-brass</strong> and useful for general phase imaging in bronzes. For α-eutectoid color contrast in <strong>Cu-Al aluminum bronze</strong> (C61000, C63000), reach for Klemm I — it gives the vivid phase distinction that no grayscale etch can match.</li>
                 <li><strong>Copper No. 1 (more aggressive HNO₃ variant):</strong> 50% HNO₃ in H₂O (typically 125 mL HNO₃ + 125 mL H₂O). Faster and more aggressive than NH₄OH+H₂O₂ — useful when the standard etch under-attacks a heavily-deformed surface, but tends to over-etch and produce pitting. Not the default first-pass choice.</li>
                 <li><strong>Potassium Dichromate (K₂Cr₂O₇ + H₂SO₄):</strong> 2 g K₂Cr₂O₇, 8 mL H₂SO₄, 4 mL saturated NaCl, 100 mL H₂O. For specialty grain-boundary work in brass and bronze. Cr(VI) — disposal regulated as hazardous waste.</li>
-                <li><strong>Ammonium Persulfate (50 g (NH₄)₂S₂O₈ in 245 mL H₂O):</strong> For brasses with Sn or Mn additions. Gentler than HNO₃; stable on the bench longer than NH₄OH+H₂O₂.</li>
+                <li><strong>Ammonium Persulfate (10 g (NH₄)₂S₂O₈ in 90-100 mL H₂O):</strong> Mild grain-area etch for pure copper, brass, and bronze. Gentler than HNO₃, but it must also be prepared fresh — the solution decomposes within a day or two.</li>
               </ul>
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
                 <Link 
@@ -354,21 +358,22 @@ export default function CopperAlloysGuide() {
                     className="w-full h-auto"
                   />
                 </Link>
-                <p className="text-sm text-gray-600 mt-2 italic text-center">Etching solutions and reagents for copper and copper alloys. The canonical first-pass etch is NH₄OH + 3% H₂O₂ in equal volumes (also called ASTM No. 30); follow with Klemm I for color contrast in pure Cu and brass, or Klemm II for vivid α-eutectoid contrast in aluminum bronze. Mix NH₄OH + H₂O₂ fresh — activity decays in minutes.</p>
+                <p className="text-sm text-gray-600 mt-2 italic text-center">Etching solutions and reagents for copper and copper alloys. The canonical first-pass etch is NH₄OH + 3% H₂O₂ in equal volumes (also called ASTM No. 30); follow with a Klemm tint etch for color contrast — Klemm I for pure Cu, brass, and α-eutectoid work in aluminum bronze, or the stronger Klemm II for α-brass. Mix NH₄OH + H₂O₂ fresh — activity decays in minutes.</p>
               </div>
               <h3>Etching Procedure</h3>
               <ol>
                 <li>Ensure sample is clean and dry</li>
                 <li>Apply etchant with cotton swab or immerse sample</li>
-                <li>Etch for 5-45 seconds (time varies by etchant and alloy - Copper No. 1 typically 5-45 sec at 20°C)</li>
+                <li>Etch for 5-60 seconds (time varies by etchant and alloy — NH₄OH + H₂O₂ typically 10-60 s by swab; Copper No. 1 typically 5-45 s at 20°C)</li>
                 <li>Immediately rinse with water, then alcohol</li>
-                <li>Dry with compressed air</li>
+                <li>Air-dry or use cool compressed air — avoid heated air, which can drive surface recrystallization on soft copper</li>
               </ol>
               <p>
                 <strong>Tip:</strong> Start with shorter etching times (5-10 seconds) and increase if needed.
                 NH₄OH + H₂O₂ (ASTM No. 30) must be mixed fresh — activity decays within minutes, and a sluggish
-                etch is a fresh-batch problem, not a longer-time problem. For phase color work on brass and
-                aluminum bronze, follow the NH₄OH+H₂O₂ general etch with Klemm II by immersion 30-180 s — the
+                etch is a fresh-batch problem, not a longer-time problem. For phase color work, follow the
+                NH₄OH+H₂O₂ general etch with a Klemm tint by immersion 30-180 s (Klemm I for pure Cu, brass,
+                and aluminum bronze α-eutectoid contrast; Klemm II for α-brass) — the
                 Klemm tint develops on top of the structural etch. Klemm requires a deformation-free surface;
                 if the colors come out muddy or uneven, the H₂O₂ chemo-mechanical final polish was incomplete.
               </p>

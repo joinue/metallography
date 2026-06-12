@@ -187,16 +187,26 @@ export default function PolishingMethodsGuide() {
               </div>
               <h3>Diamond Polishing Sequence</h3>
               <ol>
-                <li><strong>9 μm diamond:</strong> Remove grinding scratches (3-5 minutes)</li>
-                <li><strong>3 μm diamond:</strong> Further refinement (3-5 minutes)</li>
-                <li><strong>1 μm diamond:</strong> Fine polishing (2-3 minutes)</li>
+                <li><strong>9 μm diamond</strong> on a hard woven pad: Remove grinding scratches (3-5 minutes)</li>
+                <li><strong>3 μm diamond</strong> on a medium napped pad: Further refinement (3-5 minutes)</li>
+                <li><strong>1 μm diamond</strong> on a soft napped pad: Fine polishing (3-4 minutes)</li>
                 <li><strong>0.25 μm diamond (optional):</strong> Ultra-fine preparation (1-2 minutes)</li>
               </ol>
+              <p>
+                Typical parameters: 20-25 N force per sample at around 150 RPM for the 9 and 3 μm steps,
+                dropping to 15-20 N for the 1 μm step. Keep platen speeds in the 100-150 RPM range for
+                polishing; the higher speeds used in grinding (200-300 RPM) generate too much heat and
+                deformation here. Match the first diamond size to the last grinding step: each abrasive
+                leaves subsurface damage roughly 1.5-3 times its particle diameter, and each polishing
+                step must remove the previous step&apos;s damage, not just its visible scratches. Judge
+                progress under the microscope, not by the clock - a useful rule of thumb is to continue
+                for about twice the time it takes the previous scratches to disappear.
+              </p>
 
               <YouTubeVideo
                 videoId="PT2fRdSvhDM"
                 title="Automated Grinding & Polishing with NANO 1000S & FEMTO 1100S"
-                description="Watch Dr. Donald Zipperian demonstrate automated grinding and polishing using the NANO 1000S and FEMTO 1100S systems. Learn how to program and operate these automated systems for consistent, high-quality results in both grinding and polishing stages."
+                description="Watch Dr. Donald Zipperian demonstrate automated grinding and polishing using a manual polisher fitted with a semi-automatic power head. Learn how to program and operate automated systems for consistent, repeatable results in both grinding and polishing stages."
               />
 
               <h3>Diamond Abrasive Types</h3>
@@ -209,7 +219,7 @@ export default function PolishingMethodsGuide() {
               <ProductLink 
                 productName="Diamond Abrasives"
                 href="https://shop.metallographic.com/collections/diamond-abrasives"
-                description="High-quality diamond suspensions, pastes, and lubricants in various particle sizes"
+                description="Diamond suspensions, pastes, and lubricants in various particle sizes"
               />
             </section>
 
@@ -243,9 +253,16 @@ export default function PolishingMethodsGuide() {
             <section id="polishing-cloths" className="scroll-mt-24">
               <h2>Polishing Cloths & Pads</h2>
               <p>
-                The choice of polishing pad significantly affects polishing results. Different pad 
-                types provide varying levels of hardness, nap, and cutting action. Selecting the 
+                The choice of polishing pad significantly affects polishing results. Different pad
+                types provide varying levels of hardness, nap, and cutting action. Selecting the
                 appropriate pad for each polishing stage is essential.
+              </p>
+              <p>
+                The governing tradeoff is pad hardness versus relief: a harder pad produces a flatter
+                surface with better edge retention but leaves more scratches, while a softer napped pad
+                leaves fewer scratches but allows more relief between phases of different hardness.
+                Work from harder pads early in the sequence toward softer pads at the end, and reach
+                for the softest cloths only at the final step.
               </p>
               <div className="bg-gray-50 border-l-4 border-primary-600 p-4 my-4 rounded">
                 <p className="text-sm text-gray-700">
@@ -275,79 +292,79 @@ export default function PolishingMethodsGuide() {
                 </Link>
                 <p className="text-sm text-gray-600 mt-2 italic text-center">Various polishing pads and cloths for different polishing stages. Pad selection affects hardness, nap, and cutting action - choose based on material and polishing stage.</p>
               </div>
-              <h3>Polishing Pad (PSA) Selection Guideline</h3>
+              <h3>Polishing Pad Selection Guidelines</h3>
               <div className="overflow-x-auto my-6">
                 <table className="min-w-full border-collapse border border-gray-300">
                   <thead>
                     <tr className="bg-gray-100">
-                      <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Pad</th>
+                      <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Pad Type</th>
                       <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Use Case</th>
                       <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Polishing Stage</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td className="border border-gray-300 px-4 py-3 font-semibold">CERMESH</td>
+                      <td className="border border-gray-300 px-4 py-3 font-semibold">Metal mesh</td>
                       <td className="border border-gray-300 px-4 py-3">Metal mesh pad used for semi-fixed abrasive coarse to intermediate lapping. Excellent for initial removal of damage from sectioning and hard materials.</td>
                       <td className="border border-gray-300 px-4 py-3">Coarse / Intermediate</td>
                     </tr>
                     <tr className="bg-gray-50">
-                      <td className="border border-gray-300 px-4 py-3 font-semibold">POLYPAD</td>
+                      <td className="border border-gray-300 px-4 py-3 font-semibold">Woven polyester</td>
                       <td className="border border-gray-300 px-4 py-3">Durable synthetic polyester pad ideal for intermediate polishing, especially with 6–15 µm diamond abrasives. Designed as a long-life nylon alternative.</td>
                       <td className="border border-gray-300 px-4 py-3">Intermediate</td>
                     </tr>
                     <tr>
-                      <td className="border border-gray-300 px-4 py-3 font-semibold">TEXPAN</td>
+                      <td className="border border-gray-300 px-4 py-3 font-semibold">Non-woven textile</td>
                       <td className="border border-gray-300 px-4 py-3">Widely used non-woven intermediate polishing pad, compatible with most diamond suspensions. Effective across a broad range of materials.</td>
                       <td className="border border-gray-300 px-4 py-3">Intermediate</td>
                     </tr>
                     <tr className="bg-gray-50">
-                      <td className="border border-gray-300 px-4 py-3 font-semibold">Black CHEM 2</td>
+                      <td className="border border-gray-300 px-4 py-3 font-semibold">Porometric polymer</td>
                       <td className="border border-gray-300 px-4 py-3">Porometric polymer pad with rubber-like consistency, offering balanced action between low and high nap pads. Ideal for moderate nap intermediate polishing.</td>
                       <td className="border border-gray-300 px-4 py-3">Intermediate</td>
                     </tr>
                     <tr>
-                      <td className="border border-gray-300 px-4 py-3 font-semibold">DACRON II</td>
+                      <td className="border border-gray-300 px-4 py-3 font-semibold">Soft low-nap woven</td>
                       <td className="border border-gray-300 px-4 py-3">Low-napped soft polishing pad widely used in Europe for intermediate steps on metals. Suitable for 1–15 µm diamond abrasives.</td>
                       <td className="border border-gray-300 px-4 py-3">Intermediate</td>
                     </tr>
                     <tr className="bg-gray-50">
-                      <td className="border border-gray-300 px-4 py-3 font-semibold">NYPAD</td>
+                      <td className="border border-gray-300 px-4 py-3 font-semibold">Low-nap silk</td>
                       <td className="border border-gray-300 px-4 py-3">Low-napped silk pad tailored for intermediate polishing of harder metals and alloys. Performs well with mid-size diamond abrasives.</td>
                       <td className="border border-gray-300 px-4 py-3">Intermediate</td>
                     </tr>
                     <tr>
-                      <td className="border border-gray-300 px-4 py-3 font-semibold">GOLD PAD</td>
+                      <td className="border border-gray-300 px-4 py-3 font-semibold">Firm low-nap</td>
                       <td className="border border-gray-300 px-4 py-3">Low-napped pad ideal for 1–9 µm polishing. Designed for consistent material removal and flatness control during final pre-polishing.</td>
                       <td className="border border-gray-300 px-4 py-3">Intermediate</td>
                     </tr>
                     <tr className="bg-gray-50">
-                      <td className="border border-gray-300 px-4 py-3 font-semibold">ATLANTIS</td>
+                      <td className="border border-gray-300 px-4 py-3 font-semibold">Foam-backed low-nap woven</td>
                       <td className="border border-gray-300 px-4 py-3">Woven low-nap final polishing pad with foam backing for enhanced compliance. Ideal for 1–6 µm diamond. Great for critical surface flatness needs.</td>
                       <td className="border border-gray-300 px-4 py-3">Final</td>
                     </tr>
                     <tr>
-                      <td className="border border-gray-300 px-4 py-3 font-semibold">MICROPAD</td>
+                      <td className="border border-gray-300 px-4 py-3 font-semibold">High-nap synthetic</td>
                       <td className="border border-gray-300 px-4 py-3">High-napped final polishing pad ideal for producing a mirror finish on metals and polymers. Recommended for &lt;1 µm diamond or colloidal silica.</td>
                       <td className="border border-gray-300 px-4 py-3">Final</td>
                     </tr>
                     <tr className="bg-gray-50">
-                      <td className="border border-gray-300 px-4 py-3 font-semibold">TRICOTE</td>
+                      <td className="border border-gray-300 px-4 py-3 font-semibold">Tight high-nap knit</td>
                       <td className="border border-gray-300 px-4 py-3">Tight high-napped final polishing pad for metals. Offers better control of surface texture and minimal abrasive drag.</td>
                       <td className="border border-gray-300 px-4 py-3">Final</td>
                     </tr>
                     <tr>
-                      <td className="border border-gray-300 px-4 py-3 font-semibold">NAPPAD</td>
+                      <td className="border border-gray-300 px-4 py-3 font-semibold">Very high-nap flocked</td>
                       <td className="border border-gray-300 px-4 py-3">Very high-napped final polishing pad tailored for soft metals and polymers. Provides gentle polishing action to minimize pull-out and relief.</td>
                       <td className="border border-gray-300 px-4 py-3">Final</td>
                     </tr>
                     <tr className="bg-gray-50">
-                      <td className="border border-gray-300 px-4 py-3 font-semibold">MOLTEC 2</td>
+                      <td className="border border-gray-300 px-4 py-3 font-semibold">Wool cloth</td>
                       <td className="border border-gray-300 px-4 py-3">Wool-based final polishing cloth used when edge retention is not critical. Works well with alumina and colloidal silica on metals.</td>
                       <td className="border border-gray-300 px-4 py-3">Final</td>
                     </tr>
                     <tr>
-                      <td className="border border-gray-300 px-4 py-3 font-semibold">FELT PAD</td>
+                      <td className="border border-gray-300 px-4 py-3 font-semibold">Felt</td>
                       <td className="border border-gray-300 px-4 py-3">Thick final polishing pad made for large samples or glass. Ideal for use with colloidal silica or alumina slurries where surface uniformity is key.</td>
                       <td className="border border-gray-300 px-4 py-3">Final</td>
                     </tr>
@@ -357,7 +374,7 @@ export default function PolishingMethodsGuide() {
               <ProductLink 
                 productName="Polishing Pads"
                 href="https://shop.metallographic.com/collections/polishing-pads"
-                description="Premium polishing pads and cloths in various sizes and hardness levels"
+                description="Polishing pads and cloths in various sizes and hardness levels"
               />
             </section>
 
@@ -371,8 +388,15 @@ export default function PolishingMethodsGuide() {
               <h3>Oxide Polishing Sequence</h3>
               <ol>
                 <li><strong>0.3 μm alumina:</strong> Remove fine diamond scratches (2-3 minutes)</li>
-                <li><strong>0.05 μm colloidal silica:</strong> Final polish for mirror finish (1-2 minutes)</li>
+                <li><strong>0.05 μm colloidal silica:</strong> Final polish for mirror finish (about 3 minutes, plus water flush)</li>
               </ol>
+              <p>
+                <strong>Colloidal silica technique:</strong> polish for about 3 minutes with the active
+                suspension, then flush with water for the final 30-60 seconds while still polishing.
+                Skipping the flush leaves dried silica residue and stains on the surface. Colloidal
+                silica works chemo-mechanically - it combines fine abrasion with mild chemical etching,
+                which removes the residual deformation layer rather than just refining scratches.
+              </p>
               <h3>Oxide Selection Guidelines</h3>
               <ul>
                 <li><strong>Standard Alumina:</strong> General purpose, most materials</li>
@@ -427,10 +451,13 @@ export default function PolishingMethodsGuide() {
               </div>
               <h3>Final Polishing Techniques</h3>
               <ul>
-                <li>Use ultra-soft cloths (silk, microcloth)</li>
-                <li>Apply light pressure (0.5-1.5 lbs)</li>
-                <li>Use fresh, high-quality oxide suspensions</li>
-                <li>Monitor polishing time to avoid over-polishing</li>
+                <li>Use soft napped cloths, chemotextile, or porous polyurethane pads</li>
+                <li>Apply light force (10-15 N per sample, lighter than the diamond steps)</li>
+                <li>Keep platen speed low (100-150 RPM)</li>
+                <li>On powered heads, co-rotation (head and platen turning the same direction) is the gentler default; counter-rotation is situational, mainly for edge-retention-critical work</li>
+                <li>Use fresh oxide suspensions</li>
+                <li>Monitor polishing time to avoid over-polishing and relief</li>
+                <li>For colloidal silica, flush with water for the last 30-60 seconds while still polishing</li>
                 <li>Clean sample thoroughly after polishing</li>
               </ul>
               <h3>Final Polishing Abrasives</h3>
@@ -443,7 +470,7 @@ export default function PolishingMethodsGuide() {
               <ProductLink 
                 productName="Final Polishing Abrasives"
                 href="https://shop.metallographic.com/collections/final-polishing"
-                description="Complete selection of final polishing abrasives including colloidal silica, various alumina types, and cerium oxide"
+                description="Final polishing abrasives including colloidal silica, various alumina types, and cerium oxide"
               />
             </section>
 
@@ -471,13 +498,12 @@ export default function PolishingMethodsGuide() {
                 resolution, allowing operators to polish to specific depths or remove precise amounts 
                 of material.
               </p>
-              <h3>Key Features</h3>
+              <h3>Typical Capabilities</h3>
               <ul>
-                <li>Micrometer-adjustable pitch and roll control for exacting results</li>
-                <li>Real-time removal monitoring with 0.2 micron resolution</li>
-                <li>Precise sample load control (0-300 grams)</li>
-                <li>Variable speed control for optimal material removal rates</li>
-                <li>Touchscreen interface for easy operation</li>
+                <li>Micrometer-adjustable pitch and roll control of the sample plane</li>
+                <li>Real-time removal monitoring with sub-micrometer resolution</li>
+                <li>Light, precisely controlled sample loads (typically grams, not newtons)</li>
+                <li>Variable speed control to tune material removal rates</li>
               </ul>
               <div className="bg-gray-50 border-l-4 border-primary-600 p-4 my-4 rounded">
                 <div className="mb-3 rounded-lg overflow-hidden max-w-xs mx-auto">
@@ -489,7 +515,7 @@ export default function PolishingMethodsGuide() {
                   >
                     <Image
                       src="/images/equipment/grinding & polishing/controlled removal polisher/atto-1000s/atto-polisher-cover.webp"
-                      alt="ATTO-1000S Controlled Removal Polisher"
+                      alt="Controlled removal polisher for micrometer-level material removal"
                       width={250}
                       height={188}
                       className="w-full h-auto"
@@ -497,19 +523,20 @@ export default function PolishingMethodsGuide() {
                   </Link>
                 </div>
                 <p className="text-sm text-gray-700 mb-2">
-                  <strong>Recommended Equipment:</strong> ATTO-1000S Controlled Removal Polisher
+                  <strong>Equipment:</strong> Controlled Removal Polisher
                 </p>
                 <p className="text-xs text-gray-600 mb-2">
-                  The ATTO-1000S offers precision-controlled removal with micrometer-level accuracy, 
-                  making it ideal for applications requiring extreme specificity for points of interest.
+                  A controlled removal polisher measures material removal in real time with
+                  micrometer-level accuracy, used when polishing must stop at a specific depth or
+                  point of interest.
                 </p>
-                <Link 
+                <Link
                   href="https://www.metallographic.com/metallographic-equipment/grinding-polishing/atto.html"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-primary-600 hover:text-primary-700 font-semibold"
                 >
-                  View ATTO-1000S Controlled Removal Polisher →
+                  View Controlled Removal Polishers →
                 </Link>
               </div>
             </section>
@@ -517,42 +544,66 @@ export default function PolishingMethodsGuide() {
             <section id="vibratory-polishing" className="scroll-mt-24">
               <h2>Vibratory Polishing</h2>
               <p>
-                Vibratory polishing is a cost-effective alternative for final polishing that eliminates 
-                subsurface damage and produces superior surface finishes. This method is particularly 
-                effective for EBSD sample preparation and applications requiring minimal deformation.
+                Vibratory polishing finishes the sample with low-energy oscillation (around 60 Hz)
+                instead of a rotating platen and applied force. The sample sits face-down on the
+                polishing cloth under gravity load alone - its own weight, or a stacked weight on the
+                holder, typically 50-200 g total. Because there is no applied pressure, vibratory
+                polishing removes the residual deformation layer without re-introducing mechanical
+                damage, which is why it is the standard route to EBSD-grade surfaces and a good option
+                for soft metals (magnesium, lead, copper) that smear under rotary polishing.
               </p>
               <h3>Advantages of Vibratory Polishing</h3>
               <ul>
-                <li>Eliminates subsurface damage</li>
-                <li>Produces superior flatness and planarity</li>
-                <li>Reduces operator variability</li>
-                <li>Cost-effective compared to laser removal systems</li>
-                <li>Ideal for batch processing</li>
-                <li>Pulse mode prevents staining</li>
+                <li>Removes the residual deformation layer without applied pressure</li>
+                <li>Minimal relief, even on multi-phase materials, because the load is so low</li>
+                <li>Reduces operator variability - the process runs unattended</li>
+                <li>Suited to batch processing of multiple samples</li>
+                <li>Forgiving: over-polishing produces no benefit, but also little harm</li>
               </ul>
 
               <YouTubeVideo
                 id="vibratory-polishing-video"
                 videoId="cPkzthQbLcM"
                 title="Vibratory Polishing with the GIGA S"
-                description="Learn vibratory polishing techniques from Dr. Donald Zipperian. This video demonstrates how to use the GIGA S vibratory polisher for final polishing, including setup, parameter selection, and achieving superior surface finishes for EBSD and high-quality microstructural analysis."
+                description="Learn vibratory polishing techniques from Dr. Donald Zipperian. This video demonstrates how to use a vibratory polisher for final polishing, including setup, parameter selection, and preparing deformation-free surfaces for EBSD and high-quality microstructural analysis."
               />
 
               <h3>Vibratory Polishing Process</h3>
               <ol>
-                <li>Prepare sample through standard grinding and initial polishing</li>
-                <li>Select appropriate polishing bowl size (9" or 12")</li>
-                <li>Add polishing suspension to bowl</li>
-                <li>Set frequency and power for desired polishing rate</li>
-                <li>Place samples in bowl and allow polishing</li>
-                <li>Monitor progress and adjust as needed</li>
+                <li>Prepare sample through standard grinding and mechanical polishing (through 1 μm diamond or the first oxide step)</li>
+                <li>Add polishing suspension to the bowl - colloidal silica is the workhorse for EBSD; 0.05 μm alumina is the common alternative</li>
+                <li>Set vibration amplitude or power for the desired polishing rate</li>
+                <li>Place samples face-down in the bowl under gravity load only (50-200 g; no applied pressure)</li>
+                <li>Allow 1-24 hours depending on material and the surface quality required</li>
+                <li>Check the bowl periodically; extend or stop based on surface inspection</li>
               </ol>
               <h3>Applications</h3>
               <ul>
                 <li>EBSD sample preparation</li>
+                <li>Soft metals (Mg, Pb, Cu) that re-deform under rotary polishing</li>
                 <li>Final polishing for high-quality microstructural analysis</li>
                 <li>Batch processing multiple samples</li>
                 <li>Applications requiring minimal deformation</li>
+              </ul>
+              <h3>Other Stress-Free Finishing Methods</h3>
+              <p>
+                Vibratory polishing is one of several alternative-physics finishing methods used when
+                mechanical polishing cannot deliver a deformation-free surface:
+              </p>
+              <ul>
+                <li>
+                  <strong>Electropolishing:</strong> anodic dissolution in an electrolyte bath, typically
+                  20-60 V. Voltage and current density together control the polishing-versus-etching
+                  balance - too low and the surface etches, too high and it pits. Many electrolytes
+                  require cooling to 0-5 °C to avoid runaway etching. Common for stainless steels,
+                  copper, aluminum, and nickel alloys, and for thin foils or geometries that do not
+                  suit mechanical polishing.
+                </li>
+                <li>
+                  <strong>Ion milling and broad ion beam (BIB):</strong> an argon beam sputters away the
+                  deformation layer at a shallow angle (1-6° for lowest damage). Used for TEM
+                  preparation, semiconductor cross-sections, and the highest-quality EBSD surfaces.
+                </li>
               </ul>
               <div className="bg-gray-50 border-l-4 border-primary-600 p-4 my-4 rounded">
                 <div className="mb-3 rounded-lg overflow-hidden max-w-xs mx-auto">
@@ -564,7 +615,7 @@ export default function PolishingMethodsGuide() {
                   >
                     <Image
                       src="/images/equipment/grinding & polishing/vibratory polisher/giga-s-cover.webp"
-                      alt="GIGA-S Vibratory Polisher"
+                      alt="Vibratory polisher with polishing bowl"
                       width={250}
                       height={188}
                       className="w-full h-auto"
@@ -572,20 +623,19 @@ export default function PolishingMethodsGuide() {
                   </Link>
                 </div>
                 <p className="text-sm text-gray-700 mb-2">
-                  <strong>Recommended Equipment:</strong> GIGA-S Vibratory Polisher
+                  <strong>Equipment:</strong> Vibratory Polisher
                 </p>
                 <p className="text-xs text-gray-600 mb-2">
-                  The GIGA-S vibratory polisher ensures superior surface finishes with precise vibration 
-                  control and interchangeable polishing bowls. A cost-effective solution for final polishing 
-                  without the need for laser removal systems.
+                  A vibratory polisher finishes samples with low-energy oscillation under gravity load
+                  only, producing deformation-free surfaces for EBSD and high-magnification analysis.
                 </p>
-                <Link 
+                <Link
                   href="https://www.metallographic.com/metallographic-equipment/grinding-polishing/giga.html"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-primary-600 hover:text-primary-700 font-semibold"
                 >
-                  View GIGA-S Vibratory Polisher →
+                  View Vibratory Polishers →
                 </Link>
               </div>
             </section>
@@ -695,7 +745,7 @@ export default function PolishingMethodsGuide() {
                     >
                       <Image
                         src="/images/equipment/grinding & polishing/manual grinder polishers/nano-1000s/nano-1000s-cover.webp"
-                        alt="NANO Series manual polishers"
+                        alt="Manual grinder-polisher with rotating platen"
                         width={250}
                         height={188}
                         className="max-w-full max-h-full object-contain"
@@ -704,16 +754,16 @@ export default function PolishingMethodsGuide() {
                   </div>
                   <h3 className="text-base font-semibold mb-1">Manual Polishers</h3>
                   <p className="text-gray-700 mb-2 text-xs leading-relaxed flex-grow">
-                    NANO Series manual polishers offer precise control with variable speed and versatile 
-                    wheel options. Available in single, double, or large wheel configurations.
+                    Manual grinder-polishers provide variable platen speed for both grinding and
+                    polishing steps. Available in single, double, or large wheel configurations.
                   </p>
-                  <Link 
+                  <Link
                     href="https://metallographic.com/metallographic-equipment/grinding-polishing/nano.html"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary-600 hover:text-primary-700 font-semibold text-xs inline-flex items-center gap-1"
                   >
-                    View NANO Manual Polishers →
+                    View Manual Polishers →
                   </Link>
                 </div>
                 <div className="flex flex-col">
@@ -726,7 +776,7 @@ export default function PolishingMethodsGuide() {
                     >
                       <Image
                         src="/images/equipment/grinding & polishing/semi-auto grinder polishers/femto-1100s/femto-1100s-cover.webp"
-                        alt="FEMTO automated polishing heads"
+                        alt="Semi-automatic power head attached to a manual polisher"
                         width={250}
                         height={188}
                         className="max-w-full max-h-full object-contain"
@@ -735,16 +785,16 @@ export default function PolishingMethodsGuide() {
                   </div>
                   <h3 className="text-base font-semibold mb-1">Semi-Automated Polishing Attachments</h3>
                   <p className="text-gray-700 mb-2 text-xs leading-relaxed flex-grow">
-                    FEMTO automated polishing heads attach to manual polishers to automate force application 
+                    Semi-automatic power heads attach to manual polishers to automate force application
                     and improve consistency.
                   </p>
-                  <Link 
+                  <Link
                     href="https://metallographic.com/metallographic-equipment/grinding-polishing/femto.html"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary-600 hover:text-primary-700 font-semibold text-xs inline-flex items-center gap-1"
                   >
-                    View FEMTO Semi-Auto Attachments →
+                    View Semi-Automatic Attachments →
                   </Link>
                 </div>
                 <div className="flex flex-col">
@@ -757,7 +807,7 @@ export default function PolishingMethodsGuide() {
                     >
                       <Image
                         src="/images/equipment/grinding & polishing/controlled removal polisher/atto-1000s/atto-polisher-cover.webp"
-                        alt="ATTO-1000S Controlled Removal Polisher"
+                        alt="Controlled removal polisher for micrometer-level material removal"
                         width={250}
                         height={188}
                         className="max-w-full max-h-full object-contain"
@@ -766,16 +816,16 @@ export default function PolishingMethodsGuide() {
                   </div>
                   <h3 className="text-base font-semibold mb-1">Controlled Removal Polisher</h3>
                   <p className="text-gray-700 mb-2 text-xs leading-relaxed flex-grow">
-                    ATTO-1000S controlled removal polisher provides micrometer-level precision for 
-                    applications requiring extreme specificity.
+                    Controlled removal polishers measure material removal in real time with
+                    micrometer-level precision for polishing to a specific depth.
                   </p>
-                  <Link 
+                  <Link
                     href="https://www.metallographic.com/metallographic-equipment/grinding-polishing/atto.html"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary-600 hover:text-primary-700 font-semibold text-xs inline-flex items-center gap-1"
                   >
-                    View ATTO-1000S Controlled Removal Polisher →
+                    View Controlled Removal Polishers →
                   </Link>
                 </div>
                 <div className="flex flex-col">
@@ -788,7 +838,7 @@ export default function PolishingMethodsGuide() {
                     >
                       <Image
                         src="/images/equipment/grinding & polishing/vibratory polisher/giga-s-cover.webp"
-                        alt="GIGA-S Vibratory Polisher"
+                        alt="Vibratory polisher with polishing bowl"
                         width={250}
                         height={188}
                         className="max-w-full max-h-full object-contain"
@@ -797,16 +847,16 @@ export default function PolishingMethodsGuide() {
                   </div>
                   <h3 className="text-base font-semibold mb-1">Vibratory Polisher</h3>
                   <p className="text-gray-700 mb-2 text-xs leading-relaxed flex-grow">
-                    GIGA-S vibratory polisher is a cost-effective solution for final polishing that 
-                    eliminates subsurface damage and produces superior surface finishes.
+                    Vibratory polishers finish samples with low-energy oscillation under gravity load
+                    only, removing the residual deformation layer for EBSD-grade surfaces.
                   </p>
-                  <Link 
+                  <Link
                     href="https://www.metallographic.com/metallographic-equipment/grinding-polishing/giga.html"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary-600 hover:text-primary-700 font-semibold text-xs inline-flex items-center gap-1"
                   >
-                    View GIGA-S Vibratory Polisher →
+                    View Vibratory Polishers →
                   </Link>
                 </div>
               </div>

@@ -17,8 +17,8 @@ const polishingData: Record<MaterialType, Record<GritSize, PolishingData>> = {
   hard: {
     '9': {
       timeRange: { min: 4, max: 6 },
-      clothType: 'CERMESH or TEXPAN',
-      pressure: 'Moderate to high (5-10 lbs)',
+      clothType: 'Hard woven pad (silk or woven nylon)',
+      pressure: 'Moderate (20-25 N per sample)',
       notes: [
         'Hard materials can tolerate longer polishing times',
         'Use polycrystalline diamond for aggressive cutting',
@@ -27,8 +27,8 @@ const polishingData: Record<MaterialType, Record<GritSize, PolishingData>> = {
     },
     '6': {
       timeRange: { min: 3, max: 5 },
-      clothType: 'POLYPAD or TEXPAN',
-      pressure: 'Moderate to high (5-10 lbs)',
+      clothType: 'Hard woven or low-nap pad',
+      pressure: 'Moderate (20-25 N per sample)',
       notes: [
         'Continue until previous scratches are removed',
         'May require longer time if previous step was insufficient'
@@ -36,17 +36,17 @@ const polishingData: Record<MaterialType, Record<GritSize, PolishingData>> = {
     },
     '3': {
       timeRange: { min: 3, max: 5 },
-      clothType: 'TEXPAN or Black CHEM 2',
-      pressure: 'Moderate (5-8 lbs)',
+      clothType: 'Medium napped pad (synthetic suede)',
+      pressure: 'Moderate (20-25 N per sample)',
       notes: [
         'Critical step for removing coarser scratches',
         'Ensure uniform scratch pattern before proceeding'
       ]
     },
     '1': {
-      timeRange: { min: 2, max: 4 },
-      clothType: 'GOLD PAD or ATLANTIS',
-      pressure: 'Moderate (4-7 lbs)',
+      timeRange: { min: 3, max: 4 },
+      clothType: 'Soft napped pad (chemotextile)',
+      pressure: 'Moderate (15-20 N per sample)',
       notes: [
         'Fine diamond polishing stage',
         'Monitor for relief around inclusions'
@@ -54,65 +54,65 @@ const polishingData: Record<MaterialType, Record<GritSize, PolishingData>> = {
     },
     '0.5': {
       timeRange: { min: 2, max: 3 },
-      clothType: 'ATLANTIS or MICROPAD',
-      pressure: 'Light to moderate (3-6 lbs)',
+      clothType: 'Soft napped pad',
+      pressure: 'Light to moderate (15-20 N per sample)',
       notes: [
         'Pre-final polishing stage',
         'Shorter time to avoid over-polishing'
       ]
     },
     '0.25': {
-      timeRange: { min: 1, max: 2 },
-      clothType: 'MICROPAD or TRICOTE',
-      pressure: 'Light (2-4 lbs)',
+      timeRange: { min: 2, max: 3 },
+      clothType: 'Soft napped pad',
+      pressure: 'Light (10-15 N per sample)',
       notes: [
         'Fine polishing before final oxide step',
         'Monitor carefully for surface quality'
       ]
     },
     '0.05': {
-      timeRange: { min: 1, max: 2 },
-      clothType: 'MICROPAD or MOLTEC 2',
-      pressure: 'Very light (1-3 lbs)',
+      timeRange: { min: 3, max: 5 },
+      clothType: 'Chemotextile or porous polyurethane pad',
+      pressure: 'Light (10-15 N per sample)',
       notes: [
-        'Final polishing with colloidal silica or alumina',
-        'Short time to achieve mirror finish without relief'
+        'Final polishing with colloidal silica or alumina; ceramics need the longer end of the range',
+        'Flush with water for the last 30-60 seconds while polishing to prevent silica staining'
       ]
     }
   },
   soft: {
     '9': {
-      timeRange: { min: 2, max: 4 },
-      clothType: 'TEXPAN or Black CHEM 2',
-      pressure: 'Light to moderate (3-6 lbs)',
+      timeRange: { min: 3, max: 5 },
+      clothType: 'Hard woven pad (silk or woven nylon)',
+      pressure: 'Light to moderate (15-20 N per sample)',
       notes: [
-        'Soft materials require shorter times to avoid over-polishing',
-        'Use monocrystalline diamond for gentler cutting',
-        'Monitor carefully for smearing'
+        'Soft metals still need full scratch removal - do not cut this step short',
+        'Use lighter force than for hard materials to limit deformation',
+        'Monitor carefully for smearing and embedded abrasive'
       ]
     },
     '6': {
-      timeRange: { min: 2, max: 3 },
-      clothType: 'DACRON II or NYPAD',
-      pressure: 'Light to moderate (3-6 lbs)',
+      timeRange: { min: 3, max: 4 },
+      clothType: 'Hard woven or low-nap pad',
+      pressure: 'Light to moderate (15-18 N per sample)',
       notes: [
-        'Shorter times prevent deformation',
+        'Light force prevents deformation',
         'Check frequently for scratch removal'
       ]
     },
     '3': {
-      timeRange: { min: 2, max: 3 },
-      clothType: 'DACRON II or Black CHEM 2',
-      pressure: 'Light (3-5 lbs)',
+      timeRange: { min: 3, max: 4 },
+      clothType: 'Medium napped pad (synthetic suede)',
+      pressure: 'Light (12-18 N per sample)',
       notes: [
         'Gentle polishing to avoid deformation',
         'May need multiple short sessions'
       ]
     },
     '1': {
-      timeRange: { min: 1, max: 2 },
-      clothType: 'GOLD PAD or ATLANTIS',
-      pressure: 'Light (2-4 lbs)',
+      timeRange: { min: 2, max: 3 },
+      clothType: 'Soft napped pad (chemotextile)',
+      pressure: 'Light (10-15 N per sample)',
       notes: [
         'Very gentle polishing required',
         'Monitor for smearing or deformation'
@@ -120,37 +120,37 @@ const polishingData: Record<MaterialType, Record<GritSize, PolishingData>> = {
     },
     '0.5': {
       timeRange: { min: 1, max: 2 },
-      clothType: 'MICROPAD or NAPPAD',
-      pressure: 'Very light (2-3 lbs)',
+      clothType: 'Soft napped pad',
+      pressure: 'Very light (10-12 N per sample)',
       notes: [
         'Minimal time to avoid over-polishing',
         'Check surface quality frequently'
       ]
     },
     '0.25': {
-      timeRange: { min: 1, max: 1.5 },
-      clothType: 'NAPPAD or MICROPAD',
-      pressure: 'Very light (1-3 lbs)',
+      timeRange: { min: 1, max: 2 },
+      clothType: 'Soft napped pad',
+      pressure: 'Very light (8-12 N per sample)',
       notes: [
         'Brief polishing before final step',
         'Avoid excessive material removal'
       ]
     },
     '0.05': {
-      timeRange: { min: 0.5, max: 1 },
-      clothType: 'NAPPAD or MOLTEC 2',
-      pressure: 'Very light (1-2 lbs)',
+      timeRange: { min: 2, max: 3 },
+      clothType: 'Chemotextile or porous polyurethane pad',
+      pressure: 'Very light (8-10 N per sample)',
       notes: [
-        'Short final polish to achieve finish',
-        'Over-polishing can introduce artifacts'
+        'Chemo-mechanical final polish (colloidal silica) removes the smeared layer on soft metals',
+        'Flush with water for the last 30-60 seconds; consider vibratory polishing for very soft metals (Pb, Sn)'
       ]
     }
   },
   'work-hardening': {
     '9': {
-      timeRange: { min: 3, max: 5 },
-      clothType: 'TEXPAN or POLYPAD',
-      pressure: 'Moderate (4-7 lbs)',
+      timeRange: { min: 4, max: 5 },
+      clothType: 'Hard woven pad (silk or woven nylon)',
+      pressure: 'Moderate (20-25 N per sample)',
       notes: [
         'Consistent, moderate pressure is key',
         'Avoid excessive time to prevent work-hardening',
@@ -159,8 +159,8 @@ const polishingData: Record<MaterialType, Record<GritSize, PolishingData>> = {
     },
     '6': {
       timeRange: { min: 3, max: 4 },
-      clothType: 'TEXPAN or Black CHEM 2',
-      pressure: 'Moderate (4-7 lbs)',
+      clothType: 'Hard woven or low-nap pad',
+      pressure: 'Moderate (20-25 N per sample)',
       notes: [
         'Maintain consistent technique',
         'Don\'t over-polish at any stage'
@@ -168,17 +168,17 @@ const polishingData: Record<MaterialType, Record<GritSize, PolishingData>> = {
     },
     '3': {
       timeRange: { min: 3, max: 5 },
-      clothType: 'Black CHEM 2 or GOLD PAD',
-      pressure: 'Moderate (4-7 lbs)',
+      clothType: 'Medium napped pad (synthetic suede)',
+      pressure: 'Moderate (20-25 N per sample)',
       notes: [
-        'Critical intermediate step',
+        'Critical intermediate step; superalloys need the longer end of the range',
         'Ensure complete scratch removal'
       ]
     },
     '1': {
-      timeRange: { min: 2, max: 3 },
-      clothType: 'GOLD PAD or ATLANTIS',
-      pressure: 'Moderate (3-6 lbs)',
+      timeRange: { min: 3, max: 4 },
+      clothType: 'Soft napped pad (chemotextile)',
+      pressure: 'Moderate (15-20 N per sample)',
       notes: [
         'Fine polishing stage',
         'Monitor for deformation'
@@ -186,8 +186,8 @@ const polishingData: Record<MaterialType, Record<GritSize, PolishingData>> = {
     },
     '0.5': {
       timeRange: { min: 1, max: 2 },
-      clothType: 'ATLANTIS or MICROPAD',
-      pressure: 'Light to moderate (3-5 lbs)',
+      clothType: 'Soft napped pad',
+      pressure: 'Light to moderate (15-20 N per sample)',
       notes: [
         'Pre-final stage',
         'Consider vibratory polishing for final step'
@@ -195,19 +195,19 @@ const polishingData: Record<MaterialType, Record<GritSize, PolishingData>> = {
     },
     '0.25': {
       timeRange: { min: 1, max: 2 },
-      clothType: 'MICROPAD or TRICOTE',
-      pressure: 'Light (2-4 lbs)',
+      clothType: 'Soft napped pad',
+      pressure: 'Light (12-15 N per sample)',
       notes: [
         'Fine polishing before final oxide',
         'Avoid excessive time'
       ]
     },
     '0.05': {
-      timeRange: { min: 1, max: 2 },
-      clothType: 'MICROPAD or MOLTEC 2',
-      pressure: 'Light (2-3 lbs)',
+      timeRange: { min: 2, max: 3 },
+      clothType: 'Chemotextile or porous polyurethane pad',
+      pressure: 'Light (10-15 N per sample)',
       notes: [
-        'Final polish with colloidal silica',
+        'Final polish with colloidal silica; flush with water for the last 30-60 seconds',
         'Consider vibratory polishing for best results'
       ]
     }
@@ -215,36 +215,36 @@ const polishingData: Record<MaterialType, Record<GritSize, PolishingData>> = {
   'multi-phase': {
     '9': {
       timeRange: { min: 3, max: 4 },
-      clothType: 'TEXPAN or Black CHEM 2',
-      pressure: 'Moderate (4-7 lbs)',
+      clothType: 'Hard woven pad (silk or woven nylon)',
+      pressure: 'Moderate (20-25 N per sample)',
       notes: [
-        'Use softer cloths to minimize relief',
+        'Use harder, low-nap cloths to minimize relief between phases',
         'Shorter times prevent over-polishing',
         'Monitor for relief around different phases'
       ]
     },
     '6': {
       timeRange: { min: 2, max: 3 },
-      clothType: 'DACRON II or Black CHEM 2',
-      pressure: 'Moderate (4-6 lbs)',
+      clothType: 'Hard woven or low-nap pad',
+      pressure: 'Moderate (18-22 N per sample)',
       notes: [
         'Balance between scratch removal and relief',
         'Check for phase contrast'
       ]
     },
     '3': {
-      timeRange: { min: 2, max: 4 },
-      clothType: 'Black CHEM 2 or GOLD PAD',
-      pressure: 'Moderate (3-6 lbs)',
+      timeRange: { min: 3, max: 4 },
+      clothType: 'Medium napped pad (synthetic suede)',
+      pressure: 'Moderate (18-22 N per sample)',
       notes: [
         'Important for removing scratches',
         'Watch for relief development'
       ]
     },
     '1': {
-      timeRange: { min: 1, max: 3 },
-      clothType: 'GOLD PAD or ATLANTIS',
-      pressure: 'Light to moderate (3-5 lbs)',
+      timeRange: { min: 2, max: 3 },
+      clothType: 'Soft napped pad (chemotextile)',
+      pressure: 'Light to moderate (15-20 N per sample)',
       notes: [
         'Fine polishing with minimal relief',
         'Monitor phase boundaries carefully'
@@ -252,8 +252,8 @@ const polishingData: Record<MaterialType, Record<GritSize, PolishingData>> = {
     },
     '0.5': {
       timeRange: { min: 1, max: 2 },
-      clothType: 'ATLANTIS or MICROPAD',
-      pressure: 'Light (2-4 lbs)',
+      clothType: 'Soft napped pad',
+      pressure: 'Light (12-15 N per sample)',
       notes: [
         'Gentle polishing to minimize relief',
         'Short time to prevent over-polishing'
@@ -261,8 +261,8 @@ const polishingData: Record<MaterialType, Record<GritSize, PolishingData>> = {
     },
     '0.25': {
       timeRange: { min: 1, max: 1.5 },
-      clothType: 'MICROPAD or TRICOTE',
-      pressure: 'Light (2-3 lbs)',
+      clothType: 'Soft napped pad',
+      pressure: 'Light (10-15 N per sample)',
       notes: [
         'Fine polishing before final step',
         'Minimize relief around phases'
@@ -270,20 +270,20 @@ const polishingData: Record<MaterialType, Record<GritSize, PolishingData>> = {
     },
     '0.05': {
       timeRange: { min: 1, max: 2 },
-      clothType: 'MICROPAD or MOLTEC 2',
-      pressure: 'Very light (1-3 lbs)',
+      clothType: 'Chemotextile or porous polyurethane pad',
+      pressure: 'Light (10-15 N per sample)',
       notes: [
-        'Final polish with minimal relief',
-        'May require specialized techniques for some materials'
+        'Final polish with minimal relief; flush with water for the last 30-60 seconds',
+        'Do not over-polish cast irons - every extra second risks graphite pull-out'
       ]
     }
   }
 }
 
 const materialExamples: Record<MaterialType, string[]> = {
-  hard: ['Hardened Steels', 'Tool Steels', 'Ceramics', 'Titanium Alloys', 'Hardened Cast Iron'],
+  hard: ['Hardened Steels', 'Tool Steels', 'Ceramics', 'Cermets', 'Hardened Cast Iron'],
   soft: ['Aluminum', 'Copper', 'Lead', 'Tin', 'Soft Brass', 'Pure Metals'],
-  'work-hardening': ['Stainless Steel', 'Nickel Alloys', 'Austenitic Steels', 'Work-Hardened Materials'],
+  'work-hardening': ['Stainless Steel', 'Nickel Alloys', 'Titanium Alloys', 'Austenitic Steels'],
   'multi-phase': ['Cast Iron', 'Duplex Stainless Steel', 'Multi-Phase Alloys', 'Materials with Inclusions']
 }
 
@@ -444,7 +444,7 @@ export default function PolishingTimeCalculator() {
                   </div>
 
                   <div>
-                    <div className="text-sm font-semibold text-gray-700 mb-1">Pressure</div>
+                    <div className="text-sm font-semibold text-gray-700 mb-1">Applied Force</div>
                     <div className="text-gray-900">{result.pressure}</div>
                   </div>
 
@@ -462,7 +462,7 @@ export default function PolishingTimeCalculator() {
               <div className="mt-6 bg-primary-600 text-white rounded-lg p-6 text-center">
                 <h3 className="text-lg font-semibold mb-2">Shop Polishing Consumables</h3>
                 <p className="text-primary-100 text-sm mb-4">
-                  Purchase the recommended polishing pads, diamond abrasives, and final polishing suspensions from PACE Technologies.
+                  Purchase the recommended polishing pads, diamond abrasives, and final polishing suspensions from our online shop.
                 </p>
                 <a
                   href="https://shop.metallographic.com/collections/polishing"

@@ -126,9 +126,9 @@ export default function CompositesGuide() {
                 <div className="bg-gray-50 p-4 my-6 rounded">
                   <h4 className="font-semibold mb-2">Composite Material Characteristics</h4>
                   <ul className="text-sm space-y-1">
-                    <li>• <strong><MaterialTooltip materialName="Carbon Fiber Reinforced Polymer (CFRP)">CFRP (Carbon Fiber Reinforced Polymer)</MaterialTooltip>:</strong> Very hard carbon fibers in polymer matrix, requires careful handling to prevent fiber pullout</li>
-                    <li>• <strong><MaterialTooltip materialName="Glass Fiber Reinforced Polymer (GFRP)">GFRP (Glass Fiber Reinforced Polymer)</MaterialTooltip>:</strong> Glass fibers in polymer matrix, sensitive to thermal damage during sectioning</li>
-                    <li>• <strong>MMC (Metal Matrix Composites):</strong> Ceramic or carbon fibers in metal matrix, may allow some etching of matrix phase. Common examples include <MaterialTooltip materialName="Aluminum Matrix Composite (AMC)">aluminum matrix composites</MaterialTooltip> and <MaterialTooltip materialName="Titanium Matrix Composite (TMC)">titanium matrix composites</MaterialTooltip></li>
+                    <li>• <strong><MaterialTooltip materialName="Carbon Fiber Reinforced Polymer (CFRP)">CFRP (Carbon Fiber Reinforced Polymer)</MaterialTooltip>:</strong> Stiff, brittle carbon fibers in polymer matrix — not especially hard, but highly abrasive — requires careful handling to prevent fiber fracture and pullout</li>
+                    <li>• <strong><MaterialTooltip materialName="Glass Fiber Reinforced Polymer (GFRP)">GFRP (Glass Fiber Reinforced Polymer)</MaterialTooltip>:</strong> Glass fibers in polymer matrix; the polymer matrix (not the glass) is sensitive to thermal damage during sectioning</li>
+                    <li>• <strong>MMC (Metal Matrix Composites):</strong> Hard ceramic reinforcement — most often SiC, Al₂O₃, or B₄C particles or whiskers, sometimes ceramic or carbon fibers — in a metal matrix (Al, Mg, Cu, Ti); the matrix phase can be etched with conventional reagents. Common examples include <MaterialTooltip materialName="Aluminum Matrix Composite (AMC)">aluminum matrix composites</MaterialTooltip> and <MaterialTooltip materialName="Titanium Matrix Composite (TMC)">titanium matrix composites</MaterialTooltip></li>
                     <li>• <strong><MaterialTooltip materialName="Ceramic Matrix Composite (CMC)">CMC (Ceramic Matrix Composites)</MaterialTooltip>:</strong> Fibers in ceramic matrix, very hard, requires diamond abrasives throughout</li>
                   </ul>
                 </div>
@@ -146,10 +146,10 @@ export default function CompositesGuide() {
                 </p>
                 <h3>Cutting Parameters</h3>
                 <ul>
-                  <li><strong>Cutting Speed:</strong> Slow speeds (100-200 RPM) to minimize heat and mechanical damage. For polymer matrix composites, use 100-150 RPM; for metal matrix composites, 150-200 RPM may be acceptable</li>
-                  <li><strong>Blade Selection:</strong> a thin (0.5-1.0 mm) abrasive cut-off wheel rated for fiber-reinforced composites for most polymer-matrix work, or a diamond blade for very hard ceramic reinforcements</li>
+                  <li><strong>Cutting Speed:</strong> On a precision wafering saw (preferred for polymer-matrix composites): 1,500-3,000 RPM with a light applied load (100-500 g). On a conventional abrasive cutoff machine: standard surface speeds (2,500-4,500 SFM) with a low, steady feed - excess feed causes delamination far more often than excess speed</li>
+                  <li><strong>Blade Selection:</strong> a thin precision diamond wafering blade (resin-bond or low-concentration metal-bond, 0.3-0.5 mm) is generally preferred for polymer-matrix work; a thin (0.5-1.0 mm) abrasive cut-off wheel rated for fiber-reinforced composites is acceptable when a precision saw is unavailable. Use diamond blades for very hard ceramic reinforcements</li>
                   <li><strong>Cooling:</strong> Continuous cooling with water or cutting fluid is essential. Use adequate flow rate to prevent thermal damage to polymer matrices</li>
-                  <li><strong>Feed Rate:</strong> Slow, steady feed (0.5-1.0 mm/min) to avoid excessive pressure and delamination</li>
+                  <li><strong>Feed Rate:</strong> Slow, steady feed (0.5-1.0 mm/min on a precision saw) to avoid excessive pressure and delamination</li>
                   <li><strong>Cutting Direction:</strong> Consider fiber orientation - cut perpendicular to fiber direction when possible to minimize pullout</li>
                 </ul>
                 <AnimateOnScroll animation="fadeInUp" delay={100}>
@@ -178,33 +178,33 @@ export default function CompositesGuide() {
                   <h4 className="font-semibold mb-2">By Composite Type</h4>
                   <ul className="text-sm space-y-2">
                     <li>
-                      <strong><MaterialTooltip materialName="Carbon Fiber Reinforced Polymer (CFRP)">CFRP (Carbon Fiber Reinforced Polymer)</MaterialTooltip>:</strong> Use a thin abrasive blade rated for fiber composites at 100-120 RPM.
-                      Carbon fibers are very hard and can cause blade wear. Monitor blade condition and replace 
+                      <strong><MaterialTooltip materialName="Carbon Fiber Reinforced Polymer (CFRP)">CFRP (Carbon Fiber Reinforced Polymer)</MaterialTooltip>:</strong> A precision diamond wafering blade is preferred; a thin abrasive blade rated for fiber composites at low feed is acceptable.
+                      Carbon fibers are stiff and abrasive and wear a blade&apos;s bond matrix over time. Monitor blade condition and re-dress or replace
                       when cutting efficiency decreases. Use continuous water cooling.
                     </li>
                     <li>
-                      <strong><MaterialTooltip materialName="Glass Fiber Reinforced Polymer (GFRP)">GFRP (Glass Fiber Reinforced Polymer)</MaterialTooltip>:</strong> Use a thin abrasive blade rated for fiber composites at 100-150 RPM.
-                      Glass fibers are brittle and can shatter if cut too aggressively. Very sensitive to heat - 
-                      ensure adequate cooling throughout the cut.
+                      <strong><MaterialTooltip materialName="Glass Fiber Reinforced Polymer (GFRP)">GFRP (Glass Fiber Reinforced Polymer)</MaterialTooltip>:</strong> Same blade options as CFRP.
+                      Glass fibers are brittle and can shatter if cut too aggressively. The polymer matrix is the
+                      heat-sensitive constituent - keep coolant flow high and feed low throughout the cut.
                     </li>
                     <li>
                       <strong>MMC (Metal Matrix Composites):</strong> Use a fiber-composite-rated abrasive blade or a diamond blade depending on
-                      reinforcement hardness. <MaterialTooltip materialName="Aluminum Matrix Composite (AMC)">Aluminum matrix composites</MaterialTooltip>: 150-180 RPM. Steel matrix: 120-150 RPM. 
-                      Diamond blades recommended for SiC or B4C reinforcements.
+                      reinforcement hardness. Abrasive wheels are fine for soft particulate or short-fiber reinforcements in <MaterialTooltip materialName="Aluminum Matrix Composite (AMC)">aluminum matrix composites</MaterialTooltip> and steel-matrix systems;
+                      diamond blades are recommended for SiC, B4C, or Al₂O₃ reinforcements.
                     </li>
                     <li>
-                      <strong><MaterialTooltip materialName="Ceramic Matrix Composite (CMC)">CMC (Ceramic Matrix Composites)</MaterialTooltip>:</strong> Use diamond blades exclusively. Cutting 
-                      speed 100-150 RPM. These materials are very hard and abrasive - diamond blades are essential 
+                      <strong><MaterialTooltip materialName="Ceramic Matrix Composite (CMC)">CMC (Ceramic Matrix Composites)</MaterialTooltip>:</strong> Use diamond blades exclusively, with slow feed
+                      and rigid clamping. These materials are very hard and abrasive - diamond blades are essential
                       for clean cuts.
                     </li>
                   </ul>
                 </div>
                 <h3>Best Practices</h3>
                 <ul>
-                  <li>Use thin blades (0.5-1.0 mm) to minimize kerf loss and reduce heat generation</li>
+                  <li>Use thin blades (0.3-1.0 mm) to minimize kerf loss and reduce heat generation</li>
                   <li>Maintain constant cooling throughout the cut to prevent matrix damage - flow rate should be sufficient to keep the cut area flooded</li>
                   <li>Avoid excessive pressure - let the blade do the work. Excessive force can cause delamination or fiber damage</li>
-                  <li>For polymer matrix composites, use lower cutting speeds (100-150 RPM) to prevent melting or thermal degradation</li>
+                  <li>For polymer matrix composites, keep the feed rate low and the coolant flow high to prevent melting or thermal degradation</li>
                   <li>For metal matrix composites with very hard reinforcements (SiC, B4C), consider using diamond blades</li>
                   <li>Support the sample properly to prevent flexing and delamination - use appropriate fixtures or clamps</li>
                   <li>Consider the fiber orientation when planning the cut direction - cutting perpendicular to fiber direction minimizes pullout</li>
@@ -242,15 +242,17 @@ export default function CompositesGuide() {
                 </ul>
                 <h3>Compression Mounting</h3>
                 <p>
-                  For metal matrix composites and some ceramic matrix composites, compression mounting with epoxy 
-                  resins is preferred due to lower curing temperatures compared to phenolic. Epoxy resins cure at 
-                  150-180°C, which is generally safe for metal matrices but may still damage some polymer matrices. 
-                  Phenolic resins should be avoided for polymer matrix composites due to higher curing temperatures.
+                  For metal matrix composites and some ceramic matrix composites, compression mounting with epoxy
+                  resins is preferred over phenolic — not for thermal reasons (both resin families cure in the same
+                  150-180°C range) but because epoxy has lower shrinkage, better adhesion to the sample, and better
+                  edge retention, all of which matter when the matrix-fiber interface near the mount boundary is the
+                  analysis target. Compression mounting at these temperatures is not appropriate for polymer matrix
+                  composites — use cold mounting instead.
                 </p>
                 <ol>
                   <li>Clean the sample thoroughly to remove cutting fluid and debris</li>
-                  <li>Place sample in mounting press with epoxy resin (e.g., EpoMet or equivalent)</li>
-                  <li>Apply moderate pressure: 2000-3000 psi for epoxy (lower than typical metal mounting)</li>
+                  <li>Place sample in mounting press with a compression-grade epoxy resin</li>
+                  <li>Apply standard pressure (typically around 4,200 psi; roughly 2,900 psi is sometimes used for delicate composites)</li>
                   <li>Heat to 150-180°C and hold for 5-8 minutes</li>
                   <li>Cool slowly to room temperature under pressure to minimize thermal stress</li>
                 </ol>
@@ -283,10 +285,10 @@ export default function CompositesGuide() {
                 </AnimateOnScroll>
                 <ol>
                   <li>Clean and dry the sample thoroughly - ensure no cutting fluid remains</li>
-                  <li>Place in mounting cup with two-part epoxy resin (e.g., EpoMet F or equivalent)</li>
+                  <li>Place in mounting cup with a two-part castable epoxy resin</li>
                   <li>Mix resin and hardener according to manufacturer instructions</li>
                   <li>Pour into mounting cup, ensuring sample is properly positioned</li>
-                  <li>Allow to cure at room temperature (typically 4-8 hours, or overnight for best results)</li>
+                  <li>Allow to cure at room temperature (typically 6-12 hours, or overnight for best results)</li>
                   <li>Cold mounting eliminates risk of thermal damage to polymer matrices and interfaces</li>
                 </ol>
                 <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-6 rounded">
@@ -300,9 +302,10 @@ export default function CompositesGuide() {
                   <p className="text-sm text-amber-900">
                     <strong>Vacuum impregnation is mandatory for CMCs (and any composite with porosity).</strong>
                     For ceramic matrix composites, fiber loss at the matrix-fiber interface is the primary defect
-                    mode, and inadequate impregnation guarantees it. A single vacuum cycle is usually not enough —
-                    use <strong>multi-cycle impregnation</strong> (vacuum, vent, vacuum again) with a low-viscosity
-                    epoxy to fully infiltrate fiber tows. Polymer-matrix and metal-matrix composites with internal
+                    mode, and inadequate impregnation guarantees it. Draw a full vacuum (&gt;25 inHg) with a
+                    low-viscosity epoxy and, where equipment allows, follow with <strong>positive pressure
+                    (1-4 bar)</strong> to drive resin into the pore network. For dense fiber tows,
+                    <strong> multi-cycle impregnation</strong> (vacuum, vent, vacuum again) improves penetration. Polymer-matrix and metal-matrix composites with internal
                     voids or high porosity (e.g., RTM-process CFRP, sintered MMC) also benefit from vacuum
                     impregnation, though it's not always strictly required.
                   </p>
@@ -357,8 +360,8 @@ export default function CompositesGuide() {
                 </AnimateOnScroll>
                 <h3>Grinding Sequence</h3>
                 <ol>
-                  <li><strong>120 grit:</strong> Remove sectioning damage (30-60 seconds per step) - use very light pressure</li>
-                  <li><strong>240 grit:</strong> Remove previous scratches (30-60 seconds)</li>
+                  <li><strong>120 grit:</strong> Remove sectioning damage (30-60 seconds per step) - use very light pressure. <em>Skip this step for CFRP/GFRP and start at 240 grit</em> - 120 grit fractures fibers and creates deep subsurface damage that takes many more steps to remove</li>
+                  <li><strong>240 grit:</strong> Remove previous scratches (30-60 seconds); the starting grit for polymer-matrix composites</li>
                   <li><strong>400 grit:</strong> Further refinement (30-60 seconds)</li>
                   <li><strong>600 grit:</strong> Final grinding step (30-60 seconds)</li>
                   <li><strong>800 grit:</strong> Optional for composites requiring finer surfaces (20-40 seconds)</li>
@@ -437,7 +440,7 @@ export default function CompositesGuide() {
                           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 300px"
                         />
                       </Link>
-                      <p className="text-xs text-gray-600 mt-2 italic text-center"><strong>Hard pads</strong> (UltraPad, TexMet, Trident) are the canonical choice for composite polishing through 1 µm. Soft napped cloths conform around fibers and cause the pullout they appear to prevent.</p>
+                      <p className="text-xs text-gray-600 mt-2 italic text-center"><strong>Hard pads</strong> (hard woven and hard non-woven types) are the canonical choice for composite polishing through 1 µm. Soft napped cloths conform around fibers and cause the pullout they appear to prevent.</p>
                     </div>
                   </div>
                 </AnimateOnScroll>
@@ -458,8 +461,8 @@ export default function CompositesGuide() {
                   3 µm and ideally through 1 µm</strong> — soft napped cloths cause more pullout than they prevent.
                 </p>
                 <ol>
-                  <li><strong>9 μm diamond:</strong> 2-4 minutes on a <strong>hard woven pad</strong> (UltraPad, TexMet C, Trident or equivalent). Polycrystalline diamond gives more consistent cutting.</li>
-                  <li><strong>3 μm diamond:</strong> 2-4 minutes on a <strong>hard pad</strong> (TexMet, Black Chem 2 or equivalent). If pullout appears, reduce pressure — do <em>not</em> switch to a softer pad.</li>
+                  <li><strong>9 μm diamond:</strong> 2-4 minutes on a <strong>hard woven or hard non-woven pad</strong>. Polycrystalline diamond gives more consistent cutting.</li>
+                  <li><strong>3 μm diamond:</strong> 2-4 minutes on a <strong>hard non-woven or low-nap pad</strong>. If pullout appears, reduce pressure — do <em>not</em> switch to a softer pad.</li>
                   <li><strong>1 μm diamond:</strong> 2-3 minutes on a <strong>hard or medium-hard pad</strong>. Avoid napped pads at this step.</li>
                   <li><strong>0.25 μm diamond:</strong> Optional — 1-2 minutes on a medium-hard pad. Only if needed for very fine surfaces.</li>
                 </ol>
@@ -469,27 +472,27 @@ export default function CompositesGuide() {
                   phases that is essential for composite microstructural analysis.
                 </p>
                 <ol>
-                  <li><strong>For polymer-matrix composites (CFRP, GFRP):</strong> 0.05 μm colloidal silica, 30-90 s on a <strong>medium-hard pad</strong> (chemotextile or synthetic suede — not napped Microcloth). Minimal pressure (1-2 lbs).</li>
-                  <li><strong>For metal-matrix composites (Al, Mg, Cu, Ti matrix):</strong> 0.04-0.05 μm colloidal silica + 2% H₂O₂ on a chemotextile pad, 3 min + flush. The H₂O₂ provides the chemo-mechanical attack that lifts the smeared metal-matrix layer plain silica leaves behind — without it, the matrix surface looks polished but won't take Keller's / Kroll's / Nital cleanly.</li>
+                  <li><strong>For polymer-matrix composites (CFRP, GFRP):</strong> 0.05 μm colloidal silica, 30-90 s on a <strong>medium-hard pad</strong> (chemotextile or synthetic suede — not a soft napped cloth). Minimal pressure (1-2 lbs).</li>
+                  <li><strong>For metal-matrix composites (Al, Mg, Cu, Ti matrix):</strong> 0.04-0.05 μm colloidal silica with an H₂O₂ addition on a chemotextile pad, 3 min + flush (typical: 5-10% H₂O₂ for Cu matrix; 30% H₂O₂ added at roughly 1:5 to the silica for Ti matrix). The H₂O₂ provides the chemo-mechanical attack that lifts the smeared metal-matrix layer plain silica leaves behind — without it, the matrix surface looks polished but won't take Keller's / Kroll's / Nital cleanly.</li>
                   <li>Vibratory polishing with colloidal silica (1-4 hours, very low load) is an excellent alternative final step for any composite where mechanical pullout has been a recurring problem.</li>
                   <li>Rinse with water, then ethanol, and air-dry — avoid wiping which can lever fibers out.</li>
                   <li>Final polish often provides sufficient contrast without etching. The differential polishing rates of matrix and fiber create natural relief that reads cleanly under brightfield and especially DIC.</li>
                 </ol>
                 <h3>Polishing Parameters</h3>
                 <ul>
-                  <li><strong>Pressure:</strong> Light pressure (1-3 lbs per sample) — critical to prevent fiber pullout. Use the minimum pressure that maintains contact.</li>
+                  <li><strong>Pressure:</strong> Light pressure (3-5 lbs at 9 μm, tapering to 1-2 lbs by the final step) — critical to prevent fiber pullout. Use the minimum pressure that maintains contact.</li>
                   <li><strong>Speed:</strong> 120-150 RPM for diamond polishing. Lower speeds (100-120 RPM) may be beneficial for very sensitive composites.</li>
-                  <li><strong>Cloth Selection:</strong> <strong>Hard pads through 3 µm and ideally through 1 µm</strong> (UltraPad, TexMet, Trident, hard woven). Medium-hard chemotextile or synthetic suede for final. <em>Avoid napped soft cloths (Microcloth) for any composite step</em> — they conform around fibers and cause the pullout they appear to prevent.</li>
+                  <li><strong>Cloth Selection:</strong> <strong>Hard pads through 3 µm and ideally through 1 µm</strong> (hard woven or hard non-woven). Medium-hard chemotextile or synthetic suede for final. <em>Avoid soft napped cloths for any composite step</em> — they conform around fibers and cause the pullout they appear to prevent.</li>
                   <li><strong>Lubricant:</strong> Polycrystalline diamond suspension in water-based lubricant. High-viscosity suspensions help maintain diamond particles in contact with the surface.</li>
                   <li><strong>Direction:</strong> Consider fiber orientation — polish perpendicular to fiber direction when possible. For random fiber orientations, use gentle circular motions.</li>
                   <li><strong>Time:</strong> Monitor frequently. Shorter times per step are often better than extended polishing which causes relief at the matrix-fiber interface.</li>
                 </ul>
                 <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-6 rounded">
                   <p className="text-sm text-blue-900">
-                    <strong>Critical Consideration:</strong> Fiber pullout is the most common problem in composite 
-                    polishing. Use very light pressure, soft cloths, and monitor the surface frequently. If 
-                    pullout occurs, return to a previous polishing step and use even lighter pressure. The 
-                    matrix-fiber interface must be preserved to reveal the true microstructure.
+                    <strong>Critical Consideration:</strong> Fiber pullout is the most common problem in composite
+                    polishing. Use very light pressure on hard pads, and monitor the surface frequently. If
+                    pullout occurs, return to a previous polishing step and use even lighter pressure — not a
+                    softer cloth. The matrix-fiber interface must be preserved to reveal the true microstructure.
                   </p>
                 </div>
                 <h3>Maintaining Fiber Orientation</h3>
@@ -537,10 +540,13 @@ export default function CompositesGuide() {
                 <p>
                   For most composites, the best contrast is achieved through careful polishing rather than 
                   etching. The different hardnesses of the matrix and fiber phases create natural contrast 
-                  when polished properly. Soft matrices polish faster than hard fibers, creating slight relief 
-                  that enhances visibility under the microscope. This relief is typically on the order of 
-                  0.1-0.5 μm, which is sufficient for good contrast under brightfield illumination and 
-                  excellent contrast under differential interference contrast (DIC) microscopy.
+                  when polished properly. Soft matrices polish faster than hard fibers, creating slight relief
+                  that enhances visibility under the microscope. Keep this relief to the minimum that produces
+                  usable contrast: under differential interference contrast (DIC) microscopy, height differences
+                  below about 0.1 μm already give excellent phase contrast, while much larger relief distorts
+                  fiber geometry and biases quantitative measurements such as fiber volume fraction and void
+                  content. Slightly larger relief aids brightfield viewing, but excessive relief is a defect,
+                  not a contrast technique.
                 </p>
                 <AnimateOnScroll animation="fadeInUp" delay={100}>
                   <div className="my-6 rounded-lg overflow-hidden max-w-2xl mx-auto">
@@ -603,8 +609,8 @@ export default function CompositesGuide() {
                       direction, over-polishing.
                     </p>
                     <p className="text-sm text-gray-700">
-                      <strong>Solutions:</strong> <strong>Switch to harder pads</strong> (UltraPad, TexMet, Trident,
-                      hard woven) — this is counterintuitive but is the canonical fix. Reduce polishing pressure
+                      <strong>Solutions:</strong> <strong>Switch to harder pads</strong> (hard woven or hard
+                      non-woven) — this is counterintuitive but is the canonical fix. Reduce polishing pressure
                       (1-2 lbs per sample). Ensure proper grit progression (don't skip grits). Polish perpendicular
                       to fiber direction when possible. Use polycrystalline diamond for more consistent cutting.
                       Vibratory polishing with colloidal silica (1-4 hours, very low load) is excellent for stubborn
@@ -673,8 +679,8 @@ export default function CompositesGuide() {
                       polish, matrix and fiber have similar hardness, improper polishing technique
                     </p>
                     <p className="text-sm text-gray-700">
-                      <strong>Solutions:</strong> Improve final polishing quality with 0.05 μm colloidal silica on 
-                      very soft cloth, use DIC (differential interference contrast) microscopy to enhance contrast, 
+                      <strong>Solutions:</strong> Improve final polishing quality with 0.05 μm colloidal silica on
+                      a medium-hard chemotextile or synthetic suede pad, use DIC (differential interference contrast) microscopy to enhance contrast,
                       adjust lighting conditions (try oblique illumination), ensure proper surface flatness (no 
                       excessive relief), consider using polarized light for certain fiber types (glass fibers), 
                       verify polishing has created natural contrast between phases, reduce final polish time if 

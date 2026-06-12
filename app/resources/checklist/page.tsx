@@ -106,6 +106,7 @@ export default function ChecklistPage() {
 
     // Pre-Preparation
     addSection('1. Pre-Preparation Planning', [
+      'Document as-received condition, orientation, and identifying marks before any cuts',
       'Identify material type and composition',
       'Determine analysis objectives (microstructure, hardness, etc.)',
       'Select appropriate sectioning method',
@@ -130,6 +131,7 @@ export default function ChecklistPage() {
       'Select mounting material (compression, castable)',
       'Prepare sample surface for mounting',
       'Set mounting parameters (pressure, temperature, time)',
+      'For compression mounts, cool under pressure to prevent shrinkage gaps',
       'Allow mount to cure completely',
       'Inspect mount for voids or defects',
       'Label mount with sample identification',
@@ -138,12 +140,12 @@ export default function ChecklistPage() {
     // Grinding
     addSection('4. Grinding', [
       'Start with coarsest appropriate grit (typically 120-180)',
-      'Use proper grinding direction (perpendicular to previous)',
+      'Rotate sample 90° between grits so new scratches run perpendicular to the previous set',
       'Apply consistent, moderate pressure',
       'Use adequate coolant/lubricant',
       'Grind until previous scratches are removed',
-      'Clean sample thoroughly between grits',
-      'Progress through grit sequence (240, 320, 400, 600, 800, 1200)',
+      'Rinse sample and platen thoroughly between grits',
+      'Progress through grit sequence (240, 320, 400, 600; 800/1200 for fine work)',
       'Inspect surface after each grit',
       'Ensure all previous scratches are removed before proceeding',
       'Final grinding should produce uniform scratch pattern',
@@ -156,8 +158,9 @@ export default function ChecklistPage() {
       'Set polishing parameters (speed, pressure, time)',
       'Apply polishing compound evenly',
       'Polish with consistent technique',
-      'Clean sample between polishing steps',
+      'Rinse sample and platen between polishing steps',
       'Progress through polishing sequence (9um, 3um, 1um, 0.05um)',
+      'If finishing with colloidal silica, flush with water for the last 30-60 seconds while polishing',
       'Inspect surface quality after each step',
       'Final polish should produce mirror-like surface',
       'Verify no scratches or contamination remain',
@@ -175,13 +178,14 @@ export default function ChecklistPage() {
 
     // Etching (if required)
     addSection('7. Etching (if required)', [
+      'Examine sample unetched first for graphite, inclusions, cracks, and porosity',
       'Select appropriate etchant for material',
-      'Prepare etchant solution (if needed)',
+      'Prepare etchant solution (always add acid to water, never water to acid)',
       'Test etchant on scrap sample first',
       'Apply etchant using proper technique (swab, immersion, electrolytic)',
       'Monitor etching time carefully',
       'Stop etching at appropriate time',
-      'Rinse immediately with appropriate solvent',
+      'Rinse immediately; never let the etched surface dry before rinsing (critical with HF-bearing etchants)',
       'Dry sample completely',
       'Inspect etch quality under microscope',
     ])
@@ -282,6 +286,7 @@ export default function ChecklistPage() {
               <h3 className="text-lg font-bold mb-4">1. Pre-Preparation Planning</h3>
               <ul className="space-y-2">
                 {[
+                  'Document as-received condition, orientation, and identifying marks before any cuts',
                   'Identify material type and composition',
                   'Determine analysis objectives (microstructure, hardness, etc.)',
                   'Select appropriate sectioning method',
@@ -324,6 +329,7 @@ export default function ChecklistPage() {
                   'Select mounting material (compression, castable)',
                   'Prepare sample surface for mounting',
                   'Set mounting parameters (pressure, temperature, time)',
+                  'For compression mounts, cool under pressure to prevent shrinkage gaps',
                   'Allow mount to cure completely',
                   'Inspect mount for voids or defects',
                   'Label mount with sample identification',
@@ -341,12 +347,12 @@ export default function ChecklistPage() {
               <ul className="space-y-2">
                 {[
                   'Start with coarsest appropriate grit (typically 120-180)',
-                  'Use proper grinding direction (perpendicular to previous)',
+                  'Rotate sample 90° between grits so new scratches run perpendicular to the previous set',
                   'Apply consistent, moderate pressure',
                   'Use adequate coolant/lubricant',
                   'Grind until previous scratches are removed',
-                  'Clean sample thoroughly between grits',
-                  'Progress through grit sequence (240, 320, 400, 600, 800, 1200)',
+                  'Rinse sample and platen thoroughly between grits',
+                  'Progress through grit sequence (240, 320, 400, 600; 800/1200 for fine work)',
                   'Inspect surface after each grit',
                   'Ensure all previous scratches are removed before proceeding',
                   'Final grinding should produce uniform scratch pattern',
@@ -368,8 +374,9 @@ export default function ChecklistPage() {
                   'Set polishing parameters (speed, pressure, time)',
                   'Apply polishing compound evenly',
                   'Polish with consistent technique',
-                  'Clean sample between polishing steps',
+                  'Rinse sample and platen between polishing steps',
                   'Progress through polishing sequence (9um, 3um, 1um, 0.05um)',
+                  'If finishing with colloidal silica, flush with water for the last 30-60 seconds while polishing',
                   'Inspect surface quality after each step',
                   'Final polish should produce mirror-like surface',
                   'Verify no scratches or contamination remain',
@@ -405,13 +412,14 @@ export default function ChecklistPage() {
               <h3 className="text-lg font-bold mb-4">7. Etching (if required)</h3>
               <ul className="space-y-2">
                 {[
+                  'Examine sample unetched first for graphite, inclusions, cracks, and porosity',
                   'Select appropriate etchant for material',
-                  'Prepare etchant solution (if needed)',
+                  'Prepare etchant solution (always add acid to water, never water to acid)',
                   'Test etchant on scrap sample first',
                   'Apply etchant using proper technique (swab, immersion, electrolytic)',
                   'Monitor etching time carefully',
                   'Stop etching at appropriate time',
-                  'Rinse immediately with appropriate solvent',
+                  'Rinse immediately; never let the etched surface dry before rinsing (critical with HF-bearing etchants)',
                   'Dry sample completely',
                   'Inspect etch quality under microscope',
                 ].map((item, i) => (

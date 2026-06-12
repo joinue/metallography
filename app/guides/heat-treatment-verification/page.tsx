@@ -257,8 +257,9 @@ export default function HeatTreatmentVerificationGuide() {
               <ul>
                 <li><strong><GlossaryTermTooltip term="Sectioning">Sectioning</GlossaryTermTooltip>:</strong> Cut perpendicular to the case-hardened surface to reveal 
                 the full case depth profile</li>
-                <li><strong><GlossaryTermTooltip term="Mounting">Mounting</GlossaryTermTooltip>:</strong> Use hard mounting materials (phenolic) for excellent edge 
-                retention, critical for accurate surface measurements</li>
+                <li><strong><GlossaryTermTooltip term="Mounting">Mounting</GlossaryTermTooltip>:</strong> Use a hard, low-shrinkage compression-mounting resin —
+                glass-filled epoxy gives the best edge retention, which is critical for accurate surface measurements
+                (plain phenolic wears faster than the steel and rounds the edge)</li>
                 <li><strong><GlossaryTermTooltip term="Grinding">Grinding</GlossaryTermTooltip> and <GlossaryTermTooltip term="Polishing">polishing</GlossaryTermTooltip>:</strong> Follow standard procedures with emphasis on 
                 maintaining flatness and edge retention</li>
                 <li><strong>Edge retention:</strong> Critical for accurate surface hardness measurements 
@@ -288,8 +289,8 @@ export default function HeatTreatmentVerificationGuide() {
                     />
                   </Link>
                   <p className="text-xs text-gray-600 mt-2 italic text-center">
-                    Hard phenolic mounting resins provide excellent edge retention, critical for accurate 
-                    case depth and decarburization measurements.
+                    Hard compression-mounting resins — glass-filled epoxy in particular — provide the edge
+                    retention critical for accurate case depth and decarburization measurements.
                   </p>
                 </div>
                 <div className="rounded-lg overflow-hidden">
@@ -321,18 +322,26 @@ export default function HeatTreatmentVerificationGuide() {
                 The most accurate method for measuring effective case depth:
               </p>
               <ol>
-                <li>Prepare sample with excellent edge retention</li>
-                <li>Make microhardness measurements at increasing depths from the surface</li>
-                <li>Start at or very near the surface (typically 0.05-0.1 mm)</li>
-                <li>Continue measurements at regular intervals (0.05-0.1 mm spacing)</li>
+                <li>Prepare sample with excellent edge retention; polish through 1 μm diamond and finish with
+                colloidal silica — micro-Vickers and Knoop indents require a deformation-free,
+                colloidal-silica-finished surface for legible indent corners</li>
+                <li>Test on the polished, <em>unetched</em> surface (or after only a very light etch) — heavy
+                etching degrades indent legibility</li>
+                <li>Make microhardness measurements at increasing depths from the surface, per ASTM E384</li>
+                <li>Start at or very near the surface (typically 0.05-0.1 mm), but keep each indent at least
+                3× its diameter away from the specimen edge</li>
+                <li>Continue measurements at regular intervals (0.05-0.1 mm spacing), maintaining indent
+                spacing of at least 2.5× the indent diagonal — stagger indents laterally in a zigzag pattern
+                if the depth increments would otherwise place indents too close together</li>
                 <li>Continue until hardness reaches core level</li>
                 <li>Plot hardness vs. depth and determine effective case depth</li>
               </ol>
               <p>
-                <strong>Knoop hardness</strong> is often preferred for case depth measurements because the 
-                elongated indenter allows testing closer to edges and provides better resolution in thin case layers. 
-                This is particularly important when measuring the effective case depth, which requires accurate 
-                hardness measurements starting at or very near the surface.
+                <strong>Knoop hardness</strong> is often preferred for case depth measurements because the
+                elongated indenter allows testing closer to edges and provides better resolution in thin case layers.
+                This is particularly important when measuring the effective case depth, which requires accurate
+                hardness measurements starting at or very near the surface. Orient the long Knoop diagonal
+                parallel to the surface so the indent stays within a narrow depth band.
               </p>
               <div className="my-6 rounded-lg overflow-hidden max-w-2xl mx-auto">
                 <Image
@@ -533,6 +542,12 @@ export default function HeatTreatmentVerificationGuide() {
 
               <h3>Measurement Methods</h3>
               
+              <p>
+                Decarburization depth estimation is standardized in <strong>ASTM E1077</strong> (Standard
+                Test Methods for Estimating the Depth of Decarburization of Steel Specimens), which covers
+                both the microstructural (screening) and microhardness (quantitative) approaches below.
+              </p>
+
               <h4>Microstructural Method</h4>
               <p>
                 Visual measurement of decarburization depth:
@@ -739,8 +754,10 @@ export default function HeatTreatmentVerificationGuide() {
                 perpendicular to case-hardened surface)</li>
                 <li><strong>Location:</strong> Section through areas of interest (case/core transition, 
                 surface for decarburization, etc.)</li>
-                <li><strong>Minimize damage:</strong> Use appropriate cutting speeds and coolant to 
-                prevent overheating or <GlossaryTermTooltip term="Work Hardening">work hardening</GlossaryTermTooltip></li>
+                <li><strong>Minimize damage:</strong> For abrasive cutoff, use a wheel speed of roughly
+                2,500-4,500 surface feet per minute (SFM) with a light feed and copious coolant to
+                prevent overheating or <GlossaryTermTooltip term="Work Hardening">work hardening</GlossaryTermTooltip> —
+                heat from cutting can temper martensite and falsify hardness results</li>
                 <li><strong>Preserve features:</strong> Avoid cutting through critical areas if multiple 
                 sections are needed</li>
               </ul>
@@ -772,8 +789,9 @@ export default function HeatTreatmentVerificationGuide() {
                 Mounting considerations:
               </p>
               <ul>
-                <li><strong>Hard mounting materials:</strong> Use phenolic or other hard resins for 
-                excellent edge retention (critical for case depth and decarburization measurements)</li>
+                <li><strong>Hard mounting materials:</strong> Use a hard, low-shrinkage resin — glass-filled
+                epoxy compression mounts give the best edge retention (critical for case depth and
+                decarburization measurements); plain phenolic is acceptable only for non-critical work</li>
                 <li><strong>Edge retention:</strong> Essential for accurate surface measurements</li>
                 <li><strong>Sample orientation:</strong> Mount so surface of interest is perpendicular 
                 to mount base</li>
@@ -798,8 +816,8 @@ export default function HeatTreatmentVerificationGuide() {
                   />
                 </Link>
                 <p className="text-sm text-gray-600 mt-2 italic text-center">
-                  Mounting materials and equipment. Hard phenolic resins provide excellent edge retention 
-                  essential for case depth measurements and decarburization detection.
+                  Mounting materials and equipment. Hard, low-shrinkage resins such as glass-filled epoxy
+                  provide the edge retention essential for case depth measurements and decarburization detection.
                 </p>
               </div>
 
@@ -809,6 +827,7 @@ export default function HeatTreatmentVerificationGuide() {
               </p>
               <ul>
                 <li><strong>Progressive sequence:</strong> 120, 240, 400, 600 grit</li>
+                <li><strong>Platen speed:</strong> 200-300 RPM with copious water flush</li>
                 <li><strong>Rotate 90°:</strong> Between each grit to ensure complete scratch removal</li>
                 <li><strong>Edge preservation:</strong> Use lighter pressure near edges to maintain 
                 edge retention</li>
@@ -822,6 +841,9 @@ export default function HeatTreatmentVerificationGuide() {
               </p>
               <ul>
                 <li><strong>Standard sequence:</strong> 9 μm, 3 μm, 1 μm diamond, then 0.05 μm colloidal silica</li>
+                <li><strong>Platen speed:</strong> 100-150 RPM for polishing steps</li>
+                <li><strong>Finish requirement:</strong> 1 μm diamond is the minimum finish for macro-Vickers
+                testing; micro-Vickers and Knoop case-depth profiles require a colloidal silica final polish</li>
                 <li><strong>Flatness:</strong> Critical for accurate measurements and microhardness testing</li>
                 <li><strong>Edge retention:</strong> Use lighter pressure and shorter times near edges</li>
                 <li><strong>Scratch-free:</strong> Essential for microhardness testing and accurate 
@@ -924,19 +946,25 @@ export default function HeatTreatmentVerificationGuide() {
                     </tr>
                     <tr>
                       <td className="border border-gray-300 px-4 py-3 font-medium">Vilella's</td>
-                      <td className="border border-gray-300 px-4 py-3">1g picric acid, 5ml HCl, 100ml ethanol</td>
-                      <td className="border border-gray-300 px-4 py-3">Martensite, bainite</td>
-                      <td className="border border-gray-300 px-4 py-3">Martensite laths, bainite</td>
+                      <td className="border border-gray-300 px-4 py-3">1g picric acid, 5ml HCl, 95ml ethanol</td>
+                      <td className="border border-gray-300 px-4 py-3">Martensite, bainite, martensitic stainless and tool steels</td>
+                      <td className="border border-gray-300 px-4 py-3">Martensite laths, bainite, prior-austenite grain boundaries</td>
                     </tr>
                     <tr className="bg-gray-50">
+                      <td className="border border-gray-300 px-4 py-3 font-medium">Beraha's I</td>
+                      <td className="border border-gray-300 px-4 py-3">10ml HCl, 90ml H₂O, 1g K₂S₂O₅</td>
+                      <td className="border border-gray-300 px-4 py-3">Color (tint) etching of heat-treated steels</td>
+                      <td className="border border-gray-300 px-4 py-3">Ferrite, pearlite, bainite, and martensite in distinct colors</td>
+                    </tr>
+                    <tr>
                       <td className="border border-gray-300 px-4 py-3 font-medium">Sodium Metabisulfite</td>
                       <td className="border border-gray-300 px-4 py-3">10% Na₂S₂O₅ in water</td>
                       <td className="border border-gray-300 px-4 py-3">Retained austenite</td>
                       <td className="border border-gray-300 px-4 py-3">Retained austenite (white)</td>
                     </tr>
-                    <tr>
+                    <tr className="bg-gray-50">
                       <td className="border border-gray-300 px-4 py-3 font-medium">Klemm's I</td>
-                      <td className="border border-gray-300 px-4 py-3">50ml sat. Na₂S₂O₅, 1g K₂S₂O₅</td>
+                      <td className="border border-gray-300 px-4 py-3">50ml sat. Na₂S₂O₃ (sodium thiosulfate) stock, 1g K₂S₂O₅</td>
                       <td className="border border-gray-300 px-4 py-3">Retained austenite</td>
                       <td className="border border-gray-300 px-4 py-3">Retained austenite (colored)</td>
                     </tr>
@@ -963,8 +991,9 @@ export default function HeatTreatmentVerificationGuide() {
                 the transition</li>
                 <li><strong>Decarburization:</strong> Light etching often works best to reveal the 
                 decarburized layer</li>
-                <li><strong>Nitrided surfaces:</strong> Compound layer may not etch or may require 
-                special techniques</li>
+                <li><strong>Nitrided surfaces:</strong> 2% Nital reveals the compound layer (which appears
+                as a white, &quot;glassy&quot; band) and the diffusion zone beneath it; Beraha&apos;s tint etch
+                provides color contrast between the compound-layer phases (γ&apos;-Fe₄N vs. ε-Fe₂₋₃N)</li>
               </ul>
 
               <p>
@@ -1119,7 +1148,7 @@ export default function HeatTreatmentVerificationGuide() {
                       </td>
                       <td className="border border-gray-300 px-4 py-3">
                         <ul className="list-disc list-inside space-y-1 text-sm">
-                          <li>Use hard mounting material (phenolic)</li>
+                          <li>Use hard mounting material (glass-filled epoxy)</li>
                           <li>Reduce polishing pressure, especially near edges</li>
                           <li>Reduce polishing time</li>
                         </ul>

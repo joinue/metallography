@@ -11,7 +11,7 @@ import {
 
 const SCALES: { value: HardnessScale; label: string; description: string }[] = [
   { value: 'HRC', label: 'HRC', description: 'Rockwell C — diamond cone, 150 kgf' },
-  { value: 'HRB', label: 'HRB', description: 'Rockwell B — 1/16" ball, 100 kgf' },
+  { value: 'HRB', label: 'HRB', description: 'Rockwell B — 1.6 mm (1/16") WC ball, 100 kgf' },
   { value: 'HRA', label: 'HRA', description: 'Rockwell A — diamond cone, 60 kgf' },
   { value: 'HV',  label: 'HV',  description: 'Vickers — diamond pyramid' },
   { value: 'HK',  label: 'HK',  description: 'Knoop — elongated diamond' },
@@ -49,7 +49,8 @@ export default function HardnessConverterPage() {
             </h1>
             <p className="text-gray-600 text-base md:text-lg">
               Convert between Rockwell (HRC, HRB, HRA), Vickers (HV), Knoop (HK), and
-              Brinell (HB) for non-austenitic steels. Conversions follow ASTM E140-12b.
+              Brinell (HB). Conversions are approximations per ASTM E140 and are valid
+              mainly for non-austenitic carbon and alloy steels.
             </p>
           </div>
 
@@ -186,10 +187,10 @@ export default function HardnessConverterPage() {
               </h3>
               <ul className="text-sm text-gray-700 space-y-2">
                 <li><strong>HRB</strong> — soft to medium materials (annealed steels, brass, aluminum bronze).</li>
-                <li><strong>HRC</strong> — hardened steels, carburized cases, tool steels in the 20–65 HRC range.</li>
+                <li><strong>HRC</strong> — hardened steels, carburized cases, tool steels; the scale is valid from 20 to 70 HRC.</li>
                 <li><strong>HV</strong> — universal scale; works on the same sample from soft matrix through hard precipitates.</li>
                 <li><strong>HK</strong> — Knoop's elongated indent fits next to edges and into thin layers (case depth, coatings).</li>
-                <li><strong>HB</strong> — bulk hardness on castings and forgings; loses accuracy above ~55 HRC.</li>
+                <li><strong>HB</strong> — bulk hardness on castings and forgings; loses accuracy above ~650 HBW (about 60 HRC).</li>
               </ul>
             </div>
 
@@ -202,7 +203,7 @@ export default function HardnessConverterPage() {
                 <li>ASTM E140 conversions apply to <strong>non-austenitic carbon and alloy steels</strong>. Stainless, copper, aluminum, and titanium have different curves.</li>
                 <li>Conversions are <strong>not exact</strong> — published agreement is typically ±1 HRC at best.</li>
                 <li>For acceptance testing or specifications, use the scale called out in the spec; do not substitute a converted value.</li>
-                <li>HB readings above ~654 (≈ 55 HRC) are unreliable; the carbide ball begins to deform.</li>
+                <li>HB readings above ~650 (≈ 60 HRC) are unreliable; the carbide ball begins to deform.</li>
               </ul>
             </div>
           </div>

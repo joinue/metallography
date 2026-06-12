@@ -99,11 +99,21 @@ export default function AdditiveManufacturingGuide() {
               </p>
               <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-6 rounded">
                 <p className="text-blue-800">
-                  <strong>Key Consideration:</strong> Unlike conventional materials, AM samples require careful 
-                  orientation planning to reveal both the build direction (Z-axis) and layer interfaces (XY plane). 
+                  <strong>Key Consideration:</strong> Unlike conventional materials, AM samples require careful
+                  orientation planning to reveal both the build direction (Z-axis) and layer interfaces (XY plane).
                   Multiple samples may be needed to fully characterize the <GlossaryTermTooltip term="Microstructure">microstructure</GlossaryTermTooltip>.
                 </p>
               </div>
+              <p>
+                <strong>The core preparation principle:</strong> AM alloys follow the preparation recipe of their
+                wrought counterpart. <MaterialTooltip materialName="Ti-6Al-4V">Ti-6Al-4V</MaterialTooltip> is prepared like wrought
+                titanium, <MaterialTooltip materialName="Inconel 718">IN718</MaterialTooltip> like a wrought nickel superalloy, AlSi10Mg like a cast
+                aluminum-silicon alloy, and <MaterialTooltip materialName="Stainless Steel 316">316L</MaterialTooltip> like wrought austenitic
+                stainless steel. What changes for AM is the attention paid to three things: <strong>porosity</strong> (vacuum
+                impregnation of open pores before grinding), <strong>anisotropy</strong> (sectioning and documenting relative
+                to the build direction), and <strong>etching for melt-pool boundaries</strong> in addition to the conventional
+                microstructural features.
+              </p>
               <div className="my-6 rounded-lg overflow-hidden max-w-2xl mx-auto">
                 <Image
                   src="/images/microstructures/Titanium+ZrB2, 400X (DIC).JPG"
@@ -127,9 +137,9 @@ export default function AdditiveManufacturingGuide() {
                 These pores can be:
               </p>
               <ul>
-                <li><strong>Lack-of-fusion pores:</strong> Irregularly shaped, often at <GlossaryTermTooltip term="Grain Boundary">grain boundaries</GlossaryTermTooltip> and layer boundaries</li>
-                <li><strong>Gas pores:</strong> Spherical, typically from trapped gas in powder</li>
-                <li><strong>Keyhole pores:</strong> Elongated, from excessive energy input</li>
+                <li><strong>Lack-of-fusion pores:</strong> Irregularly shaped, located between melt tracks and at layer boundaries where adjacent scans failed to overlap fully; they often contain unmelted powder particles</li>
+                <li><strong>Gas pores:</strong> Small and spherical, typically from gas trapped in the powder or shielding atmosphere</li>
+                <li><strong>Keyhole pores:</strong> Rounded to near-spherical, usually larger than gas pores and sitting deep in the melt pool, from vapor-cavity (keyhole) collapse under excessive energy input</li>
               </ul>
               <p>
                 During <GlossaryTermTooltip term="Sample Preparation">preparation</GlossaryTermTooltip>, these pores can trap abrasives, polishing compounds, or <GlossaryTermTooltip term="Etchant">etchant</GlossaryTermTooltip>, leading to 
@@ -196,14 +206,14 @@ export default function AdditiveManufacturingGuide() {
 
               <h3>Sectioning Technique</h3>
               <p>
-                Use slow cutting speeds to minimize heat generation and preserve <GlossaryTermTooltip term="Microstructure">microstructural</GlossaryTermTooltip> features:
+                Manage cutting heat through blade selection, flood coolant, and a light feed rate — not by under-speeding the wheel, which glazes the blade — to preserve <GlossaryTermTooltip term="Microstructure">microstructural</GlossaryTermTooltip> features:
               </p>
               <ul>
-                <li>Cutting speed: 100-150 RPM for most AM materials</li>
+                <li>Match the blade class to the alloy being cut: a medium-hard bond Al₂O₃ or CBN blade for nickel superalloys (IN718); a blade rated for hard non-ferrous metals (Ti/Zr) for Ti-6Al-4V; a soft-bond SiC (non-ferrous) blade for AlSi10Mg; a medium-bond Al₂O₃ (general ferrous) blade for 316L, stepping up to a harder-bond Al₂O₃ blade for hardened precipitation-hardening grades like 17-4 PH</li>
+                <li>Run abrasive cutoff at standard surface speeds (2,500-4,500 SFM) with a light, steady feed; for small or delicate samples a precision wafering saw at low load gives a much thinner damage layer</li>
                 <li>Use thin <GlossaryTermTooltip term="Abrasive Cut-Off Wheel">abrasive blades</GlossaryTermTooltip> (0.5-1.0 mm) to minimize kerf loss</li>
-                <li>Apply steady, moderate pressure</li>
                 <li>Use adequate <GlossaryTermTooltip term="Coolant">coolant</GlossaryTermTooltip> to prevent overheating</li>
-                <li>For <GlossaryTermTooltip term="Porosity">porous</GlossaryTermTooltip> materials, consider using a slower feed rate to avoid tearing</li>
+                <li>For <GlossaryTermTooltip term="Porosity">porous</GlossaryTermTooltip> materials, use a slower feed rate to avoid tearing</li>
               </ul>
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
                 <Link 
@@ -213,8 +223,8 @@ export default function AdditiveManufacturingGuide() {
                   className="block hover:opacity-90 transition-opacity"
                 >
                   <Image
-                    src="/images/consumables/maxcut-vhs.png"
-                    alt="Precision cutting abrasive blades for additive manufacturing sample sectioning"
+                    src="/images/consumables/maxcut-a.webp"
+                    alt="Thin universal abrasive cut-off blades for additive manufacturing sample sectioning"
                     width={500}
                     height={375}
                     className="w-full h-auto"
@@ -222,7 +232,7 @@ export default function AdditiveManufacturingGuide() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 500px"
                   />
                 </Link>
-                <p className="text-sm text-gray-600 mt-2 italic text-center">Thin abrasive cut-off blades minimize heat generation and preserve microstructural features in AM materials. Hard-bond Al₂O₃ blades (hardened-steel category) or medium resin-bonded Al₂O₃ blades (general ferrous category) are suitable for most AM alloys.</p>
+                <p className="text-sm text-gray-600 mt-2 italic text-center">Thin abrasive cut-off blades minimize heat generation and preserve microstructural features in AM materials. Choose the blade class for the alloy being cut: medium-hard Al₂O₃ or CBN for nickel superalloys, hard non-ferrous (Ti/Zr) rated blades for Ti-6Al-4V, soft-bond SiC for aluminum alloys, general ferrous Al₂O₃ blades for 316L, and harder-bond Al₂O₃ for hardened grades like 17-4 PH.</p>
               </div>
               <ProductLink 
                 productName="Abrasive Cut-Off Blades"
@@ -234,8 +244,10 @@ export default function AdditiveManufacturingGuide() {
             <section id="mounting" className="scroll-mt-24">
               <h2>Mounting Considerations</h2>
               <p>
-                <GlossaryTermTooltip term="Mounting">Mounting</GlossaryTermTooltip> AM samples requires special attention to preserve <GlossaryTermTooltip term="Porosity">porosity</GlossaryTermTooltip> and layer boundaries. 
-                The mounting material must not infiltrate pores or obscure features.
+                <GlossaryTermTooltip term="Mounting">Mounting</GlossaryTermTooltip> AM samples requires special attention to <GlossaryTermTooltip term="Porosity">porosity</GlossaryTermTooltip>. For samples with
+                open or surface-connected porosity, <GlossaryTermTooltip term="Vacuum Impregnation">vacuum impregnation</GlossaryTermTooltip> with a low-viscosity epoxy is the
+                right call: unfilled pores trap abrasive during grinding and bleed etchant during etching, while
+                resin-filled pores stay planar and read correctly under the microscope.
               </p>
 
               <h3>Compression Mounting</h3>
@@ -243,9 +255,9 @@ export default function AdditiveManufacturingGuide() {
                 <GlossaryTermTooltip term="Compression Mounting">Compression mounting</GlossaryTermTooltip> can work well for AM samples, but consider:
               </p>
               <ul>
-                <li>Use low-viscosity <GlossaryTermTooltip term="Resin">mounting resins</GlossaryTermTooltip> to minimize pore infiltration</li>
-                <li>Apply moderate pressure (2000-3000 psi) to avoid collapsing pores</li>
-                <li><GlossaryTermTooltip term="Epoxy">Epoxy resins</GlossaryTermTooltip> are generally preferred over <GlossaryTermTooltip term="Phenolic">phenolic</GlossaryTermTooltip> for better edge retention</li>
+                <li>Standard compression pressures (2,000-4,200 psi) are typically fine; reduce only if a highly porous sample shows pore collapse</li>
+                <li>Glass-filled <GlossaryTermTooltip term="Epoxy">epoxy resins</GlossaryTermTooltip> give the best edge retention; plain <GlossaryTermTooltip term="Phenolic">phenolic</GlossaryTermTooltip> is acceptable for routine bulk-structure work</li>
+                <li>Compression mounting cannot impregnate open porosity — for porous AM material, prefer castable mounting with vacuum impregnation (below)</li>
                 <li>Ensure complete curing to prevent resin shrinkage <GlossaryTermTooltip term="Artifact">artifacts</GlossaryTermTooltip></li>
               </ul>
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
@@ -275,7 +287,7 @@ export default function AdditiveManufacturingGuide() {
               <ul>
                 <li>Lower pressure reduces risk of pore collapse</li>
                 <li>Better penetration into complex geometries</li>
-                <li>Can use <GlossaryTermTooltip term="Vacuum Impregnation">vacuum impregnation</GlossaryTermTooltip> for highly <GlossaryTermTooltip term="Porosity">porous</GlossaryTermTooltip> materials</li>
+                <li>Use <GlossaryTermTooltip term="Vacuum Impregnation">vacuum impregnation</GlossaryTermTooltip> for <GlossaryTermTooltip term="Porosity">porous</GlossaryTermTooltip> materials: draw vacuum (&gt;25 inHg) with the sample in low-viscosity epoxy, then release — optionally following with 1-4 bar of pressure — to drive resin into the pore network</li>
                 <li>Longer curing time but better preservation of features</li>
               </ul>
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
@@ -365,10 +377,15 @@ export default function AdditiveManufacturingGuide() {
 
               <h3>Diamond Polishing</h3>
               <ol>
-                <li><strong>9 μm diamond:</strong> 3-5 minutes on a hard cloth (e.g., Texmet). Use light pressure</li>
+                <li><strong>9 μm diamond:</strong> 3-5 minutes on a hard woven or non-woven pad. Use light pressure</li>
                 <li><strong>3 μm diamond:</strong> 3-5 minutes on a medium-hard cloth. Continue with light pressure</li>
                 <li><strong>1 μm diamond:</strong> 2-3 minutes on a soft cloth</li>
               </ol>
+              <p>
+                Follow the polishing recipe for the alloy&apos;s wrought counterpart. One AM-specific note:
+                for Ti-6Al-4V, finish with the standard titanium attack polish — colloidal silica with
+                30% H₂O₂ added (about 1 part H₂O₂ to 5 parts silica) — to remove the stubborn deformation layer titanium retains.
+              </p>
 
               <h3>Final Polishing</h3>
               <ol>
@@ -384,8 +401,10 @@ export default function AdditiveManufacturingGuide() {
                 <li><strong>Frequent cleaning:</strong> Clean between <GlossaryTermTooltip term="Polishing">polishing</GlossaryTermTooltip> steps to prevent compound buildup in pores</li>
                 <li><strong>Ultrasonic cleaning:</strong> Consider ultrasonic cleaning after final polish to remove 
                 trapped polishing compound</li>
-                <li><strong>Monitor <GlossaryTermTooltip term="Relief">relief</GlossaryTermTooltip>:</strong> Check for <GlossaryTermTooltip term="Relief">relief</GlossaryTermTooltip> around pores and layer boundaries that may indicate 
+                <li><strong>Monitor <GlossaryTermTooltip term="Relief">relief</GlossaryTermTooltip>:</strong> Check for <GlossaryTermTooltip term="Relief">relief</GlossaryTermTooltip> around pores and layer boundaries that may indicate
                 over-polishing</li>
+                <li><strong>Vibratory polishing:</strong> A vibratory final polish significantly improves AM surface
+                quality over mechanical polishing alone and is generally worth the extra cycle time on AM samples</li>
               </ul>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6 max-w-2xl mx-auto">
                 <div className="rounded-lg overflow-hidden">
@@ -442,8 +461,11 @@ export default function AdditiveManufacturingGuide() {
                 Use standard <GlossaryTermTooltip term="Etchant">etchants</GlossaryTermTooltip> for the base material, but consider:
               </p>
               <ul>
-                <li><strong>Material-specific <GlossaryTermTooltip term="Etchant">etchants</GlossaryTermTooltip>:</strong> Use appropriate <GlossaryTermTooltip term="Etchant">etchants</GlossaryTermTooltip> for the base alloy 
-                (e.g., Vilella's Reagent for <MaterialTooltip materialName="431">stainless steel</MaterialTooltip>, Kroll's Reagent for <MaterialTooltip materialName="Ti-6Al-4V">titanium</MaterialTooltip>)</li>
+                <li><strong>Material-specific <GlossaryTermTooltip term="Etchant">etchants</GlossaryTermTooltip>:</strong> Use the standard <GlossaryTermTooltip term="Etchant">etchant</GlossaryTermTooltip> for the base alloy:
+                electrolytic 10% oxalic acid or Glyceregia for austenitic <MaterialTooltip materialName="Stainless Steel 316">stainless steel (316L)</MaterialTooltip>; Vilella's
+                for martensitic grades and Marble's for precipitation-hardening grades such as <MaterialTooltip materialName="17-4 PH">17-4 PH</MaterialTooltip>; Kroll's Reagent for <MaterialTooltip materialName="Ti-6Al-4V">titanium (Ti-6Al-4V)</MaterialTooltip>;
+                Marble's or Modified Kalling's (Kalling's No. 2) for <MaterialTooltip materialName="Inconel 718">nickel superalloys (IN718)</MaterialTooltip>;
+                Keller's reagent for aluminum alloys (AlSi10Mg) — Keller's also reveals melt-pool boundaries strongly in AM aluminum</li>
                 <li><strong><GlossaryTermTooltip term="Electrolytic Etching">Electrolytic etching</GlossaryTermTooltip>:</strong> May provide better control for revealing layer boundaries 
                 and fine <GlossaryTermTooltip term="Microstructure">microstructural</GlossaryTermTooltip> features</li>
                 <li><strong>Multiple <GlossaryTermTooltip term="Etchant">etchants</GlossaryTermTooltip>:</strong> Different <GlossaryTermTooltip term="Etchant">etchants</GlossaryTermTooltip> may reveal different features, so 
@@ -466,6 +488,9 @@ export default function AdditiveManufacturingGuide() {
                 <li><strong>Pores:</strong> May trap <GlossaryTermTooltip term="Etchant">etchant</GlossaryTermTooltip>, requiring thorough rinsing</li>
                 <li><strong><GlossaryTermTooltip term="Anisotropic">Anisotropic</GlossaryTermTooltip> response:</strong> Different orientations may <GlossaryTermTooltip term="Etch">etch</GlossaryTermTooltip> at different rates</li>
                 <li><strong>Over-etching:</strong> Can obscure fine features, so start with shorter times</li>
+                <li><strong>Heat-treated AM material:</strong> Stress relief, HIP, or solution treatment erases melt-pool
+                boundaries and the fine cellular solidification structure — expect a more homogenized, conventional-looking
+                microstructure after heat treatment</li>
               </ul>
               <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
                 <Link 
@@ -526,6 +551,7 @@ export default function AdditiveManufacturingGuide() {
               </p>
               <ul>
                 <li><strong><GlossaryTermTooltip term="Microstructure">Microstructural</GlossaryTermTooltip> differences:</strong> Different <GlossaryTermTooltip term="Grain Size">grain sizes</GlossaryTermTooltip> or <GlossaryTermTooltip term="Phase">phase</GlossaryTermTooltip> distributions at layer boundaries</li>
+                <li><strong>Melt-pool boundaries:</strong> In powder bed fusion, etching outlines the overlapping melt-pool arcs (the &quot;fish-scale&quot; pattern, especially vivid in AlSi10Mg with Keller&apos;s and visible in 316L and IN718) that map directly to the laser scan strategy</li>
                 <li><strong>Oxide films:</strong> Thin oxide layers that <GlossaryTermTooltip term="Etch">etch</GlossaryTermTooltip> differently</li>
                 <li><strong><GlossaryTermTooltip term="Porosity">Porosity</GlossaryTermTooltip>:</strong> Pores concentrated at layer boundaries</li>
                 <li><strong><GlossaryTermTooltip term="Etching">Etching</GlossaryTermTooltip> contrast:</strong> Different etching response due to <GlossaryTermTooltip term="Microstructure">microstructural</GlossaryTermTooltip> variations</li>
@@ -565,10 +591,11 @@ export default function AdditiveManufacturingGuide() {
               
               <h4>Porosity Defects</h4>
               <ul>
-                <li><strong>Lack-of-fusion pores:</strong> Irregularly shaped, often at layer boundaries, from 
-                insufficient energy input</li>
-                <li><strong>Gas pores:</strong> Spherical, from trapped gas in powder or atmosphere</li>
-                <li><strong>Keyhole pores:</strong> Elongated, from excessive energy input causing keyhole collapse</li>
+                <li><strong>Lack-of-fusion pores:</strong> Irregularly shaped, often at layer boundaries, from
+                insufficient energy input or scan overlap; frequently contain unmelted powder particles</li>
+                <li><strong>Gas pores:</strong> Small and spherical, from trapped gas in powder or atmosphere</li>
+                <li><strong>Keyhole pores:</strong> Rounded, typically larger than gas pores, from excessive energy input
+                causing vapor-cavity (keyhole) collapse deep in the melt pool</li>
               </ul>
 
               <h4>Microstructural Defects</h4>
@@ -613,8 +640,10 @@ export default function AdditiveManufacturingGuide() {
               <h4>Layer Boundaries Not Visible</h4>
               <ul>
                 <li><strong>Problem:</strong> Layer boundaries not revealed after <GlossaryTermTooltip term="Etching">etching</GlossaryTermTooltip></li>
-                <li><strong>Solution:</strong> Try different <GlossaryTermTooltip term="Etchant">etchants</GlossaryTermTooltip>, adjust <GlossaryTermTooltip term="Etching">etching</GlossaryTermTooltip> time, or check <GlossaryTermTooltip term="Sectioning">sectioning</GlossaryTermTooltip> 
-                orientation (may need to <GlossaryTermTooltip term="Section">section</GlossaryTermTooltip> perpendicular to layers)</li>
+                <li><strong>Solution:</strong> Try different <GlossaryTermTooltip term="Etchant">etchants</GlossaryTermTooltip>, adjust <GlossaryTermTooltip term="Etching">etching</GlossaryTermTooltip> time, or check <GlossaryTermTooltip term="Sectioning">sectioning</GlossaryTermTooltip>
+                orientation (may need to <GlossaryTermTooltip term="Section">section</GlossaryTermTooltip> perpendicular to layers). Also confirm the heat-treatment state:
+                HIP or solution treatment erases melt-pool boundaries, and in Ti-6Al-4V they are faint even as-built because the
+                β→α transformation overwrites them — look for columnar prior-β grains instead</li>
               </ul>
 
               <h4>Smearing in Porous Regions</h4>

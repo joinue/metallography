@@ -137,14 +137,16 @@ export default function MedicalDeviceApplicationsPage() {
                 <ul>
                   <li><strong>Contamination control:</strong> Titanium is highly reactive. Use clean, 
                   dedicated equipment and avoid cross-contamination with other materials</li>
-                  <li><strong>Sectioning:</strong> Use slow cutting speeds and appropriate coolants to 
-                  minimize heat generation and prevent surface oxidation</li>
+                  <li><strong>Sectioning:</strong> Prefer a precision saw with a diamond wafering blade;
+                  for abrasive cutoff, use a blade rated for hard non-ferrous metals (the titanium category)
+                  with light feed and copious flood coolant to minimize heat generation and deformation twinning</li>
                   <li><strong>Mounting:</strong> Use compression mounting with appropriate pressure to 
                   avoid deformation. Consider castable mounting for porous or delicate structures</li>
                   <li><strong>Grinding:</strong> Use progressive grinding with SiC papers. Titanium 
                   work-hardens easily, so use light pressure and frequent cleaning</li>
-                  <li><strong>Polishing:</strong> Use diamond polishing compounds (3 μm, 1 μm, 0.25 μm). 
-                  Final polish with colloidal silica or alumina suspension</li>
+                  <li><strong>Polishing:</strong> Use diamond polishing compounds (9 μm, 3 μm, 1 μm).
+                  Final polish with colloidal silica modified with hydrogen peroxide (1:5 H₂O₂:silica)—plain
+                  colloidal silica often leaves a deformation layer on titanium that obscures the α/β structure</li>
                 </ul>
 
                 <h4>Etching for Titanium</h4>
@@ -152,10 +154,10 @@ export default function MedicalDeviceApplicationsPage() {
                   Common etchants for titanium alloys:
                 </p>
                 <ul>
-                  <li><strong>Kroll's reagent:</strong> 2-3 mL HF, 5-6 mL HNO<sub>3</sub>, 100 mL H<sub>2</sub>O. 
-                  Reveals alpha and beta phases in Ti-6Al-4V</li>
-                  <li><strong>Modified Kroll's:</strong> For better contrast, adjust HF concentration</li>
-                  <li><strong>Weck's reagent:</strong> For color contrast, especially useful for distinguishing phases</li>
+                  <li><strong>Kroll's reagent:</strong> 2 mL HF, 6 mL HNO<sub>3</sub>, 92 mL H<sub>2</sub>O.
+                  Swab 5-15 seconds; reveals alpha and beta phases in Ti-6Al-4V</li>
+                  <li><strong>10% oxalic acid, electrolytic:</strong> 5 V for 30-60 seconds, for β-phase imaging
+                  on α-β and β alloys</li>
                   <li><strong>Anodizing:</strong> Use anodizing techniques for grain structure analysis</li>
                 </ul>
                 <p>
@@ -203,10 +205,10 @@ export default function MedicalDeviceApplicationsPage() {
 
                 <h4>Etching for 316L</h4>
                 <ul>
-                  <li><strong>Electrolytic etching:</strong> 10% oxalic acid, 6V DC, 5-10 seconds. Reveals 
-                  grain boundaries and sigma phase</li>
-                  <li><strong>Glyceregia:</strong> 15 mL HCl, 10 mL glycerol, 5 mL HNO<sub>3</sub>. 
-                  General purpose etchant</li>
+                  <li><strong>Electrolytic etching:</strong> 10% oxalic acid, 6V DC, 30-60 seconds. Reveals
+                  grain boundaries and sigma phase (90 seconds for sensitization screening per ASTM A262 Practice A)</li>
+                  <li><strong>Glyceregia:</strong> 10 mL HNO<sub>3</sub>, 20 mL HCl, 30 mL glycerol.
+                  General purpose etchant; mix fresh—activity decays within an hour</li>
                   <li><strong>Aqua regia:</strong> For revealing carbides and sigma phase</li>
                 </ul>
 
@@ -235,7 +237,7 @@ export default function MedicalDeviceApplicationsPage() {
 
                 <h4>Etching for Cobalt-Chromium</h4>
                 <ul>
-                  <li><strong>Murakami's reagent:</strong> 10g K<sub>3</sub>Fe(CN)<sub>6</sub>, 10g KOH, 
+                  <li><strong>Murakami's reagent:</strong> 10g K<sub>3</sub>Fe(CN)<sub>6</sub>, 10g NaOH,
                   100 mL H<sub>2</sub>O. Colors carbides</li>
                   <li><strong>Glyceregia:</strong> For general microstructure</li>
                   <li><strong>Electrolytic etching:</strong> Various electrolytes can be used</li>
@@ -247,6 +249,28 @@ export default function MedicalDeviceApplicationsPage() {
                   <li>Evaluate grain structure</li>
                   <li>Check for proper heat treatment structure</li>
                   <li>Document any undesirable phases</li>
+                </ul>
+
+                <h3>Nickel-Titanium (Nitinol) Shape Memory Alloys</h3>
+                <p>
+                  Ni-Ti shape memory alloys are used in stents, guidewires, and orthodontic wires. Their
+                  superelastic behavior makes them sensitive to preparation-induced deformation, which can
+                  alter the apparent martensite/austenite balance.
+                </p>
+
+                <h4>Preparation Considerations</h4>
+                <ul>
+                  <li>Section with a precision saw at light load; avoid heavy abrasive cutoff on thin wires</li>
+                  <li>Mount in a low-stress epoxy (castable mounting suits delicate wire and stent geometries)</li>
+                  <li>Grind with an alumina ladder rather than SiC—Ni-Ti is prone to SiC particle embedding</li>
+                  <li>Diamond polish 6 μm → 3 μm → 1 μm with light force</li>
+                  <li>Final polish with colloidal silica plus hydrogen peroxide to remove the deformation layer</li>
+                </ul>
+
+                <h4>Etching for Ni-Ti</h4>
+                <ul>
+                  <li><strong>HF + HNO<sub>3</sub> in glycerol (1:2:3):</strong> Distinguishes martensite from
+                  austenite phases. Standard HF precautions apply</li>
                 </ul>
 
                 <h3>Contamination Control</h3>
@@ -815,7 +839,8 @@ export default function MedicalDeviceApplicationsPage() {
                   Select etchants based on material and analysis requirements:
                 </p>
                 <ul>
-                  <li><strong>Titanium:</strong> Kroll's reagent, Weck's reagent, anodizing</li>
+                  <li><strong>Titanium:</strong> Kroll's reagent, electrolytic oxalic acid (β phase), anodizing</li>
+                  <li><strong>Nickel-titanium (Nitinol):</strong> HF + HNO<sub>3</sub> in glycerol (1:2:3) for martensite/austenite distinction</li>
                   <li><strong>Stainless steel (316L):</strong> Electrolytic oxalic acid, glyceregia</li>
                   <li><strong>Cobalt-chromium:</strong> Murakami's reagent, glyceregia</li>
                   <li><strong>Surface analysis:</strong> May require minimal or no etching</li>

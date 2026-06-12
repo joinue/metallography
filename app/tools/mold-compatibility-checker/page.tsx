@@ -251,18 +251,29 @@ export default function MoldCompatibilityChecker() {
               <strong>Clearance requirements:</strong> Samples need adequate clearance (typically 2mm on each side) 
               to ensure:
             </p>
-            <ul className="text-sm text-gray-700 space-y-2 list-disc list-inside">
+            <ul className="text-sm text-gray-700 space-y-2 list-disc list-inside mb-4">
               <li>Proper flow of mounting material around the sample</li>
               <li>Sufficient material thickness for edge retention</li>
               <li>Prevention of voids and defects</li>
               <li>Easier handling during grinding and polishing</li>
+            </ul>
+            <p className="text-gray-700 text-sm mb-4">
+              <strong>Matching the resin to the sample:</strong> Mold size is only half the decision — the sample
+              must also tolerate the mounting process:
+            </p>
+            <ul className="text-sm text-gray-700 space-y-2 list-disc list-inside">
+              <li><strong>Heat- or pressure-sensitive samples</strong> (electronics, solder joints, polymers, fragile coatings, MEMS): avoid hot compression mounting (~150-180°C, 3,000-4,500 psi) — use a room-temperature castable resin instead</li>
+              <li><strong>Porous samples</strong> (thermal spray coatings, sintered parts, ceramics): cast in epoxy with vacuum ({'>'}25 inHg) and/or pressure (1-4 bar) impregnation so resin fills the pores</li>
+              <li><strong>Edge retention work</strong> (coatings, case depth, near-edge analysis): glass-filled epoxy compression mounts give the best edge retention</li>
+              <li><strong>SEM/EDS work:</strong> use a conductive (graphite- or copper-filled) resin to prevent charging</li>
+              <li><strong>Samples too large for any press mold:</strong> castable mounting in a custom mold</li>
             </ul>
           </div>
 
           <div className="mt-6 bg-primary-600 text-white rounded-lg p-6 text-center">
             <h3 className="text-lg font-semibold mb-2">Shop Mounting Equipment</h3>
             <p className="text-primary-100 text-sm mb-4">
-              Purchase mounting presses and molds from PACE Technologies.
+              Purchase mounting presses and molds from our online shop.
             </p>
             <a
               href="https://metallographic.com/metallographic-equipment/compression-mounting.html"

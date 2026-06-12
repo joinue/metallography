@@ -13,7 +13,7 @@ const resources = [
   {
     title: 'Sample Preparation Checklist',
     slug: 'checklist',
-    description: 'A comprehensive checklist to ensure you follow all steps in the preparation process. Perfect for keeping track of your workflow and avoiding missed steps.',
+    description: 'A comprehensive checklist to ensure you follow all steps in the preparation process. Helps you track your workflow and avoid missed steps.',
     category: 'Checklists & Quick References',
     type: 'Checklist',
     icon: FileText,
@@ -85,7 +85,7 @@ const resources = [
   {
     title: 'Material-Specific Preparation Guide',
     slug: 'material-preparation-guide',
-    description: 'Comprehensive guide covering preparation techniques for various material types. Learn material-specific approaches for optimal results.',
+    description: 'Comprehensive guide covering preparation techniques for various material types. Covers material-specific grinding, polishing, and etching approaches.',
     category: 'Preparation Guides',
     type: 'Guide',
     icon: BookOpen,

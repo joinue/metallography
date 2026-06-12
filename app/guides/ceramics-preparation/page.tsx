@@ -110,7 +110,7 @@ export default function CeramicsGuide() {
                     <li>• <strong>Silicon Nitride (Si₃N₄):</strong> High strength and hardness, good thermal shock resistance</li>
                     <li>• <strong>Boron Carbide (B₄C):</strong> One of the hardest known materials (~2800 HV), extremely challenging to prepare</li>
                     <li>• <strong>Porous Ceramics:</strong> May require vacuum impregnation during mounting to prevent pullout</li>
-                    <li>• <strong>Glass &amp; Glass-Ceramics:</strong> Softer than oxide/nitride/carbide ceramics — can be ground with SiC papers (P600 → P1200) rather than requiring diamond throughout. The canonical optical polish is <strong>cerium oxide (CeO₂)</strong> on a hard pad, finished with colloidal silica. Glass-ceramics (Pyroceram, mica-glass, alumino-silicate) need diamond for the ceramic phase plus CeO₂ to handle the glass phase.</li>
+                    <li>• <strong>Glass &amp; Glass-Ceramics:</strong> Softer than oxide/nitride/carbide ceramics — can be ground with SiC papers (400 → 600 grit; ≈ FEPA P800 → P1200) rather than requiring diamond throughout. The canonical optical polish is <strong>cerium oxide (CeO₂)</strong> on a hard pad, finished with colloidal silica. Glass-ceramics (Pyroceram, mica-glass, alumino-silicate) need diamond for the ceramic phase plus CeO₂ to handle the glass phase.</li>
                     <li>• <strong>Cermets (WC-Co, WC-Ni):</strong> Hard particle / soft binder system — opposite challenge to monolithic ceramic. The cobalt or nickel binder is much softer than WC, so <strong>relief at the carbide-binder interface</strong> is the dominant prep failure, not pullout. Diamond ladder throughout; keep polishing times short to limit binder relief; etch with <strong>Murakami's reagent for the WC carbide structure or 2% Nital for the binder phase</strong> (often both, sequentially).</li>
                     <li>• <strong>Ceramic Matrix Composites (CMC):</strong> Fiber-reinforced ceramics (SiC/SiC, C/SiC, oxide/oxide). <strong>Vacuum impregnation is mandatory</strong>, often multi-cycle — fiber loss at the matrix-fiber interface is the primary failure mode, and inadequate impregnation guarantees it. Diamond ladder, light force throughout, typically examined unetched with phase identification by SEM/EDS.</li>
                   </ul>
@@ -153,29 +153,29 @@ export default function CeramicsGuide() {
                 </AnimateOnScroll>
                 <h3>Cutting Parameters</h3>
                 <ul>
-                  <li><strong>Blade Type:</strong> Diamond-impregnated cut-off wheels (required - standard abrasive blades will not work). Use electroplated diamond blades for hardest ceramics (SiC, B₄C), resin-bonded diamond for others</li>
-                  <li><strong>Cutting Speed:</strong> 30-100 RPM depending on ceramic hardness (30-50 RPM for SiC/B₄C, 50-100 RPM for Al₂O₃/ZrO₂). Very slow speeds minimize chipping and heat generation</li>
-                  <li><strong>Feed Rate:</strong> Extremely slow, steady feed (0.3-0.5 mm/min for SiC/B₄C, 0.5-1.0 mm/min for other ceramics)</li>
+                  <li><strong>Blade Type:</strong> Diamond-impregnated cut-off wheels (required - standard abrasive blades will not work). Use resin-bonded diamond for general ceramic work (alumina, glass-ceramics); metal-bonded or electroplated diamond for the hardest, toughest grades (SiC, B₄C, Si₃N₄, ZrO₂)</li>
+                  <li><strong>Speed and Load (precision wafering saw):</strong> Alumina ceramics: 1,500 RPM or higher with about 500 g applied load on a medium-grit blade. Tougher, harder grades (Si₃N₄, ZrO₂): 3,500 RPM or higher with about 800 g load. Blade speed itself rarely causes chipping — feed rate and lateral support do</li>
+                  <li><strong>Feed Rate:</strong> On gravity- or load-fed precision saws, feed is set by the applied load above. On table-feed machines, use a slow steady feed and reduce it further for thin, fragile, or thermal-shock-sensitive samples (Si₃N₄, ZrO₂)</li>
                   <li><strong>Cooling:</strong> Continuous, copious coolant flow is essential to prevent thermal shock. Use water-based cutting fluid, not oil-based for ceramics</li>
                   <li><strong>Blade Thickness:</strong> Thin blades (0.3-0.5 mm) minimize kerf loss but require more care. Thicker blades (0.5-0.8 mm) provide more stability for very brittle ceramics</li>
                   <li><strong>Blade Condition:</strong> Use sharp, fresh diamond blades. Worn blades generate excessive heat and cause chipping</li>
                 </ul>
                 <h3>Best Practices</h3>
                 <ul>
-                  <li>Use diamond blades specifically designed for hard, brittle materials - electroplated for hardest ceramics</li>
-                  <li>Maintain very slow cutting speeds - rushing will cause chipping. For SiC and B₄C, use the slowest practical speed (30-50 RPM)</li>
+                  <li>Match the blade to the ceramic: resin-bonded diamond for general work, metal-bonded or electroplated for the hardest grades</li>
+                  <li>Do not rush the feed - excess feed and poor lateral support cause chipping, far more than wheel speed does. For SiC and B₄C, use the lowest practical feed and load</li>
                   <li>Apply minimal pressure - let the diamond do the cutting. Excessive force causes chipping and blade wear</li>
                   <li>Ensure continuous, copious coolant flow throughout the cut to prevent thermal shock cracking</li>
                   <li>Support the sample properly to prevent vibration and chipping. Use appropriate fixtures for small or irregular samples</li>
-                  <li>For very brittle ceramics or thin sections, consider using a precision saw with diamond blade and slower speeds</li>
+                  <li>For very brittle ceramics or thin sections, use a precision wafering saw with a thin diamond blade at low load - precision wafering leaves a damage layer roughly 10× thinner than abrasive cutoff</li>
                   <li>Cut in multiple shallow passes (0.5-1.0 mm per pass) rather than forcing through in one deep cut</li>
                   <li>For anisotropic ceramics (e.g., some SiC), consider cutting direction relative to grain orientation</li>
                   <li>Inspect sample immediately after cutting for chips or cracks before proceeding to mounting</li>
                 </ul>
                 <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-6 rounded">
                   <p className="text-sm text-yellow-900">
-                    <strong>Important:</strong> Chipping during sectioning is often irreparable. Take your time 
-                    and use the slowest practical cutting speed. It's better to spend extra time sectioning than 
+                    <strong>Important:</strong> Chipping during sectioning is often irreparable. Take your time
+                    and use the lowest practical feed rate and load. It's better to spend extra time sectioning than
                     to have to start over with a new sample.
                   </p>
                 </div>
@@ -191,14 +191,17 @@ export default function CeramicsGuide() {
               <section id="mounting" className="scroll-mt-24">
                 <h2>Mounting</h2>
                 <p>
-                  Mounting ceramics requires special considerations. The mounting material must provide good 
-                  edge retention and support to prevent chipping during grinding and polishing. Compression 
-                  mounting with epoxy resins is typically preferred, but cold mounting can also work well.
+                  Mounting ceramics requires special considerations. The mounting material must provide good
+                  edge retention and support to prevent chipping during grinding and polishing. For most ceramic
+                  work, castable (cold) mounting with low-viscosity epoxy is the first choice — it avoids the
+                  thermal cycle and pressure of compression mounting, which can crack thin sections and propagate
+                  existing micro-cracks. Compression mounting with epoxy resins is a good option for dense, robust
+                  ceramics (bulk alumina, sintered SiC) where edge retention is the priority.
                 </p>
                 <h3>Mounting Materials</h3>
                 <ul>
-                  <li><strong>Epoxy Resins:</strong> Preferred for ceramics - provides excellent edge retention, lower curing temperature (150-180°C), and better chemical resistance. Use filled epoxies for better edge retention</li>
-                  <li><strong>Phenolic Resins:</strong> Acceptable for less fragile ceramics but may not provide as good edge retention as epoxy. Higher curing temperature (150-180°C) may cause thermal stress</li>
+                  <li><strong>Epoxy Resins:</strong> Preferred among compression resins for ceramics - good edge retention, low shrinkage, and better chemical resistance. Mineral- or glass-filled epoxies give the best edge retention because the hard filler polishes at a rate close to the ceramic</li>
+                  <li><strong>Phenolic Resins:</strong> Acceptable for routine work on robust ceramics but does not provide as good edge retention as epoxy - it is more brittle and shrinks more on cooling (same 150-180°C compression cycle)</li>
                   <li><strong>Cold Mounting:</strong> Essential for very fragile ceramics or those with existing cracks - completely avoids thermal stress. Use low-viscosity epoxies for better infiltration</li>
                   <li><strong>Vacuum Impregnation:</strong> Required for porous ceramics to ensure complete infiltration and prevent pullout during grinding/polishing. <strong>Mandatory for ceramic matrix composites (CMCs)</strong> — fiber loss at the matrix-fiber interface is the primary CMC failure mode, and a single vacuum cycle is usually not enough; multi-cycle impregnation (vacuum, vent, vacuum again) is standard practice to fully infiltrate fiber tows.</li>
                   <li><strong>Mounting Pressure:</strong> 2000-3000 psi for epoxy, 3000-4000 psi for phenolic. Lower pressure for fragile ceramics</li>
@@ -273,25 +276,25 @@ export default function CeramicsGuide() {
                   for others. Standard SiC papers will not effectively grind ceramics.
                 </p>
                 <ol>
-                  <li><strong>Diamond 45-60 μm:</strong> Remove sectioning damage - 8-15 minutes per sample (longer for SiC/B₄C)</li>
-                  <li><strong>Diamond 30 μm:</strong> Remove previous scratches - 8-12 minutes</li>
-                  <li><strong>Diamond 15 μm:</strong> Further refinement - 5-10 minutes</li>
-                  <li><strong>Diamond 9 μm:</strong> Fine grinding - 5-10 minutes</li>
+                  <li><strong>Diamond 45-75 μm:</strong> Plane grind to remove sectioning damage - 1-3 minutes until plane</li>
+                  <li><strong>Diamond 30 μm:</strong> Remove previous scratches - 3-5 minutes</li>
+                  <li><strong>Diamond 15 μm:</strong> Further refinement - 3-5 minutes</li>
+                  <li><strong>Diamond 9 μm:</strong> Fine grinding - 3-5 minutes</li>
                   <li><strong>Diamond 6 μm:</strong> Optional final grinding step - 3-5 minutes (recommended for hardest ceramics)</li>
                 </ol>
                 <p>
-                  <strong>Note:</strong> For silicon carbide and boron carbide, expect grinding times at the 
-                  upper end of these ranges. These materials are among the hardest known and require extended 
-                  grinding times at each step.
+                  <strong>Note:</strong> For silicon carbide and boron carbide, extend each step by 50-100%.
+                  These materials are among the hardest known, and the fine-grind steps do the bulk of the
+                  damage removal — inspect at 200× between steps rather than running on the clock alone.
                 </p>
                 <h3>Grinding Parameters</h3>
                 <ul>
                   <li><strong>Abrasive:</strong> Diamond-impregnated wheels or papers (required). Metal-bonded diamond for hardest ceramics, resin-bonded for others</li>
-                  <li><strong>Pressure:</strong> Light to moderate (2-5 lbs per sample) - avoid excessive pressure that could cause chipping or cracking</li>
+                  <li><strong>Pressure:</strong> 30-40 N (about 7-9 lbs) per sample on rigid diamond discs - counter-intuitively, dense ceramics often need <em>more</em> grinding force than metals to keep the abrasive cutting. Reserve light pressure for fragile, thin, or porous samples where chipping or pullout is the concern</li>
                   <li><strong>Rotation:</strong> Rotate sample 90° between each grit to ensure complete scratch removal. For anisotropic ceramics, maintain consistent orientation</li>
-                  <li><strong>Water Flow:</strong> Continuous water flow to remove debris and prevent loading. Use clean water to avoid contamination</li>
-                  <li><strong>Speed:</strong> 120-240 RPM for grinding wheels. Slower speeds (120-150 RPM) for hardest ceramics to minimize damage</li>
-                  <li><strong>Time:</strong> Extended times (8-15 minutes per step for coarse grits) are necessary due to material hardness. Monitor progress frequently</li>
+                  <li><strong>Water Flow:</strong> Continuous water flow to remove debris and prevent loading. A loaded or glazed diamond disc is the most common cause of scratched ceramics</li>
+                  <li><strong>Speed:</strong> 200-300 RPM for plane grinding; 150 RPM for fine grinding steps</li>
+                  <li><strong>Time:</strong> Allow longer times than for metals (3-5 minutes per fine step; extend 50-100% for SiC/B₄C). Monitor progress frequently</li>
                   <li><strong>Wheel Condition:</strong> Use fresh diamond wheels/papers. Worn abrasives will take much longer and may cause damage</li>
                 </ul>
                 <div className="bg-gray-50 p-4 my-6 rounded">
@@ -299,7 +302,7 @@ export default function CeramicsGuide() {
                   <ul className="text-sm space-y-1">
                     <li>• Use diamond grinding wheels or diamond-impregnated papers - standard SiC papers will not work</li>
                     <li>• Metal-bonded diamond wheels provide more aggressive cutting for hardest ceramics (SiC, B₄C)</li>
-                    <li>• Allow extended time at each grit - ceramics require much longer grinding times than metals (8-15 minutes for coarse steps)</li>
+                    <li>• Allow extended time at each grit - ceramics require longer grinding times than metals, especially at the fine-grind steps</li>
                     <li>• Ensure all scratches from previous grit are completely removed before proceeding - use magnification to verify</li>
                     <li>• Use fresh diamond wheels/papers - worn abrasives will take much longer and may cause damage</li>
                     <li>• Maintain consistent pressure throughout each step - avoid varying pressure which can cause relief</li>
@@ -373,21 +376,22 @@ export default function CeramicsGuide() {
                   oil-based can be used if water causes issues with certain ceramics.
                 </p>
                 <ol>
-                  <li><strong>9 μm diamond:</strong> 10-20 minutes on a hard cloth (Texmet, Cermesh, or equivalent). Use polycrystalline diamond for aggressive cutting</li>
-                  <li><strong>6 μm diamond:</strong> 10-15 minutes on a medium-hard cloth (Polypad, Texmet). Critical step for removing coarse scratches</li>
-                  <li><strong>3 μm diamond:</strong> 8-15 minutes on a medium cloth (Texmet, Black Chem 2). Ensure all previous scratches are removed</li>
-                  <li><strong>1 μm diamond:</strong> 5-10 minutes on a medium-soft cloth (Gold Pad, Atlantis). Monitor for grain boundary pullout</li>
-                  <li><strong>0.25 μm diamond:</strong> 5-10 minutes on a soft cloth (Micropad, Nappad). Optional but recommended for best results</li>
+                  <li><strong>9 μm diamond:</strong> About 5 minutes on a hard non-woven pad at 30 N (about 7 lbs) per sample. Use polycrystalline diamond for aggressive cutting</li>
+                  <li><strong>6 μm diamond:</strong> Optional intermediate step on a hard non-woven pad - insert for the hardest grades (SiC, B₄C)</li>
+                  <li><strong>3 μm diamond:</strong> 3-5 minutes on a low-nap pad at 25 N (about 5 lbs). Ensure all previous scratches are removed</li>
+                  <li><strong>1 μm diamond:</strong> 2-4 minutes on a low-nap pad at 20 N (about 4 lbs). Monitor for grain boundary pullout</li>
+                  <li><strong>0.25 μm diamond:</strong> Optional - 1-2 minutes on a soft napped cloth for samples headed to high-magnification SEM work</li>
                 </ol>
                 <p>
-                  <strong>Note:</strong> For silicon carbide and boron carbide, expect polishing times at the 
-                  upper end of these ranges (15-20 minutes for coarse steps). These materials require the most 
-                  extended polishing times.
+                  <strong>Note:</strong> These times are starting points for typical engineered ceramics
+                  (Al₂O₃, ZrO₂, dense Si₃N₄). For silicon carbide and boron carbide, extend each step by
+                  50-100%. Inspect at 200× between steps; do not run on the clock alone.
                 </p>
                 <h3>Final Polishing</h3>
                 <ol>
-                  <li><strong>0.05 μm colloidal silica:</strong> 5-10 minutes on a soft cloth (Micropad, Moltec 2, or Nappad). Use very light pressure (1-3 lbs)</li>
+                  <li><strong>0.05 μm colloidal silica:</strong> 2-5 minutes on a high-nap (soft napped) pad or chemotextile. Use light pressure (10-15 N, about 2-3 lbs). Switch to plain water on the cloth for the last 30-60 seconds to flush silica off the sample - never let colloidal silica dry on a ceramic surface</li>
                   <li>Rinse thoroughly with water and dry with compressed air. Avoid prolonged water exposure which could affect some ceramics</li>
+                  <li>For SEM or EBSD work, follow with a vibratory polish in colloidal silica for several hours to remove the residual work-damaged surface layer</li>
                   <li>Inspect under microscope - grain boundaries may be visible without etching, especially with DIC (Differential Interference Contrast) microscopy</li>
                 </ol>
                 <p>
@@ -397,12 +401,12 @@ export default function CeramicsGuide() {
                 </p>
                 <h3>Polishing Parameters</h3>
                 <ul>
-                  <li><strong>Pressure:</strong> Light to moderate pressure (2-4 lbs for coarse steps, 1-3 lbs for fine steps) - avoid excessive pressure that could cause pullout</li>
-                  <li><strong>Speed:</strong> 120-150 RPM for diamond polishing. Slower speeds (120 RPM) for hardest ceramics to minimize damage</li>
+                  <li><strong>Pressure:</strong> Step down with abrasive size: about 30 N (7 lbs) at 9 μm, 25 N at 3 μm, 20 N at 1 μm, 10-15 N (2-3 lbs) for the final colloidal silica step - avoid excessive pressure that could cause pullout</li>
+                  <li><strong>Speed:</strong> 150 RPM throughout the polishing sequence</li>
                   <li><strong>Lubricant:</strong> Water-based diamond suspension preferred. Oil-based can be used but may require different cleaning procedures</li>
                   <li><strong>Diamond Type:</strong> Polycrystalline diamond provides more aggressive cutting for hard ceramics. Monocrystalline may be used for final steps</li>
-                  <li><strong>Cloth Selection:</strong> Hard cloths (Texmet, Cermesh) for coarse steps, medium (Texmet, Black Chem 2) for intermediate, soft (Micropad, Nappad) for fine steps</li>
-                  <li><strong>Time:</strong> Extended times (10-20 minutes for coarse steps, 5-10 minutes for fine steps) are necessary due to material hardness</li>
+                  <li><strong>Cloth Selection:</strong> Pad stiffness decreases as abrasive size decreases: hard non-woven pads for coarse steps, low-nap pads for intermediate steps, soft napped or chemotextile pads only for the final step</li>
+                  <li><strong>Time:</strong> About 5 minutes at 9 μm tapering to 1-2 minutes at the final step; extend each step by 50-100% for the hardest ceramics</li>
                   <li><strong>Direction:</strong> Use consistent polishing direction. For anisotropic ceramics, maintain orientation relative to grain structure</li>
                 </ul>
                 <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-6 rounded">
@@ -418,14 +422,14 @@ export default function CeramicsGuide() {
                 <p>
                   For silicate glasses, soda-lime glass, borosilicate glass, and the glass phase in
                   glass-ceramics, the canonical polish is <strong>cerium oxide (CeO₂) on a hard pad</strong> —
-                  not diamond. CeO₂ is the traditional optical-finish abrasive used in the optics industry
-                  for centuries because it has chemo-mechanical action specific to silicate networks: it
+                  not diamond. CeO₂ is the traditional optical-finish abrasive of the optics industry
+                  because it has chemo-mechanical action specific to silicate networks: it
                   reacts with silica during polishing in a way diamond cannot, producing the optical-grade
                   finish that glass requires. Diamond cuts glass mechanically but leaves subsurface damage
                   CeO₂ removes. Standard glass workflow:
                 </p>
                 <ol>
-                  <li><strong>Grind:</strong> SiC P600 → P800 → P1200 → P2400 (glass is softer than oxide ceramics; SiC works fine here, no need for the diamond ladder)</li>
+                  <li><strong>Grind:</strong> SiC 320 → 400 → 600 grit (≈ FEPA P400 → P800 → P1200), optionally finishing at 1200 grit (≈ P2500) — glass is softer than oxide ceramics; SiC works fine here, no need for the diamond ladder</li>
                   <li><strong>Polish:</strong> Cerium oxide (CeO₂) slurry on a hard pad, light pressure, 5-15 minutes</li>
                   <li><strong>Final:</strong> Colloidal silica on a soft pad, 2-5 minutes + flush</li>
                   <li><strong>Etch:</strong> Usually unetched; dilute HF for revealing devitrification only when needed</li>
@@ -499,12 +503,12 @@ export default function CeramicsGuide() {
                   <li><strong>Alumina (Al₂O₃):</strong> 1400-1500°C for 30-60 minutes in air. Fine-grained alumina may require shorter times (20-30 minutes)</li>
                   <li><strong>Zirconia (ZrO₂):</strong> 1200-1300°C for 30-60 minutes in air. Be careful with temperature to avoid phase transformation</li>
                   <li><strong>Silicon Carbide (SiC):</strong> 1800-1900°C for 30-60 minutes in inert atmosphere (Ar or N₂). Air will cause oxidation</li>
-                  <li><strong>Silicon Nitride (Si₃N₄):</strong> 1400-1500°C for 30-60 minutes in N₂ atmosphere. Air will cause decomposition</li>
+                  <li><strong>Silicon Nitride (Si₃N₄):</strong> 1400-1500°C for 30-60 minutes in N₂ (or vacuum/Ar) atmosphere. Air will oxidize the surface to SiO₂</li>
                   <li><strong>Boron Carbide (B₄C):</strong> 1800-2000°C for 30-60 minutes in inert atmosphere. Very high temperature required</li>
                 </ul>
                 <p>
-                  <strong>Atmosphere Considerations:</strong> Some ceramics require specific atmospheres for thermal 
-                  etching. Silicon carbide and silicon nitride will oxidize or decompose in air. Always use the 
+                  <strong>Atmosphere Considerations:</strong> Some ceramics require specific atmospheres for thermal
+                  etching. Silicon carbide and silicon nitride will oxidize in air at thermal-etching temperatures. Always use the
                   appropriate atmosphere for the ceramic type. Consult material-specific literature for exact conditions.
                 </p>
                 <div className="bg-red-50 border-l-4 border-red-500 p-4 my-6 rounded">
@@ -522,7 +526,7 @@ export default function CeramicsGuide() {
                 </p>
                 <h4>Common Chemical Etchants for Ceramics</h4>
                 <ul>
-                  <li><strong>Phosphoric Acid (H₃PO₄):</strong> Hot phosphoric acid at 250°C reveals grain boundaries in alumina; also one of two classic options for SiC.</li>
+                  <li><strong>Phosphoric Acid (H₃PO₄):</strong> Hot concentrated phosphoric acid (85 mL H₃PO₄ + 15 mL H₂O, boiling, 5 minutes to 2 hours) reveals grain boundaries in alumina; high-purity alumina needs the longer times. Not effective on SiC — carbides require molten-salt chemistry.</li>
                   <li><strong>Molten KOH / NaOH:</strong> The canonical chemical etch for SiC and Si₃N₄ grain boundaries. Specialty equipment (corrosion-resistant crucible, controlled heating); typically reserved for cases where thermal etching is impractical and grain-boundary contrast is required.</li>
                   <li><strong>Hydrofluoric Acid (HF):</strong> Dilute HF for silicon-based ceramics and for revealing devitrification in glasses. Fume hood, HF-rated PPE, calcium gluconate gel on hand.</li>
                 </ul>
@@ -592,9 +596,9 @@ export default function CeramicsGuide() {
                       <strong>Symptoms:</strong> Chips or cracks visible at edges after sectioning
                     </p>
                     <p className="text-sm text-gray-700">
-                      <strong>Solutions:</strong> Reduce cutting speed further (try 30-50 RPM), use diamond blades, 
-                      reduce feed rate, ensure proper sample support, use copious coolant, consider multiple shallow 
-                      passes instead of one deep cut
+                      <strong>Solutions:</strong> Reduce the feed rate and applied load, use diamond blades,
+                      ensure proper sample support so the cut exits into supported material, use copious coolant,
+                      consider multiple shallow passes instead of one deep cut
                     </p>
                   </div>
 
@@ -627,8 +631,9 @@ export default function CeramicsGuide() {
                       <strong>Symptoms:</strong> Holes or pits at grain boundaries, missing grains
                     </p>
                     <p className="text-sm text-gray-700">
-                      <strong>Solutions:</strong> Reduce polishing pressure, extend polishing times, use softer 
-                      polishing cloths for final steps, avoid over-polishing, use colloidal silica for final polish
+                      <strong>Solutions:</strong> Reduce polishing pressure, keep the diamond steps on firm
+                      low-nap pads (moving to napped cloths too early increases pullout), avoid over-polishing,
+                      use colloidal silica for the final polish, and verify vacuum impregnation on porous grades
                     </p>
                   </div>
 

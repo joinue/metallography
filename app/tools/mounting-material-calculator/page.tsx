@@ -107,9 +107,9 @@ export default function MountingMaterialCalculator() {
                 <option value="castable">Castable Mounting</option>
               </select>
               <p className="text-xs text-gray-500 mt-1">
-                {mountingType === 'compression' 
-                  ? 'Uses resin pellets. Includes 10% safety margin for material loss.'
-                  : 'Uses liquid resin. Includes 15% safety margin for shrinkage and material loss.'}
+                {mountingType === 'compression'
+                  ? 'Uses resin powder or pellets (phenolic, acrylic, epoxy). Typical cycle: 150-180°C at 3,000-4,500 psi, ~5 min cure plus ~3 min cooling under pressure. Includes 10% safety margin for material loss.'
+                  : 'Uses liquid resin mixed with hardener at the manufacturer\'s specified ratio. Cure times: epoxy 6-12 h (lowest shrinkage), acrylic 8-15 min (exothermic, more shrinkage), polyester 30 min-2 h. Includes 15% safety margin for shrinkage and material loss.'}
               </p>
             </div>
 
@@ -301,15 +301,18 @@ export default function MountingMaterialCalculator() {
               <li><strong>Safety margin:</strong> Extra material accounts for handling loss and ensures complete filling</li>
             </ul>
             <p className="text-gray-700 text-sm">
-              <strong>Tip:</strong> For compression mounting, resin pellets are typically sold by weight. 
-              For castable mounting, liquid resins are sold by volume. This calculator provides both units.
+              <strong>Tip:</strong> For compression mounting, resin powders and pellets are typically sold by weight.
+              For castable mounting, liquid resins are sold by volume and mixed with hardener at the manufacturer&apos;s
+              specified ratio. This calculator provides both units. The gram estimate assumes a density of ~1 g/cm³;
+              actual mounting resins range from about 1.0 to 1.4 g/cm³ (glass-filled grades are densest), so check the
+              manufacturer&apos;s data when weighing powder.
             </p>
           </div>
 
           <div className="mt-6 bg-primary-600 text-white rounded-lg p-6 text-center">
             <h3 className="text-lg font-semibold mb-2">Shop Mounting Materials</h3>
             <p className="text-primary-100 text-sm mb-4">
-              Purchase compression and castable mounting resins from PACE Technologies.
+              Purchase compression and castable mounting resins from our online shop.
             </p>
             <a
               href="https://shop.metallographic.com/collections/mounting"

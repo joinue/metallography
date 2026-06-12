@@ -40,12 +40,15 @@ export const hardnessTable: HardnessRow[] = [
   { hrc: null, hrb: 85,  hra: null, hv: 156, hk: 151, hb: 154, tensileMpa: 579 },
   { hrc: null, hrb: 90,  hra: null, hv: 175, hk: 168, hb: 172, tensileMpa: 648 },
   { hrc: null, hrb: 95,  hra: null, hv: 199, hk: 192, hb: 196, tensileMpa: 738 },
-  { hrc: null, hrb: 100, hra: null, hv: 226, hk: 219, hb: 218, tensileMpa: 855 },
+  // HRB 100 ≈ HB 240 ≈ HV 240 (E140 Rockwell B table for non-austenitic steels).
+  { hrc: null, hrb: 100, hra: null, hv: 240, hk: 251, hb: 240, tensileMpa: 800 },
 
   // ===== Rockwell C range — ASTM E140-12b Table 1 (5-step anchors) =====
   // Anchors only; the interpolation routine fills in every integer HRC value
   // consistently. These match the canonical published values exactly.
-  { hrc: 20, hrb: 100, hra: 60.2, hv: 240, hk: 251, hb: 226, tensileMpa: 779 },
+  // Note: E140 Table 1 has no HRB column; HRC 20 ≈ HRB 98 is an approximate
+  // bridge via the Brinell column (HB 226 ↔ HRB ~98).
+  { hrc: 20, hrb: 98, hra: 60.2, hv: 240, hk: 251, hb: 226, tensileMpa: 779 },
   { hrc: 25, hrb: null, hra: 62.8, hv: 266, hk: 277, hb: 253, tensileMpa: 875 },
   { hrc: 30, hrb: null, hra: 65.3, hv: 302, hk: 313, hb: 286, tensileMpa: 999 },
   { hrc: 35, hrb: null, hra: 67.9, hv: 345, hk: 357, hb: 327, tensileMpa: 1145 },
@@ -178,13 +181,13 @@ export function convertHardness(
     notes.push(`Value out of conversion range (${minIn}–${maxIn} ${fromScale}). Direct measurement required.`)
   }
 
-  // HB cap — Brinell becomes unreliable above ~654 HB / ~55 HRC because the
+  // HB cap — Brinell becomes unreliable above ~650 HB / ~60 HRC because the
   // tungsten-carbide ball deforms. Drop the computed value rather than mislead.
   if (result.hb != null && result.hb > 654) {
     result.hb = null
-    notes.push('Brinell (HB) is not reliable above ~55 HRC / 654 HB — the carbide ball indenter deforms. HV or HRC is preferred for hardened tool steels.')
-  } else if (result.hb == null && fromScale !== 'HB' && result.hrc != null && result.hrc >= 56) {
-    notes.push('Brinell (HB) is not reliable above ~55 HRC; the ball indenter deforms. HV or HRC is preferred for hardened tool steels.')
+    notes.push('Brinell (HB) is not reliable above ~60 HRC / 650 HB — the carbide ball indenter deforms. HV or HRC is preferred for hardened tool steels.')
+  } else if (result.hb == null && fromScale !== 'HB' && result.hrc != null && result.hrc >= 60) {
+    notes.push('Brinell (HB) is not reliable above ~60 HRC; the ball indenter deforms. HV or HRC is preferred for hardened tool steels.')
   }
 
   // HRB cap warning

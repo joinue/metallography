@@ -254,7 +254,8 @@ export default function AutomotiveApplicationsPage() {
 
                 <h4>Case Depth Measurement</h4>
                 <p>
-                  Measure case depth per ASTM E1077 or ISO 4970:
+                  Measure case depth per SAE J423 or ISO 2639, typically with a microhardness traverse
+                  per ASTM E384:
                 </p>
                 <ul>
                   <li>Prepare perpendicular cross-sections through the case</li>
@@ -288,7 +289,7 @@ export default function AutomotiveApplicationsPage() {
                 <ul>
                   <li>Prepare cross-sections perpendicular to the surface</li>
                   <li>Use nital etching to reveal decarburized layer (appears as ferrite)</li>
-                  <li>Measure decarburization depth</li>
+                  <li>Measure decarburization depth per ASTM E1077</li>
                   <li>Document and compare against specification limits</li>
                 </ul>
 
@@ -589,8 +590,8 @@ export default function AutomotiveApplicationsPage() {
                       className="block hover:opacity-90 transition-opacity"
                     >
                       <Image
-                        src="/images/consumables/maxcut-vhs.webp"
-                        alt="Abrasive cut-off blades for automotive steel sectioning"
+                        src="/images/consumables/maxcut-d.webp"
+                        alt="Alumina abrasive cut-off blades for automotive steel sectioning"
                         width={500}
                         height={375}
                         className="w-full h-auto"
@@ -598,7 +599,7 @@ export default function AutomotiveApplicationsPage() {
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 500px"
                       />
                     </Link>
-                    <p className="text-sm text-gray-600 mt-2 italic text-center">Hard-bond Al₂O₃ abrasive blades for sectioning automotive steels. Proper blade selection minimizes damage and preserves microstructure.</p>
+                    <p className="text-sm text-gray-600 mt-2 italic text-center">Medium resin-bonded Al₂O₃ abrasive blades for sectioning general automotive steels; step up to a hard-bond Al₂O₃ blade for hardened or case-hardened components (HRC &gt; 45). Proper blade selection minimizes damage and preserves microstructure.</p>
                   </div>
                 </AnimateOnScroll>
 
@@ -610,7 +611,7 @@ export default function AutomotiveApplicationsPage() {
                   <li>Use <GlossaryTermTooltip term="Compression Mounting">compression mounting</GlossaryTermTooltip> for most automotive samples</li>
                   <li>Consider <GlossaryTermTooltip term="Castable Mounting">castable mounting</GlossaryTermTooltip> for delicate or complex geometries</li>
                   <li>Ensure mounting preserves edges for case depth or coating analysis</li>
-                  <li>Use appropriate mounting materials (conductive for SEM, transparent for edge retention)</li>
+                  <li>Use appropriate mounting materials (conductive for SEM work, glass-filled epoxy for the best edge retention, transparent when sample orientation must stay visible)</li>
                 </ul>
                 <AnimateOnScroll animation="fadeInUp" delay={150}>
                   <div className="my-6 rounded-lg overflow-hidden max-w-xl mx-auto">
@@ -630,7 +631,7 @@ export default function AutomotiveApplicationsPage() {
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 500px"
                       />
                     </Link>
-                    <p className="text-sm text-gray-600 mt-2 italic text-center">Phenolic mounting resin provides excellent edge retention for case depth measurement in automotive components.</p>
+                    <p className="text-sm text-gray-600 mt-2 italic text-center">Phenolic mounting resin is an economical general-purpose choice for automotive samples. For critical case-depth and near-edge work, glass-filled epoxy compression mounts give the best edge retention.</p>
                   </div>
                 </AnimateOnScroll>
                 <ProductLink 
@@ -729,7 +730,7 @@ export default function AutomotiveApplicationsPage() {
                 <h3>ISO Standards</h3>
                 <ul>
                   <li>ISO 4967 - Steel - Determination of content of non-metallic inclusions - Micrographic method using standard diagrams</li>
-                  <li>ISO 4970 - Steel - Determination of effective case hardening depth</li>
+                  <li>ISO 2639 - Steels - Determination and verification of the depth of carburized and hardened cases</li>
                   <li>ISO 643 - Steels - Micrographic determination of the apparent grain size</li>
                   <li>IATF 16949 - Quality management system requirements for automotive production</li>
                 </ul>

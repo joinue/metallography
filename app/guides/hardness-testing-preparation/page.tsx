@@ -117,20 +117,27 @@ export default function HardnessTestingPreparationGuide() {
                 <li><strong>Surface finish:</strong> Typically 0.8 μm Ra or better (600 grit finish is usually sufficient)</li>
                 <li><strong>Sample thickness:</strong> Must be at least 10 times the indentation depth</li>
                 <li><strong>Flatness:</strong> Surface must be flat to prevent anvil effects</li>
-                <li><strong>Edge distance:</strong> Indentation must be at least 2.5 times the indentation diameter from any edge</li>
+                <li><strong>Edge distance:</strong> Indentation should be at least 3 times the indentation diameter from any edge</li>
+                <li><strong>Indent spacing:</strong> Successive indentations should be at least 5 indentation diameters apart to stay clear of work-hardened zones</li>
                 <li><strong>Parallelism:</strong> Top and bottom surfaces should be parallel</li>
               </ul>
 
-              <h3>Vickers Microhardness Testing</h3>
+              <h3>Vickers Hardness Testing</h3>
               <p>
-                Vickers testing uses a diamond pyramid indenter and is more sensitive to surface finish. Higher quality 
-                preparation is required.
+                Vickers testing uses a square-based diamond pyramid indenter and is more sensitive to surface finish
+                than Rockwell or Brinell. The Vickers scale spans macro loads (1-120 kgf, covered by ASTM E92) and
+                microindentation loads (10 gf-1 kgf, covered by ASTM E384), and the preparation requirement scales
+                with the load: the smaller the indent, the better the surface must be.
               </p>
               <ul>
-                <li><strong>Surface finish:</strong> 0.1-0.2 μm Ra or better (polished to 1 μm diamond minimum)</li>
+                <li><strong>Surface finish:</strong> 0.1-0.2 μm Ra or better (1 μm diamond polish is the minimum for
+                macro loads; finish with colloidal silica for microindentation loads)</li>
                 <li><strong>Sample thickness:</strong> At least 1.5 times the indentation diagonal</li>
                 <li><strong>Flatness:</strong> Critical for accurate measurements</li>
-                <li><strong>Edge distance:</strong> At least 2.5 times the indentation diagonal from edges</li>
+                <li><strong>Edge distance:</strong> At least 3 times the indentation diagonal from edges; keep at
+                least 5 diagonals between indents</li>
+                <li><strong>Indent placement:</strong> Place indents on the matrix of interest, never straddling a
+                phase boundary or sitting on a hard inclusion</li>
                 <li><strong>Scratch-free:</strong> Scratches can interfere with indentation measurement</li>
               </ul>
 
@@ -156,7 +163,7 @@ export default function HardnessTestingPreparationGuide() {
                 <li><strong>Surface finish:</strong> 1.6 μm Ra or better (400-600 grit finish usually sufficient)</li>
                 <li><strong>Sample thickness:</strong> Must be at least 10 times the indentation depth</li>
                 <li><strong>Flatness:</strong> Important to prevent anvil effects</li>
-                <li><strong>Edge distance:</strong> At least 2.5 times the indentation diameter from edges</li>
+                <li><strong>Edge distance:</strong> At least 3 times the indentation diameter from edges</li>
               </ul>
 
               <div className="overflow-x-auto my-6">
@@ -179,7 +186,7 @@ export default function HardnessTestingPreparationGuide() {
                     <tr className="bg-gray-50">
                       <td className="border border-gray-300 px-4 py-3 font-medium">Vickers</td>
                       <td className="border border-gray-300 px-4 py-3">≤ 0.1-0.2 μm</td>
-                      <td className="border border-gray-300 px-4 py-3">1 μm diamond</td>
+                      <td className="border border-gray-300 px-4 py-3">1 μm diamond (macro); colloidal silica (micro)</td>
                       <td className="border border-gray-300 px-4 py-3">Scratch-free, flat surface</td>
                     </tr>
                     <tr>
@@ -220,10 +227,11 @@ export default function HardnessTestingPreparationGuide() {
 
               <h3>Cutting Parameters</h3>
               <p>
-                Use slower cutting speeds and adequate coolant to minimize thermal and mechanical damage:
+                Use appropriate wheel speed, a gentle feed, and adequate coolant to minimize thermal and mechanical damage:
               </p>
               <ul>
-                <li><strong>Cutting speed:</strong> 100-200 RPM for most materials (slower for hard materials)</li>
+                <li><strong>Cutting speed:</strong> 2,500-4,500 surface feet per minute (SFM) is typical for abrasive
+                cutoff wheels; for delicate or heat-sensitive samples, use a low-speed precision wafering saw instead</li>
                 <li><strong>Coolant:</strong> Use adequate coolant flow to prevent overheating</li>
                 <li><strong>Feed rate:</strong> Steady, moderate pressure - let the wheel do the cutting</li>
                 <li><strong>Blade selection:</strong> Choose appropriate abrasive blades for the material</li>
@@ -250,11 +258,14 @@ export default function HardnessTestingPreparationGuide() {
                 Choose mounting materials that provide adequate support and edge retention:
               </p>
               <ul>
-                <li><strong>Phenolic:</strong> Hard, provides excellent edge retention. Good for most hardness testing 
-                applications. Preferred for case depth measurements.</li>
-                <li><strong>Epoxy:</strong> Softer than phenolic but still provides good edge retention. Suitable for 
-                most applications.</li>
-                <li><strong>Conductive mounting:</strong> Required for some automated hardness testers that use 
+                <li><strong>Glass-filled epoxy (compression mounting):</strong> The hardest mounting resin with the
+                lowest shrinkage, giving the best edge retention. Preferred for case depth measurements and any
+                near-edge testing.</li>
+                <li><strong>Epoxy / diallyl phthalate (compression):</strong> Hard with low shrinkage and good edge
+                retention. Suitable for most applications.</li>
+                <li><strong>Phenolic:</strong> Hard and economical with fair edge retention. Adequate for bulk hardness
+                testing away from sample edges.</li>
+                <li><strong>Conductive mounting:</strong> Required for some automated hardness testers that use
                 electrical contact for positioning</li>
                 <li><strong>Transparent mounting:</strong> Useful when you need to see sample edges or features</li>
               </ul>
@@ -330,17 +341,17 @@ export default function HardnessTestingPreparationGuide() {
                 For most hardness testing applications, use the following sequence:
               </p>
               <ol>
-                <li><strong>9 μm diamond:</strong> 3-5 minutes on hard cloth (e.g., Texmet)</li>
-                <li><strong>3 μm diamond:</strong> 3-5 minutes on medium-hard cloth</li>
-                <li><strong>1 μm diamond:</strong> 2-3 minutes on soft cloth</li>
-                <li><strong>0.05 μm colloidal silica:</strong> 1-2 minutes on soft cloth (required for Vickers and 
-                Knoop testing)</li>
+                <li><strong>9 μm diamond:</strong> 3-5 minutes on a hard woven cloth</li>
+                <li><strong>3 μm diamond:</strong> 3-5 minutes on a medium-hard cloth</li>
+                <li><strong>1 μm diamond:</strong> 2-3 minutes on a soft cloth</li>
+                <li><strong>0.05 μm colloidal silica:</strong> 1-2 minutes on a soft cloth (required for micro-Vickers
+                and Knoop testing)</li>
               </ol>
 
               <h3>Polishing Requirements by Test Type</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
                 <div className="bg-gray-50 p-4 rounded-lg">
-                  <h4 className="font-semibold mb-2">Rockwell & Brinell</h4>
+                  <h4 className="font-semibold mb-2">Rockwell, Brinell & Macro-Vickers</h4>
                   <ul className="text-sm space-y-1 text-gray-700">
                     <li>• 1 μm diamond polishing sufficient</li>
                     <li>• Final colloidal silica optional</li>
@@ -348,7 +359,7 @@ export default function HardnessTestingPreparationGuide() {
                   </ul>
                 </div>
                 <div className="bg-gray-50 p-4 rounded-lg">
-                  <h4 className="font-semibold mb-2">Vickers & Knoop</h4>
+                  <h4 className="font-semibold mb-2">Micro-Vickers & Knoop</h4>
                   <ul className="text-sm space-y-1 text-gray-700">
                     <li>• Must polish to 0.05 μm colloidal silica</li>
                     <li>• Scratch-free surface critical</li>
@@ -389,7 +400,8 @@ export default function HardnessTestingPreparationGuide() {
               </p>
               <ul>
                 <li><strong>Rockwell:</strong> ≤ 0.8 μm Ra (typically achieved with 600 grit finish)</li>
-                <li><strong>Vickers:</strong> ≤ 0.1-0.2 μm Ra (requires diamond polishing to 1 μm minimum)</li>
+                <li><strong>Vickers:</strong> ≤ 0.1-0.2 μm Ra (1 μm diamond polishing minimum for macro loads;
+                colloidal silica final polish for microindentation loads)</li>
                 <li><strong>Knoop:</strong> ≤ 0.1 μm Ra (requires final polishing with 0.05 μm colloidal silica)</li>
                 <li><strong>Brinell:</strong> ≤ 1.6 μm Ra (typically achieved with 400-600 grit finish)</li>
               </ul>
@@ -444,14 +456,16 @@ export default function HardnessTestingPreparationGuide() {
               <ul>
                 <li><strong>Case depth measurements:</strong> Hardness must be measured starting at the surface</li>
                 <li><strong>Edge hardness:</strong> Testing hardness near sample edges or boundaries</li>
-                <li><strong>Coating thickness:</strong> Measuring hardness through thin coatings</li>
+                <li><strong>Coating hardness:</strong> Measuring hardness of thin coatings — the layer must be at
+                least 10 times the indent depth or the substrate influences the reading; for thinner coatings use a
+                lower load or switch to Knoop</li>
                 <li><strong>Weld zones:</strong> Testing hardness across weld boundaries</li>
               </ul>
 
               <h3>Techniques for Edge Retention</h3>
               <ul>
-                <li><strong>Hard mounting materials:</strong> Use phenolic or other hard mounting resins that provide 
-                better edge support</li>
+                <li><strong>Hard mounting materials:</strong> Use glass-filled epoxy or other hard, low-shrinkage
+                compression-mounting resins that provide the best edge support</li>
                 <li><strong>Reduced pressure:</strong> Use lighter pressure during grinding and polishing, especially 
                 near edges</li>
                 <li><strong>Edge protection:</strong> Consider using edge protection techniques or fixtures</li>
@@ -501,7 +515,7 @@ export default function HardnessTestingPreparationGuide() {
                 <li><strong>Excellent edge retention:</strong> Critical for accurate surface hardness measurement</li>
                 <li><strong>Flat surface:</strong> Surface must be flat to allow accurate depth measurements</li>
                 <li><strong>Scratch-free:</strong> Required for microhardness testing</li>
-                <li><strong>Proper polishing:</strong> Polish to 0.05 μm colloidal silica for Knoop testing</li>
+                <li><strong>Proper polishing:</strong> Polish to 0.05 μm colloidal silica for Knoop or micro-Vickers testing</li>
               </ul>
 
               <h3>Measurement Considerations</h3>
@@ -511,7 +525,11 @@ export default function HardnessTestingPreparationGuide() {
               <ul>
                 <li><strong>Test direction:</strong> Hardness measurements are made perpendicular to the case surface</li>
                 <li><strong>Starting point:</strong> First measurement should be at or very near the surface</li>
-                <li><strong>Measurement spacing:</strong> Typically 0.05-0.1 mm spacing for detailed profiles</li>
+                <li><strong>Measurement spacing:</strong> Keep at least 2.5 indent diagonals between indents (per
+                ASTM E384, ASTM E92, and ISO 6507); stagger indents in a zigzag pattern when finer depth resolution
+                is needed than the spacing rule allows along a single line</li>
+                <li><strong>Indent placement:</strong> Place indents on the matrix, never straddling a phase boundary
+                or sitting on a hard inclusion — readings there are anomalous</li>
                 <li><strong>Depth range:</strong> Prepare surface to allow testing through the entire case depth</li>
               </ul>
 
@@ -570,7 +588,7 @@ export default function HardnessTestingPreparationGuide() {
                       <td className="border border-gray-300 px-4 py-3">
                         <ul className="list-disc list-inside space-y-1 text-sm">
                           <li>Use lighter pressure, especially near edges</li>
-                          <li>Use harder mounting material (phenolic)</li>
+                          <li>Use harder mounting material (glass-filled epoxy)</li>
                           <li>Reduce polishing time</li>
                         </ul>
                       </td>

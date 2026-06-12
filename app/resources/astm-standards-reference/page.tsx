@@ -160,7 +160,7 @@ export default function ASTMStandardsReferencePage() {
 
     notes.forEach(note => {
       checkPageBreak(8)
-      pdf.text(`• ${note}`, leftMargin + 5, yPos)
+      pdf.text(note, leftMargin + 5, yPos)
       yPos += lineHeight
     })
 

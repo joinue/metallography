@@ -223,9 +223,16 @@ export default function EtchingProceduresGuide() {
 
                 <h3>Color Etchants</h3>
                 <p>
-                  Color etchants produce colored films on different phases, allowing easy visual 
-                  distinction between phases. These are particularly useful for complex microstructures 
-                  with multiple phases.
+                  Color (tint) etchants deposit a thin oxide or sulfide film that grows at different rates
+                  on different phases, producing optical interference colors that allow easy visual
+                  distinction between phases. Examples include Klemm's I (stainless and copper alloys),
+                  Beraha's reagents (irons and steels), and Weck's reagent (aluminum and magnesium alloys).
+                  These are particularly useful for complex microstructures with multiple phases.
+                </p>
+                <p>
+                  <strong>Surface requirement:</strong> Color etching only works on a deformation-free
+                  surface, which in practice means a colloidal-silica final polish. It will not work on
+                  a smeared or mechanically damaged surface.
                 </p>
               </section>
 
@@ -248,14 +255,14 @@ export default function EtchingProceduresGuide() {
                   <li>
                     <strong>Stainless steels — by class:</strong>
                     <ul className="mt-1">
-                      <li><strong>Austenitic (304, 316):</strong> 10% oxalic acid electrolytic at 6 V (per ASTM A262) or Glyceregia (HCl + HNO₃ + glycerol) by swab.</li>
+                      <li><strong>Austenitic (304, 316):</strong> 10% oxalic acid electrolytic at 6 V, 30–90 s (per ASTM A262 Practice A) or Glyceregia (HNO₃ + HCl + glycerol; mix fresh — activity decays) by immersion.</li>
                       <li><strong>Martensitic (410, 420, 431):</strong> Vilella's reagent (1 g picric + 5 mL HCl + 95 mL ethanol).</li>
                       <li><strong>Ferritic (430, 446):</strong> Vilella's, or Marble's reagent for grain boundaries.</li>
                       <li><strong>Duplex (2205, 2507):</strong> Beraha's I or Klemm's I for color contrast between ferrite and austenite.</li>
                     </ul>
                   </li>
                   <li>
-                    <strong>Aluminum alloys:</strong> Keller's reagent (HF, HCl, HNO₃, H₂O) for general microstructure;
+                    <strong>Aluminum alloys:</strong> Keller's reagent (2 mL HF + 3 mL HCl + 5 mL HNO₃ + 190 mL H₂O) for general microstructure;
                     Weck's tint etch for color phase contrast; Barker's anodizing under polarized light for grain orientation
                     and ASTM E112 grain-size work.
                   </li>
@@ -306,9 +313,9 @@ export default function EtchingProceduresGuide() {
 
                 <div className="bg-yellow-50 border-l-4 border-yellow-600 p-4 my-6 rounded">
                   <p className="text-sm text-gray-700">
-                    <strong>Tip:</strong> Use our <Link href="/tools/etchant-selector" className="text-primary-600 hover:underline font-semibold">Etchant Selector Tool</Link> or 
-                    browse the <Link href="/etchants" className="text-primary-600 hover:underline font-semibold">Etchants Database</Link> to find 
-                    the right etchant for your material and application.
+                    <strong>Tip:</strong> Browse our <Link href="/etchants" className="text-primary-600 hover:underline font-semibold">Etchant Reference</Link> to find
+                    the right etchant for your material and application — it also links to an extensive,
+                    searchable etchant database with free-tier access.
                   </p>
                 </div>
                 <ProductLink 
@@ -394,7 +401,8 @@ export default function EtchingProceduresGuide() {
                     Immerse the sample in the electrolyte solution.
                   </li>
                   <li>
-                    Apply the appropriate voltage and current for the recommended time.
+                    Apply the appropriate voltage and current for the recommended time (for example,
+                    10% oxalic acid at 6 V for 30-90 seconds for austenitic stainless steel).
                   </li>
                   <li>
                     Remove power and rinse the sample thoroughly.
@@ -523,12 +531,12 @@ export default function EtchingProceduresGuide() {
 
                 <h3>Steels</h3>
                 <p>
-                  <strong>Carbon Steels:</strong> Nital (2-5% nitric acid in ethanol) is standard. Picral 
-                  reveals cementite and pearlite. Etching time: 5-15 seconds typically.
+                  <strong>Carbon Steels:</strong> Nital (2-5 mL nitric acid in 95-98 mL ethanol) is standard. Picral
+                  reveals cementite and pearlite. Etching time: typically 5-30 seconds by swab.
                 </p>
                 <p>
                   <strong>Stainless Steels:</strong> Etchant choice depends on grade. Austenitic grades (304, 316) —
-                  10% oxalic acid electrolytic at 6 V or Glyceregia by swab. Martensitic (410, 420, 431) and
+                  10% oxalic acid electrolytic at 6 V (30-90 s) or Glyceregia by immersion (mix fresh). Martensitic (410, 420, 431) and
                   ferritic (430, 446) grades — Vilella's reagent (1 g picric + 5 mL HCl + 95 mL ethanol). Duplex
                   grades (2205, 2507) — Beraha's I or Klemm's I for ferrite-vs-austenite color contrast.
                   Stainless steels are generally more resistant to etching than carbon steels.
@@ -540,8 +548,8 @@ export default function EtchingProceduresGuide() {
 
                 <h3>Aluminum Alloys</h3>
                 <p>
-                  Keller's reagent (HF, HCl, HNO₃, H₂O) is most common. Weck's reagent provides color 
-                  contrast. Etching time is typically short (5-10 seconds) due to rapid reaction.
+                  Keller's reagent (2 mL HF + 3 mL HCl + 5 mL HNO₃ + 190 mL H₂O) is most common. Weck's reagent
+                  provides color contrast. Typical etching time is 5-30 seconds by swab.
                 </p>
                 <p>
                   <strong>Note:</strong> Aluminum is very reactive, so etching times must be carefully 
@@ -550,14 +558,16 @@ export default function EtchingProceduresGuide() {
 
                 <h3>Copper Alloys</h3>
                 <p>
-                  Ammonium hydroxide and hydrogen peroxide, or ferric chloride solutions. Etching reveals 
+                  Equal volumes of 28% ammonium hydroxide and 3% hydrogen peroxide (mix immediately before
+                  use — the solution decomposes within hours), or ferric chloride solutions. Etching reveals
                   grain boundaries and different phases in brass and bronze.
                 </p>
 
                 <h3>Titanium</h3>
                 <p>
-                  Kroll's reagent (HF, HNO₃, H₂O) or electrolytic etching. Titanium requires careful 
-                  handling due to reactivity. Electrolytic etching often provides better results.
+                  Kroll's reagent (2 mL HF + 6 mL HNO₃ + 92 mL H₂O), applied by swab for 5-15 seconds,
+                  is standard — work in a fume hood with HF-rated PPE. Electrolytic etching (e.g., 10%
+                  oxalic acid at 5 V, 30-60 s) is an alternative for difficult alloys.
                 </p>
 
                 <div className="bg-blue-50 border-l-4 border-blue-600 p-4 my-6 rounded">
@@ -799,21 +809,14 @@ export default function EtchingProceduresGuide() {
               <div className="mt-16 bg-gradient-to-br from-primary-50 to-primary-100 rounded-lg p-8 text-center">
                 <h2 className="text-3xl font-bold mb-4 text-gray-900">Find the Right Etchant for Your Material</h2>
                 <p className="text-lg mb-6 text-gray-700">
-                  Use our Etchant Selector tool to find the perfect etchant for your material and application, 
-                  browse our comprehensive Etchants Database, or shop pre-mixed etchants.
+                  Browse our etchant quick reference for common reagents, or shop pre-mixed etchants.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link 
-                    href="/tools/etchant-selector"
+                  <Link
+                    href="/etchants"
                     className="btn-primary text-center"
                   >
-                    Use Etchant Selector
-                  </Link>
-                  <Link 
-                    href="/etchants"
-                    className="btn-secondary text-center"
-                  >
-                    Browse Etchants Database
+                    Browse Etchant Reference
                   </Link>
                   <Link 
                     href="https://shop.metallographic.com/collections/etchants"
