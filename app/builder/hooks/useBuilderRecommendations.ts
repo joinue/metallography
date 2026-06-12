@@ -435,7 +435,7 @@ export function useBuilderRecommendations() {
       
       recommendations.push({
         type: 'Etchants (material-specific)',
-        reasoning: `Select etchants appropriate for ${materialType || 'your material'}. Common options include nital for carbon steels, Vilella's for stainless steel, and Kroll's for titanium. Use the [Etchant Selector tool](/tools/etchant-selector) to find the right etchant for your material, or browse the [Etchants Database](/etchants) for comprehensive information.`,
+        reasoning: `Select etchants appropriate for ${materialType || 'your material'}. Common options include nital for carbon steels, Glyceregia for stainless steels, and Kroll's for titanium. Browse the [Etchant Reference](/etchants) for common etchants and a link to a comprehensive etchant database.`,
         category: 'consumable',
         stage: 'etching',
       })

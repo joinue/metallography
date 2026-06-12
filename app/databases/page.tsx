@@ -4,21 +4,21 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { Database, Package, FlaskConical, FileText, Image as ImageIcon, ChevronRight, Search } from 'lucide-react'
 import AnimatedCard from '@/components/AnimatedCard'
-import { getAllMaterials, getAllEtchants, getAllStandards } from '@/lib/supabase'
+import { getAllMaterials, getAllStandards } from '@/lib/supabase'
 
 const databases = [
   {
     title: 'Materials Database',
     slug: 'materials',
-    description: 'Comprehensive database of materials with preparation procedures, properties, and recommended techniques. Search by material type, category, or specific alloy composition.',
+    description: 'Database of materials with preparation procedures, properties, and recommended techniques. Search by material type, category, or specific alloy composition.',
     icon: Package,
     color: 'primary',
     status: 'active',
   },
   {
-    title: 'Etchants Database',
+    title: 'Etchants',
     slug: 'etchants',
-    description: 'Complete reference of etching reagents with compositions, applications, safety information, and material compatibility. Find the right etchant for your material and analysis needs.',
+    description: 'Quick reference of common etching reagents with compositions, applications, and safety notes — plus a link to the extensive Materials Prep etchant database (free tier available).',
     icon: FlaskConical,
     color: 'primary',
     status: 'active',
@@ -34,7 +34,7 @@ const databases = [
   {
     title: 'Microstructure Gallery',
     slug: 'microstructures',
-    description: 'Browse our extensive collection of high-quality microstructure images from various materials, treatments, and preparation techniques. Search and filter by material type, magnification, and etchant.',
+    description: 'Browse microstructure images from a range of materials, treatments, and preparation techniques. Search and filter by material type, magnification, and etchant.',
     icon: ImageIcon,
     color: 'primary',
     status: 'active',
@@ -43,7 +43,6 @@ const databases = [
 
 export default function DatabasesPage() {
   const [materialCount, setMaterialCount] = useState<number | null>(null)
-  const [etchantCount, setEtchantCount] = useState<number | null>(null)
   const [standardCount, setStandardCount] = useState<number | null>(null)
   const [loading, setLoading] = useState(true)
   const [searchQuery, setSearchQuery] = useState('')
@@ -51,13 +50,11 @@ export default function DatabasesPage() {
   useEffect(() => {
     async function loadCounts() {
       try {
-        const [materials, etchants, standards] = await Promise.all([
+        const [materials, standards] = await Promise.all([
           getAllMaterials(),
-          getAllEtchants(),
           getAllStandards(),
         ])
         setMaterialCount(materials.length)
-        setEtchantCount(etchants.length)
         setStandardCount(standards.length)
       } catch (error) {
         console.error('Error loading database counts:', error)
@@ -80,7 +77,6 @@ export default function DatabasesPage() {
 
   const getCount = (slug: string) => {
     if (slug === 'materials') return materialCount
-    if (slug === 'etchants') return etchantCount
     if (slug === 'standards') return standardCount
     return null
   }
@@ -92,8 +88,8 @@ export default function DatabasesPage() {
         <div className="mb-8">
           <h1 className="text-3xl md:text-4xl font-bold mb-2 text-gray-900">Databases</h1>
           <p className="text-lg text-gray-600 mt-2">
-            Searchable databases of materials, etchants, and standards for metallographic sample preparation. 
-            Access comprehensive information on material properties, preparation procedures, etching reagents, and industry standards.
+            Searchable databases of materials, etchants, and standards for metallographic sample preparation.
+            Find information on material properties, preparation procedures, etching reagents, and industry standards.
           </p>
         </div>
 
@@ -120,7 +116,7 @@ export default function DatabasesPage() {
               <span className="text-sm text-gray-500">({activeDatabases.length} {activeDatabases.length === 1 ? 'database' : 'databases'})</span>
             </div>
             <p className="text-gray-600 mb-6 max-w-3xl">
-              Searchable databases with comprehensive information for your metallographic work.
+              Searchable references for your metallographic work.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {activeDatabases.map((database, index) => {
@@ -217,7 +213,7 @@ export default function DatabasesPage() {
         <div className="mt-16 bg-gradient-to-br from-primary-50 to-primary-100 rounded-lg p-8 text-center">
           <h2 className="text-2xl font-bold mb-4">Need Help Finding Information?</h2>
           <p className="text-gray-700 mb-6">
-            Use our search tool or browse our comprehensive guides and resources for more information.
+            Use our search tool or browse our guides and resources for more information.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/guides" className="btn-primary">

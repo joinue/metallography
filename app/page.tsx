@@ -564,7 +564,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-semibold mb-3 text-gray-900">Reference Tools</h3>
                 <p className="text-gray-600 mb-4 leading-relaxed flex-grow">
-                  Grit size converters, polishing time calculators, etchant selectors, and material compatibility checkers. 
+                  Grit size converters, polishing time calculators, grain size calculators, and material compatibility checkers.
                   Quick access to ASTM standards and technical specifications.
                 </p>
                 <Link href="/tools" className="text-primary-600 font-semibold text-sm hover:text-primary-700 transition-colors inline-flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded">
@@ -767,7 +767,7 @@ export default function Home() {
                 <span className="text-gray-300" aria-hidden="true">•</span>
                 <Link href="/tools/grit-size-converter" className="text-gray-600 hover:text-primary-600 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded px-1">Grit Size Converter</Link>
                 <span className="text-gray-300" aria-hidden="true">•</span>
-                <Link href="/tools/etchant-selector" className="text-gray-600 hover:text-primary-600 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded px-1">Etchant Selector</Link>
+                <Link href="/etchants" className="text-gray-600 hover:text-primary-600 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded px-1">Etchant Reference</Link>
                 <span className="text-gray-300" aria-hidden="true">•</span>
                 <Link href="/standards" className="text-gray-600 hover:text-primary-600 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded px-1">ASTM Standards</Link>
                 <span className="text-gray-300" aria-hidden="true">•</span>

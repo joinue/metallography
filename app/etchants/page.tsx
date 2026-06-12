@@ -1,377 +1,265 @@
-'use client'
-
-import { useState, useEffect } from 'react'
+import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Search, Filter, ExternalLink, AlertTriangle, X, ChevronDown } from 'lucide-react'
-import { getAllEtchants, getEtchantsByCategory, searchEtchants, type Etchant, getPaceProductUrl } from '@/lib/supabase'
+import { ExternalLink, FlaskConical, AlertTriangle, BookOpen, ArrowRight } from 'lucide-react'
 
-export default function EtchantsDatabasePage() {
-  const [searchQuery, setSearchQuery] = useState('')
-  const [selectedCategory, setSelectedCategory] = useState<string>('All')
-  const [etchants, setEtchants] = useState<Etchant[]>([])
-  const [filteredEtchants, setFilteredEtchants] = useState<Etchant[]>([])
-  const [loading, setLoading] = useState(true)
-  const [categories, setCategories] = useState<string[]>([])
-  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
+export const metadata: Metadata = {
+  title: 'Etchants - Common Etchant Reference | Metallography.org',
+  description:
+    'Quick reference for common metallographic etchants — compositions, target materials, and application methods — plus where to find a comprehensive, maintained etchant database.',
+  alternates: { canonical: 'https://metallography.org/etchants' },
+  openGraph: {
+    title: 'Etchants - Common Etchant Reference',
+    description:
+      'Quick reference for common metallographic etchants with compositions, applications, and safety notes.',
+    url: 'https://metallography.org/etchants',
+    siteName: 'Metallography.org',
+  },
+}
 
-  // Load etchants on mount
-  useEffect(() => {
-    async function loadEtchants() {
-      try {
-        const allEtchants = await getAllEtchants()
-        setEtchants(allEtchants)
-        setFilteredEtchants(allEtchants)
-        
-        // Extract unique categories
-        const uniqueCategories = Array.from(new Set(allEtchants.map(e => e.category).filter(Boolean))).sort()
-        setCategories(uniqueCategories as string[])
-      } catch (error) {
-        console.error('Error loading etchants:', error)
-      } finally {
-        setLoading(false)
-      }
-    }
-    
-    loadEtchants()
-  }, [])
+interface QuickRefEtchant {
+  name: string
+  composition: string
+  materials: string
+  application: string
+}
 
-  // Filter etchants based on search and category
-  useEffect(() => {
-    async function filterEtchants() {
-      if (loading) return
+const commonEtchants: QuickRefEtchant[] = [
+  {
+    name: '2–5% Nital',
+    composition: '2–5 mL HNO₃ in 95–98 mL ethanol',
+    materials: 'Carbon and low-alloy steels, cast iron matrix',
+    application: 'Swab 5–30 s',
+  },
+  {
+    name: '4% Picral',
+    composition: '4 g picric acid + 100 mL ethanol',
+    materials: 'Carbon, alloy, and tool steels (cementite, pearlite)',
+    application: 'Swab 10–60 s; store picric acid wetted',
+  },
+  {
+    name: "Vilella's",
+    composition: '1 g picric acid + 5 mL HCl + 95 mL ethanol',
+    materials: 'Tool steels, martensitic and ferritic stainless',
+    application: 'Swab 5–60 s',
+  },
+  {
+    name: 'Glyceregia',
+    composition: '10 mL HNO₃ + 20 mL HCl + 30 mL glycerol',
+    materials: 'Stainless steels (general)',
+    application: 'Immersion 10–60 s; mix fresh — activity decays',
+  },
+  {
+    name: '10% Oxalic (electrolytic)',
+    composition: '10 g oxalic acid + 100 mL H₂O',
+    materials: 'Austenitic stainless; sensitization per ASTM A262-A',
+    application: '6 V, 30–90 s',
+  },
+  {
+    name: "Marble's",
+    composition: '4 g CuSO₄ + 20 mL HCl + 20 mL H₂O',
+    materials: 'Nickel-base superalloys',
+    application: 'Swab 10–60 s',
+  },
+  {
+    name: "Modified Kalling's",
+    composition: '5 g CuCl₂ + 100 mL HCl + 100 mL ethanol',
+    materials: 'Nickel alloys, duplex stainless',
+    application: 'Immersion 10–30 s',
+  },
+  {
+    name: "Keller's",
+    composition: '2 mL HF + 3 mL HCl + 5 mL HNO₃ + 190 mL H₂O',
+    materials: 'Aluminum and aluminum alloys',
+    application: 'Swab 5–30 s; HF safety precautions',
+  },
+  {
+    name: "Weck's (Al)",
+    composition: '4 g KMnO₄ + 1 g NaOH + 100 mL H₂O',
+    materials: 'Aluminum alloys (color/tint etch)',
+    application: 'Immersion 30–60 s',
+  },
+  {
+    name: "Barker's (anodizing)",
+    composition: '5 mL HBF₄ + 200 mL H₂O',
+    materials: 'Aluminum grain orientation (polarized light)',
+    application: '20 V, 60–120 s — electrolytic anodizing, not a chemical etch',
+  },
+  {
+    name: "Kroll's",
+    composition: '2 mL HF + 6 mL HNO₃ + 92 mL H₂O',
+    materials: 'Titanium and titanium alloys',
+    application: 'Swab 5–15 s; HF safety precautions',
+  },
+  {
+    name: 'Ammonium hydroxide + peroxide',
+    composition: 'Equal volumes 28% NH₄OH + 3% H₂O₂',
+    materials: 'Copper, brass, bronze',
+    application: 'Swab 10–60 s; mix immediately before use',
+  },
+  {
+    name: "Klemm's I",
+    composition: '50 mL saturated Na₂S₂O₃ + 1 g K₂S₂O₅',
+    materials: 'Copper alloys, duplex stainless (color/tint etch)',
+    application: 'Immersion 30–180 s; needs deformation-free surface',
+  },
+  {
+    name: "Beraha's I",
+    composition: '10 mL HCl + 90 mL H₂O + 1 g K₂S₂O₅',
+    materials: 'Ferrous alloys, duplex stainless (color/tint etch)',
+    application: 'Immersion 30–180 s',
+  },
+  {
+    name: "Murakami's",
+    composition: '10 g K₃Fe(CN)₆ + 10 g NaOH + 100 mL H₂O',
+    materials: 'Carbides, tool steels, cermets, refractory metals',
+    application: 'Swab 5–30 s (heated for refractories)',
+  },
+  {
+    name: 'Acetic-glycol',
+    composition: '20 mL acetic acid + 1 mL HNO₃ + 60 mL ethylene glycol + 19 mL H₂O',
+    materials: 'Magnesium and magnesium alloys',
+    application: 'Swab 5–30 s',
+  },
+]
 
-      let filtered = etchants
-
-      if (selectedCategory !== 'All') {
-        try {
-          filtered = await getEtchantsByCategory(selectedCategory)
-        } catch (error) {
-          console.error('Error filtering by category:', error)
-          filtered = etchants.filter(e => e.category === selectedCategory)
-        }
-      }
-
-      if (searchQuery.trim()) {
-        try {
-          const searchResults = await searchEtchants(searchQuery)
-          filtered = searchResults.filter(e => 
-            selectedCategory === 'All' || e.category === selectedCategory
-          )
-        } catch (error) {
-          console.error('Error searching etchants:', error)
-          // Fallback to client-side search
-          const searchTerm = searchQuery.toLowerCase()
-          filtered = filtered.filter(e =>
-            e.name.toLowerCase().includes(searchTerm) ||
-            e.composition.toLowerCase().includes(searchTerm) ||
-            (e.reveals && e.reveals.toLowerCase().includes(searchTerm)) ||
-            (e.compatible_materials && e.compatible_materials.some(m => m.toLowerCase().includes(searchTerm)))
-          )
-        }
-      }
-
-      setFilteredEtchants(filtered)
-    }
-
-    filterEtchants()
-  }, [searchQuery, selectedCategory, etchants, loading])
-
+export default function EtchantsPage() {
   return (
     <div className="py-12">
       <div className="container-custom">
-        {/* Header */}
-        <div className="mb-4 md:mb-8">
-          <h1 className="text-2xl md:text-4xl font-bold mb-2 md:mb-4">Etchants Database</h1>
-          <p className="text-sm md:text-xl text-gray-600">
-            Database of metallographic etchants with composition, application methods, safety data,
-            and product links.
-            {!loading && etchants.length > 0 && (
-              <>
-                {' '}Currently <span className="font-semibold text-gray-900">{etchants.length}</span> published
-                etchant{etchants.length === 1 ? '' : 's'}
-                {categories.length > 0 && (
-                  <> across <span className="font-semibold text-gray-900">{categories.length}</span> categor{categories.length === 1 ? 'y' : 'ies'}</>
-                )}.
-              </>
-            )}
-          </p>
-          <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-sm">
-            <Link href="/resources/common-etchants-guide" className="text-primary-600 hover:underline">
-              Common etchants quick reference →
-            </Link>
-            <Link href="/tools/etchant-selector" className="text-primary-600 hover:underline">
-              Etchant selector tool →
-            </Link>
-          </div>
-        </div>
-
-        {/* Search and Filter */}
-        <div className="mb-6 space-y-4">
-          {/* Search Bar */}
-          <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search etchants by name, composition, or material compatibility..."
-              className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none text-base md:text-sm"
-              style={{ fontSize: '16px' }}
-            />
-          </div>
-
-          {/* Desktop Filters */}
-          <div className="hidden md:block">
-            <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Filter by Category</span>
-                {selectedCategory !== 'All' && (
-                  <button
-                    onClick={() => setSelectedCategory('All')}
-                    className="ml-auto text-xs text-primary-600 hover:text-primary-700 font-medium flex items-center gap-1"
-                  >
-                    <X className="w-3 h-3" />
-                    Clear
-                  </button>
-                )}
-              </div>
-              <div className="flex flex-wrap gap-2">
-                <button
-                  onClick={() => setSelectedCategory('All')}
-                  className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
-                    selectedCategory === 'All'
-                      ? 'bg-primary-600 text-white shadow-sm'
-                      : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-300'
-                  }`}
-                >
-                  All
-                </button>
-                {categories.map(category => (
-                  <button
-                    key={category}
-                    onClick={() => setSelectedCategory(category)}
-                    className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
-                      selectedCategory === category
-                        ? 'bg-primary-600 text-white shadow-sm'
-                        : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-300'
-                    }`}
-                  >
-                    {category?.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Mobile Filters - Collapsible */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setMobileFiltersOpen(!mobileFiltersOpen)}
-              className="w-full flex items-center justify-between px-4 py-3 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 transition-colors"
-            >
-              <div className="flex items-center gap-2">
-                <Filter className="w-4 h-4 text-gray-600" />
-                <span className="font-medium text-gray-700">Filters</span>
-                {selectedCategory !== 'All' && (
-                  <span className="px-2 py-0.5 bg-primary-600 text-white text-xs font-semibold rounded-full">
-                    1
-                  </span>
-                )}
-              </div>
-              <ChevronDown className={`w-4 h-4 text-gray-600 transition-transform ${mobileFiltersOpen ? 'rotate-180' : ''}`} />
-            </button>
-
-            {mobileFiltersOpen && (
-              <div className="mt-3 bg-white border border-gray-200 rounded-lg p-4">
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-semibold text-gray-700">Category</span>
-                    {selectedCategory !== 'All' && (
-                      <button
-                        onClick={() => setSelectedCategory('All')}
-                        className="text-xs text-primary-600 hover:text-primary-700 font-medium"
-                      >
-                        Clear
-                      </button>
-                    )}
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    <button
-                      onClick={() => setSelectedCategory('All')}
-                      className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
-                        selectedCategory === 'All'
-                          ? 'bg-primary-600 text-white'
-                          : 'bg-gray-100 text-gray-700'
-                      }`}
-                    >
-                      All
-                    </button>
-                    {categories.map(category => (
-                      <button
-                        key={category}
-                        onClick={() => setSelectedCategory(category)}
-                        className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
-                          selectedCategory === category
-                            ? 'bg-primary-600 text-white'
-                            : 'bg-gray-100 text-gray-700'
-                        }`}
-                      >
-                        {category?.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Active Filters Summary - Mobile */}
-          {selectedCategory !== 'All' && (
-            <div className="md:hidden flex flex-wrap gap-2">
-              <span className="inline-flex items-center gap-1 px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">
-                {selectedCategory.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
-                <button
-                  onClick={() => setSelectedCategory('All')}
-                  className="ml-1 hover:text-primary-900"
-                >
-                  <X className="w-3 h-3" />
-                </button>
-              </span>
-            </div>
-          )}
-        </div>
-
-        {/* Results Count */}
-        <div className="mb-6">
-          {loading ? (
-            <p className="text-gray-600">Loading etchants...</p>
-          ) : (
-            <p className="text-gray-600">
-              Showing <span className="font-semibold">{filteredEtchants.length}</span> etchant{filteredEtchants.length !== 1 ? 's' : ''}
+        <div className="max-w-5xl mx-auto">
+          {/* Header */}
+          <div className="mb-8">
+            <h1 className="text-2xl md:text-4xl font-bold mb-2 md:mb-4">Etchants</h1>
+            <p className="text-sm md:text-xl text-gray-600">
+              A quick reference for the most widely used metallographic etchants, and where to go
+              when you need more than the basics.
             </p>
-          )}
-        </div>
-
-        {/* Etchants Grid */}
-        {loading ? (
-          <div className="text-center py-12">
-            <p className="text-gray-500">Loading etchants...</p>
           </div>
-        ) : filteredEtchants.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-            {filteredEtchants.map(etchant => {
-              const paceUrl = getPaceProductUrl(etchant)
-              return (
-                <Link
-                  key={etchant.id}
-                  href={`/etchants/${etchant.slug || etchant.id}`}
-                  className="bg-white border-2 border-gray-200 rounded-lg p-4 md:p-6 hover:border-primary-400 hover:shadow-lg transition-all duration-200 group"
-                >
-                  <div className="flex items-start justify-between mb-2">
-                    <h3 className="text-xl font-semibold text-gray-900 group-hover:text-primary-600 transition-colors flex-1">
+
+          {/* Referral card */}
+          <div className="bg-primary-50 border border-primary-200 rounded-xl p-6 md:p-8 mb-10">
+            <div className="flex items-start gap-4">
+              <div className="hidden sm:flex w-12 h-12 rounded-lg bg-primary-100 items-center justify-center flex-shrink-0">
+                <FlaskConical className="w-6 h-6 text-primary-600" />
+              </div>
+              <div>
+                <h2 className="text-xl md:text-2xl font-semibold mb-2">
+                  Looking for a complete etchant database?
+                </h2>
+                <p className="text-gray-700 mb-4">
+                  Materials Prep hosts an extensive, professionally maintained etchant database
+                  built by PACE Technologies — thousands of etchants searchable by material family,
+                  alloy, application method, and the features they reveal, with compositions,
+                  procedures, and safety data. It goes well beyond what a static reference page can
+                  cover, and free-tier memberships are available.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3 mb-4">
+                  <a
+                    href="https://materialsprep.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary inline-flex items-center justify-center gap-2"
+                  >
+                    Browse the etchant database
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                  <Link
+                    href="/materials-prep"
+                    className="btn-secondary inline-flex items-center justify-center gap-2"
+                  >
+                    About Materials Prep
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+                <p className="text-xs text-gray-500 leading-relaxed">
+                  Materials Prep is a PACE Technologies product with free and paid tiers.
+                  Metallography.org is PACE&apos;s free educational resource, run with editorial
+                  separation.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Safety warning */}
+          <div className="bg-amber-50 border-l-4 border-amber-500 p-4 md:p-5 rounded mb-8 flex items-start gap-3">
+            <AlertTriangle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+            <div className="text-sm text-gray-700">
+              <strong>Safety:</strong> Always add acid to water, never water to acid. HF-bearing
+              etchants (Keller&apos;s, Kroll&apos;s) require a fume hood, HF-rated gloves, a face
+              shield, and calcium gluconate gel on hand. Picric-bearing etchants (Picral,
+              Vilella&apos;s) must be stored wetted — picric acid is explosive when dry. Review the{' '}
+              <Link href="/guides/safety-fundamentals" className="text-primary-600 hover:underline">
+                safety fundamentals guide
+              </Link>{' '}
+              and the relevant SDS before mixing any etchant.
+            </div>
+          </div>
+
+          {/* Quick reference table */}
+          <h2 className="text-xl md:text-2xl font-semibold mb-4">Common Etchants Quick Reference</h2>
+          <div className="overflow-x-auto mb-6">
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr className="bg-gray-100">
+                  <th className="border border-gray-300 px-3 py-2 text-left font-semibold">Etchant</th>
+                  <th className="border border-gray-300 px-3 py-2 text-left font-semibold">Composition</th>
+                  <th className="border border-gray-300 px-3 py-2 text-left font-semibold">Materials</th>
+                  <th className="border border-gray-300 px-3 py-2 text-left font-semibold">Application</th>
+                </tr>
+              </thead>
+              <tbody>
+                {commonEtchants.map((etchant, i) => (
+                  <tr key={etchant.name} className={i % 2 === 1 ? 'bg-gray-50' : ''}>
+                    <td className="border border-gray-300 px-3 py-2 font-medium whitespace-nowrap">
                       {etchant.name}
-                    </h3>
-                    {paceUrl && (
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          e.preventDefault()
-                          window.open(paceUrl, '_blank', 'noopener,noreferrer')
-                        }}
-                        className="ml-2 p-1.5 text-primary-600 hover:bg-primary-50 rounded transition-colors"
-                        title="Available from PACE"
-                        type="button"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                      </button>
-                    )}
-                  </div>
-                  
-                  {etchant.category && (
-                    <div className="mb-3">
-                      <p className="text-sm text-gray-600">
-                        {etchant.category.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
-                      </p>
-                      {etchant.category === 'material-specific' && etchant.compatible_materials && etchant.compatible_materials.length > 0 && (
-                        <p className="text-xs text-gray-500 mt-1">
-                          For: {etchant.compatible_materials.slice(0, 3).map(m => m.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())).join(', ')}
-                          {etchant.compatible_materials.length > 3 && '...'}
-                        </p>
-                      )}
-                      {etchant.category === 'specialty' && (
-                        <p className="text-xs text-gray-500 mt-1">
-                          {etchant.tags && etchant.tags.length > 0 ? (
-                            <>
-                              {etchant.tags.filter(tag => 
-                                ['color-etching', 'prior-austenite', 'carbides', 'graphite', 'grain-boundaries'].includes(tag)
-                              ).slice(0, 2).map(tag => {
-                                const tagLabels: Record<string, string> = {
-                                  'color-etching': 'Color etching',
-                                  'prior-austenite': 'Prior austenite grain boundaries',
-                                  'carbides': 'Carbide identification',
-                                  'graphite': 'Graphite revelation',
-                                  'grain-boundaries': 'Grain boundary analysis'
-                                }
-                                return tagLabels[tag] || tag.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())
-                              }).join(', ')}
-                            </>
-                          ) : etchant.reveals ? (
-                            `For: ${etchant.reveals.split(',').slice(0, 2).join(', ')}`
-                          ) : 'Specialized application'}
-                        </p>
-                      )}
-                    </div>
-                  )}
-                  
-                  <div className="space-y-2 text-sm mb-4">
-                    <div className="flex justify-between">
-                      <span className="text-gray-500">Composition:</span>
-                      <span className="font-medium text-gray-900 text-right flex-1 ml-2">{etchant.composition}</span>
-                    </div>
-                    {etchant.reveals && (
-                      <div className="flex justify-between">
-                        <span className="text-gray-500">Reveals:</span>
-                        <span className="font-medium text-gray-900 text-right flex-1 ml-2">{etchant.reveals}</span>
-                      </div>
-                    )}
-                    {etchant.application_method && (
-                      <div className="flex justify-between">
-                        <span className="text-gray-500">Method:</span>
-                        <span className="font-medium text-gray-900 capitalize">{etchant.application_method}</span>
-                      </div>
-                    )}
-                    {etchant.typical_time_seconds && (
-                      <div className="flex justify-between">
-                        <span className="text-gray-500">Time:</span>
-                        <span className="font-medium text-gray-900">{etchant.typical_time_seconds}s</span>
-                      </div>
-                    )}
-                  </div>
-
-                  {etchant.hazards && etchant.hazards.length > 0 && (
-                    <div className="mt-4 pt-4 border-t border-gray-200 flex items-center gap-2 text-xs text-amber-600">
-                      <AlertTriangle className="w-4 h-4" />
-                      <span className="font-medium">Hazards: {etchant.hazards.join(', ')}</span>
-                    </div>
-                  )}
-
-                  <div className="mt-4 pt-4 border-t border-gray-200">
-                    <span className="text-primary-600 font-medium text-sm group-hover:underline">
-                      View Details →
-                    </span>
-                  </div>
-                </Link>
-              )
-            })}
+                    </td>
+                    <td className="border border-gray-300 px-3 py-2">{etchant.composition}</td>
+                    <td className="border border-gray-300 px-3 py-2">{etchant.materials}</td>
+                    <td className="border border-gray-300 px-3 py-2">{etchant.application}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
-        ) : (
-          <div className="text-center py-12">
-            <p className="text-gray-500 text-lg">No etchants found matching your search.</p>
-            <p className="text-gray-400 mt-2">Try adjusting your search terms or filters.</p>
+          <p className="text-sm text-gray-600 mb-10">
+            Compositions and times are typical starting points; adjust for the specific alloy and
+            condition. Color/tint etchants require a deformation-free, colloidal-silica-finished
+            surface.
+          </p>
+
+          {/* Further reading */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Link
+              href="/resources/common-etchants-guide"
+              className="border border-gray-200 rounded-lg p-5 hover:border-primary-300 hover:shadow-sm transition-all group"
+            >
+              <div className="flex items-center gap-2 mb-1">
+                <BookOpen className="w-5 h-5 text-primary-600" />
+                <span className="font-semibold text-primary-600 group-hover:underline">
+                  Common Etchants Reference Guide
+                </span>
+              </div>
+              <p className="text-sm text-gray-600">
+                Detailed per-material etchant guidance with safety notes and selection tips.
+              </p>
+            </Link>
+            <Link
+              href="/guides/etching-procedures"
+              className="border border-gray-200 rounded-lg p-5 hover:border-primary-300 hover:shadow-sm transition-all group"
+            >
+              <div className="flex items-center gap-2 mb-1">
+                <BookOpen className="w-5 h-5 text-primary-600" />
+                <span className="font-semibold text-primary-600 group-hover:underline">
+                  Etching Procedures Guide
+                </span>
+              </div>
+              <p className="text-sm text-gray-600">
+                Chemical, electrolytic, and tint etching techniques — how and when to use each.
+              </p>
+            </Link>
           </div>
-        )}
+        </div>
       </div>
     </div>
   )
 }
-

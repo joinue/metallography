@@ -60,7 +60,6 @@ const tools = [
   { title: 'Grain Size Calculator', slug: 'grain-size-calculator' },
   { title: 'Mounting Material Calculator', slug: 'mounting-material-calculator' },
   { title: 'Total Procedure Time Estimator', slug: 'procedure-time-estimator' },
-  { title: 'Etchant Selector', slug: 'etchant-selector' },
   { title: 'Sample Size/Mold Compatibility Checker', slug: 'mold-compatibility-checker' },
 ]
 
@@ -223,14 +222,11 @@ export default function SitemapPage() {
                 <div>
                   <Link href="/etchants" className="flex items-center gap-2 text-lg font-semibold text-primary-600 hover:text-primary-700 transition-colors group mb-2">
                     <FlaskConical className="w-5 h-5" />
-                    Etchants Database
+                    Etchants
                   </Link>
                   <p className="text-sm text-gray-600 ml-7 mb-3">
-                    Searchable database of metallographic etchants with composition, application methods, 
-                    safety data, and product links.
-                  </p>
-                  <p className="text-xs text-gray-500 ml-7 italic">
-                    Individual etchant pages available at /etchants/[slug]
+                    Quick reference of common metallographic etchants with compositions, applications,
+                    and safety notes, plus a link to the extensive Materials Prep etchant database.
                   </p>
                 </div>
                 <div>

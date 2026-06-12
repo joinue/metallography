@@ -21,7 +21,7 @@ const tools = [
   {
     title: 'Polishing Time Calculator',
     slug: 'polishing-time-calculator',
-    description: 'Calculate optimal polishing times based on material and grit size.',
+    description: 'Estimate polishing times based on material and grit size.',
     icon: Clock,
     category: 'Calculators',
     calculatorOrder: 2,
@@ -64,13 +64,6 @@ const tools = [
     description: 'Test your eye for ferrite, pearlite, martensite, and other phases using real micrographs from the gallery.',
     icon: BookOpen,
     category: 'Workflow',
-  },
-  {
-    title: 'Etchant Selector',
-    slug: 'etchant-selector',
-    description: 'Find the right etchant for your material and application.',
-    icon: FlaskConical,
-    category: 'Reference',
   },
   {
     title: 'Sample Size/Mold Compatibility Checker',
